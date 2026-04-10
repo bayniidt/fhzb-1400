@@ -18,21 +18,24 @@ export default function OS() {
 
   return (
     <PageTransition>
-      <div className="bg-[#121212]">
+      <div className="bg-background">
         {/* Header Title */}
-        <section className="pt-40 pb-20 px-10 max-w-7xl mx-auto flex flex-col justify-center border-b border-white/5">
-           <h1 className="text-6xl md:text-8xl font-serif font-black tracking-tighter text-[#ECECEC] mb-8">
+        <section className="pt-40 pb-20 px-10 max-w-7xl mx-auto flex flex-col justify-center border-b border-white/5 relative">
+           {/* 金色光泄露 (Light Leak) */}
+           <div className="absolute top-20 left-0 w-1/2 h-full bg-[radial-gradient(circle_at_top_left,_var(--tw-gradient-stops))] from-glow/10 via-transparent to-transparent pointer-events-none z-0"></div>
+
+           <h1 className="text-6xl md:text-8xl font-serif font-black tracking-tighter text-[#ECECEC] mb-8 relative z-10">
              CAPITAL<br/>
              <span className="text-[#D4AF37] font-light italic font-serif">O.S.</span>
            </h1>
-           <p className="text-2xl font-serif text-gray-500 font-light max-w-2xl">
+           <p className="text-2xl font-serif text-gray-500 font-light max-w-2xl relative z-10">
              不只输出资本。<br/>
              我们交付的是跑通资本市场的全链路闭环代码。
            </p>
         </section>
 
         {/* 模块一：操作系统全景图 (融投管退) */}
-        <Section className="!py-0 bg-[#161616]">
+        <Section className="!py-0 bg-surface">
            <div className="flex flex-col lg:flex-row min-h-screen">
               {/* 左侧阶段栏 */}
               <div className="w-full lg:w-1/3 border-r border-white/5 flex flex-col justify-center py-20 lg:py-0">
@@ -40,7 +43,7 @@ export default function OS() {
                     <div 
                       key={idx}
                       onMouseEnter={() => setActiveStage(idx)}
-                      className={`px-10 py-10 cursor-default border-b border-white/5 transition-all duration-500 relative overflow-hidden group ${activeStage === idx ? 'bg-[#0a0a0a]' : 'hover:bg-[#070707]'}`}
+                      className={`px-10 py-10 cursor-default border-b border-white/5 transition-all duration-500 relative overflow-hidden group ${activeStage === idx ? 'bg-black/20' : 'hover:bg-white/[0.02]'}`}
                     >
                        <div className={`absolute left-0 top-0 w-1 h-full transition-colors duration-500 ${activeStage === idx ? 'bg-[#D4AF37]' : 'bg-transparent'}`} />
                        <div className="flex justify-between items-baseline mb-2">
@@ -56,7 +59,7 @@ export default function OS() {
               
               {/* 右侧交互展示区 */}
               <div className="w-full lg:w-2/3 p-10 lg:p-32 flex flex-col justify-center relative overflow-hidden">
-                  <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[800px] h-[800px] bg-[#D4AF37] rounded-full blur-[200px] opacity-[0.03] pointer-events-none" />
+                  <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[800px] h-[800px] bg-glow rounded-full blur-[200px] opacity-10 pointer-events-none" />
                   
                   <motion.div 
                     key={activeStage}
@@ -88,20 +91,18 @@ export default function OS() {
 
         {/* 模块二：登峰地图 (沉浸视频与第一性原理) */}
         <section className="relative w-full h-[120vh] flex items-center justify-center overflow-hidden">
-           {/* 背景：暗影等高线测绘雷达模拟 */}
+           {/* 背景：股市素材与滤镜调优 */}
            <div className="absolute inset-0 z-0">
-             <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                src="/videos/背景_3.mp4"
-                className="absolute inset-0 w-full h-full object-cover opacity-50 scale-105"
-             />
-             <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/60 to-[#121212] z-10" />
+             <div 
+               className="absolute inset-0 bg-cover bg-center brightness-50 contrast-125 sepia-[.3] grayscale-[.2]" 
+               style={{ backgroundImage: 'url("/videos/股市_1.jpg")' }}
+             ></div>
+             {/* 金色叠加层 */}
+             <div className="absolute inset-0 bg-glow/5 mix-blend-overlay z-10" />
+             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background z-20" />
            </div>
 
-           <div className="relative z-20 max-w-7xl mx-auto px-6 w-full">
+           <div className="relative z-30 max-w-7xl mx-auto px-6 w-full">
               <h2 className="text-5xl md:text-7xl font-serif text-[#ECECEC] mb-24 max-w-4xl leading-tight">
                  第一性原理：<br/>
                  <span className="text-[#D4AF37] italic font-light">如何精准测绘资本等高线。</span>
@@ -125,29 +126,32 @@ export default function OS() {
                        <p className="text-gray-500 leading-relaxed text-lg">{item.desc}</p>
                     </motion.div>
                  ))}
-              </div>
-           </div>
-        </section>
+               </div>
+            </div>
+         </section>
 
-        {/* 模块三：核心承诺 (极限硬向承诺) */}
-        <Section className="bg-[#1A1A1A] !py-32">
-           <div className="text-center mb-24">
+         {/* 模块三：核心承诺 (极限硬向承诺) */}
+        <Section className="bg-surface !py-32 relative overflow-hidden">
+           {/* 金色光泄露 (Light Leak) */}
+           <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-glow/10 blur-[100px] rounded-full pointer-events-none"></div>
+
+           <div className="text-center mb-24 relative z-10">
               <h2 className="text-sm tracking-[0.3em] font-bold text-gray-600 uppercase mb-4">Core Commitments</h2>
               <div className="text-5xl font-serif font-light text-[#ECECEC]">不用口号，用契约。</div>
            </div>
            
-           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
               {[
                 { data: "对赌陪跑", label: "绑定利益，一荣俱荣", stat: "100%", suffix: "同进退" },
                 { data: "亏损兑付", label: "极致托底的生态安全带", stat: "0", suffix: "风险敞口敞口外流" },
                 { data: "24%", label: "强制回购的底线保障协议", stat: "24", suffix: "%化解壁垒" },
                 { data: "100%", label: "上市目标与过会通关决心", stat: "99", suffix: "%执行率" },
               ].map((promise, idx) => (
-                 <div key={idx} className="relative group p-10 h-[400px] flex flex-col justify-end bg-black border border-white/5 hover:border-[#D4AF37]/40 transition-colors overflow-hidden">
+                 <div key={idx} className="relative group p-10 h-[400px] flex flex-col justify-end bg-black/40 border border-white/5 hover:border-[#D4AF37]/40 transition-colors overflow-hidden">
                     <div className="absolute top-8 left-8 text-[#D4AF37] font-serif italic text-6xl font-serif opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 blur-sm group-hover:blur-none">
                        {promise.data}
                     </div>
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#D4AF37]/5 via-transparent to-transparent pointer-events-none z-0"></div><div className="relative z-10">
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-glow/5 via-transparent to-transparent pointer-events-none z-0"></div><div className="relative z-10">
                        <h3 className="text-3xl font-serif font-medium text-gray-200 mb-3">{promise.data}</h3>
                        <p className="text-gray-600">{promise.label}</p>
                     </div>
@@ -157,7 +161,7 @@ export default function OS() {
         </Section>
 
         {/* 模块四：工具流预览 (锁定态的云平台) */}
-        <section className="bg-[#121212] py-32 px-10 border-t border-white/5">
+        <section className="bg-background py-32 px-10 border-t border-white/5">
            <div className="max-w-7xl mx-auto">
               <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
                  <div>
@@ -171,7 +175,7 @@ export default function OS() {
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative pb-20">
                  {/* 加密的朦胧遮罩层 */}
-                 <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-gradient-to-t from-[#121212] via-[#121212]/80 to-transparent pt-40 pointer-events-none">
+                 <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-gradient-to-t from-background via-background/80 to-transparent pt-40 pointer-events-none">
                     <div className="pointer-events-auto bg-white text-black px-10 py-4 font-bold tracking-widest text-sm uppercase shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:bg-[#D4AF37] transition-colors cursor-pointer inline-block">
                        &rarr; 核心库已锁定 (需入库许可)
                     </div>
@@ -186,7 +190,7 @@ export default function OS() {
                    { format: "VIDEO", name: "敲钟前夜：保荐机构内部推演实录" },
                    { format: "PDF", name: "产业赋能前置的尽调白皮书" },
                  ].map((doc, idx) => (
-                    <div key={idx} className="bg-[#141414] border border-white/5 p-8 flex flex-col justify-between h-48 filter blur-[2px] opacity-60">
+                    <div key={idx} className="bg-surface/50 border border-white/5 p-8 flex flex-col justify-between h-48 filter blur-[2px] opacity-60">
                        <div className="w-12 h-12 bg-white/5 flex items-center justify-center text-gray-500 font-bold text-xs tracking-wider">
                          {doc.format}
                        </div>

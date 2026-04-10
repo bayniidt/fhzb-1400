@@ -16,8 +16,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="zh-CN" className="bg-[#0D0D0D]">
-      <body className={`${inter.variable} ${playfair.variable} font-sans bg-[#0D0D0D] text-[#ECECEC] antialiased`}>
+    <html lang="zh-CN">
+      <body className={`${inter.variable} ${playfair.variable} font-sans bg-background text-foreground antialiased`}>
         <Navbar />
         {children}
         <Footer />

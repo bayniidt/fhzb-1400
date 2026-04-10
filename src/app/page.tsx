@@ -74,9 +74,13 @@ export default function Home() {
       </section>
 
       {/* 模块二：峰壑宣言 */}
-      <Section className="bg-[#1A1A1A] items-center text-center overflow-hidden relative min-h-screen">
+      <Section className="bg-surface items-center text-center overflow-hidden relative min-h-screen">
         {/* 背景山脉剪影，极端暗色淡入 */}
         <div className="absolute inset-x-0 bottom-0 h-1/2 opacity-10 bg-[url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2560')] bg-cover bg-center mix-blend-overlay pointer-events-none"></div>
+        
+        {/* 金色光泄露 (Light Leak) */}
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-glow/20 via-transparent to-transparent pointer-events-none z-0"></div>
+
         <motion.div
            initial="hidden"
            whileInView="visible"
@@ -98,7 +102,10 @@ export default function Home() {
       </Section>
 
       {/* 模块三：三大价值入口 */}
-      <Section className="gap-16 bg-[#121212] !py-24">
+      <Section className="gap-16 bg-background !py-24 relative overflow-hidden">
+        {/* 金色光泄露 (Light Leak) */}
+        <div className="absolute -left-20 top-20 w-96 h-96 bg-glow/10 blur-[100px] rounded-full pointer-events-none"></div>
+        
         <div className="text-center mb-10">
           <h2 className="text-sm tracking-[0.3em] font-bold text-gray-600 uppercase">核心价值枢纽</h2>
         </div>
@@ -114,7 +121,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: idx * 0.2 }}
-                className="h-[600px] bg-[#1C1C1C] border border-white/5 relative group p-10 flex flex-col justify-end overflow-hidden transition-all hover:border-[#D4AF37]/30"
+                className="h-[600px] bg-surface border border-white/5 relative group p-10 flex flex-col justify-end overflow-hidden transition-all hover:border-[#D4AF37]/30"
               >
                   {/* 背景深色图像/等高线隐喻 - 初始可见 */}
                   <div 
@@ -141,10 +148,10 @@ export default function Home() {
       </Section>
 
       {/* 模块四 & 模块五：星系概览与最新动态 (Split Layout) */}
-      <Section className="bg-[#161616] !px-0 !py-0 flex flex-col lg:flex-row min-h-screen">
+      <Section className="bg-surface !px-0 !py-0 flex flex-col lg:flex-row min-h-screen">
         {/* 左侧：动态地图区域 */}
         <div className="w-full lg:w-3/5 p-10 lg:p-24 relative flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-white/5 group">
-          <div className="absolute inset-0 pointer-events-none opacity-60 group-hover:opacity-60 transition-opacity duration-1000 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#D4AF37]/20 via-transparent to-transparent"></div>
+          <div className="absolute inset-0 pointer-events-none opacity-60 group-hover:opacity-60 transition-opacity duration-1000 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-glow/20 via-transparent to-transparent"></div>
           
           <div className="relative z-20">
             <h2 className="text-4xl lg:text-5xl font-serif font-light mb-4">峰壑星系网络</h2>
@@ -152,9 +159,9 @@ export default function Home() {
             
             {/* 抽象节点地图模拟 */}
             <div className="relative h-64 lg:h-96 w-full max-w-xl">
-              <div className="absolute inset-0 bg-[#1A1A1A] border border-white/10 rounded-3xl overflow-hidden relative">
+              <div className="absolute inset-0 bg-surface border border-white/10 rounded-3xl overflow-hidden relative">
                  <div className="absolute top-1/2 left-1/2 w-4 h-4 rounded-full bg-[#D4AF37] shadow-[0_0_20px_#D4AF37] animate-pulse">
-                    <div className="absolute -top-10 -left-10 w-24 h-24 border border-[#D4AF37]/30 rounded-full animate-ping opacity-50"></div>
+                    <div className="absolute -top-10 -left-10 w-24 h-24 border border-glow/30 rounded-full animate-ping opacity-50"></div>
                  </div>
                  {/* Satellite nodes */}
                  <div className="absolute top-1/4 left-1/3 w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-colors cursor-pointer" title="华东分部"></div>
@@ -169,7 +176,7 @@ export default function Home() {
         </div>
 
         {/* 右侧：最新动态时间轴 */}
-        <div className="w-full lg:w-2/5 p-10 lg:p-24 bg-[#121212] flex flex-col justify-center">
+        <div className="w-full lg:w-2/5 p-10 lg:p-24 bg-background flex flex-col justify-center">
           <h3 className="text-sm tracking-[0.3em] font-bold text-gray-600 uppercase mb-12">最新动态</h3>
           <div className="space-y-12 relative before:absolute before:inset-0 before:ml-[11px] before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-px before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
             {[
@@ -181,7 +188,7 @@ export default function Home() {
                 <div className="flex items-center justify-center w-6 h-6 rounded-full border border-white/20 bg-black group-hover:border-[#D4AF37] group-hover:bg-[#D4AF37]/20 transition-all text-white/50 z-10 shrink-0">
                   <div className="w-2 h-2 rounded-full bg-white/50 group-hover:bg-[#D4AF37] transition-colors"></div>
                 </div>
-                <div className="w-[calc(100%-3rem)] md:w-[calc(50%-2rem)] p-4 border border-transparent group-hover:border-white/5 group-hover:bg-[#111] transition-all rounded-sm">
+                <div className="w-[calc(100%-3rem)] md:w-[calc(50%-2rem)] p-4 border border-transparent group-hover:border-white/5 group-hover:bg-surface/50 transition-all rounded-sm">
                   <span className="text-[#D4AF37] text-xs font-bold tracking-widest block mb-2">{feed.date}</span>
                   <h4 className="text-lg text-gray-200 mb-1">{feed.title}</h4>
                   <p className="text-sm text-gray-500">{feed.desc}</p>
@@ -193,7 +200,7 @@ export default function Home() {
       </Section>
       
       {/* 模块六：峰壑之问 */}
-      <Section className="relative bg-[#161616] min-h-screen flex items-center justify-center overflow-hidden">
+      <Section className="relative bg-surface min-h-screen flex items-center justify-center overflow-hidden">
         {/* 背景静谧视频层 - 设计工作台草图 */}
         <div className="absolute inset-0 z-0">
           <video
@@ -202,9 +209,10 @@ export default function Home() {
             muted
             playsInline
             src="/videos/背景_1.mp4"
-            className="absolute inset-0 w-full h-full object-cover opacity-60 brightness-75 mix-blend-screen grayscale"
+            className="absolute inset-0 w-full h-full object-cover opacity-60 brightness-75 transition-transform duration-1000 scale-100"
           />
-          <div className="absolute inset-0 bg-black/40 text-glow z-10" />
+          <div className="absolute inset-0 bg-black/30 z-10" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-glow/10 via-transparent to-transparent z-15 pointer-events-none" />
         </div>
         
         <div className="relative z-20 text-center px-6 max-w-4xl cursor-default">
@@ -215,7 +223,7 @@ export default function Home() {
             exit={{ opacity: 0, y: -20, filter: "blur(4px)" }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
           >
-            <h2 className="text-3xl md:text-5xl font-serif max-w-3xl leading-relaxed text-[#ECECEC] font-serif italic mb-6">
+            <h2 className="text-3xl md:text-5xl font-serif max-w-3xl leading-relaxed text-[#ECECEC] italic mb-10">
               “{questions[currentQuestion]}”
             </h2>
           </motion.div>
@@ -235,8 +243,8 @@ export default function Home() {
             transition={{ delay: 0.5, duration: 1 }}
           >
             <Link href="/contact" className="group inline-flex flex-col items-center">
-              <span className="text-sm uppercase tracking-widest text-[#D4AF37] mb-4">开启攀登之路</span>
-              <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all group-hover:scale-110">
+              <span className="text-sm uppercase tracking-widest text-[#D4AF37] mb-6 font-bold">开启攀登之路</span>
+              <div className="w-14 h-14 rounded-full border border-[#D4AF37]/30 flex items-center justify-center group-hover:bg-[#D4AF37] group-hover:text-black transition-all group-hover:scale-110 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
                 &rarr;
               </div>
             </Link>
