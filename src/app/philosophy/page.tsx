@@ -35,8 +35,11 @@ export default function Philosophy() {
           {/* Header */}
           <div className="sticky top-0 w-full h-screen flex flex-col justify-center items-center overflow-hidden">
             <div className="absolute inset-0 bg-[#1A1A1A] z-0">
-               {/* 纯黑后备，加上极其微弱的噪点或网格纹理 */}
-               <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+               <img 
+                 src="/videos/股市_3.jpg" 
+                 className="absolute inset-0 w-full h-full object-cover"
+                 alt="Philosophy Background"
+               />
             </div>
 
             {/* 平原思维层 */}
@@ -44,10 +47,10 @@ export default function Philosophy() {
               style={{ opacity: plainOpacity }} 
               className="absolute inset-0 flex flex-col items-center justify-center z-10"
             >
-              <h2 className="text-4xl md:text-6xl font-serif font-light text-gray-500 tracking-widest uppercase line-through decoration-1 decoration-gray-600">
+              <h2 className="text-4xl md:text-6xl font-serif font-light text-white tracking-widest uppercase line-through decoration-1 decoration-gray-400 drop-shadow-2xl">
                 平原思维
               </h2>
-              <p className="mt-6 text-gray-600 tracking-wider">线性增长 / 零和博弈 / 短期收割</p>
+              <p className="mt-6 text-white tracking-wider drop-shadow-lg">线性增长 / 零和博弈 / 短期收割</p>
             </motion.div>
 
             {/* 峰峦思维层 */}
@@ -56,10 +59,10 @@ export default function Philosophy() {
               className="absolute inset-0 flex flex-col items-center justify-center z-20 bg-gradient-to-b from-transparent via-[#121212]/80 to-[#121212]"
             >
                {/* 峰峦背影 */}
-               <video 
-                 autoPlay loop muted playsInline
-                 src="/videos/背景_2.mp4"
-                 className="absolute bottom-0 w-full h-1/2 opacity-50 object-cover mix-blend-screen"
+               <img 
+                 src="/videos/背景图_1.jpg"
+                 className="absolute bottom-0 w-full h-1/2 opacity-50 object-cover"
+                 alt="Background"
                />
                <h2 className="text-6xl md:text-8xl font-serif font-bold text-[#ECECEC] tracking-tight mb-8 drop-shadow-2xl">
                  峰峦思维

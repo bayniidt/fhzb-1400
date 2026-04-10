@@ -13,32 +13,35 @@ export default function Vision() {
     <PageTransition>
       <div className="bg-background w-full relative">
         {/* Header区 */}
-        <section className="pt-40 pb-20 px-6 md:px-10 max-w-7xl mx-auto border-b border-white/5 relative">
-           {/* 金色光泄露 (Light Leak) */}
-           <div className="absolute top-20 right-0 w-1/2 h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-glow/10 via-transparent to-transparent pointer-events-none z-0"></div>
+        <section className="relative pt-60 pb-40 border-b border-white/5 overflow-hidden">
+           <img 
+             src="/videos/背景图_5.jpg" 
+             className="absolute inset-0 w-full h-full object-cover"
+             alt="Vision Header Background"
+           />
+           
+           <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-20">
 
-           <span className="text-[#D4AF37] uppercase tracking-[0.4em] font-bold text-xs block mb-8 relative z-10">Vision & Insights</span>
-           <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif font-black text-[#ECECEC] tracking-tighter mb-8 relative z-10">
-             峰壑视野
-           </h1>
-           <p className="text-2xl font-serif text-gray-500 font-light max-w-3xl leading-relaxed relative z-10">
-             在这里，我们只输出剔除了情绪共识的<br/>
-             <span className="text-gray-300 font-medium">第一性原理。</span>
-           </p>
+             <span className="text-[#D4AF37] uppercase tracking-[0.4em] font-bold text-xs block mb-8 relative z-10">Vision & Insights</span>
+             <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif font-black text-white tracking-tighter mb-8 relative z-10 drop-shadow-2xl">
+               峰壑视野
+             </h1>
+             <p className="text-2xl font-serif text-white/90 font-light max-w-3xl leading-relaxed relative z-10 drop-shadow-lg">
+               在这里，我们只输出剔除了情绪共识的<br/>
+               <span className="text-white font-medium">第一性原理。</span>
+             </p>
+           </div>
         </section>
 
         {/* 模块一：《登峰》纪录片 (主视觉高斯模糊重质感) */}
         <Section className="!py-0 relative min-h-[90vh] flex flex-col justify-end group cursor-pointer overflow-hidden border-b border-white/5 bg-background">
            <div className="absolute inset-0 z-0">
-              <video
-                 autoPlay
-                 loop
-                 muted
-                 playsInline
-                 src="/videos/人物_1.mp4"
-                 className="w-full h-full object-cover opacity-80 scale-105 group-hover:scale-100 transition-transform duration-[2s] ease-out brightness-75"
+              <img
+                 src="/videos/背景图_2.jpg"
+                 className="w-full h-full object-cover opacity-80 scale-105 group-hover:scale-100 transition-transform duration-[2s] ease-out"
+                 alt="Vision Documentary"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent z-10" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-black/20 to-transparent z-10" />
               {/* 金色光束动画层模拟 */}
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_60%,_var(--tw-gradient-stops))] from-glow/20 via-transparent to-transparent z-15 pointer-events-none" />
            </div>
@@ -48,8 +51,8 @@ export default function Vision() {
                  <div className="flex items-center gap-4 mb-6">
                     <span className="bg-[#D4AF37] text-black text-xs font-bold tracking-widest px-3 py-1 uppercase shadow-[0_0_15px_rgba(212,175,55,0.4)]">Series Premiere</span>
                  </div>
-                 <h2 className="text-5xl md:text-7xl font-serif text-white mb-6 leading-tight drop-shadow-[0_0_20px_rgba(0,0,0,0.8)]">《登峰》<br />企业蜕变系列纪录片</h2>
-                 <p className="text-gray-300 text-lg md:text-xl font-light leading-relaxed">
+                 <h2 className="text-5xl md:text-7xl font-serif text-white mb-6 leading-tight drop-shadow-2xl">《登峰》<br />企业蜕变系列纪录片</h2>
+                 <p className="text-white text-lg md:text-xl font-light leading-relaxed drop-shadow-lg">
                    镜头不撒谎。独家记录被投企业从估值低谷、模式重构到最终敲钟上市的三年生死局。只还原最残酷的商业真相与我们在悬崖边缘的陪跑全历程。
                  </p>
               </div>

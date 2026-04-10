@@ -10,6 +10,7 @@ export default function OmegaPage() {
         <PageHero 
           title="OMEGA 计划" 
           subtitle="OMEGA 计划由纪源资本发起，旨在为处于初创阶段的创业者提供全方位的支持，陪伴中国创业者共同成长。" 
+          bgImage="/videos/背景图_3.jpg"
         />
         
         {/* Omega Stats */}
@@ -33,15 +34,11 @@ export default function OmegaPage() {
         {/* Batch Info */}
         <section className="px-6 md:px-20 py-20 max-w-7xl mx-auto w-full">
           <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-white/10">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
+            <img
+              src="/videos/背景图_4.jpg"
               className="absolute inset-0 w-full h-full object-cover"
-            >
-              <source src="/videos/omega-batch.mp4" type="video/mp4" />
-            </video>
+              alt="OMEGA Batch"
+            />
             <div className="absolute inset-0 bg-black/40 flex flex-col justify-end p-12">
               <h3 className="text-4xl text-white font-light">OMEGA 圆桌派</h3>
               <p className="mt-4 text-white/70 max-w-xl">

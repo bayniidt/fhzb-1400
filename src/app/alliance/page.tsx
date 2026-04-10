@@ -18,7 +18,7 @@ export default function Alliance() {
       features: ["成功案例解密库", "IPO路径一键沙盘推演", "商业BP极速响应通道"],
       cta: "提交商业标书",
       theme: "from-transparent to-[#111]",
-      video: "/videos/人物_1.mp4"
+      image: "/videos/背景图_1.jpg"
     },
     {
       id: "02",
@@ -28,7 +28,7 @@ export default function Alliance() {
       features: ["独级城市管理权", "矩阵收益全额分成", "保底跟投网络权限"],
       cta: "启动主理人考核",
       theme: "from-transparent to-[#0a0a0a]",
-      video: "/videos/人物_2.mp4"
+      image: "/videos/背景图_2.jpg"
     },
     {
       id: "03",
@@ -38,7 +38,7 @@ export default function Alliance() {
       features: ["生态基金盲池业绩揭露", "优先联投/过桥池入场", "LP 机构专属通道"],
       cta: "认证机构白名单",
       theme: "from-transparent to-[#121212]",
-      video: "/videos/背景_4.mp4"
+      image: "/videos/背景图_4.jpg"
     },
     {
       id: "04",
@@ -48,7 +48,7 @@ export default function Alliance() {
       features: ["绝对稀缺跟投池席位", "专职资产风控隔离顾问", "闭门私塾与至高身份标识"],
       cta: "申请内推席位",
       theme: "from-transparent to-black",
-      video: "/videos/背景_6.mp4"
+      image: "/videos/背景图_5.jpg"
     }
   ];
 
@@ -58,8 +58,13 @@ export default function Alliance() {
         
         {/* 顶部宣言 */}
         <section className="relative w-full min-h-[80vh] flex flex-col justify-center items-center text-center px-6 overflow-hidden">
-           <div className="absolute inset-0 z-0">
-             <div className="absolute inset-0 bg-[#161616] opacity-90 z-10"></div>
+           <img 
+             src="/videos/股市_5.jpg" 
+             className="absolute inset-0 w-full h-full object-cover"
+             alt="Alliance Header Background"
+           />
+           
+           <div className="absolute inset-0 z-10">
              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white/10 via-black to-black z-0 pointer-events-none"></div>
            </div>
            
@@ -69,7 +74,7 @@ export default function Alliance() {
                initial={{ opacity: 0, y: 40 }}
                animate={{ opacity: 1, y: 0 }}
                transition={{ duration: 1, ease: "easeOut" }}
-               className="text-6xl md:text-8xl lg:text-9xl font-serif font-black text-[#ECECEC] tracking-tighter mb-8"
+               className="text-6xl md:text-8xl lg:text-9xl font-serif font-black text-white tracking-tighter mb-8 drop-shadow-2xl"
              >
                共筑峰峦
              </motion.h1>
@@ -77,7 +82,7 @@ export default function Alliance() {
                initial={{ opacity: 0 }}
                animate={{ opacity: 1 }}
                transition={{ delay: 0.5, duration: 1 }}
-               className="text-2xl font-serif text-gray-500 font-light max-w-3xl mx-auto"
+               className="text-2xl font-serif text-white/90 font-light max-w-3xl mx-auto drop-shadow-lg"
              >
                我们不寻找附庸者。<br/>
                只招募能在同一等高线共负盈亏的战友。
@@ -94,10 +99,10 @@ export default function Alliance() {
               <div key={idx} className="relative w-full min-h-screen flex items-center overflow-hidden sticky top-0 group">
                  {/* 每个层级的独立视觉背景 */}
                  <div className="absolute inset-0 z-0 bg-[#121212] transition-transform duration-[10s] ease-linear group-hover:scale-105">
-                   <video 
-                     autoPlay loop muted playsInline
-                     src={alliance.video}
+                   <img 
+                     src={alliance.image}
                      className="absolute inset-0 w-full h-full object-cover opacity-80 transition-opacity duration-1000"
+                     alt={alliance.title}
                    />
                    <div className={`absolute inset-0 bg-gradient-to-t ${alliance.theme} z-10 opacity-60`}></div>
                    <div className="absolute inset-0 bg-black/30 z-20 backdrop-blur-[1px]"></div>

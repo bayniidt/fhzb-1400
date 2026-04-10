@@ -9,7 +9,8 @@ export default function FamilyPage() {
       <main className="flex-grow bg-black">
         <PageHero 
           title="投资案例" 
-          subtitle="纪源资本是一家全球领先的风险投资公司，专注投资于工业科技、企业服务、环境与材料、医疗科技、消费科技等五大领域。" 
+          subtitle="通过第一性原理，我们与具有全球雄心的创业者共同定义未来。" 
+          bgImage="/videos/股市_1.jpg"
         />
         
         {/* Portfolio Content would go here */}

@@ -12,10 +12,15 @@ export default function Contact() {
       <div className="flex flex-col lg:flex-row min-h-screen pt-20 bg-[#121212]">
         {/* 左半区：固定联系信息与氛围 */}
         <div className="w-full lg:w-[40%] bg-[#1A1A1A] p-10 lg:p-24 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-white/5 relative overflow-hidden">
+          <img 
+            src="/videos/背景图_1.jpg" 
+            className="absolute inset-0 w-full h-full object-cover"
+            alt="Contact Background"
+          />
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#D4AF37]/5 rounded-full blur-[100px] pointer-events-none translate-x-1/3 -translate-y-1/3" />
           <div className="relative z-10">
-            <span className="text-[#D4AF37] uppercase tracking-[0.4em] font-bold text-xs block mb-8">Access Portal</span>
-            <h1 className="text-5xl lg:text-7xl font-serif font-light mb-16 tracking-tighter text-[#ECECEC] leading-tight">
+            <span className="text-[#D4AF37] uppercase tracking-[0.4em] font-bold text-xs block mb-8 underline decoration-[#D4AF37]">Access Portal</span>
+            <h1 className="text-5xl lg:text-7xl font-serif font-light mb-16 tracking-tighter text-white leading-tight drop-shadow-2xl">
               全业务<br/>合作通道。
             </h1>
 

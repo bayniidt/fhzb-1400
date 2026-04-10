@@ -20,18 +20,24 @@ export default function OS() {
     <PageTransition>
       <div className="bg-background">
         {/* Header Title */}
-        <section className="pt-40 pb-20 px-10 max-w-7xl mx-auto flex flex-col justify-center border-b border-white/5 relative">
-           {/* 金色光泄露 (Light Leak) */}
-           <div className="absolute top-20 left-0 w-1/2 h-full bg-[radial-gradient(circle_at_top_left,_var(--tw-gradient-stops))] from-glow/10 via-transparent to-transparent pointer-events-none z-0"></div>
+        <section className="relative pt-60 pb-40 border-b border-white/5 overflow-hidden">
+           <img 
+             src="/videos/股市_2.jpg" 
+             className="absolute inset-0 w-full h-full object-cover"
+             alt="OS Header Background"
+           />
+           
+           <div className="max-w-7xl mx-auto px-10 relative z-20">
 
-           <h1 className="text-6xl md:text-8xl font-serif font-black tracking-tighter text-[#ECECEC] mb-8 relative z-10">
-             CAPITAL<br/>
-             <span className="text-[#D4AF37] font-light italic font-serif">O.S.</span>
-           </h1>
-           <p className="text-2xl font-serif text-gray-500 font-light max-w-2xl relative z-10">
-             不只输出资本。<br/>
-             我们交付的是跑通资本市场的全链路闭环代码。
-           </p>
+             <h1 className="text-6xl md:text-8xl font-serif font-black tracking-tighter text-white mb-8 relative z-10 drop-shadow-2xl">
+               CAPITAL<br/>
+               <span className="text-[#D4AF37] font-light italic font-serif">O.S.</span>
+             </h1>
+             <p className="text-2xl font-serif text-white/90 font-light max-w-2xl relative z-10 drop-shadow-lg">
+               不只输出资本。<br/>
+               我们交付的是跑通资本市场的全链路闭环代码。
+             </p>
+           </div>
         </section>
 
         {/* 模块一：操作系统全景图 (融投管退) */}

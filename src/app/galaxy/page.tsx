@@ -36,19 +36,24 @@ export default function Galaxy() {
         
         {/* 模块一：总部 · 中央引擎 */}
         <section className="relative min-h-[120vh] flex flex-col justify-center border-b border-white/5 pt-20 overflow-hidden">
+           <img 
+             src="/videos/背景图_4.jpg" 
+             className="absolute inset-0 w-full h-full object-cover"
+             alt="Galaxy Header Background"
+           />
+           
            {/* 背景动态星云特效 */}
-           <div className="absolute inset-0 z-0">
-             <div className="absolute inset-0 bg-[#080808] z-0"></div>
+           <div className="absolute inset-0 z-10">
              {/* 模拟中心极点扩散的星系特效 */}
-             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] md:w-[50vw] md:h-[50vw] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#D4AF37]/5 via-transparent to-transparent animate-pulse delay-1000 duration-[4000ms] rounded-full mix-blend-screen pointer-events-none"></div>
+             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] md:w-[50vw] md:h-[50vw] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#D4AF37]/10 via-transparent to-transparent animate-pulse delay-1000 duration-[4000ms] rounded-full mix-blend-screen pointer-events-none"></div>
            </div>
-
-           <div className="relative z-10 max-w-7xl mx-auto px-10 w-full mb-32">
+ 
+           <div className="relative z-20 max-w-7xl mx-auto px-10 w-full mb-32">
               <span className="text-[#D4AF37] uppercase tracking-[0.3em] font-bold text-sm block mb-6 px-1 border-l-2 border-[#D4AF37]">The Core Engine</span>
-              <h1 className="text-5xl md:text-8xl font-black tracking-tight text-[#ECECEC] mb-10 max-w-4xl">
+              <h1 className="text-5xl md:text-8xl font-black tracking-tight text-white mb-10 max-w-4xl drop-shadow-2xl">
                  总部 · 中央引擎
               </h1>
-              <p className="text-2xl text-gray-500 font-light max-w-2xl leading-relaxed">
+              <p className="text-2xl text-white/80 font-light max-w-2xl leading-relaxed drop-shadow-lg">
                  并非简单的发号施令，而是向整张生态星系高频倾泻算力、共识与资源。
               </p>
            </div>
@@ -75,10 +80,10 @@ export default function Galaxy() {
         <Section className="bg-[#161616] !py-0 border-b border-white/5 flex flex-col lg:flex-row min-h-screen">
             {/* 左侧：动态地图星域 */}
             <div className="w-full lg:w-2/3 relative min-h-[60vh] lg:min-h-screen border-b lg:border-b-0 lg:border-r border-white/10 overflow-hidden">
-               <video 
-                 autoPlay loop muted playsInline
-                 src="/videos/背景_5.mp4"
+               <img 
+                 src="/videos/背景图_3.jpg"
                  className="absolute inset-0 w-full h-full object-cover opacity-50"
+                 alt="Galaxy Map Background"
                />
                <div className="absolute inset-0 bg-[#121212]/90 z-0"></div>
                {/* 模拟坐标系与网格 */}
