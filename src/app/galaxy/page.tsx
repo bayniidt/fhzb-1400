@@ -60,7 +60,7 @@ export default function Galaxy() {
                       key={idx} 
                       className="px-8 py-16 flex flex-col justify-start relative group hover:bg-[#D4AF37]/5 transition-colors overflow-hidden"
                     >
-                       <span className="text-[#D4AF37]/30 text-5xl font-serif block mb-8 group-hover:text-[#D4AF37] transition-colors opacity-40 group-hover:opacity-100">0{idx+1}</span>
+                       <span className="text-[#D4AF37]/30 text-5xl font-serif block mb-8 group-hover:text-[#D4AF37] transition-colors opacity-60 group-hover:opacity-100">0{idx+1}</span>
                        <h3 className="text-2xl font-medium text-gray-300 mb-6 group-hover:text-white transition-colors">{role.title}</h3>
                        <p className="text-gray-500 text-sm leading-loose opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">
                          {role.desc}
@@ -72,10 +72,15 @@ export default function Galaxy() {
         </section>
 
         {/* 模块二：区域俱乐部 · 星罗棋布 */}
-        <Section className="bg-[#020202] !py-0 border-b border-white/5 flex flex-col lg:flex-row min-h-screen">
+        <Section className="bg-[#161616] !py-0 border-b border-white/5 flex flex-col lg:flex-row min-h-screen">
             {/* 左侧：动态地图星域 */}
-            <div className="w-full lg:w-2/3 relative min-h-[60vh] lg:min-h-screen border-b lg:border-b-0 lg:border-r border-white/10 overflow-hidden bg-[url('https://images.unsplash.com/photo-1541888059005-774b7c6c4fb2?auto=format&fit=crop&q=80&w=2560')] bg-cover bg-center grayscale mix-blend-luminosity">
-               <div className="absolute inset-0 bg-[#050505]/90 z-0"></div>
+            <div className="w-full lg:w-2/3 relative min-h-[60vh] lg:min-h-screen border-b lg:border-b-0 lg:border-r border-white/10 overflow-hidden">
+               <video 
+                 autoPlay loop muted playsInline
+                 src="/videos/背景_5.mp4"
+                 className="absolute inset-0 w-full h-full object-cover opacity-50"
+               />
+               <div className="absolute inset-0 bg-[#121212]/90 z-0"></div>
                {/* 模拟坐标系与网格 */}
                <div className="absolute inset-0 opacity-10 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:50px_50px] z-10"></div>
                

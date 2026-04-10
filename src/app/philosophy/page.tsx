@@ -28,13 +28,13 @@ export default function Philosophy() {
 
   return (
     <PageTransition>
-      <div ref={containerRef} className="relative bg-[#050505]">
+      <div ref={containerRef} className="relative bg-[#121212]">
         
         {/* 1. 峰峦思维：思维维度的对比剧场 */}
         <section className="relative w-full h-[150vh]">
           {/* Header */}
           <div className="sticky top-0 w-full h-screen flex flex-col justify-center items-center overflow-hidden">
-            <div className="absolute inset-0 bg-[#030303] z-0">
+            <div className="absolute inset-0 bg-[#1A1A1A] z-0">
                {/* 纯黑后备，加上极其微弱的噪点或网格纹理 */}
                <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
             </div>
@@ -44,7 +44,7 @@ export default function Philosophy() {
               style={{ opacity: plainOpacity }} 
               className="absolute inset-0 flex flex-col items-center justify-center z-10"
             >
-              <h2 className="text-4xl md:text-6xl font-light text-gray-500 tracking-widest uppercase line-through decoration-1 decoration-gray-600">
+              <h2 className="text-4xl md:text-6xl font-serif font-light text-gray-500 tracking-widest uppercase line-through decoration-1 decoration-gray-600">
                 平原思维
               </h2>
               <p className="mt-6 text-gray-600 tracking-wider">线性增长 / 零和博弈 / 短期收割</p>
@@ -53,11 +53,15 @@ export default function Philosophy() {
             {/* 峰峦思维层 */}
             <motion.div 
               style={{ opacity: peakOpacity, scale: peakScale }} 
-              className="absolute inset-0 flex flex-col items-center justify-center z-20 bg-gradient-to-b from-transparent via-[#050505]/80 to-[#050505]"
+              className="absolute inset-0 flex flex-col items-center justify-center z-20 bg-gradient-to-b from-transparent via-[#121212]/80 to-[#121212]"
             >
                {/* 峰峦背影 */}
-               <div className="absolute bottom-0 w-full h-1/2 opacity-20 bg-[url('https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&fit=crop&w=2560')] bg-cover bg-bottom mix-blend-screen"></div>
-               <h2 className="text-6xl md:text-8xl font-bold text-[#ECECEC] tracking-tight mb-8 drop-shadow-2xl">
+               <video 
+                 autoPlay loop muted playsInline
+                 src="/videos/背景_2.mp4"
+                 className="absolute bottom-0 w-full h-1/2 opacity-50 object-cover mix-blend-screen"
+               />
+               <h2 className="text-6xl md:text-8xl font-serif font-bold text-[#ECECEC] tracking-tight mb-8 drop-shadow-2xl">
                  峰峦思维
                </h2>
                <div className="flex gap-8 text-lg font-light text-[#D4AF37] tracking-widest mt-4">
@@ -74,7 +78,7 @@ export default function Philosophy() {
         </section>
 
         {/* 2. 使命·愿景·价值观 */}
-        <Section className="bg-[#050505] !py-32">
+        <Section className="bg-[#121212] !py-32">
           <div className="max-w-7xl mx-auto w-full">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
               {/* 左侧：使命与愿景 */}
@@ -85,7 +89,7 @@ export default function Philosophy() {
                   viewport={{ once: true }}
                 >
                   <h3 className="text-xs tracking-[0.4em] text-gray-500 uppercase font-bold mb-6">Mission / 使命</h3>
-                  <p className="text-3xl md:text-5xl font-light leading-snug text-gray-200">
+                  <p className="text-3xl md:text-5xl font-serif font-light leading-snug text-gray-200">
                     赋能实体产业攀登资本峰峦，<br />
                     守护 <span className="font-serif italic text-[#D4AF37]">长期价值</span> 穿越时代周期。
                   </p>
@@ -98,7 +102,7 @@ export default function Philosophy() {
                   transition={{ delay: 0.2 }}
                 >
                   <h3 className="text-xs tracking-[0.4em] text-gray-500 uppercase font-bold mb-6">Vision / 愿景</h3>
-                  <p className="text-2xl md:text-4xl font-light leading-relaxed text-gray-400">
+                  <p className="text-2xl md:text-4xl font-serif font-light leading-relaxed text-gray-400">
                     成为全球创新经济体中，<br />最具信任感的产业资本共生平台。
                   </p>
                 </motion.div>
@@ -115,7 +119,7 @@ export default function Philosophy() {
                        onClick={() => setActiveValue(activeValue === idx ? null : idx)}
                      >
                        <div className="py-8 flex justify-between items-center transition-colors group-hover:text-[#ECECEC] text-gray-400">
-                         <span className="text-3xl md:text-4xl font-light tracking-wide">{v.title}</span>
+                         <span className="text-3xl md:text-4xl font-serif font-light tracking-wide">{v.title}</span>
                          <span className={`transform transition-transform duration-500 ${activeValue === idx ? 'rotate-45 text-[#D4AF37]' : ''}`}>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="square">
                                <path d="M12 5v14M5 12h14"/>
@@ -138,7 +142,7 @@ export default function Philosophy() {
         </Section>
 
         {/* 3. 三大文化支柱 */}
-        <Section className="bg-[#020202] text-center !min-h-[70vh]">
+        <Section className="bg-[#161616] text-center !min-h-[70vh]">
            <h2 className="text-sm tracking-[0.3em] font-bold text-gray-600 uppercase mb-20">文化支柱</h2>
            <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-y border-white/5 divide-y md:divide-y-0 md:divide-x divide-white/5">
              {[
@@ -154,8 +158,8 @@ export default function Philosophy() {
                  transition={{ delay: idx * 0.15 }}
                  className="p-16 flex flex-col text-left group hover:bg-[#070707] transition-colors duration-500"
                >
-                  <span className="text-5xl font-light text-[#D4AF37]/40 group-hover:text-[#D4AF37] transition-colors block mb-12 font-serif">{pillar.no}</span>
-                  <h3 className="text-3xl text-gray-200 mb-6 font-medium tracking-wide">{pillar.title}</h3>
+                  <span className="text-5xl font-serif font-light text-[#D4AF37]/40 group-hover:text-[#D4AF37] transition-colors block mb-12 font-serif">{pillar.no}</span>
+                  <h3 className="text-3xl font-serif text-gray-200 mb-6 font-medium tracking-wide">{pillar.title}</h3>
                   <p className="text-gray-500 leading-relaxed">{pillar.desc}</p>
                </motion.div>
              ))}
@@ -163,9 +167,9 @@ export default function Philosophy() {
         </Section>
 
         {/* 4. 文化象征与仪式 */}
-        <section className="w-full py-32 bg-[#050505] overflow-hidden">
+        <section className="w-full py-32 bg-[#121212] overflow-hidden">
           <div className="max-w-7xl mx-auto px-6 mb-16">
-            <h2 className="text-4xl font-light mb-6">仪式即烙印</h2>
+            <h2 className="text-4xl font-serif font-light mb-6">仪式即烙印</h2>
             <p className="text-xl text-gray-500 max-w-2xl">从“登峰路演会”到“生态共建日”，共同的回忆与承诺兑现大厅，编织出俱乐部无可替代的内部向心力。</p>
           </div>
           {/* 画廊长卷 */}
@@ -179,21 +183,21 @@ export default function Philosophy() {
                 <div key={idx} className="min-w-[70vw] md:min-w-[400px] h-[500px] relative snap-center group overflow-hidden border border-white/5 bg-[#111]">
                    <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-700 z-10"></div>
                    <div className="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-1000 scale-100 group-hover:scale-105" style={{ backgroundImage: `url(${pic.img})`}}></div>
-                   <h3 className="absolute bottom-8 left-8 z-20 text-white font-medium text-2xl tracking-widest">{pic.label}</h3>
+                   <h3 className="absolute bottom-8 left-8 z-20 text-white font-medium text-2xl font-serif tracking-widest">{pic.label}</h3>
                 </div>
              ))}
           </div>
         </section>
 
         {/* 5. 创始人的信：全屏长卷阅读 */}
-        <section className="relative w-full min-h-[120vh] bg-[#020202] border-t border-white/10 flex items-center justify-center py-40">
-           <div className="absolute inset-0 pointer-events-none opacity-20 bg-[url('https://images.unsplash.com/photo-1455390582262-044cdead2708?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center mix-blend-screen grayscale"></div>
-           <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#020202]/80 to-[#050505]"></div>
+        <section className="relative w-full min-h-[120vh] bg-[#161616] border-t border-white/10 flex items-center justify-center py-40">
+           <div className="absolute inset-0 pointer-events-none opacity-60 bg-[url('https://images.unsplash.com/photo-1455390582262-044cdead2708?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center mix-blend-screen grayscale"></div>
+           <div className="absolute inset-0 bg-gradient-to-b from-[#121212] via-[#161616]/80 to-[#121212]"></div>
            
-           <div className="relative z-10 max-w-3xl mx-auto px-6 text-center md:text-left">
+           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#D4AF37]/5 via-transparent to-transparent pointer-events-none z-0"></div><div className="relative z-10 max-w-3xl mx-auto px-6 text-center md:text-left">
               <span className="block text-[#D4AF37] uppercase tracking-widest text-sm mb-12 font-bold">— 创始人的信</span>
               <h1 className="text-4xl md:text-6xl font-serif text-[#ECECEC] mb-16 leading-relaxed">
-                《共筑峰峦<span className="block text-2xl text-gray-400 mt-4 font-sans font-light">一封关于价值与未来的信</span>》
+                《共筑峰峦<span className="block text-2xl font-serif text-gray-400 mt-4 font-sans font-light">一封关于价值与未来的信</span>》
               </h1>
               
               <div className="space-y-10 text-xl text-gray-400 font-light leading-loose">

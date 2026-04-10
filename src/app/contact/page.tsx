@@ -9,25 +9,25 @@ export default function Contact() {
 
   return (
     <PageTransition>
-      <div className="flex flex-col lg:flex-row min-h-screen pt-20 bg-[#050505]">
+      <div className="flex flex-col lg:flex-row min-h-screen pt-20 bg-[#121212]">
         {/* 左半区：固定联系信息与氛围 */}
-        <div className="w-full lg:w-[40%] bg-[#030303] p-10 lg:p-24 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-white/5 relative overflow-hidden">
+        <div className="w-full lg:w-[40%] bg-[#1A1A1A] p-10 lg:p-24 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-white/5 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#D4AF37]/5 rounded-full blur-[100px] pointer-events-none translate-x-1/3 -translate-y-1/3" />
           <div className="relative z-10">
             <span className="text-[#D4AF37] uppercase tracking-[0.4em] font-bold text-xs block mb-8">Access Portal</span>
-            <h1 className="text-5xl lg:text-7xl font-light mb-16 tracking-tighter text-[#ECECEC] leading-tight">
+            <h1 className="text-5xl lg:text-7xl font-serif font-light mb-16 tracking-tighter text-[#ECECEC] leading-tight">
               全业务<br/>合作通道。
             </h1>
 
             <div className="space-y-16">
               <div>
                 <h3 className="text-gray-600 uppercase tracking-widest text-xs mb-4 font-bold border-b border-white/5 pb-4 inline-block w-full">全球中枢坐标</h3>
-                <p className="text-2xl font-light text-gray-300">中国 · 深圳</p>
+                <p className="text-2xl font-serif font-light text-gray-300">中国 · 深圳</p>
                 <p className="text-sm text-gray-500 mt-2 font-mono">22.54°N, 114.05°E</p>
               </div>
               <div>
                 <h3 className="text-gray-600 uppercase tracking-widest text-xs mb-4 font-bold border-b border-white/5 pb-4 inline-block w-full">专属对接近路</h3>
-                <p className="text-2xl font-light text-[#D4AF37] hover:text-white transition-colors cursor-pointer">partner@fhzb.com</p>
+                <p className="text-2xl font-serif font-light text-[#D4AF37] hover:text-white transition-colors cursor-pointer">partner@fhzb.com</p>
               </div>
               <div className="pt-8 opacity-40">
                 <p className="text-xs text-gray-500 font-light leading-relaxed max-w-xs">
@@ -39,12 +39,12 @@ export default function Contact() {
         </div>
 
         {/* 右半区：智能申请分流表单 */}
-        <div className="w-full lg:w-[60%] p-10 lg:p-32 bg-[#050505] flex flex-col justify-center">
+        <div className="w-full lg:w-[60%] p-10 lg:p-32 bg-[#121212] flex flex-col justify-center">
           <div className="w-full max-w-2xl">
              <div className="mb-20">
-               <label className="block text-2xl lg:text-4xl font-light mb-8 text-[#ECECEC]">您希望以什么身份与峰壑结阵？</label>
+               <label className="block text-2xl lg:text-4xl font-serif font-light mb-8 text-[#ECECEC]">您希望以什么身份与峰壑结阵？</label>
                <select 
-                 className="w-full bg-transparent border-b border-white/20 pb-4 text-xl lg:text-2xl focus:outline-none focus:border-[#D4AF37] transition-all appearance-none text-gray-400 cursor-pointer font-light"
+                 className="w-full bg-transparent border-b border-white/20 pb-4 text-xl lg:text-2xl font-serif focus:outline-none focus:border-[#D4AF37] transition-all appearance-none text-gray-400 cursor-pointer font-light"
                  value={role}
                  onChange={(e) => setRole(e.target.value)}
                  style={{ backgroundImage: 'linear-gradient(to right, rgba(212, 175, 55, 0) 90%, rgba(212, 175, 55, 0.4) 100%)' }}
@@ -77,7 +77,7 @@ export default function Contact() {
                    <div className="w-full h-32 border border-dashed border-white/20 bg-white/[0.02] flex items-center justify-center text-gray-500 hover:text-[#D4AF37] hover:border-[#D4AF37] hover:bg-[#D4AF37]/5 transition-all cursor-pointer group">
                      <span className="text-sm tracking-widest uppercase font-medium">拖拽或点击上传完整商业计划书 (BP)</span>
                    </div>
-                   <button className="bg-[#ECECEC] text-[#050505] px-12 py-5 text-sm font-bold uppercase tracking-widest hover:bg-white w-full transition-colors mt-8">递交项目数据室</button>
+                   <button className="bg-[#ECECEC] text-[#121212] px-12 py-5 text-sm font-bold uppercase tracking-widest hover:bg-white w-full transition-colors mt-8">递交项目数据室</button>
                  </motion.div>
                )}
 
@@ -135,7 +135,7 @@ export default function Contact() {
                    </div>
                    <textarea rows={2} placeholder="联合投资模型或资金接驳方案简述..." className="w-full bg-transparent border-b border-white/10 pb-4 text-lg focus:outline-none focus:border-white transition-colors text-white placeholder:text-gray-600 resize-none"></textarea>
 
-                   <button className="bg-[#ECECEC] text-[#050505] px-12 py-5 text-sm font-bold uppercase tracking-widest hover:bg-white w-full transition-colors mt-8">接驳基金管理人通道</button>
+                   <button className="bg-[#ECECEC] text-[#121212] px-12 py-5 text-sm font-bold uppercase tracking-widest hover:bg-white w-full transition-colors mt-8">接驳基金管理人通道</button>
                  </motion.div>
                )}
 

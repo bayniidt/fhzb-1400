@@ -35,16 +35,17 @@ export default function Home() {
       {/* 模块一：主视觉区 */}
       <section ref={containerRef} className="relative w-full h-screen flex items-center justify-center overflow-hidden border-b border-white/5">
         <motion.div style={{ opacity: heroOpacity, scale: heroScale }} className="absolute inset-0 z-0">
-          {/* 云海翻腾的视频占位 - 采用深邃的 CSS 渐变与模糊模拟 */}
           <video
             autoPlay
             loop
             muted
             playsInline
-            className="absolute inset-0 w-full h-full object-cover opacity-40 brightness-50 mix-blend-screen"
-            poster="https://images.unsplash.com/photo-1542281286-9e0a16bb7366?auto=format&fit=crop&q=80&w=2560" // 壮丽冰川暗调图作为后备
+            src="/videos/背景_6.mp4"
+            className="absolute inset-0 w-full h-full object-cover opacity-80"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent z-10" />
+          {/* 增加一个金辉层，让视觉不再死板 */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#D4AF37]/5 to-[#121212] z-10" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-[#D4AF37]/10 rounded-full blur-[120px] pointer-events-none z-10" />
         </motion.div>
         
         <div className="relative z-20 text-center max-w-5xl mx-auto px-6 mt-20">
@@ -52,7 +53,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 text-[#ECECEC] drop-shadow-2xl"
+            className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold tracking-tight mb-8 text-[#ECECEC] drop-shadow-2xl"
           >
             资本遇见雄心<br />我们共筑峰峦
           </motion.h1>
@@ -73,7 +74,7 @@ export default function Home() {
       </section>
 
       {/* 模块二：峰壑宣言 */}
-      <Section className="bg-[#030303] items-center text-center overflow-hidden relative min-h-screen">
+      <Section className="bg-[#1A1A1A] items-center text-center overflow-hidden relative min-h-screen">
         {/* 背景山脉剪影，极端暗色淡入 */}
         <div className="absolute inset-x-0 bottom-0 h-1/2 opacity-10 bg-[url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2560')] bg-cover bg-center mix-blend-overlay pointer-events-none"></div>
         <motion.div
@@ -89,7 +90,7 @@ export default function Home() {
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-[#D4AF37]/80 mb-6 tracking-widest">
             真正的资本，
           </h2>
-          <h3 className="text-3xl md:text-5xl font-light leading-relaxed text-gray-400">
+          <h3 className="text-3xl md:text-5xl font-serif font-light leading-relaxed text-gray-400">
             是产业文明的<span className="text-white relative font-medium">加速器<span className="absolute -bottom-2 left-0 w-full h-[2px] bg-[#D4AF37]" /></span>，<br/>
             而非收割器。
           </h3>
@@ -97,7 +98,7 @@ export default function Home() {
       </Section>
 
       {/* 模块三：三大价值入口 */}
-      <Section className="gap-16 bg-[#050505] !py-24">
+      <Section className="gap-16 bg-[#121212] !py-24">
         <div className="text-center mb-10">
           <h2 className="text-sm tracking-[0.3em] font-bold text-gray-600 uppercase">核心价值枢纽</h2>
         </div>
@@ -113,19 +114,25 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: idx * 0.2 }}
-                className="h-[600px] bg-[#0c0c0c] border border-white/5 relative group p-10 flex flex-col justify-end overflow-hidden transition-all hover:border-[#D4AF37]/30"
+                className="h-[600px] bg-[#1C1C1C] border border-white/5 relative group p-10 flex flex-col justify-end overflow-hidden transition-all hover:border-[#D4AF37]/30"
               >
-                  {/* 背景深色图像/等高线隐喻 */}
-                  <div className="absolute inset-0 bg-cover bg-center opacity-0 group-hover:opacity-40 transition-opacity duration-1000 saturate-0 hover:saturate-100 mix-blend-luminosity" style={{ backgroundImage: `url(${item.img})` }}></div>
+                  {/* 背景深色图像/等高线隐喻 - 初始可见 */}
+                  <div 
+                    className="absolute inset-0 bg-cover bg-center opacity-30 group-hover:opacity-70 transition-all duration-1000 scale-100 group-hover:scale-110 grayscale group-hover:grayscale-0" 
+                    style={{ backgroundImage: `url(${item.img})` }}
+                  ></div>
                    {/* 悬停时的金色等高线层模拟 */}
-                  <div className="absolute inset-0 border-[1px] border-[#D4AF37] opacity-0 group-hover:opacity-10 scale-95 group-hover:scale-100 transition-all duration-1000 ease-out" style={{ borderRadius: '40% 60% 70% 30% / 40% 50% 60% 50%' }}></div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent z-10 transition-opacity group-hover:opacity-60"></div>
+                  <div className="absolute inset-0 border-[1px] border-[#D4AF37] opacity-0 group-hover:opacity-20 scale-95 group-hover:scale-100 transition-all duration-1000 ease-out" style={{ borderRadius: '40% 60% 70% 30% / 40% 50% 60% 50%' }}></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10"></div>
                   
-                  <div className="relative z-20 transform translate-y-8 group-hover:translate-y-0 transition-all duration-500">
-                    <h3 className="text-4xl font-medium text-gray-300 group-hover:text-white transition-colors mb-4">{item.title}</h3>
-                    <p className="text-gray-500 text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100">{item.subtitle}</p>
-                    <div className="mt-8 pt-6 border-t border-white/10 opacity-0 group-hover:opacity-100 transition-all delay-200">
-                      <Link href="/philosophy" className="text-[#D4AF37] text-sm tracking-widest uppercase hover:text-white">探索详情 &rarr;</Link>
+                  <div className="relative z-20 transition-all duration-500">
+                    <h3 className="text-3xl font-serif font-medium text-[#ECECEC] mb-4">{item.title}</h3>
+                    <p className="text-gray-400 text-lg opacity-80 group-hover:opacity-100 transition-opacity duration-700">{item.subtitle}</p>
+                    <div className="mt-8 pt-6 border-t border-white/10 opacity-60 group-hover:opacity-100 transition-all duration-500">
+                      <Link href="/philosophy" className="text-[#D4AF37] text-sm tracking-widest uppercase hover:text-white flex items-center gap-2">
+                        探索详情 
+                        <span className="text-xl">&rarr;</span>
+                      </Link>
                     </div>
                   </div>
               </motion.div>
@@ -134,18 +141,18 @@ export default function Home() {
       </Section>
 
       {/* 模块四 & 模块五：星系概览与最新动态 (Split Layout) */}
-      <Section className="bg-[#020202] !px-0 !py-0 flex flex-col lg:flex-row min-h-screen">
+      <Section className="bg-[#161616] !px-0 !py-0 flex flex-col lg:flex-row min-h-screen">
         {/* 左侧：动态地图区域 */}
         <div className="w-full lg:w-3/5 p-10 lg:p-24 relative flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-white/5 group">
-          <div className="absolute inset-0 pointer-events-none opacity-20 group-hover:opacity-40 transition-opacity duration-1000 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#D4AF37]/20 via-transparent to-transparent"></div>
+          <div className="absolute inset-0 pointer-events-none opacity-60 group-hover:opacity-60 transition-opacity duration-1000 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#D4AF37]/20 via-transparent to-transparent"></div>
           
           <div className="relative z-20">
-            <h2 className="text-4xl lg:text-5xl font-light mb-4">峰壑星系网络</h2>
+            <h2 className="text-4xl lg:text-5xl font-serif font-light mb-4">峰壑星系网络</h2>
             <p className="text-gray-500 mb-16 text-lg max-w-md">总部中央战略指挥与全国区域俱乐部节点交汇的广袤版图。</p>
             
             {/* 抽象节点地图模拟 */}
             <div className="relative h-64 lg:h-96 w-full max-w-xl">
-              <div className="absolute inset-0 bg-[#080808] border border-white/10 rounded-3xl overflow-hidden relative">
+              <div className="absolute inset-0 bg-[#1A1A1A] border border-white/10 rounded-3xl overflow-hidden relative">
                  <div className="absolute top-1/2 left-1/2 w-4 h-4 rounded-full bg-[#D4AF37] shadow-[0_0_20px_#D4AF37] animate-pulse">
                     <div className="absolute -top-10 -left-10 w-24 h-24 border border-[#D4AF37]/30 rounded-full animate-ping opacity-50"></div>
                  </div>
@@ -162,7 +169,7 @@ export default function Home() {
         </div>
 
         {/* 右侧：最新动态时间轴 */}
-        <div className="w-full lg:w-2/5 p-10 lg:p-24 bg-[#050505] flex flex-col justify-center">
+        <div className="w-full lg:w-2/5 p-10 lg:p-24 bg-[#121212] flex flex-col justify-center">
           <h3 className="text-sm tracking-[0.3em] font-bold text-gray-600 uppercase mb-12">最新动态</h3>
           <div className="space-y-12 relative before:absolute before:inset-0 before:ml-[11px] before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-px before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
             {[
@@ -186,7 +193,7 @@ export default function Home() {
       </Section>
       
       {/* 模块六：峰壑之问 */}
-      <Section className="relative bg-[#020202] min-h-screen flex items-center justify-center overflow-hidden">
+      <Section className="relative bg-[#161616] min-h-screen flex items-center justify-center overflow-hidden">
         {/* 背景静谧视频层 - 设计工作台草图 */}
         <div className="absolute inset-0 z-0">
           <video
@@ -194,10 +201,10 @@ export default function Home() {
             loop
             muted
             playsInline
-            className="absolute inset-0 w-full h-full object-cover opacity-20 brightness-50 mix-blend-screen grayscale"
-            poster="https://images.unsplash.com/photo-1497250681558-e155bc812920?auto=format&fit=crop&q=80&w=2560" // 工作台草图后备图
+            src="/videos/背景_1.mp4"
+            className="absolute inset-0 w-full h-full object-cover opacity-60 brightness-75 mix-blend-screen grayscale"
           />
-          <div className="absolute inset-0 bg-black/60 z-10" />
+          <div className="absolute inset-0 bg-black/40 text-glow z-10" />
         </div>
         
         <div className="relative z-20 text-center px-6 max-w-4xl cursor-default">
@@ -208,7 +215,7 @@ export default function Home() {
             exit={{ opacity: 0, y: -20, filter: "blur(4px)" }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
           >
-            <h2 className="text-3xl md:text-5xl max-w-3xl leading-relaxed text-[#ECECEC] font-serif italic mb-6">
+            <h2 className="text-3xl md:text-5xl font-serif max-w-3xl leading-relaxed text-[#ECECEC] font-serif italic mb-6">
               “{questions[currentQuestion]}”
             </h2>
           </motion.div>

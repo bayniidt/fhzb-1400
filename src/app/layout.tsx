@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: '--font-sans' });
+const playfair = Playfair_Display({ subsets: ["latin"], variable: '--font-serif' });
 
 export const metadata: Metadata = {
   title: "峰壑资本俱乐部 | 共筑峰峦",
@@ -15,8 +16,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="zh-CN" className="bg-[#050505]">
-      <body className={`${inter.className} bg-[#050505] text-[#EDEDED] antialiased`}>
+    <html lang="zh-CN" className="bg-[#0D0D0D]">
+      <body className={`${inter.variable} ${playfair.variable} font-sans bg-[#0D0D0D] text-[#ECECEC] antialiased`}>
         <Navbar />
         {children}
         <Footer />

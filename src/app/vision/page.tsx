@@ -11,15 +11,15 @@ export default function Vision() {
 
   return (
     <PageTransition>
-      <div className="bg-[#050505] w-full relative">
+      <div className="bg-[#121212] w-full relative">
         
         {/* Header区 */}
         <section className="pt-40 pb-20 px-6 md:px-10 max-w-7xl mx-auto border-b border-white/5">
            <span className="text-[#D4AF37] uppercase tracking-[0.4em] font-bold text-xs block mb-8">Vision & Insights</span>
-           <h1 className="text-6xl md:text-8xl lg:text-9xl font-black text-[#ECECEC] tracking-tighter mb-8">
+           <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif font-black text-[#ECECEC] tracking-tighter mb-8">
              峰壑视野
            </h1>
-           <p className="text-2xl text-gray-500 font-light max-w-3xl leading-relaxed">
+           <p className="text-2xl font-serif text-gray-500 font-light max-w-3xl leading-relaxed">
              在这里，我们只输出剔除了情绪共识的<br/>
              <span className="text-gray-300 font-medium">第一性原理。</span>
            </p>
@@ -27,16 +27,16 @@ export default function Vision() {
 
         {/* 模块一：《登峰》纪录片 (主视觉高斯模糊重质感) */}
         <Section className="!py-0 relative min-h-[90vh] flex flex-col justify-end group cursor-pointer overflow-hidden border-b border-white/5">
-           <div className="absolute inset-0 bg-[#080808] z-0">
+           <div className="absolute inset-0 bg-[#111111] z-0">
               <video
                  autoPlay
                  loop
                  muted
                  playsInline
-                 className="w-full h-full object-cover opacity-40 mix-blend-screen scale-105 group-hover:scale-100 transition-transform duration-[2s] ease-out"
-                 poster="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=2560" // 企业纪录片占据背景防空图
+                 src="/videos/人物_1.mp4"
+                 className="w-full h-full object-cover opacity-80 scale-105 group-hover:scale-100 transition-transform duration-[2s] ease-out"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#020202] via-[#020202]/30 to-transparent z-10" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#161616] via-[#161616]/30 to-transparent z-10" />
            </div>
 
            <div className="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-10 pb-20 flex flex-col lg:flex-row justify-between items-end gap-10">
@@ -57,7 +57,7 @@ export default function Vision() {
         </Section>
 
         {/* 导航 Filter 栏 */}
-        <div className="sticky top-20 z-40 bg-[#050505]/80 backdrop-blur-md border-b border-white/5 px-6 md:px-10">
+        <div className="sticky top-20 z-40 bg-[#121212]/80 backdrop-blur-md border-b border-white/5 px-6 md:px-10">
            <div className="max-w-7xl mx-auto flex gap-8 overflow-x-auto hide-scrollbar">
               {['all', '第一性原理·专栏', '峰壑洞察·研报', '峰会实录·金句', '媒体中心·公关'].map((tab, idx) => (
                  <button 
@@ -79,7 +79,7 @@ export default function Vision() {
            {(activeTab === 'all' || activeTab === '第一性原理·专栏') && (
              <div className="space-y-12">
                 <div className="flex justify-between items-end border-b border-white/10 pb-6">
-                   <h3 className="text-3xl font-light text-white">内部专栏 <span className="font-serif italic text-gray-500">/ 第一性原理</span></h3>
+                   <h3 className="text-3xl font-serif font-light text-white">内部专栏 <span className="font-serif italic text-gray-500">/ 第一性原理</span></h3>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                    {[
@@ -91,7 +91,7 @@ export default function Vision() {
                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
                            {article.type}
                          </span>
-                         <h4 className="text-2xl text-gray-200 group-hover:text-white transition-colors mb-20 leading-relaxed">{article.title}</h4>
+                         <h4 className="text-2xl font-serif text-gray-200 group-hover:text-white transition-colors mb-20 leading-relaxed">{article.title}</h4>
                          <div className="flex justify-between w-full items-center border-t border-white/10 pt-6">
                             <span className="text-sm text-gray-600">{article.author}</span>
                             <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
@@ -106,12 +106,12 @@ export default function Vision() {
            {(activeTab === 'all' || activeTab === '峰会实录·金句') && (
              <div className="space-y-12">
                 <div className="flex justify-between items-end border-b border-white/10 pb-6">
-                   <h3 className="text-3xl font-light text-white">峰会实录 <span className="font-serif italic text-gray-500">/ 巨擘共识</span></h3>
+                   <h3 className="text-3xl font-serif font-light text-white">峰会实录 <span className="font-serif italic text-gray-500">/ 巨擘共识</span></h3>
                 </div>
-                <div className="relative p-10 md:p-24 bg-[url('https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center grayscale mix-blend-luminosity overflow-hidden">
-                   <div className="absolute inset-0 bg-black/80 z-0"></div>
-                   <div className="relative z-10 flex flex-col items-center text-center">
-                     <span className="text-5xl text-[#D4AF37] font-serif mb-6 opacity-40">“</span>
+                <div className="relative p-10 md:p-24 bg-[url('https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center  overflow-hidden">
+                   <div className="absolute inset-0 bg-black/40 text-glow z-0"></div>
+                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#D4AF37]/5 via-transparent to-transparent pointer-events-none z-0"></div><div className="relative z-10 flex flex-col items-center text-center">
+                     <span className="text-5xl font-serif text-[#D4AF37] font-serif mb-6 opacity-60">“</span>
                      <h4 className="text-3xl md:text-5xl font-serif text-[#ECECEC] max-w-4xl leading-relaxed italic mb-10">
                        我们要的不是短期的账面浮盈，而是要在这片不确定的土壤里，钉下一片能抵御10级风暴的防风林。
                      </h4>
@@ -120,7 +120,7 @@ export default function Vision() {
                      <div className="mt-16 flex gap-4 overflow-x-auto hide-scrollbar w-full pb-4">
                         {[1,2,3].map(i => (
                            <div key={i} className="min-w-[280px] h-[160px] bg-white/5 border border-white/10 hover:bg-white/10 cursor-pointer flex items-center justify-center group">
-                              <span className="text-sm tracking-widest font-bold opacity-40 group-hover:opacity-100 transition-opacity text-white flex items-center gap-2">
+                              <span className="text-sm tracking-widest font-bold opacity-60 group-hover:opacity-100 transition-opacity text-white flex items-center gap-2">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                                 回顾片段 {i}
                               </span>
@@ -136,7 +136,7 @@ export default function Vision() {
            {(activeTab === 'all' || activeTab === '峰壑洞察·研报') && (
              <div className="space-y-12">
                 <div className="flex justify-between items-end border-b border-white/10 pb-6">
-                   <h3 className="text-3xl font-light text-white">白皮书矩阵 <span className="font-serif italic text-gray-500">/ 峰壑洞察</span></h3>
+                   <h3 className="text-3xl font-serif font-light text-white">白皮书矩阵 <span className="font-serif italic text-gray-500">/ 峰壑洞察</span></h3>
                 </div>
                 <div className="flex flex-col gap-4">
                    {[
@@ -163,7 +163,7 @@ export default function Vision() {
            {(activeTab === 'all' || activeTab === '媒体中心·公关') && (
              <div className="space-y-12">
                 <div className="flex justify-between items-end border-b border-white/10 pb-6">
-                   <h3 className="text-3xl font-light text-white">资讯阵列 <span className="font-serif italic text-gray-500">/ 媒体中心</span></h3>
+                   <h3 className="text-3xl font-serif font-light text-white">资讯阵列 <span className="font-serif italic text-gray-500">/ 媒体中心</span></h3>
                    <Link href="/contact" className="text-sm text-gray-500 hover:text-white">高分辨图库及公关套件 &rarr;</Link>
                 </div>
                 <div className="divide-y divide-white/5">

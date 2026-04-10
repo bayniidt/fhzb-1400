@@ -18,21 +18,21 @@ export default function OS() {
 
   return (
     <PageTransition>
-      <div className="bg-[#050505]">
+      <div className="bg-[#121212]">
         {/* Header Title */}
         <section className="pt-40 pb-20 px-10 max-w-7xl mx-auto flex flex-col justify-center border-b border-white/5">
-           <h1 className="text-6xl md:text-8xl font-black tracking-tighter text-[#ECECEC] mb-8">
+           <h1 className="text-6xl md:text-8xl font-serif font-black tracking-tighter text-[#ECECEC] mb-8">
              CAPITAL<br/>
              <span className="text-[#D4AF37] font-light italic font-serif">O.S.</span>
            </h1>
-           <p className="text-2xl text-gray-500 font-light max-w-2xl">
+           <p className="text-2xl font-serif text-gray-500 font-light max-w-2xl">
              不只输出资本。<br/>
              我们交付的是跑通资本市场的全链路闭环代码。
            </p>
         </section>
 
         {/* 模块一：操作系统全景图 (融投管退) */}
-        <Section className="!py-0 bg-[#020202]">
+        <Section className="!py-0 bg-[#161616]">
            <div className="flex flex-col lg:flex-row min-h-screen">
               {/* 左侧阶段栏 */}
               <div className="w-full lg:w-1/3 border-r border-white/5 flex flex-col justify-center py-20 lg:py-0">
@@ -44,7 +44,7 @@ export default function OS() {
                     >
                        <div className={`absolute left-0 top-0 w-1 h-full transition-colors duration-500 ${activeStage === idx ? 'bg-[#D4AF37]' : 'bg-transparent'}`} />
                        <div className="flex justify-between items-baseline mb-2">
-                         <span className="text-5xl font-black text-white/5 mb-4 group-hover:text-white/10 transition-colors">0{idx + 1}</span>
+                         <span className="text-5xl font-serif font-black text-white/5 mb-4 group-hover:text-white/10 transition-colors">0{idx + 1}</span>
                          <span className="text-sm tracking-widest text-[#D4AF37] opacity-60 uppercase">{stage.subtitle}</span>
                        </div>
                        <h3 className={`text-4xl font-light transition-colors duration-500 ${activeStage === idx ? 'text-[#ECECEC]' : 'text-gray-600'}`}>
@@ -64,7 +64,7 @@ export default function OS() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
                   >
-                     <h4 className="text-3xl text-gray-300 font-light mb-8 leading-relaxed max-w-xl">
+                     <h4 className="text-3xl font-serif text-gray-300 font-light mb-8 leading-relaxed max-w-xl">
                        {osStages[activeStage].desc}
                      </h4>
                      
@@ -95,10 +95,10 @@ export default function OS() {
                 loop
                 muted
                 playsInline
-                className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-screen scale-110"
-                poster="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=2560" // 科技雷达或等高线地图替换图
+                src="/videos/背景_3.mp4"
+                className="absolute inset-0 w-full h-full object-cover opacity-50 scale-105"
              />
-             <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/60 to-[#050505] z-10" />
+             <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/60 to-[#121212] z-10" />
            </div>
 
            <div className="relative z-20 max-w-7xl mx-auto px-6 w-full">
@@ -121,7 +121,7 @@ export default function OS() {
                       transition={{ delay: idx * 0.2, duration: 0.8 }}
                     >
                        <span className="text-sm font-bold text-gray-600 block mb-4 uppercase tracking-[0.2em]">Our Role {idx + 1}</span>
-                       <h3 className="text-3xl font-light text-white mb-6">{item.role}</h3>
+                       <h3 className="text-3xl font-serif font-light text-white mb-6">{item.role}</h3>
                        <p className="text-gray-500 leading-relaxed text-lg">{item.desc}</p>
                     </motion.div>
                  ))}
@@ -130,10 +130,10 @@ export default function OS() {
         </section>
 
         {/* 模块三：核心承诺 (极限硬向承诺) */}
-        <Section className="bg-[#030303] !py-32">
+        <Section className="bg-[#1A1A1A] !py-32">
            <div className="text-center mb-24">
               <h2 className="text-sm tracking-[0.3em] font-bold text-gray-600 uppercase mb-4">Core Commitments</h2>
-              <div className="text-5xl font-light text-[#ECECEC]">不用口号，用契约。</div>
+              <div className="text-5xl font-serif font-light text-[#ECECEC]">不用口号，用契约。</div>
            </div>
            
            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -144,11 +144,11 @@ export default function OS() {
                 { data: "100%", label: "上市目标与过会通关决心", stat: "99", suffix: "%执行率" },
               ].map((promise, idx) => (
                  <div key={idx} className="relative group p-10 h-[400px] flex flex-col justify-end bg-black border border-white/5 hover:border-[#D4AF37]/40 transition-colors overflow-hidden">
-                    <div className="absolute top-8 left-8 text-[#D4AF37] font-serif italic text-6xl opacity-20 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 blur-sm group-hover:blur-none">
+                    <div className="absolute top-8 left-8 text-[#D4AF37] font-serif italic text-6xl font-serif opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 blur-sm group-hover:blur-none">
                        {promise.data}
                     </div>
-                    <div className="relative z-10">
-                       <h3 className="text-3xl font-medium text-gray-200 mb-3">{promise.data}</h3>
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#D4AF37]/5 via-transparent to-transparent pointer-events-none z-0"></div><div className="relative z-10">
+                       <h3 className="text-3xl font-serif font-medium text-gray-200 mb-3">{promise.data}</h3>
                        <p className="text-gray-600">{promise.label}</p>
                     </div>
                  </div>
@@ -157,11 +157,11 @@ export default function OS() {
         </Section>
 
         {/* 模块四：工具流预览 (锁定态的云平台) */}
-        <section className="bg-[#050505] py-32 px-10 border-t border-white/5">
+        <section className="bg-[#121212] py-32 px-10 border-t border-white/5">
            <div className="max-w-7xl mx-auto">
               <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
                  <div>
-                    <h2 className="text-5xl font-light text-[#ECECEC] mb-4">赋能云平台预览</h2>
+                    <h2 className="text-5xl font-serif font-light text-[#ECECEC] mb-4">赋能云平台预览</h2>
                     <p className="text-gray-500 text-xl">高度结构化的智库武器库，沉淀数十个亿级项目的成功样板代码。</p>
                  </div>
                  <Link href="/contact" className="shrink-0 text-[#D4AF37] uppercase tracking-widest text-sm border-b border-[#D4AF37]/50 pb-1 hover:text-white hover:border-white transition-colors">
@@ -171,7 +171,7 @@ export default function OS() {
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative pb-20">
                  {/* 加密的朦胧遮罩层 */}
-                 <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-gradient-to-t from-[#050505] via-[#050505]/80 to-transparent pt-40 pointer-events-none">
+                 <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-gradient-to-t from-[#121212] via-[#121212]/80 to-transparent pt-40 pointer-events-none">
                     <div className="pointer-events-auto bg-white text-black px-10 py-4 font-bold tracking-widest text-sm uppercase shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:bg-[#D4AF37] transition-colors cursor-pointer inline-block">
                        &rarr; 核心库已锁定 (需入库许可)
                     </div>
@@ -186,7 +186,7 @@ export default function OS() {
                    { format: "VIDEO", name: "敲钟前夜：保荐机构内部推演实录" },
                    { format: "PDF", name: "产业赋能前置的尽调白皮书" },
                  ].map((doc, idx) => (
-                    <div key={idx} className="bg-[#0c0c0c] border border-white/5 p-8 flex flex-col justify-between h-48 filter blur-[2px] opacity-60">
+                    <div key={idx} className="bg-[#141414] border border-white/5 p-8 flex flex-col justify-between h-48 filter blur-[2px] opacity-60">
                        <div className="w-12 h-12 bg-white/5 flex items-center justify-center text-gray-500 font-bold text-xs tracking-wider">
                          {doc.format}
                        </div>

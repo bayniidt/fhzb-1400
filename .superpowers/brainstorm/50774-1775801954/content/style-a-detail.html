@@ -1,0 +1,47 @@
+<h2>方案 A 详细规格：温润石墨与流金 (Warm Graphite & Liquid Gold)</h2>
+<p class="subtitle">我们将通过分层的灯光效果和温暖的背景底色，为“引力核”注入活力。</p>
+
+<div class="mockup">
+  <div class="mockup-header">设计规范 (Design Tokens)</div>
+  <div class="mockup-body">
+    <div class="section">
+      <h3>1. 核心底色：非纯黑的石墨色</h3>
+      <div style="display: flex; gap: 20px;">
+        <div style="text-align: center;">
+          <div style="width: 80px; h-20 bg-[#121212]; border: 1px solid #333; height: 80px; border-radius: 8px; background: #121212;"></div>
+          <span class="label">#121212</span>
+        </div>
+        <div style="text-align: center;">
+          <div style="width: 80px; h-20 bg-[#181816]; border: 1px solid #333; height: 80px; border-radius: 8px; background: #181816;"></div>
+          <span class="label">#181816</span>
+        </div>
+      </div>
+      <p>主背景将从中心向两侧进行微弱的从 `#121212` 到 `#181816` 的径向渐变，比死黑色更有“呼吸感”。</p>
+    </div>
+
+    <div class="section">
+      <h3>2. 股市素材集成方案 (股市_1-5)</h3>
+      <div class="cards">
+        <div class="card" data-choice="os_bg" onclick="toggleSelect(this)">
+          <div class="card-body">
+            <h4>【资本操作系统】主背景</h4>
+            <p>使用 <strong>股市_1.jpg</strong> 作为底层视差背景，叠加 <code>mix-blend-overlay</code> 以及 <code>rgba(212, 175, 55, 0.1)</code> 的金光滤镜。让枯燥的数据图表显出“金辉”质感。</p>
+          </div>
+        </div>
+        <div class="card" data-choice="vision_covers" onclick="toggleSelect(this)">
+          <div class="card-body">
+            <h4>【峰壑视野】研报封面</h4>
+            <p>使用 <strong>股市_2, 3, 4</strong> 作为白皮书和研报的封面缩略图背景，统一进行金黄色调处理，强化品牌视觉锤。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>3. 动态光效：侧边金色光泄露 (Gold Light Leaks)</h3>
+      <p>在每个 Section 的左上角或右上角，增加一个固定位置的、极低透明度动画的 <code>radial-gradient</code>。它会像一束温润的阳光偶尔拂过屏幕，打破暗色调的枯燥。</p>
+    </div>
+  </div>
+</div>
+
+<p>这个详细设计是否符合您的预期？特别是关于素材的使用方式。</p>

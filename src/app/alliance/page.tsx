@@ -18,7 +18,7 @@ export default function Alliance() {
       features: ["成功案例解密库", "IPO路径一键沙盘推演", "商业BP极速响应通道"],
       cta: "提交商业标书",
       theme: "from-transparent to-[#111]",
-      img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2560" // 现代摩天楼仰视
+      video: "/videos/人物_1.mp4"
     },
     {
       id: "02",
@@ -28,7 +28,7 @@ export default function Alliance() {
       features: ["独级城市管理权", "矩阵收益全额分成", "保底跟投网络权限"],
       cta: "启动主理人考核",
       theme: "from-transparent to-[#0a0a0a]",
-      img: "https://images.unsplash.com/photo-1574095400516-7243cb8d2988?auto=format&fit=crop&q=80&w=2560" // 城市版图或者大桥
+      video: "/videos/人物_2.mp4"
     },
     {
       id: "03",
@@ -37,8 +37,8 @@ export default function Alliance() {
       desc: "抛开冗长的投资层级，建立最底层的平权沟通机制。我们开放生态基金策略底牌与过往过会硬核业绩，仅限绝对专业的资方下场共投。",
       features: ["生态基金盲池业绩揭露", "优先联投/过桥池入场", "LP 机构专属通道"],
       cta: "认证机构白名单",
-      theme: "from-transparent to-[#050505]",
-      img: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&q=80&w=2560" // 金融资本数据图
+      theme: "from-transparent to-[#121212]",
+      video: "/videos/背景_4.mp4"
     },
     {
       id: "04",
@@ -48,18 +48,18 @@ export default function Alliance() {
       features: ["绝对稀缺跟投池席位", "专职资产风控隔离顾问", "闭门私塾与至高身份标识"],
       cta: "申请内推席位",
       theme: "from-transparent to-black",
-      img: "https://images.unsplash.com/photo-1540317580384-e5d43867eaa8?auto=format&fit=crop&q=80&w=2560" // 私人聚会背景隐喻
+      video: "/videos/背景_6.mp4"
     }
   ];
 
   return (
     <PageTransition>
-      <div ref={containerRef} className="bg-[#050505] w-full relative">
+      <div ref={containerRef} className="bg-[#121212] w-full relative">
         
         {/* 顶部宣言 */}
         <section className="relative w-full min-h-[80vh] flex flex-col justify-center items-center text-center px-6 overflow-hidden">
            <div className="absolute inset-0 z-0">
-             <div className="absolute inset-0 bg-[#020202] opacity-90 z-10"></div>
+             <div className="absolute inset-0 bg-[#161616] opacity-90 z-10"></div>
              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white/10 via-black to-black z-0 pointer-events-none"></div>
            </div>
            
@@ -69,7 +69,7 @@ export default function Alliance() {
                initial={{ opacity: 0, y: 40 }}
                animate={{ opacity: 1, y: 0 }}
                transition={{ duration: 1, ease: "easeOut" }}
-               className="text-6xl md:text-8xl lg:text-9xl font-black text-[#ECECEC] tracking-tighter mb-8"
+               className="text-6xl md:text-8xl lg:text-9xl font-serif font-black text-[#ECECEC] tracking-tighter mb-8"
              >
                共筑峰峦
              </motion.h1>
@@ -77,7 +77,7 @@ export default function Alliance() {
                initial={{ opacity: 0 }}
                animate={{ opacity: 1 }}
                transition={{ delay: 0.5, duration: 1 }}
-               className="text-2xl text-gray-500 font-light max-w-3xl mx-auto"
+               className="text-2xl font-serif text-gray-500 font-light max-w-3xl mx-auto"
              >
                我们不寻找附庸者。<br/>
                只招募能在同一等高线共负盈亏的战友。
@@ -93,13 +93,14 @@ export default function Alliance() {
             return (
               <div key={idx} className="relative w-full min-h-screen flex items-center overflow-hidden sticky top-0 group">
                  {/* 每个层级的独立视觉背景 */}
-                 <div className="absolute inset-0 z-0 bg-[#050505] transition-transform duration-[10s] ease-linear group-hover:scale-105">
-                   <div 
-                     className="absolute inset-0 bg-cover bg-center opacity-30 mix-blend-luminosity grayscale"
-                     style={{ backgroundImage: `url(${alliance.img})` }}
-                   ></div>
-                   <div className={`absolute inset-0 bg-gradient-to-t ${alliance.theme} z-10`}></div>
-                   <div className="absolute inset-0 bg-black/60 z-20 backdrop-blur-[2px]"></div>
+                 <div className="absolute inset-0 z-0 bg-[#121212] transition-transform duration-[10s] ease-linear group-hover:scale-105">
+                   <video 
+                     autoPlay loop muted playsInline
+                     src={alliance.video}
+                     className="absolute inset-0 w-full h-full object-cover opacity-80 transition-opacity duration-1000"
+                   />
+                   <div className={`absolute inset-0 bg-gradient-to-t ${alliance.theme} z-10 opacity-60`}></div>
+                   <div className="absolute inset-0 bg-black/30 z-20 backdrop-blur-[1px]"></div>
                  </div>
 
                  {/* 内容层 */}
@@ -111,17 +112,17 @@ export default function Alliance() {
                          initial={{ opacity: 0, y: 20 }}
                          whileInView={{ opacity: 1, y: 0 }}
                          viewport={{ once: true, margin: "-10%" }}
-                         className="text-[#D4AF37]/30 text-8xl md:text-[180px] leading-none font-serif font-black block mb-4"
+                         className="text-[#D4AF37]/30 text-8xl font-serif md:text-[180px] leading-none font-serif font-black block mb-4"
                        >
                          {alliance.id}
                        </motion.span>
-                       <h2 className="text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight drop-shadow-lg">{alliance.title}</h2>
+                       <h2 className="text-5xl md:text-7xl font-serif font-bold text-white mb-4 tracking-tight drop-shadow-lg">{alliance.title}</h2>
                        <p className="text-[#D4AF37] font-bold tracking-widest text-sm uppercase">{alliance.subtitle}</p>
                     </div>
 
                     {/* 文案与专属 CTA 枢纽 */}
                     <div className={`w-full md:w-1/2 pt-12 md:pt-0 flex flex-col ${isEven ? 'md:order-2 px-0 md:pl-20' : 'md:order-1 px-0 md:pr-20'}`}>
-                       <p className="text-xl md:text-2xl text-gray-300 font-light leading-relaxed mb-12">
+                       <p className="text-xl md:text-2xl font-serif text-gray-300 font-light leading-relaxed mb-12">
                          {alliance.desc}
                        </p>
                        
@@ -152,7 +153,7 @@ export default function Alliance() {
         
         {/* 底座入口 */}
         <Section className="bg-black text-center border-t border-white/10 !min-h-[50vh] flex flex-col justify-center">
-          <h2 className="text-3xl font-light text-gray-400 mb-8">仍有游移？或是准备登阶？</h2>
+          <h2 className="text-3xl font-serif font-light text-gray-400 mb-8">仍有游移？或是准备登阶？</h2>
           <Link href="/contact" className="text-sm border-b border-[#D4AF37] pb-1 text-[#D4AF37] uppercase tracking-[0.2em] hover:text-white hover:border-white transition-all inline-block w-fit mx-auto">
              直接前往联结中枢进行身份筛选
           </Link>
