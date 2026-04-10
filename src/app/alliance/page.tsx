@@ -17,7 +17,7 @@ export default function Alliance() {
       desc_zh: "拥有硬核技术底座与全球扩张野心的实业企业。我们不仅注资，更代入创始人视角重构资本模型。",
       desc_en: "Industrial enterprises with core technical foundations and global ambitions. We reconstruct capital models from a founder's perspective.",
       cta: t("开启尽调接入", "Start Due Diligence"),
-      bg: "/image/alliance_1.jpg"
+      bg: "/fhzb-1400/image/alliance_1.jpg"
     },
     {
       id: "partners",
@@ -26,7 +26,7 @@ export default function Alliance() {
       desc_zh: "深耕地方产业土壤的极核合伙人。负责调动当地政商资源，承接总部的资本算力下沉。",
       desc_en: "Core partners deeply rooted in local industrial soils, mobilizing resources and executing headquarters' capital strategies.",
       cta: t("申请极核授权", "Apply for Auth"),
-      bg: "/image/alliance_2.jpg"
+      bg: "/fhzb-1400/image/alliance_2.jpg"
     },
     {
       id: "syndicate",
@@ -35,7 +35,7 @@ export default function Alliance() {
       desc_zh: "认同第一性原理的高净值个人与家族信托。参与基石项目跟投，共建长周期价值护城河。",
       desc_en: "High net worth individuals and family trusts sharing first-principles logic. Participating in cornerstone projects to build long-term moats.",
       cta: t("入驻资本池", "Join Capital Pool"),
-      bg: "/image/alliance_3.jpg"
+      bg: "/fhzb-1400/image/alliance_3.jpg"
     },
     {
       id: "echelon",
@@ -44,7 +44,7 @@ export default function Alliance() {
       desc_zh: "全球顶级律师、审计与保荐机构。为星系内的所有节点提供国际化的上市合规与架构防御。",
       desc_en: "Top-tier legal, audit, and sponsor institutions providing international IPO compliance and structural defense.",
       cta: t("建立协同链路", "Build Synergy"),
-      bg: "/image/alliance_4.jpg"
+      bg: "/fhzb-1400/image/alliance_4.jpg"
     }
   ];
 
@@ -54,7 +54,7 @@ export default function Alliance() {
         {/* Header区 */}
         <section className="relative pt-60 pb-40 border-b border-white/5 overflow-hidden">
            <img 
-             src="/videos/股市_1.jpg" 
+             src="/fhzb-1400/videos/股市_1.jpg" 
              className="absolute inset-0 w-full h-full object-cover"
              alt="Alliance Hero Background"
            />

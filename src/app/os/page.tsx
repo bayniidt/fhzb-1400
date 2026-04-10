@@ -66,7 +66,7 @@ export default function OS() {
         {/* Header区 */}
         <section className="relative pt-60 pb-40 border-b border-white/5 overflow-hidden">
            <img 
-             src="/videos/股市_2.jpg" 
+             src="/fhzb-1400/videos/股市_2.jpg" 
              className="absolute inset-0 w-full h-full object-cover"
              alt="OS Header Background"
            />

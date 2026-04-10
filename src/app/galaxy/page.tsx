@@ -39,7 +39,7 @@ export default function Galaxy() {
         {/* 模块一：总部 · 中央引擎 */}
         <section className="relative min-h-[120vh] flex flex-col justify-center border-b border-white/5 pt-32 overflow-hidden">
            <img 
-             src="/videos/背景图_4.jpg" 
+             src="/fhzb-1400/videos/背景图_4.jpg" 
              className="absolute inset-0 w-full h-full object-cover"
              alt="Galaxy Header Background"
            />
@@ -82,7 +82,7 @@ export default function Galaxy() {
         <Section className="bg-[#161616] !py-0 border-b border-white/5 flex flex-col lg:flex-row min-h-screen">
             <div className="w-full lg:w-2/3 relative min-h-[60vh] lg:min-h-screen border-b lg:border-b-0 lg:border-r border-white/10 overflow-hidden">
                 <img 
-                  src="/videos/背景图_3.jpg"
+                  src="/fhzb-1400/videos/背景图_3.jpg"
                   className="absolute inset-0 w-full h-full object-cover"
                   alt="Galaxy Map Background"
                 />

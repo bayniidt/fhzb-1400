@@ -15,7 +15,7 @@ export default function OmegaPage() {
         <PageHero 
           title={t("OMEGA 计划", "OMEGA PROGRAM")}
           subtitle={t("OMEGA 计划由峰壑资本发起，旨在为处于初创阶段的创业者提供全方位的支持，陪伴中国创业者共同成长。", "The OMEGA Program, initiated by Fenghe Capital, aims to provide all-round support for early-stage entrepreneurs, growing alongside China's innovators.")}
-          bgImage="/videos/背景图_3.jpg"
+          bgImage="/fhzb-1400/videos/背景图_3.jpg"
         />
         
         {/* Omega Stats */}
@@ -40,7 +40,7 @@ export default function OmegaPage() {
         <section className="px-6 md:px-20 py-20 max-w-7xl mx-auto w-full">
           <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-white/10">
             <img
-              src="/videos/背景图_4.jpg"
+              src="/fhzb-1400/videos/背景图_4.jpg"
               className="absolute inset-0 w-full h-full object-cover"
               alt="OMEGA Batch"
             />

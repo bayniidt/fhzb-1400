@@ -37,7 +37,7 @@ export default function Philosophy() {
           <div className="sticky top-0 w-full h-screen flex flex-col justify-center items-center overflow-hidden pt-24">
             <div className="absolute inset-0 z-0">
                <img 
-                 src="/videos/股市_3.jpg" 
+                 src="/fhzb-1400/videos/股市_3.jpg" 
                  className="absolute inset-0 w-full h-full object-cover"
                  alt="Philosophy Background"
                />
@@ -62,7 +62,7 @@ export default function Philosophy() {
               className="absolute inset-0 flex flex-col items-center justify-center z-20 bg-gradient-to-b from-transparent via-[#121212]/20 to-[#121212]"
             >
                <img 
-                 src="/videos/背景图_1.jpg"
+                 src="/fhzb-1400/videos/背景图_1.jpg"
                  className="absolute bottom-0 w-full h-1/2 object-cover"
                  alt="Background"
                />

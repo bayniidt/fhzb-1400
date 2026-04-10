@@ -42,7 +42,7 @@ export default function Home() {
             loop
             muted
             playsInline
-            src="/videos/背景_6.mp4"
+            src="/fhzb-1400/videos/背景_6.mp4"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#D4AF37]/5 to-[#121212]/30 z-10" />
@@ -79,7 +79,7 @@ export default function Home() {
       <Section className="bg-surface items-center text-center overflow-hidden relative min-h-screen px-6">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/videos/背景图_2.jpg" 
+            src="/fhzb-1400/videos/背景图_2.jpg" 
             className="absolute inset-0 w-full h-full object-cover" 
             alt="Declaration Background" 
           />
@@ -219,7 +219,7 @@ export default function Home() {
             loop
             muted
             playsInline
-            src="/videos/背景_1.mp4"
+            src="/fhzb-1400/videos/背景_1.mp4"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-glow/10 via-transparent to-transparent z-15 pointer-events-none" />
