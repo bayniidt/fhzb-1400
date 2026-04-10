@@ -12,15 +12,19 @@ export const metadata: Metadata = {
   description: "顶级数字门户、价值引擎与全球声望门户",
 };
 
+import { LanguageProvider } from "@/context/LanguageContext";
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="zh-CN">
       <body className={`${inter.variable} ${playfair.variable} font-sans bg-background text-foreground antialiased`}>
-        <Navbar />
-        {children}
-        <Footer />
+        <LanguageProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

@@ -29,23 +29,23 @@ export function Navbar() {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 h-16 transition-all duration-500 ease-out px-6 md:px-10 flex items-center justify-between",
+        "fixed top-0 left-0 right-0 z-50 h-20 transition-all duration-500 ease-out px-6 md:px-10 flex items-center justify-between",
         isScrolled
           ? "bg-black/80 backdrop-blur-md border-b border-white/10"
           : "bg-transparent"
       )}
     >
       <Link href="/" className="flex items-center gap-2">
-        <LogoIcon className="h-8 w-auto text-white" />
+        <LogoIcon className="h-10 w-auto text-white" />
       </Link>
 
       {/* Desktop Menu */}
-      <div className="hidden md:flex items-center gap-10">
+      <div className="hidden md:flex items-center gap-8 lg:gap-12">
         {NAV_LINKS.map((link) => (
           <Link
             key={link.href}
             href={link.href}
-            className="text-base font-normal text-white hover:opacity-70 transition-opacity"
+            className="text-lg font-medium text-white hover:opacity-70 transition-all"
           >
             {link.name}
           </Link>
@@ -62,7 +62,7 @@ export function Navbar() {
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 bg-black z-40 flex flex-col items-center justify-center gap-8 md:hidden">
+        <div className="fixed inset-0 bg-black z-40 flex flex-col items-center justify-center gap-10 md:hidden">
           <button
             className="absolute top-4 right-6 text-white p-2"
             onClick={() => setIsMobileMenuOpen(false)}
@@ -73,7 +73,7 @@ export function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-2xl font-light text-white"
+              className="text-3xl font-light text-white"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {link.name}

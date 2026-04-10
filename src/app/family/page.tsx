@@ -1,15 +1,20 @@
-import { Navbar } from "@/components/Navbar";
+"use client";
+
+import { Navbar } from "@/components/layout/Navbar";
 import { PageHero } from "@/components/PageHero";
-import { Footer } from "@/components/Footer";
+import { Footer } from "@/components/layout/Footer";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function FamilyPage() {
+  const { t, language } = useLanguage();
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <main className="flex-grow bg-black">
         <PageHero 
-          title="投资案例" 
-          subtitle="通过第一性原理，我们与具有全球雄心的创业者共同定义未来。" 
+          title={t("投资案例", "PORTFOLIO")}
+          subtitle={t("通过第一性原理，我们与具有全球雄心的创业者共同定义未来。", "Through first principles, we define the future alongside entrepreneurs with global ambitions.")}
           bgImage="/videos/股市_1.jpg"
         />
         
@@ -23,7 +28,7 @@ export default function FamilyPage() {
                 className="aspect-video bg-white/5 border border-white/10 flex items-center justify-center grayscale hover:grayscale-0 transition-all cursor-pointer group"
               >
                 <span className="text-white/20 group-hover:text-white/80 font-bold transition-colors">
-                  COMPANY {i + 1}
+                  {t("公司", "COMPANY")} {i + 1}
                 </span>
               </div>
             ))}

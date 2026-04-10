@@ -5,21 +5,65 @@ import { Section } from "@/components/ui/Section";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function OS() {
+  const { t, language } = useLanguage();
   const [activeStage, setActiveStage] = useState<number>(0);
+  const containerRef = useRef<HTMLDivElement>(null);
   
-  const osStages = [
-    { title: "融", subtitle: "Fundraise", desc: "不仅是资金的聚合，更是生态圈层入场券的发放。我们搭建基石盲池基金，从根源上锁定战略资源。", tools: ["基石信任契约模板", "LP 战略意图解析模型", "资产穿透财务表"] },
-    { title: "投", subtitle: "Invest", desc: "第一性原理下的极客尽调。摒弃PPT叙事，直面企业的工业代码与真实人效。", tools: ["产业根基测绘仪", "三维立体背景调查", "估值压力测试沙盘"] },
-    { title: "管", subtitle: "Manage", desc: "深度赋能的营地搭建。从商业模式重构到上市合规体系搭建，提供如手术刀般精准的模块植入。", tools: ["商业模式重组框架", "全维风控合规手册", "上市路径倒推甘特图"] },
-    { title: "退", subtitle: "Exit", desc: "精准规划的安全绳。上市百分百目标驱动，同时备置严密的托底退出通道，确保资本果实的无损采摘。", tools: ["24% 回购保障协议范本", "并购重组资源匹配库", "亏损兑付数学模型"] }
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+
+  const stages = [
+    { 
+      id: "fund", 
+      zh: "建基", 
+      en: "FOUNDATION", 
+      title_zh: "基石基金与盲池逻辑", 
+      title_en: "Cornerstone Fund & Blind Pool Logic",
+      desc_zh: "摒弃项目制散养，通过超10亿级基石基金锁定产业筹码，确保资本在不确定周期中的绝对掌控力。",
+      desc_en: "Rejecting project-based decentralization, we secure industrial chips through 1B+ cornerstone funds, ensuring absolute control in uncertain cycles.",
+      tools: ["LP 同盟网络", "资产安全隔离", "穿透式风控"]
+    },
+    { 
+      id: "invest", 
+      zh: "极研", 
+      en: "GEEK RESEARCH", 
+      title_zh: "第一性原理尽调系统", 
+      title_en: "First Principles DD System",
+      desc_zh: "穿透PPT与财务修饰，直抵技术底层与产业终局。我们不听故事，只推演生产力爆发的数学基准。",
+      desc_en: "Penetrating PPT and financial window-dressing to reach technical foundations and industrial endgames. We don't listen to stories; we calculate mathematical productivity.",
+      tools: ["技术溯源分析", "创始团队建模", "周期波动模拟"]
+    },
+    { 
+      id: "manage", 
+      zh: "陪跑", 
+      en: "ASCENT SUPPORT", 
+      title_zh: "深度赋能与模型重构", 
+      title_en: "Deep Empowerment & Re-modeling",
+      desc_zh: "派驻“影子CEO”级合伙人，在组织治理、极核裂变与资本路径上进行手术刀式干预，纠偏航向。",
+      desc_en: "Deploying 'Shadow CEO' level partners to perform surgical interventions in governance, core fission, and capital paths.",
+      tools: ["OKR 极核对齐", "全球牌照接驳", "生态资源灌溉"]
+    },
+    { 
+      id: "exit", 
+      zh: "登阶", 
+      en: "UPGRADE", 
+      title_zh: "上市合规与跨区域裂变", 
+      title_en: "IPO Compliance & Cross-border Fission",
+      desc_zh: "不仅是拿钱离场。通过合伙人系统，将被投企业转化为新的生态节点，实现从‘孤岛’到‘版图’的升维。",
+      desc_en: "More than just an exit. Through our partner system, portfolio companies transform into new ecosystem nodes, evolving from 'islands' into 'territories'.",
+      tools: ["并购重组套利", "全球交易所通兑", "节点再投资"]
+    }
   ];
 
   return (
     <PageTransition>
-      <div className="bg-background">
-        {/* Header Title */}
+      <div ref={containerRef} className="bg-background w-full relative">
+        {/* Header区 */}
         <section className="relative pt-60 pb-40 border-b border-white/5 overflow-hidden">
            <img 
              src="/videos/股市_2.jpg" 
@@ -28,179 +72,90 @@ export default function OS() {
            />
            
            <div className="max-w-7xl mx-auto px-10 relative z-20">
-
-             <h1 className="text-6xl md:text-8xl font-serif font-black tracking-tighter text-white mb-8 relative z-10 drop-shadow-2xl">
-               CAPITAL<br/>
-               <span className="text-[#D4AF37] font-light italic font-serif">O.S.</span>
+             <span className="text-[#D4AF37] uppercase tracking-[0.4em] font-bold text-xs block mb-8 relative z-10">Ascent Operating System</span>
+             <h1 className={`font-serif font-black text-white tracking-tighter mb-8 relative z-10 drop-shadow-2xl ${language === 'zh' ? 'text-6xl md:text-8xl lg:text-9xl' : 'text-5xl md:text-7xl lg:text-8xl'}`}>
+               {t('攀登系统', 'Operating System')}
              </h1>
-             <p className="text-2xl font-serif text-white/90 font-light max-w-2xl relative z-10 drop-shadow-lg">
-               不只输出资本。<br/>
-               我们交付的是跑通资本市场的全链路闭环代码。
+             <p className={`font-serif text-white/90 font-light max-w-3xl leading-relaxed relative z-10 drop-shadow-lg ${language === 'zh' ? 'text-2xl' : 'text-xl md:text-2xl'}`}>
+               {t('我们不依赖运气或直觉。', 'We don’t rely on luck or intuition.')}<br/>
+               {t('峰壑资本通过一套闭环的', 'FH Capital is driven by a closed-loop')}<br />
+               <span className="text-white font-medium">{t('资本操作系统，', 'Capital Operating System,')}</span> {t('驱动实业与资本的确定性增长。', 'driving deterministic growth.')}
              </p>
            </div>
         </section>
 
-        {/* 模块一：操作系统全景图 (融投管退) */}
-        <Section className="!py-0 bg-surface">
-           <div className="flex flex-col lg:flex-row min-h-screen">
-              {/* 左侧阶段栏 */}
-              <div className="w-full lg:w-1/3 border-r border-white/5 flex flex-col justify-center py-20 lg:py-0">
-                 {osStages.map((stage, idx) => (
-                    <div 
+        {/* 交互阶段区 */}
+        <section className="py-32 px-10 max-w-7xl mx-auto">
+           <div className="grid grid-cols-1 lg:grid-cols-12 gap-20">
+              {/* 左侧：步骤导航 */}
+              <div className="lg:col-span-4 space-y-4">
+                 {stages.map((stage, idx) => (
+                    <button 
                       key={idx}
-                      onMouseEnter={() => setActiveStage(idx)}
-                      className={`px-10 py-10 cursor-default border-b border-white/5 transition-all duration-500 relative overflow-hidden group ${activeStage === idx ? 'bg-black/20' : 'hover:bg-white/[0.02]'}`}
+                      onClick={() => setActiveStage(idx)}
+                      className={`w-full text-left p-8 border transition-all duration-500 group relative overflow-hidden ${activeStage === idx ? 'bg-[#D4AF37]/5 border-[#D4AF37]' : 'border-white/5 hover:border-white/20'}`}
                     >
-                       <div className={`absolute left-0 top-0 w-1 h-full transition-colors duration-500 ${activeStage === idx ? 'bg-[#D4AF37]' : 'bg-transparent'}`} />
-                       <div className="flex justify-between items-baseline mb-2">
-                         <span className="text-5xl font-serif font-black text-white/5 mb-4 group-hover:text-white/10 transition-colors">0{idx + 1}</span>
-                         <span className="text-sm tracking-widest text-[#D4AF37] opacity-60 uppercase">{stage.subtitle}</span>
+                       {activeStage === idx && <div className="absolute left-0 top-0 h-full w-[2px] bg-[#D4AF37]" />}
+                       <div className="flex justify-between items-center mb-4">
+                          <span className={`text-[10px] font-black uppercase tracking-widest ${activeStage === idx ? 'text-[#D4AF37]' : 'text-gray-600'}`}>{stage.en}</span>
+                          <span className={`text-xl font-serif ${activeStage === idx ? 'text-white' : 'text-gray-700'}`}>0{idx + 1}</span>
                        </div>
-                       <h3 className={`text-4xl font-light transition-colors duration-500 ${activeStage === idx ? 'text-[#ECECEC]' : 'text-gray-600'}`}>
-                         {stage.title} 阶段
-                       </h3>
-                    </div>
+                       <h3 className={`text-2xl font-serif transition-colors ${activeStage === idx ? 'text-[#ECECEC]' : 'text-gray-500'}`}>{language === 'zh' ? stage.zh : stage.en}</h3>
+                    </button>
                  ))}
               </div>
-              
-              {/* 右侧交互展示区 */}
-              <div className="w-full lg:w-2/3 p-10 lg:p-32 flex flex-col justify-center relative overflow-hidden">
-                  <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[800px] h-[800px] bg-glow rounded-full blur-[200px] opacity-10 pointer-events-none" />
-                  
-                  <motion.div 
-                    key={activeStage}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                  >
-                     <h4 className="text-3xl font-serif text-gray-300 font-light mb-8 leading-relaxed max-w-xl">
-                       {osStages[activeStage].desc}
-                     </h4>
-                     
-                     <div className="mt-16">
-                        <span className="text-xs tracking-[0.3em] uppercase text-gray-600 font-bold mb-6 block">阶段赋能工具 // Core Tools</span>
-                        <div className="flex flex-col gap-4">
-                           {osStages[activeStage].tools.map((tool, tIdx) => (
-                              <div key={tIdx} className="group flex items-center justify-between p-6 bg-white/[0.02] border border-white/5 hover:border-[#D4AF37]/50 transition-colors cursor-crosshair">
-                                 <span className="text-lg text-gray-400 group-hover:text-white transition-colors">{tool}</span>
-                                 <span className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-xs group-hover:bg-[#D4AF37] group-hover:text-black group-hover:border-[#D4AF37] transition-all">
-                                   &rarr;
-                                 </span>
-                              </div>
-                           ))}
-                        </div>
-                     </div>
-                  </motion.div>
+
+              {/* 右侧：详细内容 */}
+              <div className="lg:col-span-8 bg-surface border border-white/5 p-12 lg:p-20 relative overflow-hidden">
+                 <div className="absolute top-0 right-0 p-10 opacity-5">
+                    <span className="text-[12rem] font-serif font-black">{activeStage + 1}</span>
+                 </div>
+                 
+                 <div className="relative z-10">
+                    <h2 className="text-4xl lg:text-5xl font-serif text-white mb-10 leading-tight">
+                      {language === 'zh' ? stages[activeStage].title_zh : stages[activeStage].title_en}
+                    </h2>
+                    <p className="text-xl text-gray-400 font-light leading-relaxed mb-16 max-w-2xl">
+                      {language === 'zh' ? stages[activeStage].desc_zh : stages[activeStage].desc_en}
+                    </p>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                       {stages[activeStage].tools.map((tool, i) => (
+                          <div key={i} className="bg-black/40 border border-white/10 p-6 flex flex-col gap-4">
+                             <div className="w-8 h-[1px] bg-[#D4AF37]" />
+                             <span className="text-sm text-gray-300 font-medium">{tool}</span>
+                          </div>
+                       ))}
+                    </div>
+                 </div>
               </div>
            </div>
-        </Section>
+        </section>
 
-        {/* 模块二：登峰地图 (沉浸视频与第一性原理) */}
-        <section className="relative w-full h-[120vh] flex items-center justify-center overflow-hidden">
-           {/* 背景：股市素材与滤镜调优 */}
-           <div className="absolute inset-0 z-0">
-             <div 
-               className="absolute inset-0 bg-cover bg-center brightness-50 contrast-125 sepia-[.3] grayscale-[.2]" 
-               style={{ backgroundImage: 'url("/videos/股市_1.jpg")' }}
-             ></div>
-             {/* 金色叠加层 */}
-             <div className="absolute inset-0 bg-glow/5 mix-blend-overlay z-10" />
-             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background z-20" />
-           </div>
-
-           <div className="relative z-30 max-w-7xl mx-auto px-6 w-full">
-              <h2 className="text-5xl md:text-7xl font-serif text-[#ECECEC] mb-24 max-w-4xl leading-tight">
-                 第一性原理：<br/>
-                 <span className="text-[#D4AF37] italic font-light">如何精准测绘资本等高线。</span>
+        {/* 底部全景区 */}
+        <section className="py-40 bg-white/5 border-t border-white/5">
+           <div className="max-w-7xl mx-auto px-10 text-center">
+              <span className="text-[#D4AF37] uppercase tracking-[0.6em] font-bold text-xs mb-10 block">Full Access Library</span>
+              <h2 className={`font-serif text-white mb-16 ${language === 'zh' ? 'text-5xl md:text-7xl' : 'text-4xl md:text-6xl'}`}>
+                {t('进入后台：', 'Backend:')} <br/>
+                <span className="text-[#D4AF37] italic font-serif font-light">{t('第一性原理数据室', 'First Principles Data Room')}</span>
               </h2>
               
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-16 border-t border-white/10 pt-16">
+              <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
+                 {/* 模拟文档文件 */}
                  {[
-                   { role: "地图测绘者", desc: "剔除市场幻觉，用数据与产业真相精准标识每一处价值矿脉与隐患悬崖。" },
-                   { role: "营地搭建者", desc: "深度植入规范化经营代码，在悬崖边钉死锚点，搭建企业合规的钢铁营盘。" },
-                   { role: "安全绳守护者", desc: "在上市冲刺区提供极致资金与认知保护，即便失足也有严密的风险对冲锁扣护住本金。" },
-                 ].map((item, idx) => (
-                    <motion.div 
-                      key={idx}
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: idx * 0.2, duration: 0.8 }}
-                    >
-                       <span className="text-sm font-bold text-gray-600 block mb-4 uppercase tracking-[0.2em]">Our Role {idx + 1}</span>
-                       <h3 className="text-3xl font-serif font-light text-white mb-6">{item.role}</h3>
-                       <p className="text-gray-500 leading-relaxed text-lg">{item.desc}</p>
-                    </motion.div>
-                 ))}
-               </div>
-            </div>
-         </section>
-
-         {/* 模块三：核心承诺 (极限硬向承诺) */}
-        <Section className="bg-surface !py-32 relative overflow-hidden">
-           {/* 金色光泄露 (Light Leak) */}
-           <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-glow/10 blur-[100px] rounded-full pointer-events-none"></div>
-
-           <div className="text-center mb-24 relative z-10">
-              <h2 className="text-sm tracking-[0.3em] font-bold text-gray-600 uppercase mb-4">Core Commitments</h2>
-              <div className="text-5xl font-serif font-light text-[#ECECEC]">不用口号，用契约。</div>
-           </div>
-           
-           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
-              {[
-                { data: "对赌陪跑", label: "绑定利益，一荣俱荣", stat: "100%", suffix: "同进退" },
-                { data: "亏损兑付", label: "极致托底的生态安全带", stat: "0", suffix: "风险敞口敞口外流" },
-                { data: "24%", label: "强制回购的底线保障协议", stat: "24", suffix: "%化解壁垒" },
-                { data: "100%", label: "上市目标与过会通关决心", stat: "99", suffix: "%执行率" },
-              ].map((promise, idx) => (
-                 <div key={idx} className="relative group p-10 h-[400px] flex flex-col justify-end bg-black/40 border border-white/5 hover:border-[#D4AF37]/40 transition-colors overflow-hidden">
-                    <div className="absolute top-8 left-8 text-[#D4AF37] font-serif italic text-6xl font-serif opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 blur-sm group-hover:blur-none">
-                       {promise.data}
-                    </div>
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-glow/5 via-transparent to-transparent pointer-events-none z-0"></div><div className="relative z-10">
-                       <h3 className="text-3xl font-serif font-medium text-gray-200 mb-3">{promise.data}</h3>
-                       <p className="text-gray-600">{promise.label}</p>
-                    </div>
-                 </div>
-              ))}
-           </div>
-        </Section>
-
-        {/* 模块四：工具流预览 (锁定态的云平台) */}
-        <section className="bg-background py-32 px-10 border-t border-white/5">
-           <div className="max-w-7xl mx-auto">
-              <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-                 <div>
-                    <h2 className="text-5xl font-serif font-light text-[#ECECEC] mb-4">赋能云平台预览</h2>
-                    <p className="text-gray-500 text-xl">高度结构化的智库武器库，沉淀数十个亿级项目的成功样板代码。</p>
-                 </div>
-                 <Link href="/contact" className="shrink-0 text-[#D4AF37] uppercase tracking-widest text-sm border-b border-[#D4AF37]/50 pb-1 hover:text-white hover:border-white transition-colors">
-                    申请解锁全量权限
-                 </Link>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative pb-20">
-                 {/* 加密的朦胧遮罩层 */}
-                 <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-gradient-to-t from-background via-background/80 to-transparent pt-40 pointer-events-none">
-                    <div className="pointer-events-auto bg-white text-black px-10 py-4 font-bold tracking-widest text-sm uppercase shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:bg-[#D4AF37] transition-colors cursor-pointer inline-block">
-                       &rarr; 核心库已锁定 (需入库许可)
-                    </div>
-                 </div>
-
-                 {/* 底部模拟文档文件 */}
-                 {[
-                   { format: "PDF", name: "合规整改手册_2026战略版 (节选)" },
-                   { format: "EXCEL", name: "三张表自动化测算穿透模型_V4.2" },
-                   { format: "PPT", name: "全球化路演核心逻辑结构模板" },
-                   { format: "DOC", name: "反摊薄与优先清算协议标准范式" },
-                   { format: "VIDEO", name: "敲钟前夜：保荐机构内部推演实录" },
-                   { format: "PDF", name: "产业赋能前置的尽调白皮书" },
+                   { format: "PDF", zh: "合规整改手册_2026战略版 (节选)", en: "Compliance Manual 2026 (Excerpts)" },
+                   { format: "EXCEL", zh: "三张表自动化测算穿透模型_V4.2", en: "Automated Trilateral Projections V4.2" },
+                   { format: "PPT", zh: "全球化路演核心逻辑结构模板", en: "Global Roadshow Logic Template" },
+                   { format: "DOC", zh: "反摊薄与优先清算协议标准范式", en: "Anti-dilution and Liquidation Standards" },
+                   { format: "VIDEO", zh: "敲钟前夜：保荐机构内部推演实录", en: "Eve of IPO: Internal Simulation Records" },
+                   { format: "PDF", zh: "产业赋能前置的尽调白皮书", en: "Due Diligence Whitepaper: Industry First" },
                  ].map((doc, idx) => (
-                    <div key={idx} className="bg-surface/50 border border-white/5 p-8 flex flex-col justify-between h-48 filter blur-[2px] opacity-60">
+                    <div key={idx} className="bg-surface/50 border border-white/5 p-8 flex flex-col justify-between h-48 hover:bg-white/5 transition-all">
                        <div className="w-12 h-12 bg-white/5 flex items-center justify-center text-gray-500 font-bold text-xs tracking-wider">
                          {doc.format}
                        </div>
-                       <p className="text-white font-medium line-clamp-2">{doc.name}</p>
+                       <p className="text-white font-medium line-clamp-2">{language === 'zh' ? doc.zh : doc.en}</p>
                     </div>
                  ))}
               </div>
