@@ -211,8 +211,8 @@ export default function Vision() {
                             <span className="w-2 h-2 rounded-full bg-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity"></span>
                             <span className="text-xs font-black tracking-widest text-gray-600 group-hover:text-[#D4AF37] transition-colors">{news.date}</span>
                          </div>
-                         <h4 className="text-xl text-gray-400 group-hover:text-[#ECECEC] transition-all flex-1 leading-relaxed">{news.title}</h4>
-                         <span className="text-[10px] text-gray-700 font-bold tracking-[0.2em] uppercase">Source: {news.src}</span>
+                         <h4 className="text-xl text-gray-400 group-hover:text-[#ECECEC] transition-all flex-1 leading-relaxed">{language === 'zh' ? news.zh : news.en}</h4>
+                         <span className="text-[10px] text-gray-700 font-bold tracking-[0.2em] uppercase">Source: {language === 'zh' ? news.src_zh : news.src_en}</span>
                       </div>
                    ))}
                 </div>
