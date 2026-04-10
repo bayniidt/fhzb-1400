@@ -134,7 +134,7 @@ export default function Home() {
                     style={{ backgroundImage: `url(${item.img})` }}
                   ></div>
                   <div className="absolute inset-0 border-[1px] border-[#D4AF37] opacity-0 group-hover:opacity-20 scale-95 group-hover:scale-100 transition-all duration-1000 ease-out" style={{ borderRadius: '40% 60% 70% 30% / 40% 50% 60% 50%' }}></div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10"></div>
                   
                   <div className="relative z-20 transition-all duration-500">
                     <h3 className="text-3xl font-serif font-medium text-[#ECECEC] mb-4">
@@ -158,7 +158,7 @@ export default function Home() {
       {/* 模块四 & 模块五：星系概览与最新动态 (Split Layout) */}
       <Section className="bg-surface !px-0 !py-0 flex flex-col lg:flex-row min-h-screen">
         {/* 左侧：动态地图区域 */}
-        <div className="w-full lg:w-1/2 p-10 lg:p-24 relative flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-white/5 group">
+        <div className="w-full lg:w-2/5 p-10 lg:p-24 relative flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-white/5 group">
           <div className="absolute inset-0 pointer-events-none opacity-60 group-hover:opacity-60 transition-opacity duration-1000 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-glow/20 via-transparent to-transparent"></div>
           
           <div className="relative z-20">
@@ -186,7 +186,7 @@ export default function Home() {
         </div>
 
         {/* 右侧：最新动态时间轴 */}
-        <div className="w-full lg:w-1/2 p-10 lg:p-24 bg-background flex flex-col justify-center">
+        <div className="w-full lg:w-3/5 p-10 lg:p-24 bg-background flex flex-col justify-center">
           <h3 className="text-sm tracking-[0.3em] font-bold text-gray-600 uppercase mb-12">
             {t('最新动态', 'Latest Updates')}
           </h3>

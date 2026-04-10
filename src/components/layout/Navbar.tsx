@@ -52,7 +52,7 @@ export function Navbar() {
             <Link 
               key={link.href} 
               href={link.href} 
-              className={`px-3 md:px-5 py-2 text-[11px] md:text-[13px] uppercase font-bold tracking-[0.1em] md:tracking-[0.2em] transition-all duration-500 relative group/item ${isActive ? 'text-[#D4AF37]' : 'text-gray-400 hover:text-[#ECECEC]'}`}
+              className={`px-3 md:px-5 py-2 text-[13px] md:text-[16px] uppercase font-bold tracking-[0.1em] md:tracking-[0.2em] transition-all duration-500 relative group/item ${isActive ? 'text-[#D4AF37]' : 'text-gray-400 hover:text-[#ECECEC]'}`}
             >
               <span className="relative z-10">{language === 'zh' ? link.zh : link.en}</span>
               
@@ -74,7 +74,7 @@ export function Navbar() {
       <div className="flex items-center gap-2 md:gap-4 shrink-0">
         <button 
           onClick={() => setLanguage(language === 'zh' ? 'en' : 'zh')}
-          className="text-[10px] md:text-[12px] font-bold tracking-widest text-gray-400 hover:text-[#D4AF37] transition-colors border border-white/10 px-2 py-1 min-w-[3.5rem]"
+          className="text-[12px] md:text-[14px] font-bold tracking-widest text-[#D4AF37] hover:text-white transition-colors border border-[#D4AF37]/30 px-3 py-1.5 min-w-[4rem] bg-[#D4AF37]/5"
         >
           {language === 'zh' ? 'EN' : '中文'}
         </button>

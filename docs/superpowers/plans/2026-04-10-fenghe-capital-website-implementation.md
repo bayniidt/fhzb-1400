@@ -24,6 +24,7 @@ pnpm install framer-motion lucide-react clsx tailwind-merge
 ```
 
 - [ ] **Step 2: Create a PageTransition wrapper**
+{% raw %}
 ```tsx
 // src/components/ui/PageTransition.tsx
 "use client";
@@ -43,8 +44,10 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
   );
 }
 ```
+{% endraw %}
 
 - [ ] **Step 3: Create Navbar**
+{% raw %}
 ```tsx
 // src/components/layout/Navbar.tsx
 "use client";
@@ -94,6 +97,7 @@ export function Navbar() {
   );
 }
 ```
+{% endraw %}
 
 - [ ] **Step 4: Create Footer**
 ```tsx
