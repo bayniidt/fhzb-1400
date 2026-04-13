@@ -2,7 +2,6 @@
 
 import { Navbar } from "@/components/layout/Navbar";
 import { PageHero } from "@/components/PageHero";
-import { Footer } from "@/components/layout/Footer";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function OmegaPage() {
@@ -53,7 +52,6 @@ export default function OmegaPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   );
 }

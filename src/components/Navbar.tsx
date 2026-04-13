@@ -11,7 +11,7 @@ const NAV_LINKS = [
   { name: "投资哲学", href: "/#philosophy", label: "Philosophy" },
   { name: "OMEGA 计划", href: "/omega", label: "OMEGA" },
   { name: "行业洞察", href: "/#insights", label: "Insights" },
-  { name: "联系我们", href: "/#contact", label: "Contact" },
+  // { name: "联系我们", href: "/#contact", label: "Contact" },
 ];
 
 export function Navbar() {

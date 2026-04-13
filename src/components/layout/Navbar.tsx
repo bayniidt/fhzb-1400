@@ -15,7 +15,6 @@ const NAV_LINKS = [
   { href: "/alliance", zh: "共筑峰峦", en: "ALLIANCE" },
   { href: "/vision", zh: "峰壑视野", en: "VISION" },
   { href: "/omega", zh: "数字峰壑", en: "GALLERY" },
-  { href: "/contact", zh: "联系我们", en: "CONTACT" },
 ]
 
 export function Navbar() {
