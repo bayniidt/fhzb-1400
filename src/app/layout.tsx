@@ -1,15 +1,27 @@
 import type { Metadata } from "next";
-import { Noto_Sans_SC } from "next/font/google";
+import localFont from "next/font/local";
 
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
-const noto = Noto_Sans_SC({ 
-  subsets: ["latin"], 
-  weight: ['400', '700'],
-  variable: '--font-sans' 
+
+const sourceHanSans = localFont({
+  src: [
+    {
+      path: "../../public/font/SourceHanSansCN-Regular.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/font/SourceHanSansCN-Bold.otf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-sans",
 });
+
 
 
 export const metadata: Metadata = {
@@ -24,7 +36,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="zh-CN">
-      <body className={`${noto.variable} font-sans bg-background text-foreground antialiased`}>
+      <body className={`${sourceHanSans.variable} font-sans bg-background text-foreground antialiased`}>
         <LanguageProvider>
           <Navbar />
           {children}

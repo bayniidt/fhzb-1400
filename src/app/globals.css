@@ -12,8 +12,8 @@
   --color-ring: var(--ring);
   --color-surface: var(--surface);
   --color-glow: var(--glow);
-  --font-sans: var(--font-sans), "Noto Sans SC", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-sans), "Noto Sans SC", ui-serif, Georgia, serif;
+  --font-sans: var(--font-sans), system-ui, sans-serif;
+  --font-serif: var(--font-sans), system-ui, sans-serif;
   --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
 }
 
