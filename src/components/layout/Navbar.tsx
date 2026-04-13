@@ -36,7 +36,7 @@ export function Navbar() {
       variants={{ visible: { y: 0 }, hidden: { y: "-100%" } }}
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] }}
-      className="fixed top-0 inset-x-0 h-20 z-50 flex items-center justify-between px-6 md:px-10 bg-[#161616]/80 backdrop-blur-2xl border-b border-[#D4AF37]/20 shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
+      className="fixed top-0 inset-x-0 h-20 z-50 flex items-center justify-between px-6 md:px-10 bg-[#000000]/80 backdrop-blur-2xl border-b border-[#D4AF37]/20 shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
     >
       <Link href="/" className="group flex items-center gap-3 shrink-0">
         <Image
@@ -56,7 +56,7 @@ export function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`px-3 md:px-5 py-2 text-[13px] md:text-[16px] uppercase font-bold tracking-[0.1em] md:tracking-[0.2em] transition-all duration-500 relative group/item ${isActive ? 'text-[#D4AF37]' : 'text-gray-400 hover:text-[#ECECEC]'}`}
+              className={`px-3 md:px-5 py-2 text-[13px] md:text-[16px] uppercase font-bold tracking-[0.1em] md:tracking-[0.2em] transition-all duration-500 relative group/item ${isActive ? 'text-[#D4AF37]' : 'text-white hover:text-[#FFFFFF]'}`}
             >
               <span className="relative z-10">{language === 'zh' ? link.zh : link.en}</span>
 

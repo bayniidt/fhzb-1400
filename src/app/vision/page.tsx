@@ -82,7 +82,7 @@ export default function Vision() {
                  <button 
                    key={idx}
                    onClick={() => setActiveTab(tab.id)}
-                   className={`whitespace-nowrap py-6 text-sm tracking-widest uppercase transition-colors relative ${activeTab === tab.id ? 'text-[#D4AF37] font-bold' : 'text-gray-500 hover:text-gray-300'}`}
+                   className={`whitespace-nowrap py-6 text-sm tracking-widest uppercase transition-colors relative ${activeTab === tab.id ? 'text-[#D4AF37] font-bold' : 'text-white hover:text-white'}`}
                  >
                    {language === 'zh' ? tab.zh : tab.en}
                    {activeTab === tab.id && <motion.div layoutId="vision-tab" className="absolute bottom-0 left-0 w-full h-[2px] bg-[#D4AF37]" />}
@@ -98,7 +98,7 @@ export default function Vision() {
            {(activeTab === 'all' || activeTab === 'column') && (
              <div className="space-y-12">
                 <div className="flex justify-between items-end border-b border-white/10 pb-6">
-                   <h3 className="text-3xl font-serif font-light text-white">{t('内部专栏', 'Internal Columns')} <span className="font-serif italic text-gray-500">/ {t('第一性原理', 'First Principles')}</span></h3>
+                   <h3 className="text-3xl font-serif font-light text-white">{t('内部专栏', 'Internal Columns')} <span className="font-serif italic text-white">/ {t('第一性原理', 'First Principles')}</span></h3>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                    {[
@@ -111,11 +111,11 @@ export default function Vision() {
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
                             {language === 'zh' ? article.type_zh : article.type_en}
                          </span>
-                         <h4 className={`font-serif text-gray-200 group-hover:text-white transition-colors mb-20 leading-relaxed relative z-10 ${language === 'zh' ? 'text-2xl' : 'text-xl'}`}>
+                         <h4 className={`font-serif text-white group-hover:text-white transition-colors mb-20 leading-relaxed relative z-10 ${language === 'zh' ? 'text-2xl' : 'text-xl'}`}>
                            {language === 'zh' ? article.zh : article.en}
                          </h4>
                          <div className="flex justify-between w-full items-center border-t border-white/10 pt-6 relative z-10">
-                            <span className="text-sm text-gray-600 font-medium uppercase tracking-widest">{language === 'zh' ? article.author_zh : article.author_en}</span>
+                            <span className="text-sm text-white font-medium uppercase tracking-widest">{language === 'zh' ? article.author_zh : article.author_en}</span>
                             <span className="text-[#D4AF37] opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-2">&rarr;</span>
                          </div>
                       </div>
@@ -128,7 +128,7 @@ export default function Vision() {
            {(activeTab === 'all' || activeTab === 'summit') && (
              <div className="space-y-12">
                 <div className="flex justify-between items-end border-b border-white/10 pb-6">
-                   <h3 className="text-3xl font-serif font-light text-white">{t('峰会实录', 'Summit Records')} <span className="font-serif italic text-gray-500">/ {t('巨擘共识', 'Giant Consensus')}</span></h3>
+                   <h3 className="text-3xl font-serif font-light text-white">{t('峰会实录', 'Summit Records')} <span className="font-serif italic text-white">/ {t('巨擘共识', 'Giant Consensus')}</span></h3>
                 </div>
                 <div className="relative p-10 md:p-24 overflow-hidden group">
                    <div 
@@ -139,7 +139,7 @@ export default function Vision() {
                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-glow/20 via-transparent to-transparent pointer-events-none z-10"></div>
                    <div className="relative z-20 flex flex-col items-center text-center">
                      <span className="text-5xl font-serif text-[#D4AF37] mb-6 opacity-60">“</span>
-                     <h4 className={`font-serif text-[#ECECEC] max-w-4xl leading-relaxed italic mb-10 drop-shadow-xl ${language === 'zh' ? 'text-3xl md:text-5xl' : 'text-2xl md:text-4xl'}`}>
+                     <h4 className={`font-serif text-[#FFFFFF] max-w-4xl leading-relaxed italic mb-10 drop-shadow-xl ${language === 'zh' ? 'text-3xl md:text-5xl' : 'text-2xl md:text-4xl'}`}>
                        {t('我们要的不是短期的账面浮盈，而是要在这片不确定的土壤里，钉下一片能抵御10级风暴的防风林。', 'What we seek is not short-term paper profit, but to plant a windbreak in this uncertain soil that can withstand a stage-10 storm.')}
                      </h4>
                      <p className="text-[#D4AF37] tracking-widest text-sm uppercase font-bold">{t('2026 生态共建日 · 会长致辞', '2026 Ecosystem Day · Chairman Address')}</p>
@@ -163,7 +163,7 @@ export default function Vision() {
            {(activeTab === 'all' || activeTab === 'insights') && (
              <div className="space-y-12">
                 <div className="flex justify-between items-end border-b border-white/10 pb-6">
-                   <h3 className="text-3xl font-serif font-light text-white">{t('白皮书矩阵', 'Whitepaper Matrix')} <span className="font-serif italic text-gray-500">/ {t('峰壑洞察', 'Summit Insights')}</span></h3>
+                   <h3 className="text-3xl font-serif font-light text-white">{t('白皮书矩阵', 'Whitepaper Matrix')} <span className="font-serif italic text-white">/ {t('峰壑洞察', 'Summit Insights')}</span></h3>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                    {[
@@ -181,9 +181,9 @@ export default function Vision() {
                             <div className="absolute top-6 left-6 bg-[#D4AF37] text-black text-[10px] font-black px-2 py-1 tracking-tighter shadow-lg">YEAR {report.year}</div>
                          </div>
                          <div className="p-8">
-                            <h4 className={`text-gray-300 group-hover:text-white transition-colors leading-relaxed mb-6 h-14 line-clamp-2 ${language === 'zh' ? 'text-lg' : 'text-base'}`}>{language === 'zh' ? report.zh : report.en}</h4>
+                            <h4 className={`text-white group-hover:text-white transition-colors leading-relaxed mb-6 h-14 line-clamp-2 ${language === 'zh' ? 'text-lg' : 'text-base'}`}>{language === 'zh' ? report.zh : report.en}</h4>
                             <div className="flex justify-between items-center pt-6 border-t border-white/10">
-                              <span className="text-[10px] text-gray-600 font-bold tracking-[0.2em] uppercase">Document / .PDF</span>
+                              <span className="text-[10px] text-white font-bold tracking-[0.2em] uppercase">Document / .PDF</span>
                               <span className="text-[#D4AF37] font-serif italic text-xl group-hover:translate-x-2 transition-transform">&rarr;</span>
                             </div>
                          </div>
@@ -197,8 +197,8 @@ export default function Vision() {
            {(activeTab === 'all' || activeTab === 'media') && (
              <div className="space-y-12">
                 <div className="flex justify-between items-end border-b border-white/10 pb-6">
-                   <h3 className="text-3xl font-serif font-light text-white">{t('资讯阵列', 'Information Array')} <span className="font-serif italic text-gray-500">/ {t('媒体中心', 'Media Center')}</span></h3>
-                   <Link href="/contact" className="text-xs tracking-widest uppercase text-gray-500 hover:text-[#D4AF37] transition-colors">{t('媒体专区', 'Press Area')} &rarr;</Link>
+                   <h3 className="text-3xl font-serif font-light text-white">{t('资讯阵列', 'Information Array')} <span className="font-serif italic text-white">/ {t('媒体中心', 'Media Center')}</span></h3>
+                   <Link href="/contact" className="text-xs tracking-widest uppercase text-white hover:text-[#D4AF37] transition-colors">{t('媒体专区', 'Press Area')} &rarr;</Link>
                 </div>
                 <div className="divide-y divide-white/10">
                    {[
@@ -209,10 +209,10 @@ export default function Vision() {
                       <div key={idx} className="py-10 flex flex-col md:flex-row justify-between md:items-center gap-6 group cursor-pointer">
                          <div className="flex items-center gap-4 min-w-[180px]">
                             <span className="w-2 h-2 rounded-full bg-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                            <span className="text-xs font-black tracking-widest text-gray-600 group-hover:text-[#D4AF37] transition-colors">{news.date}</span>
+                            <span className="text-xs font-black tracking-widest text-white group-hover:text-[#D4AF37] transition-colors">{news.date}</span>
                          </div>
-                         <h4 className="text-xl text-gray-400 group-hover:text-[#ECECEC] transition-all flex-1 leading-relaxed">{language === 'zh' ? news.zh : news.en}</h4>
-                         <span className="text-[10px] text-gray-700 font-bold tracking-[0.2em] uppercase">Source: {language === 'zh' ? news.src_zh : news.src_en}</span>
+                         <h4 className="text-xl text-white group-hover:text-[#FFFFFF] transition-all flex-1 leading-relaxed">{language === 'zh' ? news.zh : news.en}</h4>
+                         <span className="text-[10px] text-white font-bold tracking-[0.2em] uppercase">Source: {language === 'zh' ? news.src_zh : news.src_en}</span>
                       </div>
                    ))}
                 </div>

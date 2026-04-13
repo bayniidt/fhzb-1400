@@ -97,10 +97,10 @@ export default function OS() {
                     >
                        {activeStage === idx && <div className="absolute left-0 top-0 h-full w-[2px] bg-[#D4AF37]" />}
                        <div className="flex justify-between items-center mb-4">
-                          <span className={`text-[10px] font-black uppercase tracking-widest ${activeStage === idx ? 'text-[#D4AF37]' : 'text-gray-600'}`}>{stage.en}</span>
-                          <span className={`text-xl font-serif ${activeStage === idx ? 'text-white' : 'text-gray-700'}`}>0{idx + 1}</span>
+                          <span className={`text-[10px] font-black uppercase tracking-widest ${activeStage === idx ? 'text-[#D4AF37]' : 'text-white'}`}>{stage.en}</span>
+                          <span className={`text-xl font-serif ${activeStage === idx ? 'text-white' : 'text-white'}`}>0{idx + 1}</span>
                        </div>
-                       <h3 className={`text-2xl font-serif transition-colors ${activeStage === idx ? 'text-[#ECECEC]' : 'text-gray-500'}`}>{language === 'zh' ? stage.zh : stage.en}</h3>
+                       <h3 className={`text-2xl font-serif transition-colors ${activeStage === idx ? 'text-[#FFFFFF]' : 'text-white'}`}>{language === 'zh' ? stage.zh : stage.en}</h3>
                     </button>
                  ))}
               </div>
@@ -115,7 +115,7 @@ export default function OS() {
                     <h2 className="text-4xl lg:text-5xl font-serif text-white mb-10 leading-tight">
                       {language === 'zh' ? stages[activeStage].title_zh : stages[activeStage].title_en}
                     </h2>
-                    <p className="text-xl text-gray-400 font-light leading-relaxed mb-16 max-w-2xl">
+                    <p className="text-xl text-white font-light leading-relaxed mb-16 max-w-2xl">
                       {language === 'zh' ? stages[activeStage].desc_zh : stages[activeStage].desc_en}
                     </p>
                     
@@ -123,7 +123,7 @@ export default function OS() {
                        {stages[activeStage].tools.map((tool, i) => (
                           <div key={i} className="bg-black/40 border border-white/10 p-6 flex flex-col gap-4">
                              <div className="w-8 h-[1px] bg-[#D4AF37]" />
-                             <span className="text-sm text-gray-300 font-medium">{tool}</span>
+                             <span className="text-sm text-white font-medium">{tool}</span>
                           </div>
                        ))}
                     </div>
@@ -152,7 +152,7 @@ export default function OS() {
                    { format: "PDF", zh: "产业赋能前置的尽调白皮书", en: "Due Diligence Whitepaper: Industry First" },
                  ].map((doc, idx) => (
                     <div key={idx} className="bg-surface/50 border border-white/5 p-8 flex flex-col justify-between h-48 hover:bg-white/5 transition-all">
-                       <div className="w-12 h-12 bg-white/5 flex items-center justify-center text-gray-500 font-bold text-xs tracking-wider">
+                       <div className="w-12 h-12 bg-white/5 flex items-center justify-center text-white font-bold text-xs tracking-wider">
                          {doc.format}
                        </div>
                        <p className="text-white font-medium line-clamp-2">{language === 'zh' ? doc.zh : doc.en}</p>

@@ -12,15 +12,15 @@
   --color-ring: var(--ring);
   --color-surface: var(--surface);
   --color-glow: var(--glow);
-  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-serif), ui-serif, Georgia, serif;
+  --font-sans: var(--font-sans), "Noto Sans SC", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-sans), "Noto Sans SC", ui-serif, Georgia, serif;
   --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
 }
 
 :root {
-  --background: #121212;
-  --surface: #181816;
-  --foreground: #ECECEC;
+  --background: #000000;
+  --surface: #0a0a0a;
+  --foreground: #FFFFFF;
   --accent: #D4AF37;
   --border: rgba(255, 255, 255, 0.15);
   --ring: rgba(212, 175, 55, 0.5);
@@ -33,10 +33,13 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground font-sans font-normal;
   }
-  h1, h2, h3, h4, .font-serif {
-    @apply font-serif;
+  h1, h2, h3, h4, .font-serif, .font-bold, .font-semibold, .font-medium {
+    @apply font-serif font-bold text-foreground;
+  }
+  .font-light, .font-thin, .font-extralight, .font-normal {
+    @apply font-sans font-normal;
   }
   .hide-scrollbar::-webkit-scrollbar {
     display: none;

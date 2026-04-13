@@ -66,10 +66,10 @@ export default function Galaxy() {
                       className="px-8 py-16 flex flex-col justify-start relative group hover:bg-[#D4AF37]/5 transition-colors overflow-hidden"
                     >
                        <span className="text-[#D4AF37]/30 text-5xl font-serif block mb-8 group-hover:text-[#D4AF37] transition-colors opacity-60 group-hover:opacity-100">0{idx+1}</span>
-                       <h3 className={`font-medium text-gray-300 mb-6 group-hover:text-white transition-colors ${language === 'zh' ? 'text-2xl' : 'text-lg md:text-xl'}`}>
+                       <h3 className={`font-medium text-white mb-6 group-hover:text-white transition-colors ${language === 'zh' ? 'text-2xl' : 'text-lg md:text-xl'}`}>
                          {language === 'zh' ? role.zh : role.en}
                        </h3>
-                       <p className="text-gray-500 text-sm leading-loose opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">
+                       <p className="text-white text-sm leading-loose opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">
                          {language === 'zh' ? role.desc_zh : role.desc_en}
                        </p>
                     </div>
@@ -79,14 +79,14 @@ export default function Galaxy() {
         </section>
 
         {/* 模块二：区域俱乐部 · 星罗棋布 */}
-        <Section className="bg-[#161616] !py-0 border-b border-white/5 flex flex-col lg:flex-row min-h-screen">
+        <Section className="bg-[#000000] !py-0 border-b border-white/5 flex flex-col lg:flex-row min-h-screen">
             <div className="w-full lg:w-2/3 relative min-h-[60vh] lg:min-h-screen border-b lg:border-b-0 lg:border-r border-white/10 overflow-hidden">
                 <img 
                   src="/fhzb-1400/videos/背景图_3.jpg"
                   className="absolute inset-0 w-full h-full object-cover"
                   alt="Galaxy Map Background"
                 />
-                <div className="absolute inset-0 bg-[#121212]/20 z-0"></div>
+                <div className="absolute inset-0 bg-[#000000]/20 z-0"></div>
                 <div className="absolute inset-0 opacity-10 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:50px_50px] z-10"></div>
                
                <div className="absolute inset-0 z-20">
@@ -112,8 +112,8 @@ export default function Galaxy() {
 
             <div className="w-full lg:w-1/3 flex flex-col h-screen overflow-y-auto bg-[#070707]">
                <div className="p-10 lg:p-16 border-b border-white/10 sticky top-0 bg-[#050505]/90 backdrop-blur z-20">
-                  <h2 className="text-3xl lg:text-4xl font-light text-[#ECECEC] mb-4">{t('区域俱乐部阵列', 'Regional Club Matrix')}</h2>
-                  <p className="text-gray-500">{t('深入当地实业土壤的地推引擎。', 'Engines deeply rooted in local industrial soils.')}</p>
+                  <h2 className="text-3xl lg:text-4xl font-light text-[#FFFFFF] mb-4">{t('区域俱乐部阵列', 'Regional Club Matrix')}</h2>
+                  <p className="text-white">{t('深入当地实业土壤的地推引擎。', 'Engines deeply rooted in local industrial soils.')}</p>
                </div>
                <div className="flex flex-col flex-1 divide-y divide-white/5 relative z-10">
                  {regions.map((region) => (
@@ -124,15 +124,15 @@ export default function Galaxy() {
                       className={`p-10 lg:p-16 transition-colors duration-500 ${activeRegion === region.id ? 'bg-[#111]' : 'hover:bg-[#0a0a0a]'}`}
                     >
                        <div className="flex justify-between items-start mb-8">
-                         <h3 className={`text-2xl font-medium transition-colors ${activeRegion === region.id ? 'text-[#D4AF37]' : 'text-gray-300'}`}>
+                         <h3 className={`text-2xl font-medium transition-colors ${activeRegion === region.id ? 'text-[#D4AF37]' : 'text-white'}`}>
                            {language === 'zh' ? region.zh : region.en}
                          </h3>
                          <span className="text-white/20 font-serif italic pb-1 border-b border-white/10">0{region.id}</span>
                        </div>
-                       <p className="text-gray-500 mb-8 max-w-sm line-clamp-3">
+                       <p className="text-white mb-8 max-w-sm line-clamp-3">
                          {t('独占区域生态高地，共享极核算力。负责执行从优质资产圈选到当地政商协同的基础底座运营。', 'Occupying regional ecosystem heights, sharing core computing power. Managing operations from asset selection to local coordination.')}
                        </p>
-                       <Link href={`#club-${region.id}`} className="inline-flex items-center gap-2 text-sm uppercase tracking-widest text-[#ECECEC] hover:text-[#D4AF37] transition-colors">
+                       <Link href={`#club-${region.id}`} className="inline-flex items-center gap-2 text-sm uppercase tracking-widest text-[#FFFFFF] hover:text-[#D4AF37] transition-colors">
                           {t('进入俱乐部专站', 'Enter Club Portal')} 
                           <span className="bg-[#D4AF37] text-black w-4 h-4 flex items-center justify-center rounded-full font-bold">&rarr;</span>
                        </Link>
@@ -145,9 +145,9 @@ export default function Galaxy() {
         {/* 模块三：协同网络矩阵 (机构 Logo 墙阵列) */}
         <Section className="bg-[#050505] !py-32 px-6">
            <div className="max-w-7xl mx-auto w-full text-center">
-              <h2 className="text-sm tracking-[0.3em] font-bold text-gray-600 uppercase mb-4">Synergy Matrix</h2>
-              <div className="text-4xl md:text-5xl font-light text-[#ECECEC] mb-6">{t('超级协同网络', 'Super Synergy Network')}</div>
-              <p className="text-xl text-gray-500 font-light max-w-3xl mx-auto mb-20 leading-relaxed">
+              <h2 className="text-sm tracking-[0.3em] font-bold text-white uppercase mb-4">Synergy Matrix</h2>
+              <div className="text-4xl md:text-5xl font-light text-[#FFFFFF] mb-6">{t('超级协同网络', 'Super Synergy Network')}</div>
+              <p className="text-xl text-white font-light max-w-3xl mx-auto mb-20 leading-relaxed">
                 {t('建立在垂直授权体系之上的平权共识网络。我们与拥有同样审美准则的全球顶尖律所、审计与保荐机构背靠背作战。', 'A consensus network built on vertical authority. Working back-to-back with global law, audit, and sponsor firms.')}
               </p>
 
@@ -174,16 +174,16 @@ export default function Galaxy() {
            </div>
 
            <div className="relative z-10 text-center max-w-4xl px-6">
-              <h2 className={`font-black text-[#ECECEC] tracking-tighter mb-12 drop-shadow-[0_0_40px_rgba(255,255,255,0.1)] ${language === 'zh' ? 'text-6xl md:text-8xl' : 'text-5xl md:text-7xl leading-tight'}`}>
+              <h2 className={`font-black text-[#FFFFFF] tracking-tighter mb-12 drop-shadow-[0_0_40px_rgba(255,255,255,0.1)] ${language === 'zh' ? 'text-6xl md:text-8xl' : 'text-5xl md:text-7xl leading-tight'}`}>
                  {t('占领极点，', 'Capture the core,')}<br/>
                  <span className="text-[#D4AF37] italic font-serif font-light">{t('点亮下一个星区。', 'ignite the next sector.')}</span>
               </h2>
-              <p className="text-2xl text-gray-400 font-light leading-relaxed mb-20">
+              <p className="text-2xl text-white font-light leading-relaxed mb-20">
                  {t('区域独家席位稀缺。', 'Exclusive regional seats are scarce.')}<br/>
                  {t('只寻找具有深厚产业底盘与极客风范的同路人。', 'Seeking partners with deep industrial roots and geek spirit.')}
               </p>
               
-              <Link href="/contact" className="group inline-flex items-center gap-6 px-12 py-6 bg-[#ECECEC] text-[#050505] hover:bg-white hover:scale-105 transition-all text-xl font-bold uppercase tracking-widest shadow-[0_0_30px_rgba(255,255,255,0.1)]">
+              <Link href="/contact" className="group inline-flex items-center gap-6 px-12 py-6 bg-[#FFFFFF] text-[#050505] hover:bg-white hover:scale-105 transition-all text-xl font-bold uppercase tracking-widest shadow-[0_0_30px_rgba(255,255,255,0.1)]">
                  {t('成为城市合伙人', 'Become City Partner')}
                  <span className="w-8 h-8 flex items-center justify-center bg-black text-white rounded-full group-hover:bg-[#D4AF37] group-hover:text-black transition-colors">&rarr;</span>
               </Link>

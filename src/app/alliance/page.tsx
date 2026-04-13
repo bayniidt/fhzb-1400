@@ -91,7 +91,7 @@ export default function Alliance() {
                       <h2 className={`font-serif text-white mb-8 ${language === 'zh' ? 'text-5xl md:text-6xl font-light' : 'text-4xl md:text-5xl font-black'}`}>
                         {language === 'zh' ? cluster.zh : cluster.en}
                       </h2>
-                      <p className="text-xl text-gray-400 font-light leading-relaxed mb-12">
+                      <p className="text-xl text-white font-light leading-relaxed mb-12">
                         {language === 'zh' ? cluster.desc_zh : cluster.desc_en}
                       </p>
                       
@@ -113,7 +113,7 @@ export default function Alliance() {
                       
                       {/* 抽象细节 */}
                       <div className="absolute bottom-10 left-10 p-6 border-l border-[#D4AF37]/50 bg-black/40 backdrop-blur-sm">
-                         <div className="text-[10px] text-gray-500 uppercase tracking-widest mb-2">Network Status</div>
+                         <div className="text-[10px] text-white uppercase tracking-widest mb-2">Network Status</div>
                          <div className="text-white font-bold text-xs flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse"></span>
                             ACTIVE NODE 0{idx + 1}
@@ -128,7 +128,7 @@ export default function Alliance() {
         
         {/* 底座入口 */}
         <Section className="bg-black text-center border-t border-white/10 !min-h-[50vh] flex flex-col justify-center px-6">
-          <h2 className="text-3xl font-serif font-light text-gray-400 mb-8">
+          <h2 className="text-3xl font-serif font-light text-white mb-8">
             {t('仍有游移？或是准备登阶？', 'Still undecided? Or ready to ascend?')}
           </h2>
           <Link href="/contact" className="text-sm border-b border-[#D4AF37] pb-1 text-[#D4AF37] uppercase tracking-[0.2em] hover:text-white hover:border-white transition-all inline-block w-fit mx-auto">

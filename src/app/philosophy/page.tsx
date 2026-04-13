@@ -29,7 +29,7 @@ export default function Philosophy() {
 
   return (
     <PageTransition>
-      <div ref={containerRef} className="relative bg-[#121212]">
+      <div ref={containerRef} className="relative bg-[#000000]">
         
         {/* 1. 峰峦思维：思维维度的对比剧场 */}
         <section className="relative w-full h-[150vh]">
@@ -59,14 +59,14 @@ export default function Philosophy() {
             {/* 峰峦思维层 */}
             <motion.div 
               style={{ opacity: peakOpacity, scale: peakScale }} 
-              className="absolute inset-0 flex flex-col items-center justify-center z-20 bg-gradient-to-b from-transparent via-[#121212]/20 to-[#121212]"
+              className="absolute inset-0 flex flex-col items-center justify-center z-20 bg-gradient-to-b from-transparent via-[#000000]/20 to-[#000000]"
             >
                <img 
                  src="/fhzb-1400/videos/背景图_1.jpg"
                  className="absolute bottom-0 w-full h-1/2 object-cover"
                  alt="Background"
                />
-               <h2 className={`font-serif font-bold text-[#ECECEC] tracking-tight mb-8 drop-shadow-2xl ${language === 'zh' ? 'text-6xl md:text-8xl' : 'text-5xl md:text-7xl'}`}>
+               <h2 className={`font-serif font-bold text-[#FFFFFF] tracking-tight mb-8 drop-shadow-2xl ${language === 'zh' ? 'text-6xl md:text-8xl' : 'text-5xl md:text-7xl'}`}>
                  {t('峰峦思维', 'Summits Mindset')}
                </h2>
                <div className={`flex flex-wrap justify-center gap-4 md:gap-8 font-light text-[#D4AF37] tracking-widest mt-4 ${language === 'zh' ? 'text-lg' : 'text-sm md:text-base'}`}>
@@ -83,7 +83,7 @@ export default function Philosophy() {
         </section>
 
         {/* 2. 使命·愿景·价值观 */}
-        <Section className="bg-[#121212] !py-32 px-6">
+        <Section className="bg-[#000000] !py-32 px-6">
           <div className="max-w-7xl mx-auto w-full">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
               <div className="space-y-24">
@@ -92,8 +92,8 @@ export default function Philosophy() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                 >
-                  <h3 className="text-xs tracking-[0.4em] text-gray-500 uppercase font-bold mb-6">Mission / {t('使命', 'MISSION')}</h3>
-                  <p className={`font-serif font-light leading-snug text-gray-200 ${language === 'zh' ? 'text-3xl md:text-5xl' : 'text-2xl md:text-4xl'}`}>
+                  <h3 className="text-xs tracking-[0.4em] text-white uppercase font-bold mb-6">Mission / {t('使命', 'MISSION')}</h3>
+                  <p className={`font-serif font-light leading-snug text-white ${language === 'zh' ? 'text-3xl md:text-5xl' : 'text-2xl md:text-4xl'}`}>
                     {t('赋能实体产业攀登资本峰峦，', 'Empowering industries to climb capital summits,')}<br />
                     {t('守护', 'safeguarding')} <span className="font-serif italic text-[#D4AF37]">{t('长期价值', 'long-term value')}</span> {t('穿越时代周期。', 'through through historical cycles.')}
                   </p>
@@ -105,8 +105,8 @@ export default function Philosophy() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 }}
                 >
-                  <h3 className="text-xs tracking-[0.4em] text-gray-500 uppercase font-bold mb-6">Vision / {t('愿景', 'VISION')}</h3>
-                  <p className={`font-serif font-light leading-relaxed text-gray-400 ${language === 'zh' ? 'text-2xl md:text-4xl' : 'text-xl md:text-3xl'}`}>
+                  <h3 className="text-xs tracking-[0.4em] text-white uppercase font-bold mb-6">Vision / {t('愿景', 'VISION')}</h3>
+                  <p className={`font-serif font-light leading-relaxed text-white ${language === 'zh' ? 'text-2xl md:text-4xl' : 'text-xl md:text-3xl'}`}>
                     {t('成为全球创新经济体中，', 'To become the most trusted industrial capital')}<br />
                     {t('最具信任感的产业资本共生平台。', 'synergy platform in the global innovation economy.')}
                   </p>
@@ -114,7 +114,7 @@ export default function Philosophy() {
               </div>
 
               <div className="relative">
-                 <h3 className="text-xs tracking-[0.4em] text-gray-500 uppercase font-bold mb-10">Values / {t('价值观', 'VALUES')}</h3>
+                 <h3 className="text-xs tracking-[0.4em] text-white uppercase font-bold mb-10">Values / {t('价值观', 'VALUES')}</h3>
                  <div className="flex flex-col border-t border-white/10">
                    {values.map((v, idx) => (
                      <div 
@@ -122,7 +122,7 @@ export default function Philosophy() {
                        className="group border-b border-white/10 overflow-hidden cursor-pointer"
                        onClick={() => setActiveValue(activeValue === idx ? null : idx)}
                      >
-                       <div className="py-8 flex justify-between items-center transition-colors group-hover:text-[#ECECEC] text-gray-400">
+                       <div className="py-8 flex justify-between items-center transition-colors group-hover:text-[#FFFFFF] text-white">
                          <span className={`font-serif font-light tracking-wide ${language === 'zh' ? 'text-3xl md:text-4xl' : 'text-xl md:text-2xl'}`}>
                            {language === 'zh' ? v.zh : v.en}
                          </span>
@@ -137,7 +137,7 @@ export default function Philosophy() {
                          animate={{ height: activeValue === idx ? 'auto' : 0, opacity: activeValue === idx ? 1 : 0 }}
                          className="overflow-hidden"
                        >
-                         <p className="pb-8 text-gray-500 text-lg leading-relaxed max-w-lg">
+                         <p className="pb-8 text-white text-lg leading-relaxed max-w-lg">
                            {language === 'zh' ? v.desc_zh : v.desc_en}
                          </p>
                        </motion.div>
@@ -150,8 +150,8 @@ export default function Philosophy() {
         </Section>
 
         {/* 3. 三大文化支柱 */}
-        <Section className="bg-[#161616] text-center !min-h-[70vh] px-6">
-           <h2 className="text-sm tracking-[0.3em] font-bold text-gray-600 uppercase mb-20">{t('文化支柱', 'CULTURAL PILLARS')}</h2>
+        <Section className="bg-[#000000] text-center !min-h-[70vh] px-6">
+           <h2 className="text-sm tracking-[0.3em] font-bold text-white uppercase mb-20">{t('文化支柱', 'CULTURAL PILLARS')}</h2>
            <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-y border-white/5 divide-y md:divide-y-0 md:divide-x divide-white/5">
              {[
                { no: "01", zh: "闭环交付文化", en: "Closed-loop Culture", desc_zh: "规划·执行·反馈·闭环。没有终点的许诺皆为虚妄。", desc_en: "Plan, Execute, Feedback, Close. Promises without results are illusions." },
@@ -167,10 +167,10 @@ export default function Philosophy() {
                  className="p-16 flex flex-col text-left group hover:bg-[#070707] transition-colors duration-500"
                >
                   <span className="text-5xl font-serif font-light text-[#D4AF37]/40 group-hover:text-[#D4AF37] transition-colors block mb-12 font-serif">{pillar.no}</span>
-                  <h3 className={`font-serif text-gray-200 mb-6 font-medium tracking-wide ${language === 'zh' ? 'text-3xl' : 'text-xl'}`}>
+                  <h3 className={`font-serif text-white mb-6 font-medium tracking-wide ${language === 'zh' ? 'text-3xl' : 'text-xl'}`}>
                     {language === 'zh' ? pillar.zh : pillar.en}
                   </h3>
-                  <p className="text-gray-500 leading-relaxed">
+                  <p className="text-white leading-relaxed">
                     {language === 'zh' ? pillar.desc_zh : pillar.desc_en}
                   </p>
                </motion.div>
@@ -179,10 +179,10 @@ export default function Philosophy() {
         </Section>
 
         {/* 4. 文化象征与仪式 */}
-        <section className="w-full py-32 bg-[#121212] overflow-hidden">
+        <section className="w-full py-32 bg-[#000000] overflow-hidden">
           <div className="max-w-7xl mx-auto px-6 mb-16 text-center md:text-left">
             <h2 className={`font-serif font-light mb-6 ${language === 'zh' ? 'text-4xl' : 'text-3xl'}`}>{t('仪式即烙印', 'Rituals as Imprints')}</h2>
-            <p className="text-xl text-gray-500 max-w-2xl">{t('从“登峰路演会”到“生态共建日”，共同的回忆与承诺兑现大厅，编织出俱乐部无可替代的内部向心力。', 'From roadshows to ecosystem days, these shared memories and fulfilled promises weave an irreplaceable internal cohesion.')}</p>
+            <p className="text-xl text-white max-w-2xl">{t('从“登峰路演会”到“生态共建日”，共同的回忆与承诺兑现大厅，编织出俱乐部无可替代的内部向心力。', 'From roadshows to ecosystem days, these shared memories and fulfilled promises weave an irreplaceable internal cohesion.')}</p>
           </div>
           <div className="flex gap-6 px-6 pb-12 overflow-x-auto snap-x hide-scrollbar">
              {[
@@ -203,18 +203,18 @@ export default function Philosophy() {
         </section>
 
         {/* 5. 创始人的信：全屏长卷阅读 */}
-        <section className="relative w-full min-h-[120vh] bg-[#161616] border-t border-white/10 flex items-center justify-center py-40">
+        <section className="relative w-full min-h-[120vh] bg-[#000000] border-t border-white/10 flex items-center justify-center py-40">
            <div className="absolute inset-0 pointer-events-none opacity-60 bg-[url('https://images.unsplash.com/photo-1455390582262-044cdead2708?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center mix-blend-screen grayscale"></div>
-           <div className="absolute inset-0 bg-gradient-to-b from-[#121212] via-[#161616]/80 to-[#121212]"></div>
+           <div className="absolute inset-0 bg-gradient-to-b from-[#000000] via-[#000000]/80 to-[#000000]"></div>
            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#D4AF37]/5 via-transparent to-transparent pointer-events-none z-0"></div>
            
            <div className="relative z-10 max-w-3xl mx-auto px-6 text-center md:text-left">
               <span className="block text-[#D4AF37] uppercase tracking-widest text-sm mb-12 font-bold">— {t('创始人的信', 'LETTER FROM FOUNDER')}</span>
-              <h1 className={`font-serif text-[#ECECEC] mb-16 leading-relaxed ${language === 'zh' ? 'text-4xl md:text-6xl' : 'text-3xl md:text-5xl'}`}>
-                {t('《共筑峰峦', 'Building Summits')} <span className={`block text-gray-400 mt-4 font-sans font-light ${language === 'zh' ? 'text-2xl' : 'text-xl'}`}>{t('一封关于价值与未来的信', 'A letter about value and the future')}</span>{t('》', '')}
+              <h1 className={`font-serif text-[#FFFFFF] mb-16 leading-relaxed ${language === 'zh' ? 'text-4xl md:text-6xl' : 'text-3xl md:text-5xl'}`}>
+                {t('《共筑峰峦', 'Building Summits')} <span className={`block text-white mt-4 font-sans font-light ${language === 'zh' ? 'text-2xl' : 'text-xl'}`}>{t('一封关于价值与未来的信', 'A letter about value and the future')}</span>{t('》', '')}
               </h1>
               
-              <div className="space-y-10 text-lg md:text-xl text-gray-400 font-light leading-loose">
+              <div className="space-y-10 text-lg md:text-xl text-white font-light leading-loose">
                 <p>{t('致全球生态伙伴与前行者：', 'To our global ecosystem partners and pioneers:')}</p>
                 <p>
                   {t('资本的本质不应该是冰冷的数字堆砌，更不是一场击鼓传花的零和游戏。当我们创立峰壑的那一天起，就立下一条铁律——回到实业的泥泞中去，替具有鸿鹄之志的创业者扫平险障，测绘等高线。', 'Capital should not be cold numbers or a zero-sum game. Since day one, our iron rule has been to return to the reality of industry, removing obstacles for ambitious entrepreneurs.')}

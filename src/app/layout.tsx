@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Noto_Sans_SC } from "next/font/google";
+
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
-const inter = Inter({ subsets: ["latin"], variable: '--font-sans' });
-const playfair = Playfair_Display({ subsets: ["latin"], variable: '--font-serif' });
+const noto = Noto_Sans_SC({ 
+  subsets: ["latin"], 
+  weight: ['400', '700'],
+  variable: '--font-sans' 
+});
+
 
 export const metadata: Metadata = {
   title: "峰壑资本俱乐部 | 共筑峰峦",
@@ -19,7 +24,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="zh-CN">
-      <body className={`${inter.variable} ${playfair.variable} font-sans bg-background text-foreground antialiased`}>
+      <body className={`${noto.variable} font-sans bg-background text-foreground antialiased`}>
         <LanguageProvider>
           <Navbar />
           {children}

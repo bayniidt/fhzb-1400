@@ -8,7 +8,7 @@ interface PageHeroProps {
 
 export function PageHero({ title, subtitle, bgImage }: PageHeroProps) {
   return (
-    <section className="relative pt-40 pb-20 px-6 md:px-20 bg-[#121212] overflow-hidden">
+    <section className="relative pt-40 pb-20 px-6 md:px-20 bg-[#000000] overflow-hidden">
       {bgImage && (
         <img 
           src={bgImage} 

@@ -45,7 +45,7 @@ export default function Home() {
             src="/fhzb-1400/videos/背景_6.mp4"
             className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#D4AF37]/5 to-[#121212]/30 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#D4AF37]/5 to-[#000000]/30 z-10" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-[#D4AF37]/10 rounded-full blur-[120px] pointer-events-none z-10" />
         </motion.div>
         
@@ -54,7 +54,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
-            className={`font-serif font-bold tracking-tight mb-8 text-[#ECECEC] drop-shadow-2xl ${language === 'zh' ? 'text-5xl md:text-7xl lg:text-8xl' : 'text-4xl md:text-6xl lg:text-7xl leading-tight'}`}
+            className={`font-serif font-bold tracking-tight mb-8 text-[#FFFFFF] drop-shadow-2xl ${language === 'zh' ? 'text-5xl md:text-7xl lg:text-8xl' : 'text-4xl md:text-6xl lg:text-7xl leading-tight'}`}
           >
             {t('资本遇见雄心', 'Capital meets Ambition')}<br />
             {t('我们共筑峰峦', 'Building Summits Together')}
@@ -99,7 +99,7 @@ export default function Home() {
           <h2 className={`font-serif text-[#D4AF37] mb-6 tracking-widest drop-shadow-lg ${language === 'zh' ? 'text-4xl md:text-6xl lg:text-7xl' : 'text-3xl md:text-5xl'}`}>
             {t('真正的资本，', 'True capital')}
           </h2>
-          <h3 className={`font-serif font-light leading-relaxed text-[#ECECEC] drop-shadow-md ${language === 'zh' ? 'text-3xl md:text-5xl' : 'text-2xl md:text-4xl'}`}>
+          <h3 className={`font-serif font-light leading-relaxed text-[#FFFFFF] drop-shadow-md ${language === 'zh' ? 'text-3xl md:text-5xl' : 'text-2xl md:text-4xl'}`}>
             {t('是产业文明的', 'is the accelerator of')} <span className="text-white relative font-medium underline decoration-[#D4AF37] decoration-2 underline-offset-8">{t('加速器', 'industrial civilization')}</span>
             <br/>{t('而非收割器。', 'rather than its reaper.')}
           </h3>
@@ -111,7 +111,7 @@ export default function Home() {
         <div className="absolute -left-20 top-20 w-96 h-96 bg-glow/10 blur-[100px] rounded-full pointer-events-none"></div>
         
         <div className="text-center mb-10">
-          <h2 className="text-sm tracking-[0.3em] font-bold text-gray-600 uppercase">
+          <h2 className="text-sm tracking-[0.3em] font-bold text-white uppercase">
             {t('核心价值枢纽', 'Core Value Pillars')}
           </h2>
         </div>
@@ -137,10 +137,10 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10"></div>
                   
                   <div className="relative z-20 transition-all duration-500">
-                    <h3 className="text-3xl font-serif font-medium text-[#ECECEC] mb-4">
+                    <h3 className="text-3xl font-serif font-medium text-[#FFFFFF] mb-4">
                       {language === 'zh' ? item.zh : item.en}
                     </h3>
-                    <p className="text-gray-400 text-lg opacity-80 group-hover:opacity-100 transition-opacity duration-700">
+                    <p className="text-white text-lg opacity-80 group-hover:opacity-100 transition-opacity duration-700">
                       {language === 'zh' ? item.sub_zh : item.sub_en}
                     </p>
                     <div className="mt-8 pt-6 border-t border-white/10 opacity-60 group-hover:opacity-100 transition-all duration-500">
@@ -165,7 +165,7 @@ export default function Home() {
             <h2 className="text-4xl lg:text-5xl font-serif font-light mb-4">
               {t('峰壑星系网络', 'FH Galaxy Network')}
             </h2>
-            <p className="text-gray-500 mb-16 text-lg max-w-md">
+            <p className="text-white mb-16 text-lg max-w-md">
               {t('总部中央战略指挥与全国区域俱乐部节点交汇的广袤版图。', 'The intersection of central strategy and regional nodes across the global landscape.')}
             </p>
             
@@ -187,7 +187,7 @@ export default function Home() {
 
         {/* 右侧：最新动态时间轴 */}
         <div className="w-full lg:w-3/5 p-10 lg:p-24 bg-background flex flex-col justify-center">
-          <h3 className="text-sm tracking-[0.3em] font-bold text-gray-600 uppercase mb-12">
+          <h3 className="text-sm tracking-[0.3em] font-bold text-white uppercase mb-12">
             {t('最新动态', 'Latest Updates')}
           </h3>
           <div className="space-y-12 relative before:absolute before:inset-0 before:ml-[11px] before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-px before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
@@ -202,8 +202,8 @@ export default function Home() {
                 </div>
                 <div className="w-[calc(100%-3rem)] md:w-[calc(50%-2rem)] p-4 border border-transparent group-hover:border-white/5 group-hover:bg-surface/50 transition-all rounded-sm">
                   <span className="text-[#D4AF37] text-xs font-bold tracking-widest block mb-2">{feed.date}</span>
-                  <h4 className="text-lg text-gray-200 mb-1">{language === 'zh' ? feed.zh : feed.en}</h4>
-                  <p className="text-sm text-gray-500">{language === 'zh' ? feed.desc_zh : feed.desc_en}</p>
+                  <h4 className="text-lg text-white mb-1">{language === 'zh' ? feed.zh : feed.en}</h4>
+                  <p className="text-sm text-white">{language === 'zh' ? feed.desc_zh : feed.desc_en}</p>
                 </div>
               </div>
             ))}
@@ -233,7 +233,7 @@ export default function Home() {
             exit={{ opacity: 0, y: -20, filter: "blur(4px)" }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
           >
-            <h2 className={`font-serif max-w-3xl leading-relaxed text-[#ECECEC] italic mb-10 ${language === 'zh' ? 'text-3xl md:text-5xl' : 'text-2xl md:text-4xl'}`}>
+            <h2 className={`font-serif max-w-3xl leading-relaxed text-[#FFFFFF] italic mb-10 ${language === 'zh' ? 'text-3xl md:text-5xl' : 'text-2xl md:text-4xl'}`}>
               “{language === 'zh' ? questions[currentQuestion].zh : questions[currentQuestion].en}”
             </h2>
           </motion.div>
