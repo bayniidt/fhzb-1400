@@ -72,7 +72,7 @@ export default function OS() {
            />
            
            <div className="max-w-7xl mx-auto px-10 relative z-20">
-             <span className="text-[#D4AF37] uppercase tracking-[0.4em] font-bold text-xs block mb-8 relative z-10">Ascent Operating System</span>
+             <span className="text-[#b7893b] uppercase tracking-[0.4em] font-bold text-xs block mb-8 relative z-10">Ascent Operating System</span>
              <h1 className={`font-serif font-black text-white tracking-tighter mb-8 relative z-10 drop-shadow-2xl ${language === 'zh' ? 'text-6xl md:text-8xl lg:text-9xl' : 'text-5xl md:text-7xl lg:text-8xl'}`}>
                {t('攀登系统', 'Operating System')}
              </h1>
@@ -93,11 +93,11 @@ export default function OS() {
                     <button 
                       key={idx}
                       onClick={() => setActiveStage(idx)}
-                      className={`w-full text-left p-8 border transition-all duration-500 group relative overflow-hidden ${activeStage === idx ? 'bg-[#D4AF37]/5 border-[#D4AF37]' : 'border-white/5 hover:border-white/20'}`}
+                      className={`w-full text-left p-8 border transition-all duration-500 group relative overflow-hidden ${activeStage === idx ? 'bg-[#b7893b]/5 border-[#b7893b]' : 'border-white/5 hover:border-white/20'}`}
                     >
-                       {activeStage === idx && <div className="absolute left-0 top-0 h-full w-[2px] bg-[#D4AF37]" />}
+                       {activeStage === idx && <div className="absolute left-0 top-0 h-full w-[2px] bg-[#b7893b]" />}
                        <div className="flex justify-between items-center mb-4">
-                          <span className={`text-[10px] font-black uppercase tracking-widest ${activeStage === idx ? 'text-[#D4AF37]' : 'text-white'}`}>{stage.en}</span>
+                          <span className={`text-[10px] font-black uppercase tracking-widest ${activeStage === idx ? 'text-[#b7893b]' : 'text-white'}`}>{stage.en}</span>
                           <span className={`text-xl font-serif ${activeStage === idx ? 'text-white' : 'text-white'}`}>0{idx + 1}</span>
                        </div>
                        <h3 className={`text-2xl font-serif transition-colors ${activeStage === idx ? 'text-[#FFFFFF]' : 'text-white'}`}>{language === 'zh' ? stage.zh : stage.en}</h3>
@@ -122,7 +122,7 @@ export default function OS() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                        {stages[activeStage].tools.map((tool, i) => (
                           <div key={i} className="bg-black/40 border border-white/10 p-6 flex flex-col gap-4">
-                             <div className="w-8 h-[1px] bg-[#D4AF37]" />
+                             <div className="w-8 h-[1px] bg-[#b7893b]" />
                              <span className="text-sm text-white font-medium">{tool}</span>
                           </div>
                        ))}
@@ -135,10 +135,10 @@ export default function OS() {
         {/* 底部全景区 */}
         <section className="py-40 bg-white/5 border-t border-white/5">
            <div className="max-w-7xl mx-auto px-10 text-center">
-              <span className="text-[#D4AF37] uppercase tracking-[0.6em] font-bold text-xs mb-10 block">Full Access Library</span>
+              <span className="text-[#b7893b] uppercase tracking-[0.6em] font-bold text-xs mb-10 block">Full Access Library</span>
               <h2 className={`font-serif text-white mb-16 ${language === 'zh' ? 'text-5xl md:text-7xl' : 'text-4xl md:text-6xl'}`}>
                 {t('进入后台：', 'Backend:')} <br/>
-                <span className="text-[#D4AF37] italic font-serif font-light">{t('第一性原理数据室', 'First Principles Data Room')}</span>
+                <span className="text-[#b7893b] italic font-serif font-light">{t('第一性原理数据室', 'First Principles Data Room')}</span>
               </h2>
               
               <div className="grid grid-cols-2 md:grid-cols-6 gap-4">

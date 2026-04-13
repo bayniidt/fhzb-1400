@@ -59,10 +59,10 @@ export default function Alliance() {
              alt="Alliance Hero Background"
            />
            {/* 背景装饰 */}
-           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#D4AF37]/5 rounded-full blur-[150px] pointer-events-none translate-x-1/2 -translate-y-1/2" />
+           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#b7893b]/5 rounded-full blur-[150px] pointer-events-none translate-x-1/2 -translate-y-1/2" />
            
            <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-20">
-             <span className="text-[#D4AF37] uppercase tracking-[0.4em] font-bold text-xs block mb-8 relative z-10">Collective Prosperity</span>
+             <span className="text-[#b7893b] uppercase tracking-[0.4em] font-bold text-xs block mb-8 relative z-10">Collective Prosperity</span>
              <h1 className={`font-serif font-black text-white tracking-tighter mb-8 relative z-10 drop-shadow-2xl ${language === 'zh' ? 'text-6xl md:text-8xl lg:text-9xl' : 'text-5xl md:text-7xl lg:text-8xl'}`}>
                {t('共筑峰峦', 'Alliance')}
              </h1>
@@ -80,13 +80,13 @@ export default function Alliance() {
           {ecosystemClusters.map((cluster, idx) => {
             const isEven = idx % 2 === 0;
             return (
-              <div key={cluster.id} className="relative group overflow-hidden hover:bg-[#D4AF37]/5 transition-colors duration-1000">
+              <div key={cluster.id} className="relative group overflow-hidden hover:bg-[#b7893b]/5 transition-colors duration-1000">
                 <div className="max-w-7xl mx-auto px-6 md:px-10 py-32 flex flex-col md:flex-row gap-20 items-center">
                    {/* 内容 */}
                    <div className={`w-full md:w-1/2 ${isEven ? 'md:order-1' : 'md:order-2'}`}>
                       <div className="flex items-center gap-4 mb-8">
-                         <span className="w-12 h-[1px] bg-[#D4AF37]"></span>
-                         <span className="text-[#D4AF37] font-bold tracking-[0.3em] text-xs uppercase">{cluster.en}</span>
+                         <span className="w-12 h-[1px] bg-[#b7893b]"></span>
+                         <span className="text-[#b7893b] font-bold tracking-[0.3em] text-xs uppercase">{cluster.en}</span>
                       </div>
                       <h2 className={`font-serif text-white mb-8 ${language === 'zh' ? 'text-5xl md:text-6xl font-light' : 'text-4xl md:text-5xl font-black'}`}>
                         {language === 'zh' ? cluster.zh : cluster.en}
@@ -96,26 +96,26 @@ export default function Alliance() {
                       </p>
                       
                       <Link href="/contact" className="group/btn inline-flex items-center gap-6">
-                         <span className="text-white font-bold tracking-widest text-sm uppercase group-hover/btn:text-[#D4AF37] transition-colors">{cluster.cta}</span>
-                         <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover/btn:border-[#D4AF37] group-hover/btn:bg-[#D4AF37] group-hover/btn:text-black transition-all">
+                         <span className="text-white font-bold tracking-widest text-sm uppercase group-hover/btn:text-[#b7893b] transition-colors">{cluster.cta}</span>
+                         <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover/btn:border-[#b7893b] group-hover/btn:bg-[#b7893b] group-hover/btn:text-black transition-all">
                             &rarr;
                          </div>
                       </Link>
                    </div>
 
                    {/* 视觉卡片 (模拟) */}
-                   <div className={`w-full md:w-1/2 ${isEven ? 'md:order-2' : 'md:order-1'} h-[500px] relative overflow-hidden bg-surface border border-white/5 group-hover:border-[#D4AF37]/30 transition-colors`}>
+                   <div className={`w-full md:w-1/2 ${isEven ? 'md:order-2' : 'md:order-1'} h-[500px] relative overflow-hidden bg-surface border border-white/5 group-hover:border-[#b7893b]/30 transition-colors`}>
                       <div className="absolute inset-0 bg-gradient-to-br from-glow/20 via-transparent to-transparent opacity-40"></div>
-                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 border border-[#D4AF37]/20 rounded-full animate-[ping_5s_infinite] opacity-30"></div>
+                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 border border-[#b7893b]/20 rounded-full animate-[ping_5s_infinite] opacity-30"></div>
                       <div className="absolute inset-0 flex items-center justify-center">
                          <span className="text-white/5 text-[10rem] font-serif font-black select-none">{cluster.id[0].toUpperCase()}</span>
                       </div>
                       
                       {/* 抽象细节 */}
-                      <div className="absolute bottom-10 left-10 p-6 border-l border-[#D4AF37]/50 bg-black/40 backdrop-blur-sm">
+                      <div className="absolute bottom-10 left-10 p-6 border-l border-[#b7893b]/50 bg-black/40 backdrop-blur-sm">
                          <div className="text-[10px] text-white uppercase tracking-widest mb-2">Network Status</div>
                          <div className="text-white font-bold text-xs flex items-center gap-2">
-                            <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse"></span>
+                            <span className="w-2 h-2 rounded-full bg-[#b7893b] animate-pulse"></span>
                             ACTIVE NODE 0{idx + 1}
                          </div>
                       </div>
@@ -131,7 +131,7 @@ export default function Alliance() {
           <h2 className="text-3xl font-serif font-light text-white mb-8">
             {t('仍有游移？或是准备登阶？', 'Still undecided? Or ready to ascend?')}
           </h2>
-          <Link href="/contact" className="text-sm border-b border-[#D4AF37] pb-1 text-[#D4AF37] uppercase tracking-[0.2em] hover:text-white hover:border-white transition-all inline-block w-fit mx-auto">
+          <Link href="/contact" className="text-sm border-b border-[#b7893b] pb-1 text-[#b7893b] uppercase tracking-[0.2em] hover:text-white hover:border-white transition-all inline-block w-fit mx-auto">
              {t('直接前往联结中枢进行身份筛选', 'Proceed to identification at the Hub')}
           </Link>
         </Section>

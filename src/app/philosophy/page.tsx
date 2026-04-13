@@ -69,7 +69,7 @@ export default function Philosophy() {
                <h2 className={`font-serif font-bold text-[#FFFFFF] tracking-tight mb-8 drop-shadow-2xl ${language === 'zh' ? 'text-6xl md:text-8xl' : 'text-5xl md:text-7xl'}`}>
                  {t('峰峦思维', 'Summits Mindset')}
                </h2>
-               <div className={`flex flex-wrap justify-center gap-4 md:gap-8 font-light text-[#D4AF37] tracking-widest mt-4 ${language === 'zh' ? 'text-lg' : 'text-sm md:text-base'}`}>
+               <div className={`flex flex-wrap justify-center gap-4 md:gap-8 font-light text-[#b7893b] tracking-widest mt-4 ${language === 'zh' ? 'text-lg' : 'text-sm md:text-base'}`}>
                  <span>{t('立足高远', 'VISION')}</span>
                  <span className="opacity-50">/</span>
                  <span>{t('路径坚实', 'EXECUTION')}</span>
@@ -95,7 +95,7 @@ export default function Philosophy() {
                   <h3 className="text-xs tracking-[0.4em] text-white uppercase font-bold mb-6">Mission / {t('使命', 'MISSION')}</h3>
                   <p className={`font-serif font-light leading-snug text-white ${language === 'zh' ? 'text-3xl md:text-5xl' : 'text-2xl md:text-4xl'}`}>
                     {t('赋能实体产业攀登资本峰峦，', 'Empowering industries to climb capital summits,')}<br />
-                    {t('守护', 'safeguarding')} <span className="font-serif italic text-[#D4AF37]">{t('长期价值', 'long-term value')}</span> {t('穿越时代周期。', 'through through historical cycles.')}
+                    {t('守护', 'safeguarding')} <span className="font-serif italic text-[#b7893b]">{t('长期价值', 'long-term value')}</span> {t('穿越时代周期。', 'through through historical cycles.')}
                   </p>
                 </motion.div>
                 
@@ -126,7 +126,7 @@ export default function Philosophy() {
                          <span className={`font-serif font-light tracking-wide ${language === 'zh' ? 'text-3xl md:text-4xl' : 'text-xl md:text-2xl'}`}>
                            {language === 'zh' ? v.zh : v.en}
                          </span>
-                         <span className={`transform transition-transform duration-500 ${activeValue === idx ? 'rotate-45 text-[#D4AF37]' : ''}`}>
+                         <span className={`transform transition-transform duration-500 ${activeValue === idx ? 'rotate-45 text-[#b7893b]' : ''}`}>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="square">
                                <path d="M12 5v14M5 12h14"/>
                             </svg>
@@ -166,7 +166,7 @@ export default function Philosophy() {
                  transition={{ delay: idx * 0.15 }}
                  className="p-16 flex flex-col text-left group hover:bg-[#070707] transition-colors duration-500"
                >
-                  <span className="text-5xl font-serif font-light text-[#D4AF37]/40 group-hover:text-[#D4AF37] transition-colors block mb-12 font-serif">{pillar.no}</span>
+                  <span className="text-5xl font-serif font-light text-[#b7893b]/40 group-hover:text-[#b7893b] transition-colors block mb-12 font-serif">{pillar.no}</span>
                   <h3 className={`font-serif text-white mb-6 font-medium tracking-wide ${language === 'zh' ? 'text-3xl' : 'text-xl'}`}>
                     {language === 'zh' ? pillar.zh : pillar.en}
                   </h3>
@@ -206,10 +206,10 @@ export default function Philosophy() {
         <section className="relative w-full min-h-[120vh] bg-[#000000] border-t border-white/10 flex items-center justify-center py-40">
            <div className="absolute inset-0 pointer-events-none opacity-60 bg-[url('https://images.unsplash.com/photo-1455390582262-044cdead2708?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center mix-blend-screen grayscale"></div>
            <div className="absolute inset-0 bg-gradient-to-b from-[#000000] via-[#000000]/80 to-[#000000]"></div>
-           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#D4AF37]/5 via-transparent to-transparent pointer-events-none z-0"></div>
+           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#b7893b]/5 via-transparent to-transparent pointer-events-none z-0"></div>
            
            <div className="relative z-10 max-w-3xl mx-auto px-6 text-center md:text-left">
-              <span className="block text-[#D4AF37] uppercase tracking-widest text-sm mb-12 font-bold">— {t('创始人的信', 'LETTER FROM FOUNDER')}</span>
+              <span className="block text-[#b7893b] uppercase tracking-widest text-sm mb-12 font-bold">— {t('创始人的信', 'LETTER FROM FOUNDER')}</span>
               <h1 className={`font-serif text-[#FFFFFF] mb-16 leading-relaxed ${language === 'zh' ? 'text-4xl md:text-6xl' : 'text-3xl md:text-5xl'}`}>
                 {t('《共筑峰峦', 'Building Summits')} <span className={`block text-white mt-4 font-sans font-light ${language === 'zh' ? 'text-2xl' : 'text-xl'}`}>{t('一封关于价值与未来的信', 'A letter about value and the future')}</span>{t('》', '')}
               </h1>
@@ -231,7 +231,7 @@ export default function Philosophy() {
               <div className="mt-20 flex justify-end">
                  <div className="text-right">
                     <p className="text-white text-2xl font-serif italic opacity-80 mb-2">{t('创始人签名', 'Founder Signature')}</p>
-                    <p className="text-sm tracking-widest text-[#D4AF37]">FENGHE CAPITAL</p>
+                    <p className="text-sm tracking-widest text-[#b7893b]">FENGHE CAPITAL</p>
                  </div>
               </div>
            </div>

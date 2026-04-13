@@ -45,11 +45,11 @@ export default function Galaxy() {
            />
            
            <div className="absolute inset-0 z-10">
-             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] md:w-[50vw] md:h-[50vw] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#D4AF37]/10 via-transparent to-transparent animate-pulse delay-1000 duration-[4000ms] rounded-full mix-blend-screen pointer-events-none"></div>
+             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] md:w-[50vw] md:h-[50vw] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#b7893b]/10 via-transparent to-transparent animate-pulse delay-1000 duration-[4000ms] rounded-full mix-blend-screen pointer-events-none"></div>
            </div>
  
            <div className="relative z-20 max-w-7xl mx-auto px-10 w-full mb-32 text-center md:text-left">
-              <span className="text-[#D4AF37] uppercase tracking-[0.3em] font-bold text-sm block mb-6 px-1 border-l-2 border-[#D4AF37]">{t('总部', 'HEADQUARTERS')} // The Core Engine</span>
+              <span className="text-[#b7893b] uppercase tracking-[0.3em] font-bold text-sm block mb-6 px-1 border-l-2 border-[#b7893b]">{t('总部', 'HEADQUARTERS')} // The Core Engine</span>
               <h1 className={`font-black tracking-tight text-white mb-10 max-w-4xl drop-shadow-2xl ${language === 'zh' ? 'text-5xl md:text-8xl' : 'text-4xl md:text-7xl leading-tight'}`}>
                  {t('总部 · 中央引擎', 'HQ · Central Engine')}
               </h1>
@@ -63,9 +63,9 @@ export default function Galaxy() {
                  {hqRoles.map((role, idx) => (
                     <div 
                       key={idx} 
-                      className="px-8 py-16 flex flex-col justify-start relative group hover:bg-[#D4AF37]/5 transition-colors overflow-hidden"
+                      className="px-8 py-16 flex flex-col justify-start relative group hover:bg-[#b7893b]/5 transition-colors overflow-hidden"
                     >
-                       <span className="text-[#D4AF37]/30 text-5xl font-serif block mb-8 group-hover:text-[#D4AF37] transition-colors opacity-60 group-hover:opacity-100">0{idx+1}</span>
+                       <span className="text-[#b7893b]/30 text-5xl font-serif block mb-8 group-hover:text-[#b7893b] transition-colors opacity-60 group-hover:opacity-100">0{idx+1}</span>
                        <h3 className={`font-medium text-white mb-6 group-hover:text-white transition-colors ${language === 'zh' ? 'text-2xl' : 'text-lg md:text-xl'}`}>
                          {language === 'zh' ? role.zh : role.en}
                        </h3>
@@ -98,12 +98,12 @@ export default function Galaxy() {
                       className={`absolute flex items-center gap-4 cursor-crosshair transform -translate-x-1/2 -translate-y-1/2 ${region.coord} group z-30`}
                     >
                        <div className="relative flex items-center justify-center">
-                          <div className={`w-3 h-3 rounded-full transition-colors duration-500 ${activeRegion === region.id ? 'bg-[#D4AF37]' : 'bg-white/40'}`}></div>
+                          <div className={`w-3 h-3 rounded-full transition-colors duration-500 ${activeRegion === region.id ? 'bg-[#b7893b]' : 'bg-white/40'}`}></div>
                           <div className={`absolute w-12 h-12 rounded-full border border-white/20 scale-0 group-hover:scale-100 group-hover:animate-ping transition-transform duration-700`}></div>
                        </div>
                        <div className={`transition-all duration-500 ${activeRegion === region.id ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}>
                           <p className="text-white font-medium text-lg whitespace-nowrap drop-shadow-md">{language === 'zh' ? region.zh : region.en}</p>
-                          <p className="text-[#D4AF37] text-xs font-bold tracking-widest uppercase">{language === 'zh' ? region.label_zh : region.label_en}</p>
+                          <p className="text-[#b7893b] text-xs font-bold tracking-widest uppercase">{language === 'zh' ? region.label_zh : region.label_en}</p>
                        </div>
                     </div>
                   ))}
@@ -124,7 +124,7 @@ export default function Galaxy() {
                       className={`p-10 lg:p-16 transition-colors duration-500 ${activeRegion === region.id ? 'bg-[#111]' : 'hover:bg-[#0a0a0a]'}`}
                     >
                        <div className="flex justify-between items-start mb-8">
-                         <h3 className={`text-2xl font-medium transition-colors ${activeRegion === region.id ? 'text-[#D4AF37]' : 'text-white'}`}>
+                         <h3 className={`text-2xl font-medium transition-colors ${activeRegion === region.id ? 'text-[#b7893b]' : 'text-white'}`}>
                            {language === 'zh' ? region.zh : region.en}
                          </h3>
                          <span className="text-white/20 font-serif italic pb-1 border-b border-white/10">0{region.id}</span>
@@ -132,9 +132,9 @@ export default function Galaxy() {
                        <p className="text-white mb-8 max-w-sm line-clamp-3">
                          {t('独占区域生态高地，共享极核算力。负责执行从优质资产圈选到当地政商协同的基础底座运营。', 'Occupying regional ecosystem heights, sharing core computing power. Managing operations from asset selection to local coordination.')}
                        </p>
-                       <Link href={`#club-${region.id}`} className="inline-flex items-center gap-2 text-sm uppercase tracking-widest text-[#FFFFFF] hover:text-[#D4AF37] transition-colors">
+                       <Link href={`#club-${region.id}`} className="inline-flex items-center gap-2 text-sm uppercase tracking-widest text-[#FFFFFF] hover:text-[#b7893b] transition-colors">
                           {t('进入俱乐部专站', 'Enter Club Portal')} 
-                          <span className="bg-[#D4AF37] text-black w-4 h-4 flex items-center justify-center rounded-full font-bold">&rarr;</span>
+                          <span className="bg-[#b7893b] text-black w-4 h-4 flex items-center justify-center rounded-full font-bold">&rarr;</span>
                        </Link>
                     </div>
                  ))}
@@ -169,14 +169,14 @@ export default function Galaxy() {
         {/* 模块四：加入星系 CTA */}
         <Section className="bg-[#020202] !min-h-[80vh] flex flex-col justify-center items-center relative overflow-hidden px-6">
            <div className="absolute inset-0 pointer-events-none z-0">
-             <div className="absolute w-full h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent top-1/2 -translate-y-1/2"></div>
-             <div className="absolute w-[1px] h-full bg-gradient-to-b from-transparent via-[#D4AF37]/50 to-transparent left-1/2 -translate-x-1/2"></div>
+             <div className="absolute w-full h-[1px] bg-gradient-to-r from-transparent via-[#b7893b]/50 to-transparent top-1/2 -translate-y-1/2"></div>
+             <div className="absolute w-[1px] h-full bg-gradient-to-b from-transparent via-[#b7893b]/50 to-transparent left-1/2 -translate-x-1/2"></div>
            </div>
 
            <div className="relative z-10 text-center max-w-4xl px-6">
               <h2 className={`font-black text-[#FFFFFF] tracking-tighter mb-12 drop-shadow-[0_0_40px_rgba(255,255,255,0.1)] ${language === 'zh' ? 'text-6xl md:text-8xl' : 'text-5xl md:text-7xl leading-tight'}`}>
                  {t('占领极点，', 'Capture the core,')}<br/>
-                 <span className="text-[#D4AF37] italic font-serif font-light">{t('点亮下一个星区。', 'ignite the next sector.')}</span>
+                 <span className="text-[#b7893b] italic font-serif font-light">{t('点亮下一个星区。', 'ignite the next sector.')}</span>
               </h2>
               <p className="text-2xl text-white font-light leading-relaxed mb-20">
                  {t('区域独家席位稀缺。', 'Exclusive regional seats are scarce.')}<br/>
@@ -185,7 +185,7 @@ export default function Galaxy() {
               
               <Link href="/contact" className="group inline-flex items-center gap-6 px-12 py-6 bg-[#FFFFFF] text-[#050505] hover:bg-white hover:scale-105 transition-all text-xl font-bold uppercase tracking-widest shadow-[0_0_30px_rgba(255,255,255,0.1)]">
                  {t('成为城市合伙人', 'Become City Partner')}
-                 <span className="w-8 h-8 flex items-center justify-center bg-black text-white rounded-full group-hover:bg-[#D4AF37] group-hover:text-black transition-colors">&rarr;</span>
+                 <span className="w-8 h-8 flex items-center justify-center bg-black text-white rounded-full group-hover:bg-[#b7893b] group-hover:text-black transition-colors">&rarr;</span>
               </Link>
            </div>
         </Section>

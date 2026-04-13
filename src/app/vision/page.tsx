@@ -32,7 +32,7 @@ export default function Vision() {
            
            <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-20">
 
-             <span className="text-[#D4AF37] uppercase tracking-[0.4em] font-bold text-xs block mb-8 relative z-10">Vision & Insights</span>
+             <span className="text-[#b7893b] uppercase tracking-[0.4em] font-bold text-xs block mb-8 relative z-10">Vision & Insights</span>
              <h1 className={`font-serif font-black text-white tracking-tighter mb-8 relative z-10 drop-shadow-2xl ${language === 'zh' ? 'text-6xl md:text-8xl lg:text-9xl' : 'text-5xl md:text-7xl lg:text-8xl'}`}>
                {t('峰壑视野', 'Summit Insights')}
              </h1>
@@ -59,7 +59,7 @@ export default function Vision() {
            <div className="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-10 pb-20 flex flex-col lg:flex-row justify-between items-end gap-10">
               <div className="max-w-2xl">
                  <div className="flex items-center gap-4 mb-6">
-                    <span className="bg-[#D4AF37] text-black text-xs font-bold tracking-widest px-3 py-1 uppercase shadow-[0_0_15px_rgba(212,175,55,0.4)]">Series Premiere</span>
+                    <span className="bg-[#b7893b] text-black text-xs font-bold tracking-widest px-3 py-1 uppercase shadow-[0_0_15px_rgba(212,175,55,0.4)]">Series Premiere</span>
                  </div>
                  <h2 className={`font-serif text-white mb-6 leading-tight drop-shadow-2xl ${language === 'zh' ? 'text-5xl md:text-7xl' : 'text-4xl md:text-6xl'}`}>
                    {t('《登峰》', 'THE SUMMIT')}<br />{t('企业蜕变系列纪录片', 'Documentary Series')}
@@ -69,7 +69,7 @@ export default function Vision() {
                  </p>
               </div>
 
-              <div className="w-24 h-24 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-[#D4AF37] group-hover:text-black group-hover:border-[#D4AF37] transition-all shrink-0 hover:scale-110 shadow-[0_0_30px_rgba(212,175,55,0.1)]">
+              <div className="w-24 h-24 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-[#b7893b] group-hover:text-black group-hover:border-[#b7893b] transition-all shrink-0 hover:scale-110 shadow-[0_0_30px_rgba(212,175,55,0.1)]">
                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
               </div>
            </div>
@@ -82,10 +82,10 @@ export default function Vision() {
                  <button 
                    key={idx}
                    onClick={() => setActiveTab(tab.id)}
-                   className={`whitespace-nowrap py-6 text-sm tracking-widest uppercase transition-colors relative ${activeTab === tab.id ? 'text-[#D4AF37] font-bold' : 'text-white hover:text-white'}`}
+                   className={`whitespace-nowrap py-6 text-sm tracking-widest uppercase transition-colors relative ${activeTab === tab.id ? 'text-[#b7893b] font-bold' : 'text-white hover:text-white'}`}
                  >
                    {language === 'zh' ? tab.zh : tab.en}
-                   {activeTab === tab.id && <motion.div layoutId="vision-tab" className="absolute bottom-0 left-0 w-full h-[2px] bg-[#D4AF37]" />}
+                   {activeTab === tab.id && <motion.div layoutId="vision-tab" className="absolute bottom-0 left-0 w-full h-[2px] bg-[#b7893b]" />}
                  </button>
               ))}
            </div>
@@ -107,7 +107,7 @@ export default function Vision() {
                    ].map((article, idx) => (
                       <div key={idx} className="group relative bg-surface border border-white/5 p-10 hover:bg-black/40 transition-colors cursor-pointer overflow-hidden">
                          <div className="absolute top-0 right-0 w-1/4 h-full bg-glow/5 skew-x-12 translate-x-1/2 group-hover:translate-x-0 transition-transform duration-1000"></div>
-                         <span className="text-[#D4AF37] text-xs font-bold tracking-widest uppercase mb-6 block flex items-center gap-2">
+                         <span className="text-[#b7893b] text-xs font-bold tracking-widest uppercase mb-6 block flex items-center gap-2">
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
                             {language === 'zh' ? article.type_zh : article.type_en}
                          </span>
@@ -116,7 +116,7 @@ export default function Vision() {
                          </h4>
                          <div className="flex justify-between w-full items-center border-t border-white/10 pt-6 relative z-10">
                             <span className="text-sm text-white font-medium uppercase tracking-widest">{language === 'zh' ? article.author_zh : article.author_en}</span>
-                            <span className="text-[#D4AF37] opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-2">&rarr;</span>
+                            <span className="text-[#b7893b] opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-2">&rarr;</span>
                          </div>
                       </div>
                    ))}
@@ -138,17 +138,17 @@ export default function Vision() {
                    <div className="absolute inset-0 bg-background/20 z-5"></div>
                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-glow/20 via-transparent to-transparent pointer-events-none z-10"></div>
                    <div className="relative z-20 flex flex-col items-center text-center">
-                     <span className="text-5xl font-serif text-[#D4AF37] mb-6 opacity-60">“</span>
+                     <span className="text-5xl font-serif text-[#b7893b] mb-6 opacity-60">“</span>
                      <h4 className={`font-serif text-[#FFFFFF] max-w-4xl leading-relaxed italic mb-10 drop-shadow-xl ${language === 'zh' ? 'text-3xl md:text-5xl' : 'text-2xl md:text-4xl'}`}>
                        {t('我们要的不是短期的账面浮盈，而是要在这片不确定的土壤里，钉下一片能抵御10级风暴的防风林。', 'What we seek is not short-term paper profit, but to plant a windbreak in this uncertain soil that can withstand a stage-10 storm.')}
                      </h4>
-                     <p className="text-[#D4AF37] tracking-widest text-sm uppercase font-bold">{t('2026 生态共建日 · 会长致辞', '2026 Ecosystem Day · Chairman Address')}</p>
+                     <p className="text-[#b7893b] tracking-widest text-sm uppercase font-bold">{t('2026 生态共建日 · 会长致辞', '2026 Ecosystem Day · Chairman Address')}</p>
                      
                      <div className="mt-16 flex gap-4 overflow-x-auto hide-scrollbar w-full pb-4 justify-center">
                         {[1,2,3].map(i => (
-                           <div key={i} className="min-w-[280px] h-[160px] bg-background/60 backdrop-blur-sm border border-white/10 hover:border-[#D4AF37]/50 cursor-pointer flex items-center justify-center group/item transition-all">
+                           <div key={i} className="min-w-[280px] h-[160px] bg-background/60 backdrop-blur-sm border border-white/10 hover:border-[#b7893b]/50 cursor-pointer flex items-center justify-center group/item transition-all">
                               <span className="text-sm tracking-widest font-bold opacity-60 group-hover/item:opacity-100 transition-opacity text-white flex items-center gap-2">
-                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover/item:fill-[#D4AF37] group-hover/item:stroke-none transition-all"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover/item:fill-[#b7893b] group-hover/item:stroke-none transition-all"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                                  {t('回顾片段', 'Flashback')} {i}
                               </span>
                            </div>
@@ -171,20 +171,20 @@ export default function Vision() {
                      { year: "2025", zh: "穿越死亡谷：被投企业失败模型及风控止损研究", en: "Through Death Valley: Failure Models and Risk Control Research", cover: "/fhzb-1400/videos/股市_3.jpg" },
                      { year: "2025", zh: "区域深耕：合伙人生态网络极核裂变模型分析", en: "Regional Depth: Fission Model Analysis of Partner Ecosystems", cover: "/fhzb-1400/videos/股市_4.jpg" },
                    ].map((report, idx) => (
-                      <div key={idx} className="flex flex-col bg-surface border border-white/5 hover:border-[#D4AF37]/40 transition-all group cursor-pointer overflow-hidden">
+                      <div key={idx} className="flex flex-col bg-surface border border-white/5 hover:border-[#b7893b]/40 transition-all group cursor-pointer overflow-hidden">
                          <div className="h-64 overflow-hidden relative">
                             <div 
                               className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-all duration-1000" 
                               style={{ backgroundImage: `url(${report.cover})` }}
                             ></div>
                             <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
-                            <div className="absolute top-6 left-6 bg-[#D4AF37] text-black text-[10px] font-black px-2 py-1 tracking-tighter shadow-lg">YEAR {report.year}</div>
+                            <div className="absolute top-6 left-6 bg-[#b7893b] text-black text-[10px] font-black px-2 py-1 tracking-tighter shadow-lg">YEAR {report.year}</div>
                          </div>
                          <div className="p-8">
                             <h4 className={`text-white group-hover:text-white transition-colors leading-relaxed mb-6 h-14 line-clamp-2 ${language === 'zh' ? 'text-lg' : 'text-base'}`}>{language === 'zh' ? report.zh : report.en}</h4>
                             <div className="flex justify-between items-center pt-6 border-t border-white/10">
                               <span className="text-[10px] text-white font-bold tracking-[0.2em] uppercase">Document / .PDF</span>
-                              <span className="text-[#D4AF37] font-serif italic text-xl group-hover:translate-x-2 transition-transform">&rarr;</span>
+                              <span className="text-[#b7893b] font-serif italic text-xl group-hover:translate-x-2 transition-transform">&rarr;</span>
                             </div>
                          </div>
                       </div>
@@ -198,7 +198,7 @@ export default function Vision() {
              <div className="space-y-12">
                 <div className="flex justify-between items-end border-b border-white/10 pb-6">
                    <h3 className="text-3xl font-serif font-light text-white">{t('资讯阵列', 'Information Array')} <span className="font-serif italic text-white">/ {t('媒体中心', 'Media Center')}</span></h3>
-                   <Link href="/contact" className="text-xs tracking-widest uppercase text-white hover:text-[#D4AF37] transition-colors">{t('媒体专区', 'Press Area')} &rarr;</Link>
+                   <Link href="/contact" className="text-xs tracking-widest uppercase text-white hover:text-[#b7893b] transition-colors">{t('媒体专区', 'Press Area')} &rarr;</Link>
                 </div>
                 <div className="divide-y divide-white/10">
                    {[
@@ -208,8 +208,8 @@ export default function Vision() {
                    ].map((news, idx) => (
                       <div key={idx} className="py-10 flex flex-col md:flex-row justify-between md:items-center gap-6 group cursor-pointer">
                          <div className="flex items-center gap-4 min-w-[180px]">
-                            <span className="w-2 h-2 rounded-full bg-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                            <span className="text-xs font-black tracking-widest text-white group-hover:text-[#D4AF37] transition-colors">{news.date}</span>
+                            <span className="w-2 h-2 rounded-full bg-[#b7893b] opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                            <span className="text-xs font-black tracking-widest text-white group-hover:text-[#b7893b] transition-colors">{news.date}</span>
                          </div>
                          <h4 className="text-xl text-white group-hover:text-[#FFFFFF] transition-all flex-1 leading-relaxed">{language === 'zh' ? news.zh : news.en}</h4>
                          <span className="text-[10px] text-white font-bold tracking-[0.2em] uppercase">Source: {language === 'zh' ? news.src_zh : news.src_en}</span>

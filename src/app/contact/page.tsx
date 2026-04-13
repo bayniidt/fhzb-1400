@@ -22,9 +22,9 @@ export default function ContactPage() {
               className="absolute inset-0 w-full h-full object-cover opacity-60 grayscale"
               alt="Contact Background"
             />
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#D4AF37]/5 rounded-full blur-[100px] pointer-events-none translate-x-1/3 -translate-y-1/3" />
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#b7893b]/5 rounded-full blur-[100px] pointer-events-none translate-x-1/3 -translate-y-1/3" />
             <div className="relative z-10">
-              <span className="text-[#D4AF37] uppercase tracking-[0.4em] font-bold text-xs block mb-8 underline decoration-[#D4AF37]">
+              <span className="text-[#b7893b] uppercase tracking-[0.4em] font-bold text-xs block mb-8 underline decoration-[#b7893b]">
                 {t('接入门户', 'Access Portal')}
               </span>
               <h1 className="text-5xl lg:text-7xl font-serif font-light mb-16 tracking-tighter text-white leading-tight drop-shadow-2xl">
@@ -34,16 +34,16 @@ export default function ContactPage() {
 
               <div className="space-y-12">
                 <div>
-                  <h3 className="text-[#D4AF37] text-[10px] uppercase tracking-[0.3em] font-bold mb-4 opacity-60">
+                  <h3 className="text-[#b7893b] text-[10px] uppercase tracking-[0.3em] font-bold mb-4 opacity-60">
                     {t('电子邮箱', 'Email Address')}
                   </h3>
-                  <a href="mailto:contact@fh-capital.com" className="text-xl md:text-2xl text-[#FFFFFF] font-light hover:text-[#D4AF37] transition-colors">
+                  <a href="mailto:contact@fh-capital.com" className="text-xl md:text-2xl text-[#FFFFFF] font-light hover:text-[#b7893b] transition-colors">
                     contact@fh-capital.com
                   </a>
                 </div>
                 
                 <div>
-                  <h3 className="text-[#D4AF37] text-[10px] uppercase tracking-[0.3em] font-bold mb-4 opacity-60">
+                  <h3 className="text-[#b7893b] text-[10px] uppercase tracking-[0.3em] font-bold mb-4 opacity-60">
                     {t('总部地址', 'Headquarter')}
                   </h3>
                   <p className="text-xl md:text-2xl text-[#FFFFFF] font-light leading-relaxed">
@@ -64,7 +64,7 @@ export default function ContactPage() {
                 </label>
                 <div className="relative group">
                   <select 
-                    className="w-full bg-transparent border-b border-white/20 pb-4 text-xl lg:text-2xl font-serif focus:outline-none focus:border-[#D4AF37] transition-all appearance-none text-white cursor-pointer font-light"
+                    className="w-full bg-transparent border-b border-white/20 pb-4 text-xl lg:text-2xl font-serif focus:outline-none focus:border-[#b7893b] transition-all appearance-none text-white cursor-pointer font-light"
                     value={role}
                     onChange={(e) => setRole(e.target.value)}
                   >
@@ -75,7 +75,7 @@ export default function ContactPage() {
                     <option value="institution" className="bg-[#111]">{t('机构同盟 (LP/GP 互动)', 'Institutional Alliance')}</option>
                     <option value="media" className="bg-[#111]">{t('媒体活动 (公关合作)', 'Press & Media')}</option>
                   </select>
-                  <div className="absolute right-0 bottom-6 pointer-events-none text-[#D4AF37] opacity-40">↓</div>
+                  <div className="absolute right-0 bottom-6 pointer-events-none text-[#b7893b] opacity-40">↓</div>
                 </div>
               </div>
 
@@ -95,7 +95,7 @@ export default function ContactPage() {
                       <input type="text" placeholder={t('当前阶段 (天使/A轮/拟IPO等)', 'Current Stage')} className="w-full bg-transparent border-b border-white/10 pb-4 text-lg focus:outline-none focus:border-white transition-colors text-white placeholder:text-white"/>
                       <input type="text" placeholder={t('核心诉求 (资金/模型重构)', 'Key Requirements')} className="w-full bg-transparent border-b border-white/10 pb-4 text-lg focus:outline-none focus:border-white transition-colors text-white placeholder:text-white"/>
                     </div>
-                    <div className="w-full h-32 border border-dashed border-white/20 bg-white/[0.02] flex items-center justify-center text-white hover:text-[#D4AF37] hover:border-[#D4AF37] hover:bg-[#D4AF37]/5 transition-all cursor-pointer group">
+                    <div className="w-full h-32 border border-dashed border-white/20 bg-white/[0.02] flex items-center justify-center text-white hover:text-[#b7893b] hover:border-[#b7893b] hover:bg-[#b7893b]/5 transition-all cursor-pointer group">
                       <span className="text-sm tracking-widest uppercase font-medium">
                         {t('拖拽或点击上传完整商业计划书 (BP)', 'Upload Business Plan (BP)')}
                       </span>
@@ -119,7 +119,7 @@ export default function ContactPage() {
                     <input type="text" placeholder={t('意向锁定的城市或省区', 'Target Region')} className="w-full bg-transparent border-b border-white/10 pb-4 text-lg focus:outline-none focus:border-white transition-colors text-white placeholder:text-white"/>
                     <input type="text" placeholder={t('基础资金池准备概览', 'Capital Commitment Overview')} className="w-full bg-transparent border-b border-white/10 pb-4 text-lg focus:outline-none focus:border-white transition-colors text-white placeholder:text-white"/>
                     <textarea rows={3} placeholder={t('简述您在当地的政商壁垒或核心实业产业群资源...', 'Briefly describe your local resources...')} className="w-full bg-transparent border-b border-white/10 pb-4 text-lg focus:outline-none focus:border-white transition-colors text-white placeholder:text-white resize-none"></textarea>
-                    <button className="bg-[#D4AF37] text-black px-12 py-5 text-sm font-bold uppercase tracking-widest hover:bg-[#eac448] w-full transition-colors mt-8">
+                    <button className="bg-[#b7893b] text-black px-12 py-5 text-sm font-bold uppercase tracking-widest hover:bg-[#eac448] w-full transition-colors mt-8">
                       {t('开启极核区域授权面审', 'Start Regional Interview')}
                     </button>
                   </motion.div>
@@ -137,7 +137,7 @@ export default function ContactPage() {
                   >
                     <div className="flex gap-8">
                       <input type="text" placeholder={t('您的称呼与行业背景', 'Name & Industry Background')} className="w-full bg-transparent border-b border-white/10 pb-4 text-lg focus:outline-none focus:border-white transition-colors text-white placeholder:text-white"/>
-                      <input type="text" placeholder={t('圈内推荐人 (必填项)', 'Referrer (Required)')} className="w-full bg-transparent border-b border-[#D4AF37]/50 pb-4 text-lg focus:outline-none focus:border-[#D4AF37] transition-colors text-[#D4AF37] placeholder:text-[#D4AF37]/40"/>
+                      <input type="text" placeholder={t('圈内推荐人 (必填项)', 'Referrer (Required)')} className="w-full bg-transparent border-b border-[#b7893b]/50 pb-4 text-lg focus:outline-none focus:border-[#b7893b] transition-colors text-[#b7893b] placeholder:text-[#b7893b]/40"/>
                     </div>
                     <input type="text" placeholder={t('基础验资证明 (流动性资产声明)', 'Proof of Net Worth')} className="w-full bg-transparent border-b border-white/10 pb-4 text-lg focus:outline-none focus:border-white transition-colors text-white placeholder:text-white"/>
                     <textarea rows={2} placeholder={t('入会核心动机 (学习圈层/锁定内定跟投权等)...', 'Reason for joining...')} className="w-full bg-transparent border-b border-white/10 pb-4 text-lg focus:outline-none focus:border-white transition-colors text-white placeholder:text-white resize-none"></textarea>

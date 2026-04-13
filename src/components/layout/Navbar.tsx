@@ -8,17 +8,19 @@ import Image from "next/image" // 1. 引入组件
 import logoFile from "../../public/images/logo.png"; 
 
 const NAV_LINKS = [
-  { href: "/", zh: "首页", en: "Home" },
-  { href: "/philosophy", zh: "峰壑哲学", en: "Philosophy" },
-  { href: "/os", zh: "资本系统", en: "Capital O.S." },
-  { href: "/galaxy", zh: "峰壑星系", en: "Galaxy" },
-  { href: "/alliance", zh: "共筑峰峦", en: "Alliance" },
-  { href: "/vision", zh: "峰壑视野", en: "Vision" },
+  { href: "/", zh: "首页", en: "HOME" },
+  { href: "/philosophy", zh: "峰壑哲学", en: "PHILOSOPHY" },
+  { href: "/os", zh: "资本系统", en: "CAPITAL O.S." },
+  { href: "/galaxy", zh: "峰壑星系", en: "GALAXY" },
+  { href: "/alliance", zh: "共筑峰峦", en: "ALLIANCE" },
+  { href: "/vision", zh: "峰壑视野", en: "VISION" },
+  { href: "/omega", zh: "数字峰壑", en: "GALLERY" },
+  { href: "/contact", zh: "联系我们", en: "CONTACT" },
 ]
 
 export function Navbar() {
-  const { scrollY } = useScroll()
   const [hidden, setHidden] = useState(false)
+  const { scrollY } = useScroll()
   const pathname = usePathname()
   const { language, setLanguage, t } = useLanguage()
 
@@ -36,60 +38,57 @@ export function Navbar() {
       variants={{ visible: { y: 0 }, hidden: { y: "-100%" } }}
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] }}
-      className="fixed top-0 inset-x-0 h-20 z-50 flex items-center justify-between px-6 md:px-10 bg-[#000000]/80 backdrop-blur-2xl border-b border-[#D4AF37]/20 shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
+      className="fixed top-0 inset-x-0 h-20 z-50 flex items-center justify-between px-6 md:px-12 bg-black/80 backdrop-blur-2xl border-b border-[#b7893b]/20 shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
     >
-      <Link href="/" className="group flex items-center gap-3 shrink-0">
+      <Link href="/" className="group flex items-center shrink-0">
         <Image
           src="/fhzb-1400/images/logo.png"
           alt="logo"
-          width={300}   // 对应 w-20 (20 * 4px)
-          height={200}  // 对应 h-20
+          width={220}   
+          height={60}  
           className="object-contain"
-          priority     // 导航栏 Logo 建议优先加载
+          priority
         />
       </Link>
 
-      <div className="flex gap-0 md:gap-1 items-center">
-        {NAV_LINKS.map(link => {
-          const isActive = pathname === link.href
-          return (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`px-3 md:px-5 py-2 text-[13px] md:text-[16px] uppercase font-bold tracking-[0.1em] md:tracking-[0.2em] transition-all duration-500 relative group/item ${isActive ? 'text-[#D4AF37]' : 'text-white hover:text-[#FFFFFF]'}`}
-            >
-              <span className="relative z-10">{language === 'zh' ? link.zh : link.en}</span>
+      <div className="flex items-center gap-1 md:gap-4 overflow-x-auto no-scrollbar ml-auto">
+        <div className="flex gap-0 md:gap-1 items-center">
+          {NAV_LINKS.map(link => {
+            const isActive = pathname === link.href
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`px-3 md:px-4 py-2 text-[13px] md:text-[15px] font-bold tracking-[0.05em] transition-all duration-500 relative group/item whitespace-nowrap ${isActive ? 'text-[#b7893b]' : 'text-white hover:text-[#b7893b]'}`}
+              >
+                <span className="relative z-10">{language === 'zh' ? link.zh : link.en}</span>
+                {isActive && (
+                  <motion.div
+                    layoutId="nav-underline"
+                    className="absolute bottom-1 left-3 right-3 h-[2px] bg-[#b7893b] shadow-[0_0_8px_rgba(183,137,59,0.6)]"
+                  />
+                )}
+              </Link>
+            )
+          })}
+        </div>
 
-              <div className={`absolute bottom-0 left-0 w-full h-[2px] bg-[#D4AF37] transition-all duration-500 shadow-[0_0_10px_rgba(212,175,55,0.5)] ${isActive ? 'scale-x-75 opacity-100' : 'scale-x-0 opacity-0 group-hover/item:scale-x-50 group-hover/item:opacity-30'}`} />
+        <div className="h-4 w-[1px] bg-white/20 mx-2 hidden md:block" />
 
-              {isActive && (
-                <motion.div
-                  layoutId="nav-active-bg"
-                  className="absolute inset-0 bg-[#D4AF37]/5 rounded-sm -z-0"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                />
-              )}
-            </Link>
-          )
-        })}
-      </div>
+        <div className="flex items-center gap-4 shrink-0">
+          <button
+            onClick={() => setLanguage(language === 'zh' ? 'en' : 'zh')}
+            className="text-[12px] md:text-[14px] font-bold tracking-widest text-white hover:text-[#b7893b] transition-colors"
+          >
+            {language === 'zh' ? 'EN' : '中文'}
+          </button>
+          
+          <div className="h-4 w-[1px] bg-white/20 sm:block hidden" />
 
-      <div className="flex items-center gap-2 md:gap-4 shrink-0">
-        <button
-          onClick={() => setLanguage(language === 'zh' ? 'en' : 'zh')}
-          className="text-[12px] md:text-[14px] font-bold tracking-widest text-[#D4AF37] hover:text-white transition-colors border border-[#D4AF37]/30 px-3 py-1.5 min-w-[4rem] bg-[#D4AF37]/5"
-        >
-          {language === 'zh' ? 'EN' : '中文'}
-        </button>
-
-        <Link href="/contact" className="group relative px-4 md:px-6 py-2 overflow-hidden border border-[#D4AF37]/40 hidden sm:block">
-          <div className="absolute inset-0 bg-[#D4AF37] translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-          <span className={`relative z-10 text-[10px] md:text-[12px] font-black uppercase tracking-[0.2em] transition-colors duration-500 ${pathname === '/contact' ? 'text-black' : 'text-[#D4AF37] group-hover:text-black'}`}>
-            {t('联系我们', 'Join Us')}
-          </span>
-          {pathname === '/contact' && <div className="absolute inset-0 bg-[#D4AF37] z-0" />}
-        </Link>
+          <Link href="/contact" className="text-[12px] md:text-[14px] font-bold tracking-widest text-white hover:text-[#b7893b] transition-colors sm:block hidden">
+            {t('联系我们', 'JOIN US')}
+          </Link>
+        </div>
       </div>
     </motion.nav>
   )

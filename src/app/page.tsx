@@ -45,8 +45,8 @@ export default function Home() {
             src="/fhzb-1400/videos/背景_6.mp4"
             className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#D4AF37]/5 to-[#000000]/30 z-10" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-[#D4AF37]/10 rounded-full blur-[120px] pointer-events-none z-10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#b7893b]/5 to-[#000000]/30 z-10" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-[#b7893b]/10 rounded-full blur-[120px] pointer-events-none z-10" />
         </motion.div>
         
         <div className="relative z-20 text-center max-w-5xl mx-auto px-6 pt-32 mb-20">
@@ -68,7 +68,7 @@ export default function Home() {
             <Link href="/contact" className="px-10 py-5 bg-transparent border border-white/20 hover:bg-white hover:text-black transition-all font-medium tracking-widest text-sm uppercase">
               {t('成为生态伙伴', 'Join the Ecosystem')}
             </Link>
-            <Link href="/os" className="px-10 py-5 bg-[#D4AF37]/10 text-[#D4AF37] border border-[#D4AF37]/50 hover:bg-[#D4AF37] hover:text-black transition-all font-medium tracking-widest text-sm uppercase">
+            <Link href="/os" className="px-10 py-5 bg-[#b7893b]/10 text-[#b7893b] border border-[#b7893b]/50 hover:bg-[#b7893b] hover:text-black transition-all font-medium tracking-widest text-sm uppercase">
               {t('探索资本路径', 'Explore Capital Paths')}
             </Link>
           </motion.div>
@@ -96,11 +96,11 @@ export default function Home() {
            }}
            className="relative z-20 max-w-5xl  p-12 rounded-sm"
         >
-          <h2 className={`font-serif text-[#D4AF37] mb-6 tracking-widest drop-shadow-lg ${language === 'zh' ? 'text-4xl md:text-6xl lg:text-7xl' : 'text-3xl md:text-5xl'}`}>
+          <h2 className={`font-serif text-[#b7893b] mb-6 tracking-widest drop-shadow-lg ${language === 'zh' ? 'text-4xl md:text-6xl lg:text-7xl' : 'text-3xl md:text-5xl'}`}>
             {t('真正的资本，', 'True capital')}
           </h2>
           <h3 className={`font-serif font-light leading-relaxed text-[#FFFFFF] drop-shadow-md ${language === 'zh' ? 'text-3xl md:text-5xl' : 'text-2xl md:text-4xl'}`}>
-            {t('是产业文明的', 'is the accelerator of')} <span className="text-white relative font-medium underline decoration-[#D4AF37] decoration-2 underline-offset-8">{t('加速器', 'industrial civilization')}</span>
+            {t('是产业文明的', 'is the accelerator of')} <span className="text-white relative font-medium underline decoration-[#b7893b] decoration-2 underline-offset-8">{t('加速器', 'industrial civilization')}</span>
             <br/>{t('而非收割器。', 'rather than its reaper.')}
           </h3>
         </motion.div>
@@ -127,13 +127,13 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: idx * 0.2 }}
-                className="h-[600px] bg-surface border border-white/5 relative group p-10 flex flex-col justify-end overflow-hidden transition-all hover:border-[#D4AF37]/30"
+                className="h-[600px] bg-surface border border-white/5 relative group p-10 flex flex-col justify-end overflow-hidden transition-all hover:border-[#b7893b]/30"
               >
                   <div 
                     className="absolute inset-0 bg-cover bg-center opacity-80 group-hover:opacity-100 transition-all duration-1000 scale-100 group-hover:scale-110" 
                     style={{ backgroundImage: `url(${item.img})` }}
                   ></div>
-                  <div className="absolute inset-0 border-[1px] border-[#D4AF37] opacity-0 group-hover:opacity-20 scale-95 group-hover:scale-100 transition-all duration-1000 ease-out" style={{ borderRadius: '40% 60% 70% 30% / 40% 50% 60% 50%' }}></div>
+                  <div className="absolute inset-0 border-[1px] border-[#b7893b] opacity-0 group-hover:opacity-20 scale-95 group-hover:scale-100 transition-all duration-1000 ease-out" style={{ borderRadius: '40% 60% 70% 30% / 40% 50% 60% 50%' }}></div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10"></div>
                   
                   <div className="relative z-20 transition-all duration-500">
@@ -144,7 +144,7 @@ export default function Home() {
                       {language === 'zh' ? item.sub_zh : item.sub_en}
                     </p>
                     <div className="mt-8 pt-6 border-t border-white/10 opacity-60 group-hover:opacity-100 transition-all duration-500">
-                      <Link href="/philosophy" className="text-[#D4AF37] text-sm tracking-widest uppercase hover:text-white flex items-center gap-2">
+                      <Link href="/philosophy" className="text-[#b7893b] text-sm tracking-widest uppercase hover:text-white flex items-center gap-2">
                         {t('探索详情', 'Explore More')} 
                         <span className="text-xl">&rarr;</span>
                       </Link>
@@ -171,7 +171,7 @@ export default function Home() {
             
             <div className="relative h-64 lg:h-96 w-full max-w-xl">
               <div className="absolute inset-0 bg-surface border border-white/10 rounded-3xl overflow-hidden relative">
-                 <div className="absolute top-1/2 left-1/2 w-4 h-4 rounded-full bg-[#D4AF37] shadow-[0_0_20px_#D4AF37] animate-pulse">
+                 <div className="absolute top-1/2 left-1/2 w-4 h-4 rounded-full bg-[#b7893b] shadow-[0_0_20px_#b7893b] animate-pulse">
                     <div className="absolute -top-10 -left-10 w-24 h-24 border border-glow/30 rounded-full animate-ping opacity-50"></div>
                  </div>
                  <div className="absolute top-1/4 left-1/3 w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-colors cursor-pointer" title={t('华东分部', 'East China Branch')}></div>
@@ -179,7 +179,7 @@ export default function Home() {
                  <div className="absolute top-1/3 right-1/3 w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-colors cursor-pointer" title={t('西南节点', 'Southwest Node')}></div>
               </div>
             </div>
-            <Link href="/galaxy" className="inline-block mt-8 text-sm uppercase tracking-widest text-[#D4AF37] hover:text-white transition-colors border-b border-[#D4AF37]/30 pb-1">
+            <Link href="/galaxy" className="inline-block mt-8 text-sm uppercase tracking-widest text-[#b7893b] hover:text-white transition-colors border-b border-[#b7893b]/30 pb-1">
               {t('进入星系漫游', 'Enter Galaxy Map')}
             </Link>
           </div>
@@ -197,11 +197,11 @@ export default function Home() {
               { date: "2026.02", zh: "陪跑企业敲钟上市", desc_zh: "赋能三年，合作标的成功登顶，兑现100%承诺。", en: "Portfolio IPO Success", desc_en: "Partner enterprise successfully lists after 3-year growth phase." }
             ].map((feed, i) => (
               <div key={i} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                <div className="flex items-center justify-center w-6 h-6 rounded-full border border-white/20 bg-black group-hover:border-[#D4AF37] group-hover:bg-[#D4AF37]/20 transition-all text-white/50 z-10 shrink-0">
-                  <div className="w-2 h-2 rounded-full bg-white/50 group-hover:bg-[#D4AF37] transition-colors"></div>
+                <div className="flex items-center justify-center w-6 h-6 rounded-full border border-white/20 bg-black group-hover:border-[#b7893b] group-hover:bg-[#b7893b]/20 transition-all text-white/50 z-10 shrink-0">
+                  <div className="w-2 h-2 rounded-full bg-white/50 group-hover:bg-[#b7893b] transition-colors"></div>
                 </div>
                 <div className="w-[calc(100%-3rem)] md:w-[calc(50%-2rem)] p-4 border border-transparent group-hover:border-white/5 group-hover:bg-surface/50 transition-all rounded-sm">
-                  <span className="text-[#D4AF37] text-xs font-bold tracking-widest block mb-2">{feed.date}</span>
+                  <span className="text-[#b7893b] text-xs font-bold tracking-widest block mb-2">{feed.date}</span>
                   <h4 className="text-lg text-white mb-1">{language === 'zh' ? feed.zh : feed.en}</h4>
                   <p className="text-sm text-white">{language === 'zh' ? feed.desc_zh : feed.desc_en}</p>
                 </div>
@@ -241,7 +241,7 @@ export default function Home() {
             {questions.map((_, idx) => (
               <div 
                 key={idx} 
-                className={`h-1 rounded-full transition-all duration-500 ${idx === currentQuestion ? 'w-8 bg-[#D4AF37]' : 'w-2 bg-white/20'}`}
+                className={`h-1 rounded-full transition-all duration-500 ${idx === currentQuestion ? 'w-8 bg-[#b7893b]' : 'w-2 bg-white/20'}`}
               />
             ))}
           </div>
@@ -253,10 +253,10 @@ export default function Home() {
             transition={{ delay: 0.5, duration: 1 }}
           >
             <Link href="/contact" className="group inline-flex flex-col items-center">
-              <span className="text-sm uppercase tracking-widest text-[#D4AF37] mb-6 font-bold">
+              <span className="text-sm uppercase tracking-widest text-[#b7893b] mb-6 font-bold">
                 {t('开启攀登之路', 'Start Your Ascent')}
               </span>
-              <div className="w-14 h-14 rounded-full border border-[#D4AF37]/30 flex items-center justify-center group-hover:bg-[#D4AF37] group-hover:text-black transition-all group-hover:scale-110 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
+              <div className="w-14 h-14 rounded-full border border-[#b7893b]/30 flex items-center justify-center group-hover:bg-[#b7893b] group-hover:text-black transition-all group-hover:scale-110 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
                 &rarr;
               </div>
             </Link>
