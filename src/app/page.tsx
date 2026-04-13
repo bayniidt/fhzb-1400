@@ -107,15 +107,21 @@ export default function Home() {
       </Section>
 
       {/* 模块三：三大价值入口 */}
-      <Section className="gap-16 bg-background !py-24 relative overflow-hidden px-6">
-        <div className="absolute -left-20 top-20 w-96 h-96 bg-glow/10 blur-[100px] rounded-full pointer-events-none"></div>
+      <Section className="bg-black !py-32 relative overflow-hidden px-6">
+        <div className="absolute -left-20 top-20 w-96 h-96 bg-[#b7893b]/5 blur-[120px] rounded-full pointer-events-none"></div>
         
-        <div className="text-center mb-10">
-          <h2 className="text-sm tracking-[0.3em] font-bold text-white uppercase">
-            {t('核心价值枢纽', 'Core Value Pillars')}
-          </h2>
+        <div className="text-center mb-20">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-6xl font-bold text-white tracking-widest"
+          >
+            {t('核心价值枢纽', 'Core Value Hub')}
+          </motion.h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 h-full">
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 h-full max-w-7xl mx-auto border border-white/10">
             {[
               { zh: "立足高远", en: "Visionary", sub_zh: "洞察产业趋势与国家战略。", sub_en: "Insights into industry trends and national strategies.", img: "https://images.unsplash.com/photo-1620121692029-d088224ddc74?auto=format&fit=crop&q=80&w=800" },
               { zh: "路径坚实", en: "Solid Paths", sub_zh: "敬畏风险，构建闭环。", sub_en: "Risk awareness, building closed-loop systems.", img: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&q=80&w=800" },
@@ -123,89 +129,122 @@ export default function Home() {
             ].map((item, idx) => (
               <motion.div 
                 key={idx}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: idx * 0.2 }}
-                className="h-[600px] bg-surface border border-white/5 relative group p-10 flex flex-col justify-end overflow-hidden transition-all hover:border-[#b7893b]/30"
+                transition={{ duration: 0.8, delay: idx * 0.1 }}
+                className="h-[500px] relative group overflow-hidden flex flex-col items-center justify-center p-12 text-center"
               >
+                  {/* Background Image */}
                   <div 
-                    className="absolute inset-0 bg-cover bg-center opacity-80 group-hover:opacity-100 transition-all duration-1000 scale-100 group-hover:scale-110" 
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110" 
                     style={{ backgroundImage: `url(${item.img})` }}
                   ></div>
-                  <div className="absolute inset-0 border-[1px] border-[#b7893b] opacity-0 group-hover:opacity-20 scale-95 group-hover:scale-100 transition-all duration-1000 ease-out" style={{ borderRadius: '40% 60% 70% 30% / 40% 50% 60% 50%' }}></div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10"></div>
+                  <div className="absolute inset-0 bg-black/40 z-10 group-hover:bg-black/20 transition-all duration-500"></div>
+
+                  {/* Golden Slide-up Background */}
+                  <div className="absolute inset-0 bg-[#b7893b]/80 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out z-20"></div>
                   
-                  <div className="relative z-20 transition-all duration-500">
-                    <h3 className="text-3xl font-serif font-medium text-[#FFFFFF] mb-4">
+                  {/* Content */}
+                  <div className="relative z-30 transition-all duration-500">
+                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 tracking-wide drop-shadow-lg">
                       {language === 'zh' ? item.zh : item.en}
                     </h3>
-                    <p className="text-white text-lg opacity-80 group-hover:opacity-100 transition-opacity duration-700">
+                    <p className="text-white/90 text-lg font-normal mb-10 max-w-[280px] leading-relaxed">
                       {language === 'zh' ? item.sub_zh : item.sub_en}
                     </p>
-                    <div className="mt-8 pt-6 border-t border-white/10 opacity-60 group-hover:opacity-100 transition-all duration-500">
-                      <Link href="/philosophy" className="text-[#b7893b] text-sm tracking-widest uppercase hover:text-white flex items-center gap-2">
-                        {t('探索详情', 'Explore More')} 
-                        <span className="text-xl">&rarr;</span>
-                      </Link>
-                    </div>
+                    
+                    <div className="w-full h-[1px] bg-white/30 mb-8" />
+
+                    <Link href="/philosophy" className="inline-flex items-center gap-2 text-white text-sm tracking-widest uppercase hover:underline">
+                      {t('探索详情', 'Explore More')} 
+                      <span className="text-lg">→</span>
+                    </Link>
                   </div>
+
+                  {/* Border lines for grid effect */}
+                  <div className="absolute right-0 top-10 bottom-10 w-[1px] bg-white/10 hidden md:block" />
               </motion.div>
             ))}
         </div>
       </Section>
 
+
       {/* 模块四 & 模块五：星系概览与最新动态 (Split Layout) */}
-      <Section className="bg-surface !px-0 !py-0 flex flex-col lg:flex-row min-h-screen">
-        {/* 左侧：动态地图区域 */}
-        <div className="w-full lg:w-2/5 p-10 lg:p-24 relative flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-white/5 group">
-          <div className="absolute inset-0 pointer-events-none opacity-60 group-hover:opacity-60 transition-opacity duration-1000 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-glow/20 via-transparent to-transparent"></div>
-          
-          <div className="relative z-20">
-            <h2 className="text-4xl lg:text-5xl font-serif font-light mb-4">
-              {t('峰壑星系网络', 'FH Galaxy Network')}
+      <Section className="bg-[#050505] !px-0 !py-0 flex flex-col lg:flex-row min-h-screen relative overflow-hidden">
+        {/* Universal Map Background Layer */}
+        <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=2000')] bg-cover bg-center mix-blend-luminosity"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black"></div>
+        </div>
+
+        {/* 左侧：峰壑星系网络 */}
+        <div className="w-full lg:w-1/2 p-12 lg:p-32 relative flex flex-col justify-center z-10">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+          >
+            <span className="text-[#b7893b] text-sm tracking-[0.4em] font-bold uppercase mb-4 block">
+              GALAXY NETWORK
+            </span>
+            <h2 className="text-5xl lg:text-7xl font-bold text-white mb-8 tracking-tighter">
+              {t('峰壑星系网络', 'Galaxy Network')}
             </h2>
-            <p className="text-white mb-16 text-lg max-w-md">
+            <p className="text-white/70 mb-12 text-xl max-w-lg leading-relaxed font-normal">
               {t('总部中央战略指挥与全国区域俱乐部节点交汇的广袤版图。', 'The intersection of central strategy and regional nodes across the global landscape.')}
             </p>
             
-            <div className="relative h-64 lg:h-96 w-full max-w-xl">
-              <div className="absolute inset-0 bg-surface border border-white/10 rounded-3xl overflow-hidden relative">
-                 <div className="absolute top-1/2 left-1/2 w-4 h-4 rounded-full bg-[#b7893b] shadow-[0_0_20px_#b7893b] animate-pulse">
-                    <div className="absolute -top-10 -left-10 w-24 h-24 border border-glow/30 rounded-full animate-ping opacity-50"></div>
-                 </div>
-                 <div className="absolute top-1/4 left-1/3 w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-colors cursor-pointer" title={t('华东分部', 'East China Branch')}></div>
-                 <div className="absolute bottom-1/4 right-1/4 w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-colors cursor-pointer" title={t('华南分部', 'South China Branch')}></div>
-                 <div className="absolute top-1/3 right-1/3 w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-colors cursor-pointer" title={t('西南节点', 'Southwest Node')}></div>
-              </div>
-            </div>
-            <Link href="/galaxy" className="inline-block mt-8 text-sm uppercase tracking-widest text-[#b7893b] hover:text-white transition-colors border-b border-[#b7893b]/30 pb-1">
-              {t('进入星系漫游', 'Enter Galaxy Map')}
+            <Link href="/galaxy" className="inline-flex items-center gap-4 text-[#b7893b] text-sm uppercase tracking-[0.2em] font-bold group">
+              <span className="border-b border-[#b7893b]/30 pb-1 group-hover:border-[#b7893b] transition-all">
+                {t('进入星系漫游', 'Enter Galaxy Map')}
+              </span>
+              <span className="text-xl group-hover:translate-x-2 transition-transform">→</span>
             </Link>
-          </div>
+          </motion.div>
         </div>
 
-        {/* 右侧：最新动态时间轴 */}
-        <div className="w-full lg:w-3/5 p-10 lg:p-24 bg-background flex flex-col justify-center">
-          <h3 className="text-sm tracking-[0.3em] font-bold text-white uppercase mb-12">
-            {t('最新动态', 'Latest Updates')}
-          </h3>
-          <div className="space-y-12 relative before:absolute before:inset-0 before:ml-[11px] before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-px before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
+        {/* 右侧：最新动态 */}
+        <div className="w-full lg:w-1/2 p-12 lg:p-32 bg-black/40 backdrop-blur-sm z-10 flex flex-col justify-start pt-32 lg:pt-48">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-16"
+          >
+            <h3 className="text-[#b7893b] text-sm tracking-[0.4em] font-bold uppercase mb-2">
+              LATEST UPDATES
+            </h3>
+            <h2 className="text-4xl font-bold text-white tracking-tight">
+              {t('最新动态', 'News')}
+            </h2>
+          </motion.div>
+
+          <div className="space-y-8 max-w-xl">
             {[
-              { date: "2026.04", zh: "生态基金规模破百亿", en: "Fund AUM Exceeds 10B", desc_zh: "峰壑体系基石基金圆满完成新一期超募。", desc_en: "Flagship fund completes oversubscription phase." },
-              { date: "2026.03", zh: "华东大区俱乐部启幕", en: "East China Club Launch", desc_zh: "总部极核模式进一步辐射长三角高价值实业链。", desc_en: "Expanded presence in Yangtze River Delta region." },
-              { date: "2026.02", zh: "陪跑企业敲钟上市", desc_zh: "赋能三年，合作标的成功登顶，兑现100%承诺。", en: "Portfolio IPO Success", desc_en: "Partner enterprise successfully lists after 3-year growth phase." }
+              { date: "2026.04", zh: "深创投集团多名女性投资人荣登清科投资界、单", en: "Investment Leaders Recognized", desc_zh: "近日，多家投股权投资服务机构相继发布女性投资人榜单。深创投多名女性投资人进入榜单。", desc_en: "Several female partners recognized for their contribution to the industry." },
+              { date: "2026.03", zh: "生态基金规模破百亿，跨越重要里程碑", en: "Fund AUM Milestone", desc_zh: "近日，多家股权投资机构相继发布年度报告，峰壑体系基金规模正式突破百亿大关。", desc_en: "AUM surpasses major milestone after successful fundraising rounds." },
+              { date: "2026.02", zh: "华东大区俱乐部正式启幕，极核模式加速", en: "East China Hub Opening", desc_zh: "战略指挥部与区域节点深度互动，赋能长三角高价值产业链发展。", desc_en: "New regional hub establishes stronger presence in key economic zones." }
             ].map((feed, i) => (
-              <div key={i} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                <div className="flex items-center justify-center w-6 h-6 rounded-full border border-white/20 bg-black group-hover:border-[#b7893b] group-hover:bg-[#b7893b]/20 transition-all text-white/50 z-10 shrink-0">
-                  <div className="w-2 h-2 rounded-full bg-white/50 group-hover:bg-[#b7893b] transition-colors"></div>
-                </div>
-                <div className="w-[calc(100%-3rem)] md:w-[calc(50%-2rem)] p-4 border border-transparent group-hover:border-white/5 group-hover:bg-surface/50 transition-all rounded-sm">
-                  <span className="text-[#b7893b] text-xs font-bold tracking-widest block mb-2">{feed.date}</span>
-                  <h4 className="text-lg text-white mb-1">{language === 'zh' ? feed.zh : feed.en}</h4>
-                  <p className="text-sm text-white">{language === 'zh' ? feed.desc_zh : feed.desc_en}</p>
-                </div>
-              </div>
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="group relative pl-8 border-l border-white/10 hover:border-[#b7893b] transition-colors pb-8"
+              >
+                <div className="absolute left-[-5px] top-0 w-[9px] h-[9px] rounded-full bg-white/20 group-hover:bg-[#b7893b] transition-colors border-2 border-black"></div>
+                
+                <span className="text-[#b7893b] text-xs font-bold tracking-widest block mb-3">{feed.date}</span>
+                <h4 className="text-xl text-white font-bold mb-3 group-hover:text-[#b7893b] transition-colors">
+                  {language === 'zh' ? feed.zh : feed.en}
+                </h4>
+                <p className="text-base text-white/50 line-clamp-2 leading-relaxed font-normal">
+                  {language === 'zh' ? feed.desc_zh : feed.desc_en}
+                </p>
+              </motion.div>
             ))}
           </div>
         </div>
