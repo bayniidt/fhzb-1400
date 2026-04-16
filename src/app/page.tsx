@@ -77,8 +77,6 @@ export default function Home() {
 
       {/* 模块二：峰壑宣言 */}
       <Section className="relative overflow-hidden bg-black !min-h-0 !px-6 !py-16 md:!px-10 md:!py-[4.5rem] lg:!px-20 lg:!py-20">
-        <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_78%_35%,rgba(255,255,255,0.06),transparent_28%)]" />
-
         <div className="relative z-10 mx-auto grid w-full max-w-[1400px] grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.95fr)] lg:gap-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -183,7 +181,7 @@ export default function Home() {
                 transition={{ duration: 0.7, delay: idx * 0.08, ease: "easeOut" }}
                 className="relative overflow-hidden"
               >
-                <Link href={item.href} className="group relative flex h-[220px] w-full overflow-hidden md:h-[240px] lg:h-[250px]">
+                <Link href={item.href} className="group relative flex h-[330px] w-full overflow-hidden md:h-[360px] lg:h-[375px]">
                   <div
                     className="absolute inset-0 bg-cover bg-center scale-[1.14] transition-transform duration-700 group-hover:scale-[1.2]"
                     style={{ backgroundImage: `url(${item.img})` }}
@@ -332,7 +330,7 @@ export default function Home() {
             exit={{ opacity: 0, y: -20, filter: "blur(4px)" }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
           >
-            <h2 className={`font-serif max-w-3xl leading-relaxed text-[#FFFFFF] italic mb-10 ${language === 'zh' ? 'text-3xl md:text-5xl' : 'text-2xl md:text-4xl'}`}>
+            <h2 className={`font-serif max-w-3xl leading-relaxed text-[#FFFFFF]  mb-10 ${language === 'zh' ? 'text-3xl md:text-5xl' : 'text-2xl md:text-4xl'}`}>
               “{language === 'zh' ? questions[currentQuestion].zh : questions[currentQuestion].en}”
             </h2>
           </motion.div>
