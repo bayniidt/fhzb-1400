@@ -133,63 +133,97 @@ export default function Home() {
       </Section>
 
       {/* 模块三：三大价值入口 */}
-      <Section className="bg-black !py-32 relative overflow-hidden px-6">
-        <div className="absolute -left-20 top-20 w-96 h-96 bg-[#b7893b]/5 blur-[120px] rounded-full pointer-events-none"></div>
-        
-        <div className="text-center mb-20">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-bold text-white tracking-widest"
-          >
-            {t('核心价值枢纽', 'Core Value Hub')}
-          </motion.h2>
+      <Section className="relative overflow-hidden bg-[#121212] !min-h-0 !px-0 !py-12 md:!py-14 lg:!py-16">
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white/[0.03] to-transparent pointer-events-none" />
+
+        <div className="mx-auto w-full max-w-[1200px] px-4 md:px-6">
+          <div className="mb-8 text-center md:mb-10">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-[2rem] font-bold tracking-[0.08em] text-white md:text-[2.5rem]"
+            >
+              {t("核心价值枢纽", "Core Value Hub")}
+            </motion.h2>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 h-full max-w-7xl mx-auto border border-white/10">
+        <div className="grid w-full grid-cols-1 overflow-hidden border-y border-white/10 md:grid-cols-3">
             {[
-              { zh: "立足高远", en: "Visionary", sub_zh: "洞察产业趋势与国家战略。", sub_en: "Insights into industry trends and national strategies.", img: "https://images.unsplash.com/photo-1620121692029-d088224ddc74?auto=format&fit=crop&q=80&w=800" },
-              { zh: "路径坚实", en: "Solid Paths", sub_zh: "敬畏风险，构建闭环。", sub_en: "Risk awareness, building closed-loop systems.", img: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&q=80&w=800" },
-              { zh: "价值共生", en: "Synergy", sub_zh: "与伙伴共筑长期价值。", sub_en: "Building long-term value with our partners.", img: "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&q=80&w=800" }
+              {
+                type: "image" as const,
+                zh: "立足高远",
+                en: "Visionary Reach",
+                subZh: "洞察产业趋势与国家战略。",
+                subEn: "Insights into industry trends and national strategy.",
+                img: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&q=80&w=1200",
+                href: "/philosophy",
+              },
+              {
+                type: "image" as const,
+                zh: "根系中国，培育创新“沃土”",
+                en: "Rooted in China, cultivating innovation",
+                img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=1200",
+                href: "/galaxy",
+              },
+              {
+                type: "image" as const,
+                zh: "播种硬核，耕耘未来",
+                en: "Plant hard power, cultivate the future",
+                img: "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&q=80&w=1200",
+                href: "/alliance",
+              },
             ].map((item, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: idx * 0.1 }}
-                className="h-[500px] relative group overflow-hidden flex flex-col items-center justify-center p-12 text-center"
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-10%" }}
+                transition={{ duration: 0.7, delay: idx * 0.08, ease: "easeOut" }}
+                className="relative overflow-hidden"
               >
-                  {/* Background Image */}
-                  <div 
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110" 
+                <Link href={item.href} className="group relative flex h-[220px] w-full overflow-hidden md:h-[240px] lg:h-[250px]">
+                  <div
+                    className="absolute inset-0 bg-cover bg-center scale-[1.14] transition-transform duration-700 group-hover:scale-[1.2]"
                     style={{ backgroundImage: `url(${item.img})` }}
-                  ></div>
-                  <div className="absolute inset-0 bg-black/40 z-10 group-hover:bg-black/20 transition-all duration-500"></div>
+                  />
 
-                  {/* Golden Slide-up Background */}
-                  <div className="absolute inset-0 bg-[#b7893b]/80 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out z-20"></div>
-                  
-                  {/* Content */}
-                  <div className="relative z-30 transition-all duration-500">
-                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 tracking-wide drop-shadow-lg">
-                      {language === 'zh' ? item.zh : item.en}
-                    </h3>
-                    <p className="text-white/90 text-lg font-normal mb-10 max-w-[280px] leading-relaxed">
-                      {language === 'zh' ? item.sub_zh : item.sub_en}
-                    </p>
-                    
-                    <div className="w-full h-[1px] bg-white/30 mb-8" />
-
-                    <Link href="/philosophy" className="inline-flex items-center gap-2 text-white text-sm tracking-widest uppercase hover:underline">
-                      {t('探索详情', 'Explore More')} 
-                      <span className="text-lg">→</span>
-                    </Link>
+                  <div className="absolute inset-0 z-10 flex w-full items-end justify-center px-6 pb-8 text-center text-white transition-opacity duration-300 group-hover:opacity-0">
+                    <div className="mx-auto w-full max-w-[360px] drop-shadow-[0_4px_16px_rgba(0,0,0,0.75)]">
+                      <h3 className="text-[1.9rem] font-bold leading-tight tracking-[-0.03em] md:text-[2.2rem]">
+                        {language === "zh" ? item.zh : item.en}
+                      </h3>
+                      {"subZh" in item ? (
+                        <p className="mx-auto mt-3 max-w-[280px] text-sm leading-relaxed text-white/92 md:text-[0.95rem]">
+                          {language === "zh" ? item.subZh : item.subEn}
+                        </p>
+                      ) : null}
+                    </div>
                   </div>
 
-                  {/* Border lines for grid effect */}
-                  <div className="absolute right-0 top-10 bottom-10 w-[1px] bg-white/10 hidden md:block" />
+                  <div className="absolute inset-0 z-20 bg-[#b89459] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+                  <div className="absolute inset-0 z-30 flex w-full flex-col items-center justify-center px-6 text-center text-white opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                    <div className="mx-auto w-full max-w-[360px]">
+                      <h3 className="text-[1.9rem] font-bold leading-tight tracking-[-0.03em] md:text-[2.2rem]">
+                        {language === "zh" ? item.zh : item.en}
+                      </h3>
+                      {"subZh" in item ? (
+                        <p className="mx-auto mt-3 max-w-[280px] text-sm leading-relaxed text-white/92 md:text-[0.95rem]">
+                          {language === "zh" ? item.subZh : item.subEn}
+                        </p>
+                      ) : null}
+                      <div className="mt-8 h-px w-full bg-white/55" />
+                      <span className="mt-4 inline-flex items-center gap-2 text-sm tracking-[0.08em] text-white/94">
+                        {t("探索详情", "Explore More")}
+                        <span aria-hidden="true">→</span>
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+
+                {idx < 2 ? <div className="absolute right-0 top-0 hidden h-full w-px bg-white/10 md:block" /> : null}
               </motion.div>
             ))}
         </div>
