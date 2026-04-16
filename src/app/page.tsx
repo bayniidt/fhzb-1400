@@ -76,34 +76,60 @@ export default function Home() {
       </section>
 
       {/* 模块二：峰壑宣言 */}
-      <Section className="bg-surface items-center text-center overflow-hidden relative min-h-screen px-6">
-        <div className="absolute inset-0 z-0">
-          {/* <img 
-            src="/fhzb-1400/videos/背景图_2.jpg" 
-            className="absolute inset-0 w-full h-full object-cover" 
-            alt="Declaration Background" 
-          /> */}
-        </div>
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-glow/20 via-transparent to-transparent pointer-events-none z-10"></div>
+      <Section className="relative overflow-hidden bg-black !min-h-0 !px-6 !py-16 md:!px-10 md:!py-[4.5rem] lg:!px-20 lg:!py-20">
+        <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_78%_35%,rgba(255,255,255,0.06),transparent_28%)]" />
 
-        <motion.div
-           initial="hidden"
-           whileInView="visible"
-           viewport={{ once: true, margin: "-20%" }}
-           variants={{
-            hidden: {},
-            visible: { transition: { staggerChildren: 0.1 } }
-           }}
-           className="relative z-20 max-w-5xl  p-12 rounded-sm"
-        >
-          <h2 className={`font-serif text-[#b7893b] mb-6 tracking-widest drop-shadow-lg ${language === 'zh' ? 'text-4xl md:text-6xl lg:text-7xl' : 'text-3xl md:text-5xl'}`}>
-            {t('真正的资本，', 'True capital')}
-          </h2>
-          <h3 className={`font-serif font-light leading-relaxed text-[#FFFFFF] drop-shadow-md ${language === 'zh' ? 'text-3xl md:text-5xl' : 'text-2xl md:text-4xl'}`}>
-            {t('是产业文明的', 'is the accelerator of')} <span className="text-white relative font-medium underline decoration-[#b7893b] decoration-2 underline-offset-8">{t('加速器', 'industrial civilization')}</span>
-            <br/>{t('而非收割器。', 'rather than its reaper.')}
-          </h3>
-        </motion.div>
+        <div className="relative z-10 mx-auto grid w-full max-w-[1400px] grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.95fr)] lg:gap-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-15%" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="max-w-[720px] text-left"
+          >
+            <p className="mb-8 text-sm tracking-[0.16em] text-white/88 md:mb-10">
+              {t("峰壑宣言", "Peak & Valley Manifesto")}
+            </p>
+
+            {language === "zh" ? (
+              <h3 className="font-serif text-[clamp(2.9rem,5.8vw,5rem)] font-medium leading-[1.08] tracking-[-0.04em] text-white">
+                <span className="block">真正的资本</span>
+                <span className="block">是产业文明的加速器</span>
+                <span className="block">而非收割器</span>
+              </h3>
+            ) : (
+              <h2 className="font-serif text-[clamp(2.5rem,4.5vw,5rem)] font-medium leading-[1.08] tracking-[-0.04em] text-white">
+                <span className="block">True capital</span>
+                <span className="block">accelerates industrial civilization</span>
+                <span className="block">instead of harvesting it</span>
+              </h2>
+            )}
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-15%" }}
+            transition={{ duration: 0.9, ease: "easeOut", delay: 0.1 }}
+            className="relative flex justify-center lg:justify-end"
+          >
+            <div className="relative w-full max-w-[520px] overflow-hidden bg-transparent">
+              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-black/10 to-black/35" />
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+                aria-hidden="true"
+                src="/fhzb-1400/videos/block-compressed.mp4"
+                className="h-full w-full object-contain"
+              >
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </motion.div>
+        </div>
       </Section>
 
       {/* 模块三：三大价值入口 */}
