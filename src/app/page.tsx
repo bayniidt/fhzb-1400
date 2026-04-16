@@ -131,11 +131,11 @@ export default function Home() {
       </Section>
 
       {/* 模块三：三大价值入口 */}
-      <Section className="relative overflow-hidden bg-[#121212] !min-h-0 !px-0 !py-12 md:!py-14 lg:!py-16">
+      <Section className="relative overflow-hidden bg-[#121212] !min-h-0 !px-0 !pt-20 !pb-20 md:!pt-24 md:!pb-24 lg:!pt-24 lg:!pb-24">
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white/[0.03] to-transparent pointer-events-none" />
 
         <div className="mx-auto w-full max-w-[1200px] px-4 md:px-6">
-          <div className="mb-8 text-center md:mb-10">
+          <div className="mb-10 text-center md:mb-12">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
