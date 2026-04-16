@@ -78,11 +78,11 @@ export default function Home() {
       {/* 模块二：峰壑宣言 */}
       <Section className="bg-surface items-center text-center overflow-hidden relative min-h-screen px-6">
         <div className="absolute inset-0 z-0">
-          <img 
+          {/* <img 
             src="/fhzb-1400/videos/背景图_2.jpg" 
             className="absolute inset-0 w-full h-full object-cover" 
             alt="Declaration Background" 
-          />
+          /> */}
         </div>
         <div className="absolute top-0 right-0 w-1/2 h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-glow/20 via-transparent to-transparent pointer-events-none z-10"></div>
 
