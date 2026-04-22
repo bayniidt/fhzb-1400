@@ -48,11 +48,11 @@ export default function Philosophy() {
               style={{ opacity: plainOpacity }}
               className="absolute inset-0 flex flex-col items-center justify-center z-10"
             >
-              <h2 className={`font-serif font-light text-white tracking-widest uppercase line-through decoration-1 decoration-gray-400 drop-shadow-2xl ${language === 'zh' ? 'text-4xl md:text-6xl' : 'text-3xl md:text-5xl'}`}>
-                {t('平原思维', 'Linear Mindset')}
+              <h2 className={`font-serif  text-white tracking-widest uppercase font-bold  decoration-1 decoration-gray-400 drop-shadow-2xl ${language === 'zh' ? 'text-xl md:text-6xl' : 'text-3xl md:text-5xl'}`}>
+                {t('平原思维与峰峦思维', 'Linear Mindset')}
               </h2>
               <p className="mt-6 text-white tracking-wider drop-shadow-lg">
-                {t('线性增长 / 零和博弈 / 短期收割', 'Linear Growth / Zero-sum / Short-term Harvest')}
+                {t('立足高远、路径坚实、创造生态、价值共生', 'Linear Growth / Zero-sum / Short-term Harvest')}
               </p>
             </motion.div>
 
@@ -61,15 +61,15 @@ export default function Philosophy() {
               style={{ opacity: peakOpacity, scale: peakScale }}
               className="absolute inset-0 flex flex-col items-center justify-center z-20 bg-gradient-to-b from-transparent via-[#000000]/20 to-[#000000]"
             >
-              <img
+              {/* <img
                 src="/fhzb-1400/videos/背景图_1.jpg"
                 className="absolute bottom-0 w-full h-1/2 object-cover"
                 alt="Background"
-              />
+              /> */}
               <h2 className={`font-serif font-bold text-[#FFFFFF] tracking-tight mb-8 drop-shadow-2xl ${language === 'zh' ? 'text-6xl md:text-8xl' : 'text-5xl md:text-7xl'}`}>
-                {t('峰峦思维', 'Summits Mindset')}
+                {t('', '')}
               </h2>
-              <div className={`flex flex-wrap justify-center gap-4 md:gap-8 font-light text-[#b7893b] tracking-widest mt-4 ${language === 'zh' ? 'text-lg' : 'text-sm md:text-base'}`}>
+              <div className={`flex flex-wrap justify-center gap-4 md:gap-8 font-bold  tracking-widest mt-4 ${language === 'zh' ? 'text-4xl md:text-6xl' : 'text-3xl md:text-5xl'}`}>
                 <span>{t('立足高远', 'VISION')}</span>
                 <span className="opacity-50">/</span>
                 <span>{t('路径坚实', 'EXECUTION')}</span>
@@ -92,10 +92,10 @@ export default function Philosophy() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                 >
-                  <h3 className="text-xs tracking-[0.4em] text-white uppercase font-bold mb-6">Mission / {t('使命', 'MISSION')}</h3>
+                  <h3 className="text-2xl tracking-[0.4em] text-white uppercase font-bold mb-6">Mission / {t('使命', 'MISSION')}</h3>
                   <p className={`font-serif font-light leading-snug text-white ${language === 'zh' ? 'text-3xl md:text-5xl' : 'text-2xl md:text-4xl'}`}>
                     {t('赋能实体产业攀登资本峰峦，', 'Empowering industries to climb capital summits,')}<br />
-                    {t('守护', 'safeguarding')} <span className="font-serif italic text-[#b7893b]">{t('长期价值', 'long-term value')}</span> {t('穿越时代周期。', 'through through historical cycles.')}
+                    {t('守护', 'safeguarding')} <span className="font-serif  text-[#b7893b]">{t('长期价值', 'long-term value')}</span> {t('穿越时代周期。', 'through through historical cycles.')}
                   </p>
                 </motion.div>
 
@@ -105,8 +105,8 @@ export default function Philosophy() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 }}
                 >
-                  <h3 className="text-xs tracking-[0.4em] text-white uppercase font-bold mb-6">Vision / {t('愿景', 'VISION')}</h3>
-                  <p className={`font-serif font-light leading-relaxed text-white ${language === 'zh' ? 'text-2xl md:text-4xl' : 'text-xl md:text-3xl'}`}>
+                  <h3 className="text-2xl tracking-[0.4em] text-white uppercase font-bold mb-6">Vision / {t('愿景', 'VISION')}</h3>
+                  <p className={`font-serif font-light leading-relaxed text-white ${language === 'zh' ? 'text-5xl' : 'text-5xl'}`}>
                     {t('成为全球创新经济体中，', 'To become the most trusted industrial capital')}<br />
                     {t('最具信任感的产业资本共生平台。', 'synergy platform in the global innovation economy.')}
                   </p>
@@ -114,16 +114,16 @@ export default function Philosophy() {
               </div>
 
               <div className="relative">
-                <h3 className="text-xs tracking-[0.4em] text-white uppercase font-bold mb-10">Values / {t('价值观', 'VALUES')}</h3>
+                <h3 className="text-2xl tracking-[0.4em] text-white uppercase font-bold mb-10">Values / {t('价值观', 'VALUES')}</h3>
                 <div className="flex flex-col border-t border-white/10">
                   {values.map((v, idx) => (
                     <div
                       key={idx}
-                      className="group border-b border-white/10 overflow-hidden cursor-pointer"
+                      className="text-5xl group border-b border-white/10 overflow-hidden cursor-pointer"
                       onClick={() => setActiveValue(activeValue === idx ? null : idx)}
                     >
                       <div className="py-8 flex justify-between items-center transition-colors group-hover:text-[#FFFFFF] text-white">
-                        <span className={`font-serif font-light tracking-wide ${language === 'zh' ? 'text-3xl md:text-4xl' : 'text-xl md:text-2xl'}`}>
+                        <span className={`font-serif font-light tracking-wide ${language === 'zh' ? 'text-5xl' : 'text-5xl'}`}>
                           {language === 'zh' ? v.zh : v.en}
                         </span>
                         <span className={`transform transition-transform duration-500 ${activeValue === idx ? 'rotate-45 text-[#b7893b]' : ''}`}>
@@ -137,7 +137,7 @@ export default function Philosophy() {
                         animate={{ height: activeValue === idx ? 'auto' : 0, opacity: activeValue === idx ? 1 : 0 }}
                         className="overflow-hidden"
                       >
-                        <p className="pb-8 text-white text-lg leading-relaxed max-w-lg">
+                        <p className="pb-8 text-white text-5xl leading-relaxed max-w-lg">
                           {language === 'zh' ? v.desc_zh : v.desc_en}
                         </p>
                       </motion.div>
@@ -151,7 +151,7 @@ export default function Philosophy() {
 
         {/* 3. 三大文化支柱 */}
         <Section className="bg-[#000000] text-center !min-h-[70vh] px-6">
-          <h2 className="text-sm tracking-[0.3em] font-bold text-white uppercase mb-20">{t('文化支柱', 'CULTURAL PILLARS')}</h2>
+          <h2 className="text-6xl tracking-[0.3em] font-bold text-white uppercase mb-20">{t('文化支柱', 'CULTURAL PILLARS')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-y border-white/5 divide-y md:divide-y-0 md:divide-x divide-white/5">
             {[
               { no: "01", zh: "闭环交付文化", en: "Closed-loop Culture", desc_zh: "规划·执行·反馈·闭环。没有终点的许诺皆为虚妄。", desc_en: "Plan, Execute, Feedback, Close. Promises without results are illusions." },
@@ -166,7 +166,7 @@ export default function Philosophy() {
                 transition={{ delay: idx * 0.15 }}
                 className="p-16 flex flex-col text-left group hover:bg-[#070707] transition-colors duration-500"
               >
-                <span className="text-5xl font-serif font-light text-[#b7893b]/40 group-hover:text-[#b7893b] transition-colors block mb-12 font-serif">{pillar.no}</span>
+                <span className="text-5xl  font-bold text-[#b7893b]/40 group-hover:text-[#b7893b] transition-colors block mb-12 ">{pillar.no}</span>
                 <h3 className={`font-serif text-white mb-6 font-medium tracking-wide ${language === 'zh' ? 'text-3xl' : 'text-xl'}`}>
                   {language === 'zh' ? pillar.zh : pillar.en}
                 </h3>
