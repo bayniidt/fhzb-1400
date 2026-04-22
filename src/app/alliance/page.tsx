@@ -12,9 +12,9 @@ export default function Alliance() {
   const ecosystemClusters = [
     {
       id: "targets",
-      zh: "实业极核 (Targets)",
+      zh: "上市公司/项目方",
       en: "Industrial Targets",
-      desc_zh: "拥有硬核技术底座与全球扩张野心的实业企业。我们不仅注资，更代入创始人视角重构资本模型。",
+      desc_zh: "我们不仅是资本提供者，更是您的登峰向导。从BP到上市，全程陪跑，助您将雄心筑成峰峦。",
       desc_en: "Industrial enterprises with core technical foundations and global ambitions. We reconstruct capital models from a founder's perspective.",
       cta: t("开启尽调接入", "Start Due Diligence"),
       bg: "/fhzb-1400/image/alliance_1.jpg"
@@ -62,15 +62,15 @@ export default function Alliance() {
            <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#b7893b]/5 rounded-full blur-[150px] pointer-events-none translate-x-1/2 -translate-y-1/2" />
            
            <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-20">
-             <span className="text-[#b7893b] uppercase tracking-[0.4em] font-bold text-xs block mb-8 relative z-10">Collective Prosperity</span>
+             <span className="text-[#f12f08] uppercase tracking-[0.4em] font-bold text-xs block mb-8 relative z-10">Collective Prosperity</span>
              <h1 className={`font-serif font-black text-white tracking-tighter mb-8 relative z-10 drop-shadow-2xl ${language === 'zh' ? 'text-6xl md:text-8xl lg:text-9xl' : 'text-5xl md:text-7xl lg:text-8xl'}`}>
                {t('共筑峰峦', 'Alliance')}
              </h1>
-             <p className={`font-serif text-white/90 font-light max-w-3xl leading-relaxed relative z-10 drop-shadow-lg ${language === 'zh' ? 'text-2xl' : 'text-xl md:text-2xl'}`}>
+             <p className={` text-white border-b-2 bg-[black]/35 font-bold  w-auto leading-relaxed relative z-10 rounded-[10px] ${language === 'zh' ? 'text-3xl' : 'text-xl md:text-2xl'}`}>
                {t('在峰壑，没有孤岛。', 'In FH, there are no islands.')}<br/>
                {t('我们通过精密的利益对齐与资源互锁，', 'Through precise alignment and resource interlocking,')}<br />
                {t('让每一份资本与技术都能在', 'every piece of capital and technology')}<br />
-               <span className="text-white font-medium">{t('生态网络中实现指数级裂变。', 'achieves exponential growth within the network.')}</span>
+               <span className="text-white font-bold">{t('生态网络中实现指数级裂变。', 'achieves exponential growth within the network.')}</span>
              </p>
            </div>
         </section>
