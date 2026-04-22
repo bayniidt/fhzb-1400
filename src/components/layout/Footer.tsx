@@ -1,9 +1,9 @@
 "use client";
 
-import { useLanguage } from "@/context/LanguageContext";
-import Link from "next/link";
-import Image from "next/image";
-import { NAV_LINKS, CONTACT_SUB_ITEMS } from "./Navbar";
+import { useLanguage } from "@/context/LanguageContext"
+import Image from "next/image"
+import Link from "next/link"
+import { CONTACT_SUB_ITEMS, NAV_LINKS } from "./Navbar"
 
 export function Footer() {
   const { t, language } = useLanguage();
@@ -17,7 +17,7 @@ export function Footer() {
             <div className="mb-12">
               <Link href="/" className="inline-block mb-8">
                 <Image
-                  src="/fhzb-1400/images/logo.png"
+                  src="/fhzb/images/logo.png"
                   alt="FH Capital Logo"
                   width={140}
                   height={40}

@@ -1,11 +1,11 @@
 "use client";
 
-import { PageTransition } from "@/components/ui/PageTransition"
-import { Section } from "@/components/ui/Section"
-import { useLanguage } from "@/context/LanguageContext"
-import { useScroll } from "framer-motion"
-import Link from "next/link"
-import { useRef, useState } from "react"
+import { PageTransition } from "@/components/ui/PageTransition";
+import { Section } from "@/components/ui/Section";
+import { useLanguage } from "@/context/LanguageContext";
+import { useScroll } from "framer-motion";
+import Link from "next/link";
+import { useRef, useState } from "react";
 
 export default function Galaxy() {
   const { t, language } = useLanguage();
@@ -39,7 +39,7 @@ export default function Galaxy() {
         {/* 模块一：总部 · 中央引擎 */}
         <section id="engine" className="relative min-h-[120vh] flex flex-col justify-center border-b border-white/5 pt-32 overflow-hidden">
            <img 
-             src="/fhzb-1400/videos/背景图_4.jpg" 
+             src="/fhzb/videos/背景图_4.jpg" 
              className="absolute inset-0 w-full h-full object-cover"
              alt="Galaxy Header Background"
            />
@@ -83,7 +83,7 @@ export default function Galaxy() {
         <Section id="clubs" className="bg-[#000000] !py-0 border-b border-white/5 flex flex-col lg:flex-row min-h-screen">
             <div className="w-full lg:w-2/3 relative min-h-[60vh] lg:min-h-screen border-b lg:border-b-0 lg:border-r border-white/10 overflow-hidden">
                 <img 
-                  src="/fhzb-1400/videos/背景图_3.jpg"
+                  src="/fhzb/videos/背景图_3.jpg"
                   className="absolute inset-0 w-full h-full object-cover"
                   alt="Galaxy Map Background"
                 />

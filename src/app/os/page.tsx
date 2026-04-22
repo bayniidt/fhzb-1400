@@ -1,9 +1,9 @@
 "use client";
 
-import { PageTransition } from "@/components/ui/PageTransition"
-import { useLanguage } from "@/context/LanguageContext"
-import { motion, useScroll } from "framer-motion"
-import { useRef, useState } from "react"
+import { PageTransition } from "@/components/ui/PageTransition";
+import { useLanguage } from "@/context/LanguageContext";
+import { motion, useScroll } from "framer-motion";
+import { useRef, useState } from "react";
 
 export default function OS() {
   const { t, language } = useLanguage();
@@ -27,7 +27,7 @@ export default function OS() {
       desc_zh: "摒弃项目制散养，通过超10亿级基石基金锁定产业筹码，确保资本在不确定周期中的绝对掌控力。",
       desc_en: "Rejecting project-based decentralization, we secure industrial chips through 1B+ cornerstone funds.",
       tools: ["项目筛选模型", "财务模型Excel", "法律文件范本"],
-      video: "/fhzb-1400/videos/batch-compressed.mp4"
+      video: "/fhzb/videos/batch-compressed.mp4"
     },
     { 
       id: "invest", 
@@ -40,7 +40,7 @@ export default function OS() {
       desc_zh: "穿透PPT与财务修饰，直抵技术底层与产业终局。我们不听故事，只推演生产力爆发的数学基准。",
       desc_en: "Penetrating PPT and financial window-dressing to reach technical foundations.",
       tools: ["技术溯源分析", "创始团队建模", "周期波动模拟"],
-      video: "/fhzb-1400/videos/block-compressed.mp4"
+      video: "/fhzb/videos/block-compressed.mp4"
     },
     { 
       id: "manage", 
@@ -53,7 +53,7 @@ export default function OS() {
       desc_zh: "派驻“影子CEO”级合伙人，在组织治理、极核裂变与资本路径上进行手术刀式干预，纠偏航向。",
       desc_en: "Deploying 'Shadow CEO' level partners to perform surgical interventions in governance and capital paths.",
       tools: ["OKR 极核对齐", "全球牌照接驳", "生态资源灌溉"],
-      video: "/fhzb-1400/videos/global-compressed.mp4"
+      video: "/fhzb/videos/global-compressed.mp4"
     },
     { 
       id: "exit", 
@@ -66,7 +66,7 @@ export default function OS() {
       desc_zh: "不仅是拿钱离场。通过合伙人系统，将被投企业转化为新的生态节点，实现从‘孤岛’到‘版图’的升维。",
       desc_en: "Portfolio companies transform into new ecosystem nodes, evolving from 'islands' into 'territories'.",
       tools: ["并购重组套利", "全球交易所通兑", "节点再投资"],
-      video: "/fhzb-1400/videos/footer-compressed.mp4"
+      video: "/fhzb/videos/footer-compressed.mp4"
     }
   ];
 
@@ -85,7 +85,7 @@ export default function OS() {
         {/* Header区 */}
         <section className="relative pt-60 pb-40 border-b border-white/5 overflow-hidden">
            <img 
-             src="/fhzb-1400/videos/股市_2.jpg" 
+             src="/fhzb/videos/股市_2.jpg" 
              className="absolute inset-0 w-full h-full object-cover"
              alt="OS Header Background"
            />

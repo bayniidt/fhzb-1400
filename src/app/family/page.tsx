@@ -1,8 +1,8 @@
 "use client";
 
+import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { PageHero } from "@/components/PageHero";
-import { Footer } from "@/components/layout/Footer";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function FamilyPage() {
@@ -15,7 +15,7 @@ export default function FamilyPage() {
         <PageHero 
           title={t("投资案例", "PORTFOLIO")}
           subtitle={t("通过第一性原理，我们与具有全球雄心的创业者共同定义未来。", "Through first principles, we define the future alongside entrepreneurs with global ambitions.")}
-          bgImage="/fhzb-1400/videos/股市_1.jpg"
+          bgImage="/fhzb/videos/股市_1.jpg"
         />
         
         {/* Portfolio Content would go here */}

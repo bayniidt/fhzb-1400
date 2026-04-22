@@ -1,9 +1,9 @@
 "use client";
 
-import { PageTransition } from "@/components/ui/PageTransition"
-import { Section } from "@/components/ui/Section"
-import { useLanguage } from "@/context/LanguageContext"
-import Link from "next/link"
+import { PageTransition } from "@/components/ui/PageTransition";
+import { Section } from "@/components/ui/Section";
+import { useLanguage } from "@/context/LanguageContext";
+import Link from "next/link";
 
 export default function Alliance() {
   const { t, language } = useLanguage();
@@ -23,7 +23,7 @@ export default function Alliance() {
         { zh: "路径规划", en: "IPO Planning", icon: "📈" }
       ],
       cta: t("开启项目加速", "Project Accelerator"),
-      video: "/fhzb-1400/videos/batch-compressed.mp4"
+      video: "/fhzb/videos/batch-compressed.mp4"
     },
     {
       id: "partners",
@@ -39,7 +39,7 @@ export default function Alliance() {
         { zh: "申请流程", en: "Apply Flow", icon: "📋" }
       ],
       cta: t("申请极核授权", "Apply for Auth"),
-      video: "/fhzb-1400/videos/block-compressed.mp4"
+      video: "/fhzb/videos/block-compressed.mp4"
     },
     {
       id: "institutions",
@@ -55,7 +55,7 @@ export default function Alliance() {
         { zh: "LP 申请", en: "LP Access", icon: "🔓" }
       ],
       cta: t("建立协同链路", "Build Synergy"),
-      video: "/fhzb-1400/videos/global-compressed.mp4"
+      video: "/fhzb/videos/global-compressed.mp4"
     },
     {
       id: "club",
@@ -71,7 +71,7 @@ export default function Alliance() {
         { zh: "入会申请", en: "Apply", icon: "✨" }
       ],
       cta: t("申请加入俱乐部", "Join Club"),
-      video: "/fhzb-1400/videos/banner-m.mp4"
+      video: "/fhzb/videos/banner-m.mp4"
     }
   ];
 
@@ -81,7 +81,7 @@ export default function Alliance() {
         {/* Header区 */}
         <section id="hero" className="relative pt-60 pb-40 border-b border-white/5 overflow-hidden">
            <img 
-             src="/fhzb-1400/videos/股市_1.jpg" 
+             src="/fhzb/videos/股市_1.jpg" 
              className="absolute inset-0 w-full h-full object-cover grayscale-[0.1]"
              alt="Alliance Hero Background"
            />

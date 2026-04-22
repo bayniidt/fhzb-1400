@@ -38,7 +38,7 @@ export default function Philosophy() {
           <div className="sticky top-0 w-full h-screen flex flex-col justify-center items-center overflow-hidden pt-24">
             <div className="absolute inset-0 z-0">
               <img
-                src="/fhzb-1400/videos/股市_3.jpg"
+                src="/fhzb/videos/股市_3.jpg"
                 className="absolute inset-0 w-full h-full object-cover"
                 alt="Philosophy Background"
               />
@@ -63,7 +63,7 @@ export default function Philosophy() {
               className="absolute inset-0 flex flex-col items-center justify-center z-20 bg-gradient-to-b from-transparent via-[#000000]/20 to-[#000000]"
             >
               {/* <img
-                src="/fhzb-1400/videos/背景图_1.jpg"
+                src="/fhzb/videos/背景图_1.jpg"
                 className="absolute bottom-0 w-full h-1/2 object-cover"
                 alt="Background"
               /> */}
@@ -237,9 +237,9 @@ export default function Philosophy() {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1 }}
                     src={[
-                      "/fhzb-1400/videos/batch-compressed.mp4",
-                      "/fhzb-1400/videos/block-compressed.mp4",
-                      "/fhzb-1400/videos/global-compressed.mp4"
+                      "/fhzb/videos/batch-compressed.mp4",
+                      "/fhzb/videos/block-compressed.mp4",
+                      "/fhzb/videos/global-compressed.mp4"
                     ][activePillar]}
                     autoPlay
                     muted
@@ -308,7 +308,7 @@ export default function Philosophy() {
               <div className="lg:col-span-7 sticky top-40">
                 <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/5 shadow-[0_0_100px_rgba(183,137,59,0.05)]">
                   <video
-                    src="/fhzb-1400/videos/footer-compressed.mp4"
+                    src="/fhzb/videos/footer-compressed.mp4"
                     autoPlay
                     muted
                     loop

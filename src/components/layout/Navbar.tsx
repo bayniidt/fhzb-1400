@@ -1,11 +1,10 @@
 "use client"
+import { useLanguage } from "@/context/LanguageContext"
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion"
+import Image from "next/image"; // 1. 引入组件
 import Link from "next/link"
-import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
-import { useLanguage } from "@/context/LanguageContext"
-import Image from "next/image" // 1. 引入组件
-import logoFile from "../../public/images/logo.png"; 
 
 export const NAV_LINKS = [
   {
@@ -125,7 +124,7 @@ export function Navbar() {
       >
         <Link href="/" className="group flex items-center shrink-0" onClick={() => setIsMenuOpen(false)}>
           <Image
-            src="/fhzb-1400/images/logo.png"
+            src="/fhzb/images/logo.png"
             alt="logo"
             width={180}   
             height={50}  

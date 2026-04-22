@@ -1,11 +1,11 @@
 "use client";
 
-import { PageTransition } from "@/components/ui/PageTransition";
-import { Section } from "@/components/ui/Section";
-import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
-import { useLanguage } from "@/context/LanguageContext";
+import { PageTransition } from "@/components/ui/PageTransition"
+import { Section } from "@/components/ui/Section"
+import { useLanguage } from "@/context/LanguageContext"
+import { motion, useScroll, useTransform } from "framer-motion"
+import Link from "next/link"
+import { useEffect, useRef, useState } from "react"
 
 export default function Home() {
   const { t, language } = useLanguage();
@@ -42,7 +42,7 @@ export default function Home() {
             loop
             muted
             playsInline
-            src="/fhzb-1400/videos/背景_6.mp4"
+            src="/fhzb/videos/背景_6.mp4"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#b7893b]/5 to-[#000000]/30 z-10" />
@@ -120,7 +120,7 @@ export default function Home() {
                 playsInline
                 preload="metadata"
                 aria-hidden="true"
-                src="/fhzb-1400/videos/block-compressed.mp4"
+                src="/fhzb/videos/block-compressed.mp4"
                 className="h-full w-full object-contain"
               >
                 Your browser does not support the video tag.
@@ -316,7 +316,7 @@ export default function Home() {
             loop
             muted
             playsInline
-            src="/fhzb-1400/videos/背景_1.mp4"
+            src="/fhzb/videos/背景_1.mp4"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-glow/10 via-transparent to-transparent z-15 pointer-events-none" />

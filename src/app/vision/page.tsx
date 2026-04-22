@@ -2,10 +2,10 @@
 
 import { PageTransition } from "@/components/ui/PageTransition"
 import { Section } from "@/components/ui/Section"
+import { useLanguage } from "@/context/LanguageContext"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { useState } from "react"
-import { useLanguage } from "@/context/LanguageContext"
 
 export default function Vision() {
    const { t, language } = useLanguage()
@@ -25,7 +25,7 @@ export default function Vision() {
             {/* Header区 */}
             <section className="relative pt-60 pb-40 border-b border-white/5 overflow-hidden">
                <img
-                  src="/fhzb-1400/videos/背景图_5.jpg"
+                  src="/fhzb/videos/背景图_5.jpg"
                   className="absolute inset-0 w-full h-full object-cover"
                   alt="Vision Header Background"
                />
@@ -82,7 +82,7 @@ export default function Vision() {
 
                      <div className="relative aspect-video rounded-2xl md:rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.8)] bg-surface">
                         <img
-                           src="/fhzb-1400/videos/背景图_2.jpg"
+                           src="/fhzb/videos/背景图_2.jpg"
                            className="w-full h-full object-cover opacity-60 group-hover:opacity-90 group-hover:scale-105 transition-all duration-1000"
                            alt="Documentary Preview"
                         />
@@ -167,7 +167,7 @@ export default function Vision() {
                      <div className="relative p-10 md:p-24 overflow-hidden group">
                         <div
                            className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-[3s] brightness-[.8]"
-                           style={{ backgroundImage: 'url("/fhzb-1400/videos/股市_5.jpg")' }}
+                           style={{ backgroundImage: 'url("/fhzb/videos/股市_5.jpg")' }}
                         ></div>
                         <div className="absolute inset-0 bg-background/20 z-5"></div>
                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-glow/20 via-transparent to-transparent pointer-events-none z-10"></div>
@@ -201,9 +201,9 @@ export default function Vision() {
                      </div>
                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {[
-                           { year: "2026", zh: "资本路径重构：新质生产力上市合规全周期", en: "Capital Path Reconstruction: IPO Compliance Cycle for New Productivity", cover: "/fhzb-1400/videos/股市_2.jpg" },
-                           { year: "2025", zh: "穿越死亡谷：被投企业失败模型及风控止损研究", en: "Through Death Valley: Failure Models and Risk Control Research", cover: "/fhzb-1400/videos/股市_3.jpg" },
-                           { year: "2025", zh: "区域深耕：合伙人生态网络极核裂变模型分析", en: "Regional Depth: Fission Model Analysis of Partner Ecosystems", cover: "/fhzb-1400/videos/股市_4.jpg" },
+                           { year: "2026", zh: "资本路径重构：新质生产力上市合规全周期", en: "Capital Path Reconstruction: IPO Compliance Cycle for New Productivity", cover: "/fhzb/videos/股市_2.jpg" },
+                           { year: "2025", zh: "穿越死亡谷：被投企业失败模型及风控止损研究", en: "Through Death Valley: Failure Models and Risk Control Research", cover: "/fhzb/videos/股市_3.jpg" },
+                           { year: "2025", zh: "区域深耕：合伙人生态网络极核裂变模型分析", en: "Regional Depth: Fission Model Analysis of Partner Ecosystems", cover: "/fhzb/videos/股市_4.jpg" },
                         ].map((report, idx) => (
                            <div key={idx} className="flex flex-col bg-surface border border-white/5 hover:border-[#b7893b]/40 transition-all group cursor-pointer overflow-hidden">
                               <div className="h-64 overflow-hidden relative">

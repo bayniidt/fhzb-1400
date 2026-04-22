@@ -1,11 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
 import { PageTransition } from "@/components/ui/PageTransition";
 import { useLanguage } from "@/context/LanguageContext";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import React, { useState } from "react";
 
 export default function ContactPage() {
   const { t } = useLanguage();
@@ -34,7 +32,7 @@ export default function ContactPage() {
           {/* 左半区：固定联系信息与氛围 */}
           <div id="info" className="w-full lg:w-[40%] bg-[#000000] p-10 lg:p-24 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-white/5 relative overflow-hidden">
             <img 
-              src="/fhzb-1400/videos/背景图_1.jpg" 
+              src="/fhzb/videos/背景图_1.jpg" 
               className="absolute inset-0 w-full h-full object-cover opacity-60 grayscale"
               alt="Contact Background"
             />
