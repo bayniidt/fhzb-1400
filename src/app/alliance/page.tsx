@@ -82,23 +82,33 @@ export default function Alliance() {
         <section className="relative pt-60 pb-40 border-b border-white/5 overflow-hidden">
            <img 
              src="/fhzb-1400/videos/股市_1.jpg" 
-             className="absolute inset-0 w-full h-full object-cover"
+             className="absolute inset-0 w-full h-full object-cover grayscale-[0.1]"
              alt="Alliance Hero Background"
            />
+           {/* 背景融合遮罩：从左侧黑色渐变到透明，增强文字可读性并消除“突兀”感 */}
+           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent z-10" />
+           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10" />
+           
            {/* 背景装饰 */}
-           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#b7893b]/5 rounded-full blur-[150px] pointer-events-none translate-x-1/2 -translate-y-1/2" />
+           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#b7893b]/10 rounded-full blur-[150px] pointer-events-none translate-x-1/2 -translate-y-1/2 z-10" />
            
            <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-20">
-             <span className="text-[#f12f08] uppercase tracking-[0.4em] font-bold text-xs block mb-8 relative z-10">Collective Prosperity</span>
-             <h1 className={`font-serif font-black text-white tracking-tighter mb-8 relative z-10 drop-shadow-2xl ${language === 'zh' ? 'text-6xl md:text-8xl lg:text-9xl' : 'text-5xl md:text-7xl lg:text-8xl'}`}>
+             <span className="text-[#f12f08] uppercase tracking-[0.4em] font-bold text-xs block mb-8">Collective Prosperity</span>
+             <h1 className={`font-serif font-black text-white tracking-tighter mb-8 drop-shadow-2xl ${language === 'zh' ? 'text-6xl md:text-8xl lg:text-9xl' : 'text-5xl md:text-7xl lg:text-8xl'}`}>
                {t('共筑峰峦', 'Alliance')}
              </h1>
-             <p className={` text-white border-b-2 bg-[black]/35 font-bold  w-auto leading-relaxed relative z-10 rounded-[10px] ${language === 'zh' ? 'text-3xl' : 'text-xl md:text-2xl'}`}>
-               {t('在峰壑，没有孤岛。', 'In FH, there are no islands.')}<br/>
-               {t('我们通过精密的利益对齐与资源互锁，', 'Through precise alignment and resource interlocking,')}<br />
-               {t('让每一份资本与技术都能在', 'every piece of capital and technology')}<br />
-               <span className="text-white font-bold">{t('生态网络中实现指数级裂变。', 'achieves exponential growth within the network.')}</span>
-             </p>
+             
+             {/* 优化的文字容器：采用极简玻璃拟态设计，配合金色装饰线 */}
+             <div className="relative max-w-4xl">
+               <div className={`text-white/90 border-l-4 border-[#b7893b] bg-black/20 backdrop-blur-xl p-8 md:p-10 rounded-r-2xl relative z-10 leading-relaxed ${language === 'zh' ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'}`}>
+                 <span className="font-bold block mb-2">{t('在峰壑，没有孤岛。', 'In FH, there are no islands.')}</span>
+                 <p className="font-medium">
+                   {t('我们通过精密的利益对齐与资源互锁，', 'Through precise alignment and resource interlocking,')}<br />
+                   {t('让每一份资本与技术都能在', 'every piece of capital and technology')}<br />
+                   <span className="text-[#b7893b] font-black italic tracking-wide">{t('生态网络中实现指数级裂变。', 'achieves exponential growth within the network.')}</span>
+                 </p>
+               </div>
+             </div>
            </div>
         </section>
 
