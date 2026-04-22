@@ -7,7 +7,7 @@ import { useLanguage } from "@/context/LanguageContext"
 import Image from "next/image" // 1. 引入组件
 import logoFile from "../../public/images/logo.png"; 
 
-const NAV_LINKS = [
+export const NAV_LINKS = [
   {
     href: "/",
     zh: "首页",
@@ -89,7 +89,7 @@ const NAV_LINKS = [
   },
 ]
 
-const CONTACT_SUB_ITEMS = [
+export const CONTACT_SUB_ITEMS = [
   { zh: "项目合作", en: "Project Cooperation", href: "/contact#cooperation", descZh: "寻求产业与资本的共鸣", descEn: "Seek resonance of industry & capital" },
   { zh: "合伙人加盟", en: "Partner", href: "/contact#partner-join", descZh: "加入合伙人价值体系", descEn: "Join the partner value system" },
   { zh: "会员申请", en: "Membership", href: "/contact#member-apply", descZh: "开启私享会籍特权", descEn: "Open private membership privileges" },
