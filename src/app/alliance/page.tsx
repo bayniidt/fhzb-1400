@@ -1,10 +1,9 @@
 "use client";
 
-import { PageTransition } from "@/components/ui/PageTransition";
-import { Section } from "@/components/ui/Section";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { useLanguage } from "@/context/LanguageContext";
+import { PageTransition } from "@/components/ui/PageTransition"
+import { Section } from "@/components/ui/Section"
+import { useLanguage } from "@/context/LanguageContext"
+import Link from "next/link"
 
 export default function Alliance() {
   const { t, language } = useLanguage();
@@ -12,39 +11,67 @@ export default function Alliance() {
   const ecosystemClusters = [
     {
       id: "targets",
-      zh: "上市公司/项目方",
+      zh: "上市公司 / 项目方",
       en: "Industrial Targets",
-      desc_zh: "我们不仅是资本提供者，更是您的登峰向导。从BP到上市，全程陪跑，助您将雄心筑成峰峦。",
-      desc_en: "Industrial enterprises with core technical foundations and global ambitions. We reconstruct capital models from a founder's perspective.",
-      cta: t("开启尽调接入", "Start Due Diligence"),
-      bg: "/fhzb-1400/image/alliance_1.jpg"
+      target_zh: "目标群体：寻求资本赋能的企业",
+      target_en: "Target: Enterprises seeking capital empowerment",
+      desc_zh: "项目加速器：成功案例；BP 投递入口；上市路径规划咨询。",
+      desc_en: "Project Accelerator: Success Cases, BP Submission, IPO Planning Consulting.",
+      features: [
+        { zh: "成功案例", en: "Success Cases", icon: "🏆" },
+        { zh: "BP 投递", en: "BP Submission", icon: "✉️" },
+        { zh: "路径规划", en: "IPO Planning", icon: "📈" }
+      ],
+      cta: t("开启项目加速", "Project Accelerator"),
+      video: "/fhzb-1400/videos/batch-compressed.mp4"
     },
     {
       id: "partners",
-      zh: "区域主理人 (Partners)",
-      en: "Regional Partners",
-      desc_zh: "深耕地方产业土壤的极核合伙人。负责调动当地政商资源，承接总部的资本算力下沉。",
-      desc_en: "Core partners deeply rooted in local industrial soils, mobilizing resources and executing headquarters' capital strategies.",
+      zh: "生态合伙人",
+      en: "Eco Partners",
+      target_zh: "目标群体：城市合伙人、区域伙伴",
+      target_en: "Target: City Partners & Regional Associates",
+      desc_zh: "合伙人价值主张：品牌授权、区域独家权、利润分成、培训支持、中央基金跟投权。申请流程。",
+      desc_en: "Value Proposition: Brand Auth, Regional Exclusivity, Profit Sharing, Training, Co-investment. Apply Flow.",
+      features: [
+        { zh: "区域独家", en: "Exclusivity", icon: "�" },
+        { zh: "利润分成", en: "Profit Sharing", icon: "�" },
+        { zh: "申请流程", en: "Apply Flow", icon: "📋" }
+      ],
       cta: t("申请极核授权", "Apply for Auth"),
-      bg: "/fhzb-1400/image/alliance_2.jpg"
+      video: "/fhzb-1400/videos/block-compressed.mp4"
     },
     {
-      id: "syndicate",
-      zh: "资本供血盟友 (Syndicate)",
-      en: "Capital Syndicate",
-      desc_zh: "认同第一性原理的高净值个人与家族信托。参与基石项目跟投，共建长周期价值护城河。",
-      desc_en: "High net worth individuals and family trusts sharing first-principles logic. Participating in cornerstone projects to build long-term moats.",
-      cta: t("入驻资本池", "Join Capital Pool"),
-      bg: "/fhzb-1400/image/alliance_3.jpg"
-    },
-    {
-      id: "echelon",
-      zh: "合规与技术顶层 (Top Echelon)",
-      en: "Top Echelon",
-      desc_zh: "全球顶级律师、审计与保荐机构。为星系内的所有节点提供国际化的上市合规与架构防御。",
-      desc_en: "Top-tier legal, audit, and sponsor institutions providing international IPO compliance and structural defense.",
+      id: "institutions",
+      zh: "机构伙伴",
+      en: "Financial Institutions",
+      target_zh: "目标群体：VC/PE、家族办公室、金融机构",
+      target_en: "Target: VC/PE, Family Offices, Financial Institutions",
+      desc_zh: "共投基金/生态基金：基金策略、过往业绩、跟投机会、LP 申请通道。",
+      desc_en: "Co-investment/Eco Funds: Fund Strategy, Track Record, Opportunities, LP Access.",
+      features: [
+        { zh: "基金策略", en: "Fund Strategy", icon: "🎯" },
+        { zh: "跟投机会", en: "Co-invest", icon: "🤝" },
+        { zh: "LP 申请", en: "LP Access", icon: "🔓" }
+      ],
       cta: t("建立协同链路", "Build Synergy"),
-      bg: "/fhzb-1400/image/alliance_4.jpg"
+      video: "/fhzb-1400/videos/global-compressed.mp4"
+    },
+    {
+      id: "club",
+      zh: "会员俱乐部",
+      en: "Member Club",
+      target_zh: "目标群体：高净值个人、企业家",
+      target_en: "Target: HNWIs, Entrepreneurs",
+      desc_zh: "会员权益：顶级圈层、稀缺项目跟投、专属顾问、尊贵身份标识。入会申请。",
+      desc_en: "Benefits: Top Circle, Project Access, Dedicated Advisor, Elite Identity. Membership Apply.",
+      features: [
+        { zh: "顶级圈层", en: "Top Circle", icon: "�" },
+        { zh: "专属顾问", en: "Advisor", icon: "👤" },
+        { zh: "入会申请", en: "Apply", icon: "✨" }
+      ],
+      cta: t("申请加入俱乐部", "Join Club"),
+      video: "/fhzb-1400/videos/banner-m.mp4"
     }
   ];
 
@@ -88,12 +115,30 @@ export default function Alliance() {
                          <span className="w-12 h-[1px] bg-[#b7893b]"></span>
                          <span className="text-[#b7893b] font-bold tracking-[0.3em] text-xs uppercase">{cluster.en}</span>
                       </div>
+                      <div className="mb-4">
+                        <span className="text-[#b7893b]/60 text-sm font-bold uppercase tracking-widest">{language === 'zh' ? cluster.target_zh : cluster.target_en}</span>
+                      </div>
                       <h2 className={`font-serif text-white mb-8 ${language === 'zh' ? 'text-5xl md:text-6xl font-light' : 'text-4xl md:text-5xl font-black'}`}>
                         {language === 'zh' ? cluster.zh : cluster.en}
                       </h2>
                       <p className="text-xl text-white font-light leading-relaxed mb-12">
                         {language === 'zh' ? cluster.desc_zh : cluster.desc_en}
                       </p>
+
+                      {/* 交互功能点 */}
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
+                        {cluster.features?.map((feature, fIdx) => (
+                          <div 
+                            key={fIdx} 
+                            className="p-6 bg-white/5 border border-white/10 hover:border-[#b7893b]/50 hover:bg-[#b7893b]/10 transition-all cursor-pointer group/item text-center"
+                          >
+                            <div className="text-2xl mb-2 group-hover/item:scale-110 transition-transform">{feature.icon}</div>
+                            <div className="text-white font-bold text-xs uppercase tracking-tighter whitespace-nowrap">
+                              {language === 'zh' ? feature.zh : feature.en}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
                       
                       <Link href="/contact" className="group/btn inline-flex items-center gap-6">
                          <span className="text-white font-bold tracking-widest text-sm uppercase group-hover/btn:text-[#b7893b] transition-colors">{cluster.cta}</span>
@@ -103,17 +148,21 @@ export default function Alliance() {
                       </Link>
                    </div>
 
-                   {/* 视觉卡片 (模拟) */}
-                   <div className={`w-full md:w-1/2 ${isEven ? 'md:order-2' : 'md:order-1'} h-[500px] relative overflow-hidden bg-surface border border-white/5 group-hover:border-[#b7893b]/30 transition-colors`}>
-                      <div className="absolute inset-0 bg-gradient-to-br from-glow/20 via-transparent to-transparent opacity-40"></div>
-                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 border border-[#b7893b]/20 rounded-full animate-[ping_5s_infinite] opacity-30"></div>
-                      <div className="absolute inset-0 flex items-center justify-center">
-                         <span className="text-white/5 text-[10rem] font-serif font-black select-none">{cluster.id[0].toUpperCase()}</span>
-                      </div>
+                   {/* 视觉卡片 (视频展示) */}
+                   <div className={`w-full md:w-1/2 ${isEven ? 'md:order-2' : 'md:order-1'} h-[500px] relative overflow-hidden bg-surface border border-white/5 group-hover:border-[#b7893b]/30 transition-colors rounded-2xl shadow-2xl`}>
+                      <video 
+                        src={cluster.video}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-1000"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                       
                       {/* 抽象细节 */}
-                      <div className="absolute bottom-10 left-10 p-6 border-l border-[#b7893b]/50 bg-black/40 backdrop-blur-sm">
-                         <div className="text-[10px] text-white uppercase tracking-widest mb-2">Network Status</div>
+                      <div className="absolute bottom-10 left-10 p-6 border-l border-[#b7893b]/50 bg-black/40 backdrop-blur-md">
+                         <div className="text-[10px] text-[#b7893b] uppercase tracking-widest mb-2">Network Status</div>
                          <div className="text-white font-bold text-xs flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-[#b7893b] animate-pulse"></span>
                             ACTIVE NODE 0{idx + 1}
