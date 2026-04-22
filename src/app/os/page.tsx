@@ -104,7 +104,7 @@ export default function OS() {
         </section>
 
         {/* 1. 操作系统全景图：交互式 SVG 区块 */}
-        <section className="py-32 px-10 bg-black relative overflow-hidden">
+        <section id="panorama" className="py-32 px-10 bg-black relative overflow-hidden">
            <div className="max-w-7xl mx-auto text-center mb-20">
               <span className="text-[#b7893b] uppercase tracking-[0.5em] font-bold text-xs">{t('操作系统全景', 'OS PANORAMA')}</span>
               <h2 className="text-5xl md:text-6xl font-bold text-white mt-4 tracking-tighter">
@@ -182,7 +182,7 @@ export default function OS() {
         </section>
 
         {/* 2. 交互阶段区：左文右视剧场结构 (登峰地图) */}
-        <section className="py-40 px-10 max-w-7xl mx-auto relative overflow-hidden">
+        <section id="map" className="py-40 px-10 max-w-7xl mx-auto relative overflow-hidden">
            <div className="absolute inset-0 pointer-events-none opacity-10">
               <div className="absolute top-0 right-0 w-96 h-96 border border-[#b7893b]/20 rotate-45 translate-x-1/2 -translate-y-1/2" />
            </div>
@@ -275,7 +275,7 @@ export default function OS() {
         </section>
 
         {/* 核心承诺区：动态数据卡片 */}
-        <section className="py-40 bg-white/5 relative overflow-hidden">
+        <section id="commitments" className="py-40 bg-white/5 relative overflow-hidden">
            <div className="max-w-7xl mx-auto px-10 relative z-10">
               <div className="text-center mb-24 space-y-4">
                  <span className="text-[#b7893b] uppercase tracking-[0.5em] font-bold text-xs">{t('硬性承诺', 'HARD COMMITMENTS')}</span>
@@ -316,7 +316,7 @@ export default function OS() {
         </section>
 
         {/* 底部全景区 */}
-        <section className="py-40 bg-white/5 border-t border-white/5">
+        <section id="tools" className="py-40 bg-white/5 border-t border-white/5">
            <div className="max-w-7xl mx-auto px-10 text-center">
               <h2 className={`font-serif text-white mb-16 ${language === 'zh' ? 'text-5xl md:text-7xl' : 'text-4xl md:text-6xl'}`}>
                 {t('工作流预览：', 'Backend:')} <br/>

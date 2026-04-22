@@ -33,7 +33,7 @@ export default function Philosophy() {
       <div ref={containerRef} className="relative bg-[#000000]">
 
         {/* 1. 峰峦思维：思维维度的对比剧场 */}
-        <section className="relative w-full h-[150vh]">
+        <section id="peak-thinking" className="relative w-full h-[150vh]">
           {/* Header */}
           <div className="sticky top-0 w-full h-screen flex flex-col justify-center items-center overflow-hidden pt-24">
             <div className="absolute inset-0 z-0">
@@ -84,7 +84,7 @@ export default function Philosophy() {
         </section>
 
         {/* 2. 使命·愿景·价值观 */}
-        <Section className="bg-[#000000] !py-32 px-6">
+        <Section id="mvv" className="bg-[#000000] !py-32 px-6">
           <div className="max-w-7xl mx-auto w-full">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
               <div className="space-y-24">
@@ -151,7 +151,7 @@ export default function Philosophy() {
         </Section>
 
         {/* 3. 三大文化支柱：左文右视剧场结构 */}
-        <Section className="bg-[#000000] !py-40 px-6 relative overflow-hidden">
+        <Section id="pillars" className="bg-[#000000] !py-40 px-6 relative overflow-hidden">
           {/* 背景装饰漂浮元素 */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute top-1/4 left-1/4 w-64 h-80 border border-white/5 rotate-12 opacity-20"></div>
@@ -264,7 +264,7 @@ export default function Philosophy() {
         </Section>
 
         {/* 4. 文化象征与仪式：左文右视结构 */}
-        <Section className="relative w-full py-40 bg-[#000000] overflow-hidden border-t border-white/5">
+        <Section id="symbols" className="relative w-full py-40 bg-[#000000] overflow-hidden border-t border-white/5">
           {/* 背景装饰漂浮元素 */}
           <div className="absolute inset-0 pointer-events-none opacity-20">
             <div className="absolute top-1/3 right-1/4 w-72 h-96 border border-[#b7893b]/10 rotate-12"></div>
@@ -331,7 +331,7 @@ export default function Philosophy() {
         </Section>
 
         {/* 5. 创始人的信：全屏长卷阅读 */}
-        <section className="relative w-full min-h-[120vh] bg-[#000000] border-t border-white/10 flex items-center justify-center py-40">
+        <section id="letter" className="relative w-full min-h-[120vh] bg-[#000000] border-t border-white/10 flex items-center justify-center py-40">
           <div className="absolute inset-0 pointer-events-none opacity-60 bg-[url('https://images.unsplash.com/photo-1455390582262-044cdead2708?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center mix-blend-screen grayscale"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-[#000000] via-[#000000]/80 to-[#000000]"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#b7893b]/5 via-transparent to-transparent pointer-events-none z-0"></div>

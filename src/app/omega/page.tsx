@@ -20,7 +20,7 @@ export default function OmegaPage() {
         />
         
         {/* Omega Stats */}
-        <section className="px-6 md:px-20 py-20 bg-white/5">
+        <section id="dashboard" className="px-6 md:px-20 py-20 bg-white/5">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center text-[#b7893b]">
             <div>
               <div className="text-5xl font-light mb-2">
@@ -44,7 +44,7 @@ export default function OmegaPage() {
         </section>
 
         {/* 数字通行证 (NFT Card Layout) */}
-        <section className="px-6 md:px-20 py-32 max-w-7xl mx-auto w-full">
+        <section id="pass" className="px-6 md:px-20 py-32 max-w-7xl mx-auto w-full">
           <motion.div 
             whileHover={{ rotateY: 5, rotateX: -2, scale: 1.01 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -118,7 +118,7 @@ export default function OmegaPage() {
           </motion.div>
         </section>
         {/* 项目数字档案 (Project Digital Archives) */}
-        <section className="px-6 md:px-20 py-32 bg-white/[0.02] border-t border-white/5 overflow-hidden">
+        <section id="archive" className="px-6 md:px-20 py-32 bg-white/[0.02] border-t border-white/5 overflow-hidden">
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
               <div className="max-w-2xl">

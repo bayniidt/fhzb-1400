@@ -11,12 +11,28 @@ export default function ContactPage() {
   const { t } = useLanguage();
   const [role, setRole] = useState<string>("none");
 
+  React.useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (['project', 'cooperation'].includes(hash)) setRole('project');
+      else if (['partner', 'partner-join'].includes(hash)) setRole('partner');
+      else if (['club', 'member-apply'].includes(hash)) setRole('club');
+      else if (['institution', 'institution-coop'].includes(hash)) setRole('institution');
+      else if (['media', 'media-coop'].includes(hash)) setRole('media');
+      else if (hash === 'form') setRole('project'); // Default or specific for form
+    };
+
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, []);
+
   return (
     <PageTransition>
       <div className="bg-[#000000] min-h-screen flex flex-col pt-20">
         <div className="flex flex-col lg:flex-row flex-grow">
           {/* 左半区：固定联系信息与氛围 */}
-          <div className="w-full lg:w-[40%] bg-[#000000] p-10 lg:p-24 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-white/5 relative overflow-hidden">
+          <div id="info" className="w-full lg:w-[40%] bg-[#000000] p-10 lg:p-24 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-white/5 relative overflow-hidden">
             <img 
               src="/fhzb-1400/videos/背景图_1.jpg" 
               className="absolute inset-0 w-full h-full object-cover opacity-60 grayscale"
@@ -56,7 +72,7 @@ export default function ContactPage() {
           </div>
 
           {/* 右半区：智能申请分流表单 */}
-          <div className="w-full lg:w-[60%] p-10 lg:p-32 bg-[#000000] flex flex-col justify-center">
+          <div id="form" className="w-full lg:w-[60%] p-10 lg:p-32 bg-[#000000] flex flex-col justify-center">
             <div className="w-full max-w-2xl">
               <div className="mb-20">
                 <label className="block text-2xl lg:text-4xl font-serif font-light mb-8 text-[#FFFFFF]">

@@ -10,7 +10,7 @@ export default function Alliance() {
 
   const ecosystemClusters = [
     {
-      id: "targets",
+      id: "companies",
       zh: "上市公司 / 项目方",
       en: "Industrial Targets",
       target_zh: "目标群体：寻求资本赋能的企业",
@@ -34,8 +34,8 @@ export default function Alliance() {
       desc_zh: "合伙人价值主张：品牌授权、区域独家权、利润分成、培训支持、中央基金跟投权。申请流程。",
       desc_en: "Value Proposition: Brand Auth, Regional Exclusivity, Profit Sharing, Training, Co-investment. Apply Flow.",
       features: [
-        { zh: "区域独家", en: "Exclusivity", icon: "�" },
-        { zh: "利润分成", en: "Profit Sharing", icon: "�" },
+        { zh: "区域独家", en: "Exclusivity", icon: "" },
+        { zh: "利润分成", en: "Profit Sharing", icon: "" },
         { zh: "申请流程", en: "Apply Flow", icon: "📋" }
       ],
       cta: t("申请极核授权", "Apply for Auth"),
@@ -66,7 +66,7 @@ export default function Alliance() {
       desc_zh: "会员权益：顶级圈层、稀缺项目跟投、专属顾问、尊贵身份标识。入会申请。",
       desc_en: "Benefits: Top Circle, Project Access, Dedicated Advisor, Elite Identity. Membership Apply.",
       features: [
-        { zh: "顶级圈层", en: "Top Circle", icon: "�" },
+        { zh: "顶级圈层", en: "Top Circle", icon: "" },
         { zh: "专属顾问", en: "Advisor", icon: "👤" },
         { zh: "入会申请", en: "Apply", icon: "✨" }
       ],
@@ -79,7 +79,7 @@ export default function Alliance() {
     <PageTransition>
       <div className="bg-background w-full">
         {/* Header区 */}
-        <section className="relative pt-60 pb-40 border-b border-white/5 overflow-hidden">
+        <section id="hero" className="relative pt-60 pb-40 border-b border-white/5 overflow-hidden">
            <img 
              src="/fhzb-1400/videos/股市_1.jpg" 
              className="absolute inset-0 w-full h-full object-cover grayscale-[0.1]"
@@ -113,11 +113,11 @@ export default function Alliance() {
         </section>
 
         {/* 四大集群展示 */}
-        <div className="divide-y divide-white/5 border-b border-white/5">
+        <div id="clusters" className="divide-y divide-white/5 border-b border-white/5">
           {ecosystemClusters.map((cluster, idx) => {
             const isEven = idx % 2 === 0;
             return (
-              <div key={cluster.id} className="relative group overflow-hidden hover:bg-[#b7893b]/5 transition-colors duration-1000">
+              <div id={cluster.id} key={cluster.id} className="relative group overflow-hidden hover:bg-[#b7893b]/5 transition-colors duration-1000">
                 <div className="max-w-7xl mx-auto px-6 md:px-10 py-32 flex flex-col md:flex-row gap-20 items-center">
                    {/* 内容 */}
                    <div className={`w-full md:w-1/2 ${isEven ? 'md:order-1' : 'md:order-2'}`}>
@@ -186,7 +186,7 @@ export default function Alliance() {
         </div>
         
         {/* 底座入口 */}
-        <Section className="bg-black text-center border-t border-white/10 !min-h-[50vh] flex flex-col justify-center px-6">
+        <Section id="cta" className="bg-black text-center border-t border-white/10 !min-h-[50vh] flex flex-col justify-center px-6">
           <h2 className="text-3xl font-serif font-light text-white mb-8">
             {t('仍有游移？或是准备登阶？', 'Still undecided? Or ready to ascend?')}
           </h2>

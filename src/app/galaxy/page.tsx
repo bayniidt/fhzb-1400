@@ -37,7 +37,7 @@ export default function Galaxy() {
       <div ref={containerRef} className="bg-[#050505]">
         
         {/* 模块一：总部 · 中央引擎 */}
-        <section className="relative min-h-[120vh] flex flex-col justify-center border-b border-white/5 pt-32 overflow-hidden">
+        <section id="engine" className="relative min-h-[120vh] flex flex-col justify-center border-b border-white/5 pt-32 overflow-hidden">
            <img 
              src="/fhzb-1400/videos/背景图_4.jpg" 
              className="absolute inset-0 w-full h-full object-cover"
@@ -80,7 +80,7 @@ export default function Galaxy() {
         </section>
 
         {/* 模块二：区域俱乐部 · 星罗棋布 */}
-        <Section className="bg-[#000000] !py-0 border-b border-white/5 flex flex-col lg:flex-row min-h-screen">
+        <Section id="clubs" className="bg-[#000000] !py-0 border-b border-white/5 flex flex-col lg:flex-row min-h-screen">
             <div className="w-full lg:w-2/3 relative min-h-[60vh] lg:min-h-screen border-b lg:border-b-0 lg:border-r border-white/10 overflow-hidden">
                 <img 
                   src="/fhzb-1400/videos/背景图_3.jpg"
@@ -144,7 +144,7 @@ export default function Galaxy() {
         </Section>
 
         {/* 模块三：协同网络矩阵 (机构 Logo 墙阵列) */}
-        <Section className="bg-[#050505] !py-32 px-6">
+        <Section id="network" className="bg-[#050505] !py-32 px-6">
            <div className="max-w-7xl mx-auto w-full text-center">
               <h2 className="text-sm tracking-[0.3em] font-bold text-white uppercase mb-4">Synergy Matrix</h2>
               <div className="text-4xl md:text-5xl font-light text-[#FFFFFF] mb-6">{t('超级协同网络', 'Super Synergy Network')}</div>
@@ -168,7 +168,7 @@ export default function Galaxy() {
         </Section>
 
         {/* 模块四：加入星系 CTA */}
-        <Section className="bg-[#020202] !min-h-[80vh] flex flex-col justify-center items-center relative overflow-hidden px-6">
+        <Section id="join" className="bg-[#020202] !min-h-[80vh] flex flex-col justify-center items-center relative overflow-hidden px-6">
            <div className="absolute inset-0 pointer-events-none z-0">
              <div className="absolute w-full h-[1px] bg-gradient-to-r from-transparent via-[#b7893b]/50 to-transparent top-1/2 -translate-y-1/2"></div>
              <div className="absolute w-[1px] h-full bg-gradient-to-b from-transparent via-[#b7893b]/50 to-transparent left-1/2 -translate-x-1/2"></div>

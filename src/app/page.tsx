@@ -76,7 +76,7 @@ export default function Home() {
       </section>
 
       {/* 模块二：峰壑宣言 */}
-      <Section className="relative overflow-hidden bg-black !min-h-0 !px-6 !py-16 md:!px-10 md:!py-[4.5rem] lg:!px-20 lg:!py-20">
+      <Section id="manifesto" className="relative overflow-hidden bg-black !min-h-0 !px-6 !py-16 md:!px-10 md:!py-[4.5rem] lg:!px-20 lg:!py-20">
         <div className="relative z-10 mx-auto grid w-full max-w-[1400px] grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.95fr)] lg:gap-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -131,7 +131,7 @@ export default function Home() {
       </Section>
 
       {/* 模块三：三大价值入口 */}
-      <Section className="relative overflow-hidden bg-[#121212] !min-h-0 !px-0 !pt-20 !pb-20 md:!pt-24 md:!pb-24 lg:!pt-24 lg:!pb-24">
+      <Section id="gateways" className="relative overflow-hidden bg-[#121212] !min-h-0 !px-0 !pt-20 !pb-20 md:!pt-24 md:!pb-24 lg:!pt-24 lg:!pb-24">
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white/[0.03] to-transparent pointer-events-none" />
 
         <div className="mx-auto w-full max-w-[1200px] px-4 md:px-6">
@@ -229,7 +229,7 @@ export default function Home() {
 
 
       {/* 模块四 & 模块五：星系概览与最新动态 (Split Layout) */}
-      <Section className="bg-[#050505] !px-0 !py-0 flex flex-col lg:flex-row min-h-screen relative overflow-hidden">
+      <Section id="galaxy-overview" className="bg-[#050505] !px-0 !py-0 flex flex-col lg:flex-row min-h-screen relative overflow-hidden">
         {/* Universal Map Background Layer */}
         <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=2000')] bg-cover bg-center mix-blend-luminosity"></div>
@@ -274,7 +274,7 @@ export default function Home() {
             <h3 className="text-[#b7893b] text-sm tracking-[0.4em] font-bold uppercase mb-2">
               LATEST UPDATES
             </h3>
-            <h2 className="text-4xl font-bold text-white tracking-tight">
+            <h2 id="news" className="text-4xl font-bold text-white tracking-tight">
               {t('最新动态', 'News')}
             </h2>
           </motion.div>
@@ -309,7 +309,7 @@ export default function Home() {
       </Section>
       
       {/* 模块六：峰壑之问 */}
-      <Section className="relative bg-surface min-h-screen flex items-center justify-center overflow-hidden px-6">
+      <Section id="question" className="relative bg-surface min-h-screen flex items-center justify-center overflow-hidden px-6">
         <div className="absolute inset-0 z-0">
           <video
             autoPlay

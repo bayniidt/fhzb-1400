@@ -44,7 +44,7 @@ export default function Vision() {
             </section>
 
             {/* 模块一：《登峰》纪录片 (改为上下结构，非全屏视频) */}
-            <Section className="relative py-32 bg-background overflow-hidden border-b border-white/5 !min-h-0">
+            <Section id="documentary" className="relative py-32 bg-background overflow-hidden border-b border-white/5 !min-h-0">
                {/* 背景极简装饰 */}
                <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#b7893b]/5 rounded-full blur-[120px] pointer-events-none" />
 
@@ -130,7 +130,7 @@ export default function Vision() {
 
                {/* 模块二：《第一性原理》 深度洞见 */}
                {(activeTab === 'all' || activeTab === 'column') && (
-                  <div className="space-y-12">
+                  <div id="first-principles" className="space-y-12">
                      <div className="flex justify-between items-end border-b border-white/10 pb-6">
                         <h3 className="text-3xl font-serif font-light text-white">{t('内部专栏', 'Internal Columns')} <span className="font-serif italic text-white">/ {t('第一性原理', 'First Principles')}</span></h3>
                      </div>
@@ -160,7 +160,7 @@ export default function Vision() {
 
                {/* 模块三：峰会实录·金句版图 */}
                {(activeTab === 'all' || activeTab === 'summit') && (
-                  <div className="space-y-12">
+                  <div id="summit" className="space-y-12">
                      <div className="flex justify-between items-end border-b border-white/10 pb-6">
                         <h3 className="text-3xl font-serif font-light text-white">{t('峰会实录', 'Summit Records')} <span className="font-serif italic text-white">/ {t('巨擘共识', 'Giant Consensus')}</span></h3>
                      </div>
@@ -195,7 +195,7 @@ export default function Vision() {
 
                {/* 模块四：洞察白皮书研报 */}
                {(activeTab === 'all' || activeTab === 'insights') && (
-                  <div className="space-y-12">
+                  <div id="insights" className="space-y-12">
                      <div className="flex justify-between items-end border-b border-white/10 pb-6">
                         <h3 className="text-3xl font-serif font-light text-white">{t('白皮书矩阵', 'Whitepaper Matrix')} <span className="font-serif italic text-white">/ {t('峰壑洞察', 'Summit Insights')}</span></h3>
                      </div>
@@ -229,7 +229,7 @@ export default function Vision() {
 
                {/* 模块五：媒体中心 */}
                {(activeTab === 'all' || activeTab === 'media') && (
-                  <div className="space-y-12">
+                  <div id="media" className="space-y-12">
                      <div className="flex justify-between items-end border-b border-white/10 pb-6">
                         <h3 className="text-3xl font-serif font-light text-white">{t('资讯阵列', 'Information Array')} <span className="font-serif italic text-white">/ {t('媒体中心', 'Media Center')}</span></h3>
                         <Link href="/contact" className="text-xs tracking-widest uppercase text-white hover:text-[#b7893b] transition-colors">{t('媒体专区', 'Press Area')} &rarr;</Link>
