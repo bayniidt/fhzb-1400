@@ -35,7 +35,7 @@ export default function Home() {
   return (
     <PageTransition>
       {/* 模块一：主视觉区 */}
-      <section ref={containerRef} className="relative w-full h-screen flex items-center justify-center overflow-hidden border-b border-white/5">
+      <section id="hero" ref={containerRef} className="relative w-full h-screen flex items-center justify-center overflow-hidden border-b border-white/5">
         <motion.div style={{ opacity: heroOpacity, scale: heroScale }} className="absolute inset-0 z-0">
           <video
             autoPlay
@@ -229,7 +229,7 @@ export default function Home() {
 
 
       {/* 模块四 & 模块五：星系概览与最新动态 (Split Layout) */}
-      <Section id="galaxy-overview" className="bg-[#050505] !px-0 !py-0 flex flex-col lg:flex-row min-h-screen relative overflow-hidden">
+      <Section className="bg-[#050505] !px-0 !py-0 flex flex-col lg:flex-row min-h-screen relative overflow-hidden">
         {/* Universal Map Background Layer */}
         <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=2000')] bg-cover bg-center mix-blend-luminosity"></div>
@@ -237,7 +237,7 @@ export default function Home() {
         </div>
 
         {/* 左侧：峰壑星系网络 */}
-        <div className="w-full lg:w-1/2 p-12 lg:p-32 relative flex flex-col justify-center z-10">
+        <div id="galaxy-overview" className="w-full lg:w-1/2 p-12 lg:p-32 relative flex flex-col justify-center z-10">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -264,7 +264,7 @@ export default function Home() {
         </div>
 
         {/* 右侧：最新动态 */}
-        <div className="w-full lg:w-1/2 p-12 lg:p-32 bg-black/40 backdrop-blur-sm z-10 flex flex-col justify-start pt-32 lg:pt-48">
+        <div id="news" className="w-full lg:w-1/2 p-12 lg:p-32 bg-black/40 backdrop-blur-sm z-10 flex flex-col justify-start pt-32 lg:pt-48">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -274,7 +274,7 @@ export default function Home() {
             <h3 className="text-[#b7893b] text-sm tracking-[0.4em] font-bold uppercase mb-2">
               LATEST UPDATES
             </h3>
-            <h2 id="news" className="text-4xl font-bold text-white tracking-tight">
+            <h2 className="text-4xl font-bold text-white tracking-tight">
               {t('最新动态', 'News')}
             </h2>
           </motion.div>

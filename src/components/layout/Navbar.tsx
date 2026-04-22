@@ -13,11 +13,11 @@ const NAV_LINKS = [
     zh: "首页",
     en: "HOME",
     subItems: [
-      { zh: "峰壑宣言", en: "Manifesto", href: "/#manifesto", descZh: "峰壑核心精神与价值观", descEn: "FH core spirit and values" },
-      { zh: "三大价值入口", en: "Gateways", href: "/#gateways", descZh: "多维价值增长引擎", descEn: "Multi-dimensional growth engine" },
-      { zh: "峰壑星系概览", en: "Overview", href: "/#galaxy-overview", descZh: "生态全景立体呈现", descEn: "Ecosystem panorama presentation" },
+      { zh: "峰壑宣言", en: "Manifesto", href: "/#hero", descZh: "（banner 图）", descEn: "Hero Banner" },
+      { zh: "三大价值入口", en: "Gateways", href: "/#gateways", descZh: "（核心价值枢纽）", descEn: "Core Value Hub" },
+      { zh: "峰壑星系概览", en: "Overview", href: "/#galaxy-overview", descZh: "（峰壑星系网络）", descEn: "Galaxy Network" },
       { zh: "最新动态", en: "News", href: "/#news", descZh: "实时掌握项目进展", descEn: "Real-time project progress" },
-      { zh: "峰壑之问", en: "Question", href: "/#question", descZh: "深度的思考与对话", descEn: "Deep thinking and dialogue" },
+      { zh: "峰壑之问", en: "Question", href: "/#question", descZh: "（我们绘制的是空中楼阁，还是登峰地图？）", descEn: "Castles in the air or map to the summit?" },
     ]
   },
   {
@@ -25,11 +25,11 @@ const NAV_LINKS = [
     zh: "峰壑哲学",
     en: "PHILOSOPHY",
     subItems: [
-      { zh: "峰峦思维", en: "Peak Thinking", href: "/philosophy#peak-thinking", descZh: "认知世界的底层逻辑", descEn: "Underlying logic of world perception" },
-      { zh: "使命·愿景·价值观", en: "MVV", href: "/philosophy#mvv", descZh: "指引前行的文化坐标", descEn: "Cultural coordinates for guidance" },
-      { zh: "三大文化支柱", en: "Pillars", href: "/philosophy#pillars", descZh: "支撑生态的稳定结构", descEn: "Stable structure supporting ecosystem" },
-      { zh: "文化象征与仪式", en: "Rituals", href: "/philosophy#symbols", descZh: "精神内化的具象表达", descEn: "Concrete expression of spirit" },
-      { zh: "创始人的信", en: "Letter", href: "/philosophy#letter", descZh: "跨越时空的思想交流", descEn: "Thought exchange across time/space" },
+      { zh: "峰峦思维", en: "Peak Thinking", href: "/philosophy#peak-thinking", descZh: "（banner 图）", descEn: "Hero Banner" },
+      { zh: "使命·愿景·价值观", en: "MVV", href: "/philosophy#mvv", descZh: "（Mission / 使命）", descEn: "Mission / Values" },
+      { zh: "三大文化支柱", en: "Pillars", href: "/philosophy#pillars", descZh: "（核心理念）", descEn: "Core Concept" },
+      { zh: "文化象征与仪式", en: "Rituals", href: "/philosophy#symbols", descZh: "（文化象征与仪式）", descEn: "Cultural Symbols & Rituals" },
+      { zh: "创始人的信", en: "Letter", href: "/philosophy#letter", descZh: "（创始人的信）", descEn: "Letter from Founder" },
     ]
   },
   {
@@ -49,9 +49,9 @@ const NAV_LINKS = [
     en: "GALAXY",
     subItems: [
       { zh: "总部·中央引擎", en: "Engine", href: "/galaxy#engine", descZh: "战略大脑与资源枢纽", descEn: "Strategic brain & resource hub" },
-      { zh: "区域俱乐部·星罗棋布", en: "Clubs", href: "/galaxy#clubs", descZh: "遍布全球的服务节点", descEn: "Global service nodes" },
-      { zh: "协同网络", en: "Network", href: "/galaxy#network", descZh: "打破边界的价值共振", descEn: "Value resonance across boundaries" },
-      { zh: "加入星系", en: "Join", href: "/galaxy#join", descZh: "开启共同进化的旅程", descEn: "Start the journey of co-evolution" },
+      { zh: "区域俱乐部·星罗棋布", en: "Clubs", href: "/galaxy#clubs", descZh: "（区域俱乐部阵列）", descEn: "Regional Club Matrix" },
+      { zh: "协同网络", en: "Network", href: "/galaxy#network", descZh: "（超级协同网络）", descEn: "Super Synergy Network" },
+      { zh: "加入星系", en: "Join", href: "/galaxy#join", descZh: "（占领极点，点亮下一个星区。）", descEn: "Capture the core, ignite the next sector." },
     ]
   },
   {
