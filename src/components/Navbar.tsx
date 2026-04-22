@@ -1,15 +1,15 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
+import { CloseIcon, HamburgerIcon, LogoIcon } from "@/components/icons";
 import { cn } from "@/lib/utils";
-import { LogoIcon, HamburgerIcon, CloseIcon } from "@/components/icons";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const NAV_LINKS = [
   { name: "关于我们", href: "/#about", label: "About" },
   { name: "投资案例", href: "/family", label: "Portfolios" },
   { name: "投资哲学", href: "/#philosophy", label: "Philosophy" },
-  { name: "OMEGA 计划", href: "/omega", label: "OMEGA" },
+  { name: "峰壑数据看板", href: "/omega", label: "OMEGA" },
   { name: "行业洞察", href: "/#insights", label: "Insights" },
   // { name: "联系我们", href: "/#contact", label: "Contact" },
 ];

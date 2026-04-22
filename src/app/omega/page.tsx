@@ -1,8 +1,8 @@
 "use client";
 
-import { Navbar } from "@/components/layout/Navbar";
-import { PageHero } from "@/components/PageHero";
-import { useLanguage } from "@/context/LanguageContext";
+import { Navbar } from "@/components/layout/Navbar"
+import { PageHero } from "@/components/PageHero"
+import { useLanguage } from "@/context/LanguageContext"
 
 export default function OmegaPage() {
   const { t, language } = useLanguage();
@@ -12,8 +12,8 @@ export default function OmegaPage() {
       <Navbar />
       <main className="flex-grow bg-black">
         <PageHero 
-          title={t("OMEGA 计划", "OMEGA PROGRAM")}
-          subtitle={t("OMEGA 计划由峰壑资本发起，旨在为处于初创阶段的创业者提供全方位的支持，陪伴中国创业者共同成长。", "The OMEGA Program, initiated by Fenghe Capital, aims to provide all-round support for early-stage entrepreneurs, growing alongside China's innovators.")}
+          title={t("峰壑数据看板", "OMEGA PROGRAM")}
+          subtitle={t("实时呈现生态总规模、成功案例、行业覆盖与网络活跃度。用动态可视化数据，让资本价值可量化、可信任。。", "The OMEGA Program, initiated by Fenghe Capital, aims to provide all-round support for early-stage entrepreneurs, growing alongside China's innovators.")}
           bgImage="/fhzb-1400/videos/背景图_3.jpg"
         />
         
@@ -22,7 +22,7 @@ export default function OmegaPage() {
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
             <div>
               <div className="text-5xl font-light text-white mb-2">300+</div>
-              <div className="text-white/50">{t("已投资项目", "Invested Projects")}</div>
+              <div className="text-white/50">{t("生态总规模", "Invested Projects")}</div>
             </div>
             <div>
               <div className="text-5xl font-light text-white mb-2">50+</div>

@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "next/link";
 import { LinkedInIcon } from "./icons";
 
@@ -19,7 +18,7 @@ export function Footer() {
           <h4 className="font-medium mb-6 uppercase tracking-widest text-xs text-white/40">栏目</h4>
           <ul className="space-y-4">
             <li><Link href="/family" className="text-white/70 hover:text-white transition-colors">投资案例</Link></li>
-            <li><Link href="/omega" className="text-white/70 hover:text-white transition-colors">OMEGA 计划</Link></li>
+            <li><Link href="/omega" className="text-white/70 hover:text-white transition-colors">峰壑数据看板</Link></li>
             <li><Link href="/#insights" className="text-white/70 hover:text-white transition-colors">行业洞察</Link></li>
           </ul>
         </div>
