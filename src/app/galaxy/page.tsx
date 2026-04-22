@@ -1,11 +1,11 @@
 "use client";
 
-import { PageTransition } from "@/components/ui/PageTransition";
-import { Section } from "@/components/ui/Section";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useState } from "react";
-import Link from "next/link";
-import { useLanguage } from "@/context/LanguageContext";
+import { PageTransition } from "@/components/ui/PageTransition"
+import { Section } from "@/components/ui/Section"
+import { useLanguage } from "@/context/LanguageContext"
+import { useScroll } from "framer-motion"
+import Link from "next/link"
+import { useRef, useState } from "react"
 
 export default function Galaxy() {
   const { t, language } = useLanguage();
@@ -49,7 +49,7 @@ export default function Galaxy() {
            </div>
  
            <div className="relative z-20 max-w-7xl mx-auto px-10 w-full mb-32 text-center md:text-left">
-              <span className="text-[#b7893b] uppercase tracking-[0.3em] font-bold text-sm block mb-6 px-1 border-l-2 border-[#b7893b]">{t('总部', 'HEADQUARTERS')} // The Core Engine</span>
+              <span className="text-[#e8960a] uppercase tracking-[0.3em] font-bold text-sm block mb-6 px-1 border-l-2 border-[#b7893b]">{t('总部', 'HEADQUARTERS')}</span>
               <h1 className={`font-black tracking-tight text-white mb-10 max-w-4xl drop-shadow-2xl ${language === 'zh' ? 'text-5xl md:text-8xl' : 'text-4xl md:text-7xl leading-tight'}`}>
                  {t('总部 · 中央引擎', 'HQ · Central Engine')}
               </h1>
@@ -58,20 +58,21 @@ export default function Galaxy() {
               </p>
            </div>
 
-           <div className="relative z-20 max-w-7xl mx-auto px-10 w-full px-6">
-              <div className="grid grid-cols-1 md:grid-cols-5 border-t border-b border-white/10 divide-y md:divide-y-0 md:divide-x divide-white/10 group/parent">
+           <div className="relative z-20 max-w-7xl mx-auto px-10 w-full ">
+              <div className="grid grid-cols-1 md:grid-cols-5 border-t border-b border-white/10 divide-y md:divide-y-0 md:divide-x divide-white/10 group/parent bg-black/10 backdrop-blur-sm">
                  {hqRoles.map((role, idx) => (
                     <div 
                       key={idx} 
-                      className="px-8 py-16 flex flex-col justify-start relative group hover:bg-[#b7893b]/5 transition-colors overflow-hidden"
+                      className="px-8 py-16 flex flex-col justify-start relative group hover:bg-black/60 transition-all duration-500 overflow-hidden border border-transparent hover:border-[#b7893b]/30"
                     >
-                       <span className="text-[#b7893b]/30 text-5xl font-serif block mb-8 group-hover:text-[#b7893b] transition-colors opacity-60 group-hover:opacity-100">0{idx+1}</span>
-                       <h3 className={`font-medium text-white mb-6 group-hover:text-white transition-colors ${language === 'zh' ? 'text-2xl' : 'text-lg md:text-xl'}`}>
+                       <span className="text-[#e8960a] text-6xl font-serif block mb-8 group-hover:text-[#b7893b] transition-colors opacity-100 group-hover:scale-110 origin-left duration-500">0{idx+1}</span>
+                       <h3 className={`font-bold text-white mb-6 group-hover:text-[#b7893b] transition-colors ${language === 'zh' ? 'text-2xl' : 'text-lg md:text-xl'}`}>
                          {language === 'zh' ? role.zh : role.en}
                        </h3>
-                       <p className="text-white text-sm leading-loose opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">
+                       <p className="text-white/80 text-sm leading-loose group-hover:text-white transition-all duration-500">
                          {language === 'zh' ? role.desc_zh : role.desc_en}
                        </p>
+                       <div className="absolute bottom-0 left-0 w-full h-[2px] bg-[#b7893b] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                     </div>
                  ))}
               </div>
