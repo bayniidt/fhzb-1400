@@ -2,9 +2,9 @@
 
 import { PageTransition } from "@/components/ui/PageTransition"
 import { Section } from "@/components/ui/Section"
+import { useLanguage } from "@/context/LanguageContext"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef, useState } from "react"
-import { useLanguage } from "@/context/LanguageContext"
 
 export default function Philosophy() {
   const { t, language } = useLanguage()
@@ -19,6 +19,7 @@ export default function Philosophy() {
   const peakScale = useTransform(scrollYProgress, [0.05, 0.25], [0.95, 1.05])
 
   const [activeValue, setActiveValue] = useState<number | null>(null)
+  const [activePillar, setActivePillar] = useState(0)
 
   const values = [
     { zh: "专业极客", en: "Professional Geek", desc_zh: "以极致的专业精神对待尽调与风控，绝不用情绪做决策。", desc_en: "Uncompromising professionalism in due diligence and risk control, decision-making strictly free of emotion." },
@@ -149,58 +150,185 @@ export default function Philosophy() {
           </div>
         </Section>
 
-        {/* 3. 三大文化支柱 */}
-        <Section className="bg-[#000000] text-center !min-h-[70vh] px-6">
-          <h2 className="text-6xl tracking-[0.3em] font-bold text-white uppercase mb-20">{t('文化支柱', 'CULTURAL PILLARS')}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-y border-white/5 divide-y md:divide-y-0 md:divide-x divide-white/5">
-            {[
-              { no: "01", zh: "闭环交付文化", en: "Closed-loop Culture", desc_zh: "规划·执行·反馈·闭环。没有终点的许诺皆为虚妄。", desc_en: "Plan, Execute, Feedback, Close. Promises without results are illusions." },
-              { no: "02", zh: "第一性原理思维", en: "First Principles", desc_zh: "剥离行业经验与跟风情绪，回归事物最硬核的本质属性。", desc_en: "Strip away experience and emotion, return to the core essence of things." },
-              { no: "03", zh: "全球化智慧文化", en: "Global Intelligence", desc_zh: "拥有俯视周期的国际格局，更能俯身执行本土的泥泞深耕。", desc_en: "International perspective on cycles, with deep-rooted local execution." }
-            ].map((pillar, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.15 }}
-                className="p-16 flex flex-col text-left group hover:bg-[#070707] transition-colors duration-500"
-              >
-                <span className="text-5xl  font-bold text-[#b7893b]/40 group-hover:text-[#b7893b] transition-colors block mb-12 ">{pillar.no}</span>
-                <h3 className={`font-serif text-white mb-6 font-medium tracking-wide ${language === 'zh' ? 'text-3xl' : 'text-xl'}`}>
-                  {language === 'zh' ? pillar.zh : pillar.en}
-                </h3>
-                <p className="text-white leading-relaxed">
-                  {language === 'zh' ? pillar.desc_zh : pillar.desc_en}
-                </p>
-              </motion.div>
-            ))}
+        {/* 3. 三大文化支柱：左文右视剧场结构 */}
+        <Section className="bg-[#000000] !py-40 px-6 relative overflow-hidden">
+          {/* 背景装饰漂浮元素 */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-1/4 left-1/4 w-64 h-80 border border-white/5 rotate-12 opacity-20"></div>
+            <div className="absolute bottom-1/4 right-1/3 w-40 h-56 border border-white/5 -rotate-12 opacity-10"></div>
+            <div className="absolute top-1/2 right-1/4 w-32 h-32 border border-white/5 rotate-45 opacity-15"></div>
+          </div>
+
+          <div className="max-w-7xl mx-auto relative z-10">
+            <h2 className="text-2xl  tracking-[0.5em] text-[#b7893b] uppercase mb-8 font-bold">
+              {t('核心理念', 'CORE CONCEPT')}
+            </h2>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+              {/* 左侧文案区 */}
+              <div className="lg:col-span-5 space-y-12">
+                <div className="space-y-6">
+                  <motion.h2 
+                    key={`title-${activePillar}`}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="text-5xl md:text-6xl font-bold text-white leading-tight"
+                  >
+                    {language === 'zh' ? 
+                      [
+                        "闭环交付文化",
+                        "第一性原理思维",
+                        "全球化智慧文化"
+                      ][activePillar] : 
+                      [
+                        "Closed-loop Culture",
+                        "First Principles",
+                        "Global Intelligence"
+                      ][activePillar]
+                    }
+                  </motion.h2>
+                  <motion.p 
+                    key={`desc-${activePillar}`}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="text-xl text-white/60 leading-relaxed max-w-md"
+                  >
+                    {language === 'zh' ? 
+                      [
+                        "规划·执行·反馈·闭环。没有终点的许诺皆为虚妄。",
+                        "回归事物本质。剥离行业经验与跟风情绪，回归事物最硬核的本质属性。",
+                        "国际格局+本土深耕。拥有俯视周期的国际格局，更能俯身执行本土的泥泞深耕。"
+                      ][activePillar] : 
+                      [
+                        "Plan, Execute, Feedback, Close. Promises without results are illusions.",
+                        "Return to the essence of things. Strip away experience and emotion.",
+                        "Global perspective + local deep-rooting. International perspective on cycles."
+                      ][activePillar]
+                    }
+                  </motion.p>
+                </div>
+
+                <div className="flex flex-col gap-6 border-t border-white/10 pt-12">
+                  {[
+                    { zh: "闭环交付文化", en: "Closed-loop Culture" },
+                    { zh: "第一性原理思维", en: "First Principles" },
+                    { zh: "全球化智慧文化", en: "Global Intelligence" }
+                  ].map((pillar, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setActivePillar(idx)}
+                      className={`flex items-center gap-6 group transition-all duration-500 ${activePillar === idx ? 'text-white' : 'text-white/30 hover:text-white/60'}`}
+                    >
+                      <span className="text-sm font-mono tracking-tighter">0{idx + 1}</span>
+                      <span className={`text-xl font-medium tracking-wider ${activePillar === idx ? 'translate-x-2' : ''} transition-transform`}>
+                        {language === 'zh' ? pillar.zh : pillar.en}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* 右侧视频区 */}
+              <div className="lg:col-span-7">
+                <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 group shadow-2xl">
+                  <motion.video
+                    key={activePillar}
+                    initial={{ opacity: 0, scale: 1.1 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1 }}
+                    src={[
+                      "/fhzb-1400/videos/batch-compressed.mp4",
+                      "/fhzb-1400/videos/block-compressed.mp4",
+                      "/fhzb-1400/videos/global-compressed.mp4"
+                    ][activePillar]}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                  
+                  {/* 播放按钮装饰 */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center bg-white/5 backdrop-blur-sm group-hover:scale-110 transition-transform duration-500">
+                      <svg width="20" height="24" viewBox="0 0 20 24" fill="none" className="text-white ml-1">
+                        <path d="M1 1L19 12L1 23V1Z" fill="currentColor" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </Section>
 
-        {/* 4. 文化象征与仪式 */}
-        <section className="w-full py-32 bg-[#000000] overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6 mb-16 text-center md:text-left">
-            <h2 className={`font-serif font-light mb-6 ${language === 'zh' ? 'text-4xl' : 'text-3xl'}`}>{t('仪式即烙印', 'Rituals as Imprints')}</h2>
-            <p className="text-xl text-white max-w-2xl">{t('从“登峰路演会”到“生态共建日”，共同的回忆与承诺兑现大厅，编织出俱乐部无可替代的内部向心力。', 'From roadshows to ecosystem days, these shared memories and fulfilled promises weave an irreplaceable internal cohesion.')}</p>
+        {/* 4. 文化象征与仪式：左文右视结构 */}
+        <Section className="relative w-full py-40 bg-[#000000] overflow-hidden border-t border-white/5">
+          {/* 背景装饰漂浮元素 */}
+          <div className="absolute inset-0 pointer-events-none opacity-20">
+            <div className="absolute top-1/3 right-1/4 w-72 h-96 border border-[#b7893b]/10 rotate-12"></div>
+            <div className="absolute bottom-1/4 left-1/3 w-48 h-64 border border-[#b7893b]/10 -rotate-12"></div>
           </div>
-          <div className="flex gap-6 px-6 pb-12 overflow-x-auto snap-x hide-scrollbar">
-            {[
-              { zh: "登峰路演会", en: "Summits Roadshow", img: "https://images.unsplash.com/photo-1540317580384-e5d43867eaa8?auto=format&fit=crop&w=800&q=80" },
-              { zh: "生态共建日", en: "Ecosystem Day", img: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=800&q=80" },
-              { zh: "承诺兑现典礼", en: "Commitment Fulfilling", img: "https://images.unsplash.com/photo-1556761175-5973dc0f32d7?auto=format&fit=crop&w=800&q=80" },
-              { zh: "闭门极客局", en: "Closed-door Geek Session", img: "https://images.unsplash.com/photo-1561489413-985b06da5bee?auto=format&fit=crop&w=800&q=80" },
-            ].map((pic, idx) => (
-              <div key={idx} className="min-w-[70vw] md:min-w-[400px] h-[500px] relative snap-center group overflow-hidden border border-white/5 bg-[#111]">
-                <div className="absolute inset-0 group-hover:bg-white/5 transition-colors duration-700 z-10"></div>
-                <div className="absolute inset-0 bg-cover bg-center transition-all duration-1000 scale-100 group-hover:scale-110" style={{ backgroundImage: `url(${pic.img})` }}></div>
-                <h3 className="absolute bottom-8 left-8 z-20 text-white font-medium text-2xl font-serif tracking-widest">
-                  {language === 'zh' ? pic.zh : pic.en}
-                </h3>
+
+          <div className="max-w-7xl mx-auto px-6 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+              {/* 左侧文案区 */}
+              <div className="lg:col-span-5 space-y-16">
+                <div>
+                  <h2 className="text-2xl tracking-[0.5em] text-[#b7893b] uppercase mb-8 font-bold">
+                    {t('文化象征与仪式', 'CULTURAL SYMBOLS')}
+                  </h2>
+                  <h3 className="text-4xl md:text-5xl font-bold text-white mb-8">
+                    {t('Logo “峰峦” 图腾解', 'Logo "Summits" Totem Interpretation')}
+                  </h3>
+                  <p className="text-xl text-white/60 leading-relaxed">
+                    {t('峰峦图腾代表着攀登的志向与稳健的路径。每一道线条都刻画着对产业深耕的承诺，象征着资本与实业在高峰处的会师。', 'The Summits totem represents the ambition to climb and a steady path. Every line depicts a commitment to industrial deep-rooting.')}
+                  </p>
+                </div>
+
+                <div className="space-y-8">
+                  <h3 className="text-2xl font-serif text-white/80 italic">{t('仪式即烙印', 'Rituals as Imprints')}</h3>
+                  <div className="space-y-6">
+                    {[
+                      { zh: "登峰路演会", en: "Summits Roadshow" },
+                      { zh: "生态共建日", en: "Ecosystem Day" },
+                      { zh: "承诺兑现典礼", en: "Commitment Ceremony" }
+                    ].map((item, idx) => (
+                      <div key={idx} className="flex items-center gap-4 text-white/40 group hover:text-white transition-colors">
+                        <span className="text-xs font-mono">0{idx + 1}</span>
+                        <span className="text-lg tracking-widest uppercase">{language === 'zh' ? item.zh : item.en}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
-            ))}
+
+              {/* 右侧视频区 */}
+              <div className="lg:col-span-7 sticky top-40">
+                <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/5 shadow-[0_0_100px_rgba(183,137,59,0.05)]">
+                  <video
+                    src="/fhzb-1400/videos/footer-compressed.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-black/80 via-transparent to-black/20"></div>
+                  
+                  {/* 装饰性浮层 */}
+                  <div className="absolute bottom-12 left-12 right-12">
+                    <div className="backdrop-blur-md bg-white/5 border border-white/10 p-8 rounded-2xl">
+                      <p className="text-sm text-white/40 uppercase tracking-[0.3em] mb-2">{t('文化影像', 'CULTURAL FOOTAGE')}</p>
+                      <p className="text-lg text-white font-light">{t('捕捉每一个行诺致远的瞬间', 'Capturing every moment of integrity and longevity')}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </section>
+        </Section>
 
         {/* 5. 创始人的信：全屏长卷阅读 */}
         <section className="relative w-full min-h-[120vh] bg-[#000000] border-t border-white/10 flex items-center justify-center py-40">
@@ -209,7 +337,7 @@ export default function Philosophy() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#b7893b]/5 via-transparent to-transparent pointer-events-none z-0"></div>
 
           <div className="relative z-10 max-w-3xl mx-auto px-6 text-center md:text-left">
-            <span className="block text-[#b7893b] uppercase tracking-widest text-sm mb-12 font-bold">— {t('创始人的信', 'LETTER FROM FOUNDER')}</span>
+            <span className="block text-[#b7893b] uppercase tracking-widest text-2xl mb-12 font-bold">— {t('创始人的信', 'LETTER FROM FOUNDER')}</span>
             <h1 className={`font-serif text-[#FFFFFF] mb-16 leading-relaxed flex items-baseline gap-2 flex-wrap ${language === 'zh' ? 'text-4xl md:text-6xl' : 'text-3xl md:text-5xl'}`}>
               {/* 将前括号和主标题放在一起 */}
               <span>{t('《共筑峰峦：', 'Building Summits: ')}</span>
