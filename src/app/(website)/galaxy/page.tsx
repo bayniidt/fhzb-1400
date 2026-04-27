@@ -5,7 +5,8 @@ import { Section } from "@/components/ui/Section";
 import { useLanguage } from "@/context/LanguageContext";
 import { useScroll } from "framer-motion";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
+import { fetchContent } from "@/lib/api";
 
 export default function Galaxy() {
   const { t, language } = useLanguage();
@@ -14,6 +15,17 @@ export default function Galaxy() {
     target: containerRef,
     offset: ["start start", "end end"]
   });
+
+  const [siteContent, setSiteContent] = useState<any>(null);
+
+  useEffect(() => {
+    fetchContent().then(setSiteContent);
+  }, []);
+
+  const getContent = (key: string, fallbackZh: string, fallbackEn: string) => {
+    if (!siteContent || !siteContent[key]) return language === 'zh' ? fallbackZh : fallbackEn;
+    return language === 'zh' ? siteContent[key].zh : siteContent[key].en;
+  };
 
   const [activeRegion, setActiveRegion] = useState<number | null>(null);
 
@@ -39,7 +51,7 @@ export default function Galaxy() {
         {/* 模块一：总部 · 中央引擎 */}
         <section id="engine" className="relative min-h-[120vh] flex flex-col justify-center border-b border-white/5 pt-32 overflow-hidden">
            <img 
-             src="/fhzb/videos/背景图_4.jpg" 
+             src={getContent('gal_hero_bg', "/fhzb/videos/背景图_4.jpg", "/fhzb/videos/背景图_4.jpg")} 
              className="absolute inset-0 w-full h-full object-cover"
              alt="Galaxy Header Background"
            />
@@ -51,10 +63,10 @@ export default function Galaxy() {
            <div className="relative z-20 max-w-7xl mx-auto px-10 w-full mb-32 text-center md:text-left">
               <span className="text-[#e8960a] uppercase tracking-[0.3em] font-bold text-sm block mb-6 px-1 border-l-2 border-[#b7893b]">{t('总部', 'HEADQUARTERS')}</span>
               <h1 className={`font-black tracking-tight text-white mb-10 max-w-4xl drop-shadow-2xl ${language === 'zh' ? 'text-5xl md:text-8xl' : 'text-4xl md:text-7xl leading-tight'}`}>
-                 {t('总部 · 中央引擎', 'HQ · Central Engine')}
+                 {getContent('gal_hero_title', '总部 · 中央引擎', 'HQ · Central Engine')}
               </h1>
               <p className={`text-white/80 font-light max-w-2xl leading-relaxed drop-shadow-lg ${language === 'zh' ? 'text-2xl' : 'text-xl'}`}>
-                 {t('并非简单的发号施令，而是向整张生态星系高频倾泻算力、共识与资源。', 'Not just giving orders, but continuously pouring computing power, consensus, and resources into the entire ecosystem galaxy.')}
+                 {getContent('gal_hero_subtitle', '并非简单的发号施令，而是向整张生态星系高频倾泻算力、共识与资源。', 'Not just giving orders, but continuously pouring computing power, consensus, and resources into the entire ecosystem galaxy.')}
               </p>
            </div>
 
@@ -176,12 +188,11 @@ export default function Galaxy() {
 
            <div className="relative z-10 text-center max-w-4xl px-6">
               <h2 className={`font-black text-[#FFFFFF] tracking-tighter mb-12 drop-shadow-[0_0_40px_rgba(255,255,255,0.1)] ${language === 'zh' ? 'text-6xl md:text-8xl' : 'text-5xl md:text-7xl leading-tight'}`}>
-                 {t('占领极点，', 'Capture the core,')}<br/>
-                 <span className="text-[#b7893b] italic font-serif font-light">{t('点亮下一个星区。', 'ignite the next sector.')}</span>
+                 {getContent('gal_cta_title', '占领极点，', 'Capture the core,')}<br/>
+                 <span className="text-[#b7893b] italic font-serif font-light">{getContent('gal_cta_subtitle', '点亮下一个星区。', 'ignite the next sector.')}</span>
               </h2>
-              <p className="text-2xl text-white font-light leading-relaxed mb-20">
-                 {t('区域独家席位稀缺。', 'Exclusive regional seats are scarce.')}<br/>
-                 {t('只寻找具有深厚产业底盘与极客风范的同路人。', 'Seeking partners with deep industrial roots and geek spirit.')}
+              <p className="text-2xl text-white font-light leading-relaxed mb-20 whitespace-pre-line">
+                 {getContent('gal_cta_desc', '区域独家席位稀缺。\n只寻找具有深厚产业底盘与极客风范的同路人。', 'Exclusive regional seats are scarce.\nSeeking partners with deep industrial roots and geek spirit.')}
               </p>
               
               <Link href="/contact" className="group inline-flex items-center gap-6 px-12 py-6 bg-[#FFFFFF] text-[#050505] hover:bg-white hover:scale-105 transition-all text-xl font-bold uppercase tracking-widest shadow-[0_0_30px_rgba(255,255,255,0.1)]">

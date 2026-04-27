@@ -33,10 +33,30 @@ export default function Philosophy() {
   };
 
   const values = [
-    { zh: "专业极客", en: "Professional Geek", desc_zh: "以极致的专业精神对待尽调与风控，绝不用情绪做决策。", desc_en: "Uncompromising professionalism in due diligence and risk control, decision-making strictly free of emotion." },
-    { zh: "生态共建", en: "Ecosystem Builder", desc_zh: "打破资本孤岛，与实业者、区域合伙人结成生死同盟。", desc_en: "Breaking capital silos, forming alliances with entrepreneurs and regional partners." },
-    { zh: "伙伴优先", en: "Partners First", desc_zh: "在任何利益冲突面前，保障生态网络中伙伴的优先权益。", desc_en: "Prioritizing the rights and benefits of our partners within the ecosystem network." },
-    { zh: "行诺致远", en: "Integrity for Longevity", desc_zh: "不作无法兑现的收益担保，一旦承诺必用全部身家背书。", desc_en: "Never make unrealistic promises; once committed, we stand by it with our reputations." },
+    { 
+      zh: getContent('phi_val1_title', "专业极客", "Professional Geek"), 
+      en: getContent('phi_val1_title', "专业极客", "Professional Geek"), 
+      desc_zh: getContent('phi_val1_desc', "以极致的专业精神对待尽调与风控，绝不用情绪做决策。", "Uncompromising professionalism in due diligence and risk control..."), 
+      desc_en: getContent('phi_val1_desc', "以极致的专业精神对待尽调与风控，绝不用情绪做决策。", "Uncompromising professionalism in due diligence and risk control...") 
+    },
+    { 
+      zh: getContent('phi_val2_title', "生态共建", "Ecosystem Builder"), 
+      en: getContent('phi_val2_title', "生态共建", "Ecosystem Builder"), 
+      desc_zh: getContent('phi_val2_desc', "打破资本孤岛，与实业者、区域合伙人结成生死同盟。", "Breaking capital silos..."), 
+      desc_en: getContent('phi_val2_desc', "打破资本孤岛，与实业者、区域合伙人结成生死同盟。", "Breaking capital silos...") 
+    },
+    { 
+      zh: getContent('phi_val3_title', "伙伴优先", "Partners First"), 
+      en: getContent('phi_val3_title', "伙伴优先", "Partners First"), 
+      desc_zh: getContent('phi_val3_desc', "在任何利益冲突面前，保障生态网络中伙伴的优先权益。", "Prioritizing the rights..."), 
+      desc_en: getContent('phi_val3_desc', "在任何利益冲突面前，保障生态网络中伙伴的优先权益。", "Prioritizing the rights...") 
+    },
+    { 
+      zh: getContent('phi_val4_title', "行诺致远", "Integrity for Longevity"), 
+      en: getContent('phi_val4_title', "行诺致远", "Integrity for Longevity"), 
+      desc_zh: getContent('phi_val4_desc', "不作无法兑现的收益担保，一旦承诺必用全部身家背书。", "Never make unrealistic promises..."), 
+      desc_en: getContent('phi_val4_desc', "不作无法兑现的收益担保，一旦承诺必用全部身家背书。", "Never make unrealistic promises...") 
+    },
   ]
 
   return (
@@ -183,18 +203,10 @@ export default function Philosophy() {
                     animate={{ opacity: 1, x: 0 }}
                     className="text-5xl md:text-6xl font-bold text-white leading-tight"
                   >
-                    {language === 'zh' ? 
-                      [
-                        "闭环交付文化",
-                        "第一性原理思维",
-                        "全球化智慧文化"
-                      ][activePillar] : 
-                      [
-                        "Closed-loop Culture",
-                        "First Principles",
-                        "Global Intelligence"
-                      ][activePillar]
-                    }
+                    {getContent(`phi_core${activePillar + 1}_title`, 
+                      ["闭环交付文化", "第一性原理思维", "全球化智慧文化"][activePillar],
+                      ["Closed-loop Culture", "First Principles", "Global Intelligence"][activePillar]
+                    )}
                   </motion.h2>
                   <motion.p 
                     key={`desc-${activePillar}`}
@@ -202,27 +214,23 @@ export default function Philosophy() {
                     animate={{ opacity: 1 }}
                     className="text-xl text-white/60 leading-relaxed max-w-md"
                   >
-                    {language === 'zh' ? 
+                    {getContent(`phi_core${activePillar + 1}_desc`, 
                       [
                         "规划·执行·反馈·闭环。没有终点的许诺皆为虚妄。",
                         "回归事物本质。剥离行业经验与跟风情绪，回归事物最硬核的本质属性。",
                         "国际格局+本土深耕。拥有俯视周期的国际格局，更能俯身执行本土的泥泞深耕。"
-                      ][activePillar] : 
+                      ][activePillar],
                       [
                         "Plan, Execute, Feedback, Close. Promises without results are illusions.",
                         "Return to the essence of things. Strip away experience and emotion.",
                         "Global perspective + local deep-rooting. International perspective on cycles."
                       ][activePillar]
-                    }
+                    )}
                   </motion.p>
                 </div>
 
                 <div className="flex flex-col gap-6 border-t border-white/10 pt-12">
-                  {[
-                    { zh: "闭环交付文化", en: "Closed-loop Culture" },
-                    { zh: "第一性原理思维", en: "First Principles" },
-                    { zh: "全球化智慧文化", en: "Global Intelligence" }
-                  ].map((pillar, idx) => (
+                  {[1, 2, 3].map((pillar, idx) => (
                     <button
                       key={idx}
                       onClick={() => setActivePillar(idx)}
@@ -230,7 +238,10 @@ export default function Philosophy() {
                     >
                       <span className="text-sm font-mono tracking-tighter">0{idx + 1}</span>
                       <span className={`text-xl font-medium tracking-wider ${activePillar === idx ? 'translate-x-2' : ''} transition-transform`}>
-                        {language === 'zh' ? pillar.zh : pillar.en}
+                        {getContent(`phi_core${idx + 1}_title`, 
+                          ["闭环交付文化", "第一性原理思维", "全球化智慧文化"][idx],
+                          ["Closed-loop Culture", "First Principles", "Global Intelligence"][idx]
+                        )}
                       </span>
                     </button>
                   ))}
@@ -245,11 +256,10 @@ export default function Philosophy() {
                     initial={{ opacity: 0, scale: 1.1 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1 }}
-                    src={[
-                      "/fhzb/videos/batch-compressed.mp4",
-                      "/fhzb/videos/block-compressed.mp4",
-                      "/fhzb/videos/global-compressed.mp4"
-                    ][activePillar]}
+                    src={getContent(`phi_core${activePillar + 1}_video`, 
+                      ["/fhzb/videos/batch-compressed.mp4", "/fhzb/videos/block-compressed.mp4", "/fhzb/videos/背景_3.mp4"][activePillar],
+                      ["/fhzb/videos/batch-compressed.mp4", "/fhzb/videos/block-compressed.mp4", "/fhzb/videos/背景_3.mp4"][activePillar]
+                    )}
                     autoPlay
                     muted
                     loop

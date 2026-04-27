@@ -4,9 +4,22 @@ import { PageTransition } from "@/components/ui/PageTransition";
 import { Section } from "@/components/ui/Section";
 import { useLanguage } from "@/context/LanguageContext";
 import Link from "next/link";
+import { useState, useEffect } from "react";
+import { fetchContent } from "@/lib/api";
 
 export default function Alliance() {
   const { t, language } = useLanguage();
+
+  const [siteContent, setSiteContent] = useState<any>(null);
+
+  useEffect(() => {
+    fetchContent().then(setSiteContent);
+  }, []);
+
+  const getContent = (key: string, fallbackZh: string, fallbackEn: string) => {
+    if (!siteContent || !siteContent[key]) return language === 'zh' ? fallbackZh : fallbackEn;
+    return language === 'zh' ? siteContent[key].zh : siteContent[key].en;
+  };
 
   const ecosystemClusters = [
     {
@@ -23,7 +36,7 @@ export default function Alliance() {
         { zh: "路径规划", en: "IPO Planning", icon: "📈" }
       ],
       cta: t("开启项目加速", "Project Accelerator"),
-      video: "/fhzb/videos/batch-compressed.mp4"
+      video: getContent('all_cluster1_video', "/fhzb/videos/batch-compressed.mp4", "/fhzb/videos/batch-compressed.mp4")
     },
     {
       id: "partners",
@@ -39,7 +52,7 @@ export default function Alliance() {
         { zh: "申请流程", en: "Apply Flow", icon: "📋" }
       ],
       cta: t("申请极核授权", "Apply for Auth"),
-      video: "/fhzb/videos/block-compressed.mp4"
+      video: getContent('all_cluster2_video', "/fhzb/videos/block-compressed.mp4", "/fhzb/videos/block-compressed.mp4")
     },
     {
       id: "institutions",
@@ -55,7 +68,7 @@ export default function Alliance() {
         { zh: "LP 申请", en: "LP Access", icon: "🔓" }
       ],
       cta: t("建立协同链路", "Build Synergy"),
-      video: "/fhzb/videos/global-compressed.mp4"
+      video: getContent('all_cluster3_video', "/fhzb/videos/global-compressed.mp4", "/fhzb/videos/global-compressed.mp4")
     },
     {
       id: "club",
@@ -71,7 +84,7 @@ export default function Alliance() {
         { zh: "入会申请", en: "Apply", icon: "✨" }
       ],
       cta: t("申请加入俱乐部", "Join Club"),
-      video: "/fhzb/videos/banner-m.mp4"
+      video: getContent('all_cluster4_video', "/fhzb/videos/banner-m.mp4", "/fhzb/videos/banner-m.mp4")
     }
   ];
 
@@ -81,7 +94,7 @@ export default function Alliance() {
         {/* Header区 */}
         <section id="hero" className="relative pt-60 pb-40 border-b border-white/5 overflow-hidden">
            <img 
-             src="/fhzb/videos/股市_1.jpg" 
+             src={getContent('all_hero_bg', "/fhzb/videos/股市_1.jpg", "/fhzb/videos/股市_1.jpg")} 
              className="absolute inset-0 w-full h-full object-cover grayscale-[0.1]"
              alt="Alliance Hero Background"
            />
@@ -95,7 +108,7 @@ export default function Alliance() {
            <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-20">
              <span className="text-[#f12f08] uppercase tracking-[0.4em] font-bold text-xs block mb-8">Collective Prosperity</span>
              <h1 className={`font-serif font-black text-white tracking-tighter mb-8 drop-shadow-2xl ${language === 'zh' ? 'text-6xl md:text-8xl lg:text-9xl' : 'text-5xl md:text-7xl lg:text-8xl'}`}>
-               {t('共筑峰峦', 'Alliance')}
+               {getContent('all_hero_title', '共筑峰峦', 'Alliance')}
              </h1>
              
              {/* 优化的文字容器：采用极简玻璃拟态设计，配合金色装饰线 */}

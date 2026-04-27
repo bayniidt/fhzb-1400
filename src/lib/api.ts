@@ -138,3 +138,18 @@ export async function updateContactInfo(id: number, data: any) {
   });
   return res.json();
 }
+
+// Gateway Endpoints
+export async function fetchGateways() {
+  const res = await fetch(`${API_BASE_URL}/gateways`);
+  return res.json();
+}
+
+export async function updateGateway(id: number, data: any) {
+  const res = await fetch(`${API_BASE_URL}/gateways/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  });
+  return res.json();
+}

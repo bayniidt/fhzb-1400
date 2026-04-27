@@ -5,11 +5,23 @@ import { Section } from "@/components/ui/Section"
 import { useLanguage } from "@/context/LanguageContext"
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { fetchContent } from "@/lib/api"
 
 export default function Vision() {
    const { t, language } = useLanguage()
    const [activeTab, setActiveTab] = useState<string>("all")
+
+   const [siteContent, setSiteContent] = useState<any>(null);
+
+   useEffect(() => {
+     fetchContent().then(setSiteContent);
+   }, []);
+
+   const getContent = (key: string, fallbackZh: string, fallbackEn: string) => {
+     if (!siteContent || !siteContent[key]) return language === 'zh' ? fallbackZh : fallbackEn;
+     return language === 'zh' ? siteContent[key].zh : siteContent[key].en;
+   };
 
    const tabs = [
       { id: 'all', zh: '全部内容', en: 'All' },
@@ -25,7 +37,7 @@ export default function Vision() {
             {/* Header区 */}
             <section className="relative pt-60 pb-40 border-b border-white/5 overflow-hidden">
                <img
-                  src="/fhzb/videos/背景图_5.jpg"
+                  src={getContent('vis_hero_bg', "/fhzb/videos/背景图_5.jpg", "/fhzb/videos/背景图_5.jpg")}
                   className="absolute inset-0 w-full h-full object-cover"
                   alt="Vision Header Background"
                />
@@ -34,7 +46,7 @@ export default function Vision() {
 
                   <span className="text-[#b7893b] uppercase tracking-[0.4em] font-bold text-xs block mb-8 relative z-10">Vision & Insights</span>
                   <h1 className={`font-serif font-black text-white tracking-tighter mb-8 relative z-10 drop-shadow-2xl ${language === 'zh' ? 'text-6xl md:text-8xl lg:text-9xl' : 'text-5xl md:text-7xl lg:text-8xl'}`}>
-                     {t('峰壑视野', 'Summit Insights')}
+                     {getContent('vis_hero_title', '峰壑视野', 'Summit Insights')}
                   </h1>
                   <p className={`font-serif text-white/90 font-light max-w-3xl leading-relaxed relative z-10 drop-shadow-lg ${language === 'zh' ? 'text-2xl' : 'text-xl md:text-2xl'}`}>
                      {t('在这里，我们只输出剔除了情绪共识的', 'Here, we only output first principles')}<br />
@@ -82,7 +94,7 @@ export default function Vision() {
 
                      <div className="relative aspect-video rounded-2xl md:rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.8)] bg-surface">
                         <img
-                           src="/fhzb/videos/背景图_2.jpg"
+                           src={getContent('vis_doc_cover', "/fhzb/videos/背景图_2.jpg", "/fhzb/videos/背景图_2.jpg")}
                            className="w-full h-full object-cover opacity-60 group-hover:opacity-90 group-hover:scale-105 transition-all duration-1000"
                            alt="Documentary Preview"
                         />
@@ -167,7 +179,7 @@ export default function Vision() {
                      <div className="relative p-10 md:p-24 overflow-hidden group">
                         <div
                            className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-[3s] brightness-[.8]"
-                           style={{ backgroundImage: 'url("/fhzb/videos/股市_5.jpg")' }}
+                           style={{ backgroundImage: `url(${getContent('vis_summit_bg', "/fhzb/videos/股市_5.jpg", "/fhzb/videos/股市_5.jpg")})` }}
                         ></div>
                         <div className="absolute inset-0 bg-background/20 z-5"></div>
                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-glow/20 via-transparent to-transparent pointer-events-none z-10"></div>

@@ -3,7 +3,8 @@
 import { PageTransition } from "@/components/ui/PageTransition";
 import { useLanguage } from "@/context/LanguageContext";
 import { motion, useScroll } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
+import { fetchContent } from "@/lib/api";
 
 export default function OS() {
   const { t, language } = useLanguage();
@@ -15,6 +16,17 @@ export default function OS() {
     offset: ["start start", "end end"]
   });
 
+  const [siteContent, setSiteContent] = useState<any>(null);
+
+  useEffect(() => {
+    fetchContent().then(setSiteContent);
+  }, []);
+
+  const getContent = (key: string, fallbackZh: string, fallbackEn: string) => {
+    if (!siteContent || !siteContent[key]) return language === 'zh' ? fallbackZh : fallbackEn;
+    return language === 'zh' ? siteContent[key].zh : siteContent[key].en;
+  };
+
   const stages = [
     { 
       id: "fund", 
@@ -22,12 +34,12 @@ export default function OS() {
       en: "FUNDRAISING", 
       role_zh: "地图测绘者",
       role_en: "Mapmaker",
-      title_zh: "第一性原理：如何测绘产业根基", 
-      title_en: "First Principles: Mapping Industrial Foundations",
-      desc_zh: "摒弃项目制散养，通过超10亿级基石基金锁定产业筹码，确保资本在不确定周期中的绝对掌控力。",
-      desc_en: "Rejecting project-based decentralization, we secure industrial chips through 1B+ cornerstone funds.",
+      title_zh: getContent('os_stage1_title', "第一性原理：如何测绘产业根基", "First Principles: Mapping Industrial Foundations"), 
+      title_en: getContent('os_stage1_title', "第一性原理：如何测绘产业根基", "First Principles: Mapping Industrial Foundations"),
+      desc_zh: getContent('os_stage1_desc', "摒弃项目制散养，通过超10亿级基石基金锁定产业筹码，确保资本在不确定周期中的绝对掌控力。", "Rejecting project-based decentralization..."),
+      desc_en: getContent('os_stage1_desc', "摒弃项目制散养，通过超10亿级基石基金锁定产业筹码，确保资本在不确定周期中的绝对掌控力。", "Rejecting project-based decentralization..."),
       tools: ["项目筛选模型", "财务模型Excel", "法律文件范本"],
-      video: "/fhzb/videos/batch-compressed.mp4"
+      video: getContent('os_stage1_video', "/fhzb/videos/batch-compressed.mp4", "/fhzb/videos/batch-compressed.mp4")
     },
     { 
       id: "invest", 
@@ -35,12 +47,12 @@ export default function OS() {
       en: "INVESTMENT", 
       role_zh: "安全绳守护者",
       role_en: "Safety Guardian",
-      title_zh: "第一性原理：标注资本等高线", 
-      title_en: "First Principles: Marking Capital Contours",
-      desc_zh: "穿透PPT与财务修饰，直抵技术底层与产业终局。我们不听故事，只推演生产力爆发的数学基准。",
-      desc_en: "Penetrating PPT and financial window-dressing to reach technical foundations.",
+      title_zh: getContent('os_stage2_title', "第一性原理：标注资本等高线", "First Principles: Marking Capital Contours"), 
+      title_en: getContent('os_stage2_title', "第一性原理：标注资本等高线", "First Principles: Marking Capital Contours"),
+      desc_zh: getContent('os_stage2_desc', "穿透PPT与财务修饰，直抵技术底层与产业终局。我们不听故事，只推演生产力爆发的数学基准。", "Penetrating PPT and financial window-dressing..."),
+      desc_en: getContent('os_stage2_desc', "穿透PPT与财务修饰，直抵技术底层与产业终局。我们不听故事，只推演生产力爆发的数学基准。", "Penetrating PPT and financial window-dressing..."),
       tools: ["技术溯源分析", "创始团队建模", "周期波动模拟"],
-      video: "/fhzb/videos/block-compressed.mp4"
+      video: getContent('os_stage2_video', "/fhzb/videos/block-compressed.mp4", "/fhzb/videos/block-compressed.mp4")
     },
     { 
       id: "manage", 
@@ -48,12 +60,12 @@ export default function OS() {
       en: "MANAGEMENT", 
       role_zh: "营地搭建者",
       role_en: "Camp Builder",
-      title_zh: "沉浸式赋能：模型重构", 
-      title_en: "Immersive Empowerment: Re-modeling",
-      desc_zh: "派驻“影子CEO”级合伙人，在组织治理、极核裂变与资本路径上进行手术刀式干预，纠偏航向。",
-      desc_en: "Deploying 'Shadow CEO' level partners to perform surgical interventions in governance and capital paths.",
+      title_zh: getContent('os_stage3_title', "沉浸式赋能：模型重构", "Immersive Empowerment: Re-modeling"), 
+      title_en: getContent('os_stage3_title', "沉浸式赋能：模型重构", "Immersive Empowerment: Re-modeling"),
+      desc_zh: getContent('os_stage3_desc', "派驻“影子CEO”级合伙人，在组织治理、极核裂变与资本路径上进行手术刀式干预，纠偏航向。", "Deploying 'Shadow CEO' level partners..."),
+      desc_en: getContent('os_stage3_desc', "派驻“影子CEO”级合伙人，在组织治理、极核裂变与资本路径上进行手术刀式干预，纠偏航向。", "Deploying 'Shadow CEO' level partners..."),
       tools: ["OKR 极核对齐", "全球牌照接驳", "生态资源灌溉"],
-      video: "/fhzb/videos/global-compressed.mp4"
+      video: getContent('os_stage3_video', "/fhzb/videos/global-compressed.mp4", "/fhzb/videos/global-compressed.mp4")
     },
     { 
       id: "exit", 
@@ -61,12 +73,12 @@ export default function OS() {
       en: "EXIT", 
       role_zh: "登阶引导者",
       role_en: "Ascent Guide",
-      title_zh: "登阶升维：跨区域裂变", 
-      title_en: "Upgrade: Cross-border Fission",
-      desc_zh: "不仅是拿钱离场。通过合伙人系统，将被投企业转化为新的生态节点，实现从‘孤岛’到‘版图’的升维。",
-      desc_en: "Portfolio companies transform into new ecosystem nodes, evolving from 'islands' into 'territories'.",
+      title_zh: getContent('os_stage4_title', "登阶升维：跨区域裂变", "Upgrade: Cross-border Fission"), 
+      title_en: getContent('os_stage4_title', "登阶升维：跨区域裂变", "Upgrade: Cross-border Fission"),
+      desc_zh: getContent('os_stage4_desc', "不仅是拿钱离场。通过合伙人系统，将被投企业转化为新的生态节点，实现从‘孤岛’到‘版图’的升维。", "Portfolio companies transform into new ecosystem nodes..."),
+      desc_en: getContent('os_stage4_desc', "不仅是拿钱离场。通过合伙人系统，将被投企业转化为新的生态节点，实现从‘孤岛’到‘版图’的升维。", "Portfolio companies transform into new ecosystem nodes..."),
       tools: ["并购重组套利", "全球交易所通兑", "节点再投资"],
-      video: "/fhzb/videos/footer-compressed.mp4"
+      video: getContent('os_stage4_video', "/fhzb/videos/footer-compressed.mp4", "/fhzb/videos/footer-compressed.mp4")
     }
   ];
 
@@ -85,7 +97,7 @@ export default function OS() {
         {/* Header区 */}
         <section className="relative pt-60 pb-40 border-b border-white/5 overflow-hidden">
            <img 
-             src="/fhzb/videos/股市_2.jpg" 
+             src={getContent('os_hero_bg', "/fhzb/videos/股市_2.jpg", "/fhzb/videos/股市_2.jpg")} 
              className="absolute inset-0 w-full h-full object-cover"
              alt="OS Header Background"
            />
@@ -93,12 +105,10 @@ export default function OS() {
            <div className="max-w-7xl mx-auto px-10 relative z-20">
              <span className="text-[#b7893b] uppercase tracking-[0.4em] font-bold text-xs block mb-8 relative z-10">Ascent Operating System</span>
              <h1 className={`font-serif font-black text-white tracking-tighter mb-8 relative z-10 drop-shadow-2xl ${language === 'zh' ? 'text-6xl md:text-8xl lg:text-9xl' : 'text-5xl md:text-7xl lg:text-8xl'}`}>
-               {t('攀登系统', 'Operating System')}
+               {getContent('os_hero_title', '攀登系统', 'Operating System')}
              </h1>
              <p className={`font-serif text-white/90 font-light max-w-3xl leading-relaxed relative z-10 drop-shadow-lg ${language === 'zh' ? 'text-2xl' : 'text-xl md:text-2xl'}`}>
-               {t('我们不依赖运气或直觉。', 'We don’t rely on luck or intuition.')}<br/>
-               {t('峰壑资本通过一套闭环的', 'FH Capital is driven by a closed-loop')}<br />
-               <span className="text-white font-medium">{t('资本操作系统，', 'Capital Operating System,')}</span> {t('驱动实业与资本的确定性增长。', 'driving deterministic growth.')}
+               {getContent('os_hero_subtitle', '我们不依赖运气或直觉。峰壑资本通过一套闭环的资本操作系统，驱动实业与资本的确定性增长。', 'We don’t rely on luck or intuition. FH Capital is driven by a closed-loop Capital Operating System, driving deterministic growth.')}
              </p>
            </div>
         </section>
