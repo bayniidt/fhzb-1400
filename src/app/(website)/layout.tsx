@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 
-import "./globals.css";
+import "../globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
@@ -9,12 +9,12 @@ import { Footer } from "@/components/layout/Footer";
 const sourceHanSans = localFont({
   src: [
     {
-      path: "../../public/font/SourceHanSansCN-Regular.otf",
+      path: "../../../public/font/SourceHanSansCN-Regular.otf",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../../public/font/SourceHanSansCN-Bold.otf",
+      path: "../../../public/font/SourceHanSansCN-Bold.otf",
       weight: "700",
       style: "normal",
     },

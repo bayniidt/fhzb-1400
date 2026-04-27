@@ -4,7 +4,8 @@ import { PageTransition } from "@/components/ui/PageTransition"
 import { Section } from "@/components/ui/Section"
 import { useLanguage } from "@/context/LanguageContext"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { useRef, useState } from "react"
+import { useRef, useState, useEffect } from "react"
+import { fetchContent } from "@/lib/api"
 
 export default function Philosophy() {
   const { t, language } = useLanguage()
@@ -20,6 +21,16 @@ export default function Philosophy() {
 
   const [activeValue, setActiveValue] = useState<number | null>(null)
   const [activePillar, setActivePillar] = useState(0)
+  const [siteContent, setSiteContent] = useState<any>(null);
+
+  useEffect(() => {
+    fetchContent().then(setSiteContent);
+  }, []);
+
+  const getContent = (key: string, fallbackZh: string, fallbackEn: string) => {
+    if (!siteContent || !siteContent[key]) return language === 'zh' ? fallbackZh : fallbackEn;
+    return language === 'zh' ? siteContent[key].zh : siteContent[key].en;
+  };
 
   const values = [
     { zh: "专业极客", en: "Professional Geek", desc_zh: "以极致的专业精神对待尽调与风控，绝不用情绪做决策。", desc_en: "Uncompromising professionalism in due diligence and risk control, decision-making strictly free of emotion." },
@@ -38,7 +49,7 @@ export default function Philosophy() {
           <div className="sticky top-0 w-full h-screen flex flex-col justify-center items-center overflow-hidden pt-24">
             <div className="absolute inset-0 z-0">
               <img
-                src="/fhzb/videos/股市_3.jpg"
+                src={getContent('phi_hero_bg', '/fhzb/videos/股市_3.jpg', '/fhzb/videos/股市_3.jpg')}
                 className="absolute inset-0 w-full h-full object-cover"
                 alt="Philosophy Background"
               />
@@ -50,7 +61,7 @@ export default function Philosophy() {
               className="absolute inset-0 flex flex-col items-center justify-center z-10"
             >
               <h2 className={`font-serif  text-white tracking-widest uppercase font-bold  decoration-1 decoration-gray-400 drop-shadow-2xl ${language === 'zh' ? 'text-xl md:text-6xl' : 'text-3xl md:text-5xl'}`}>
-                {t('平原思维与峰峦思维', 'Linear Mindset')}
+                {getContent('phi_hero_title', '平原思维与峰峦思维', 'Linear Mindset')}
               </h2>
               <p className="mt-6 text-white tracking-wider drop-shadow-lg">
                 {t('立足高远、路径坚实、创造生态、价值共生', 'Linear Growth / Zero-sum / Short-term Harvest')}
@@ -95,8 +106,7 @@ export default function Philosophy() {
                 >
                   <h3 className="text-2xl tracking-[0.4em] text-white uppercase font-bold mb-6">Mission / {t('使命', 'MISSION')}</h3>
                   <p className={`font-serif font-light leading-snug text-white ${language === 'zh' ? 'text-3xl md:text-5xl' : 'text-2xl md:text-4xl'}`}>
-                    {t('赋能实体产业攀登资本峰峦，', 'Empowering industries to climb capital summits,')}<br />
-                    {t('守护', 'safeguarding')} <span className="font-serif  text-[#b7893b]">{t('长期价值', 'long-term value')}</span> {t('穿越时代周期。', 'through through historical cycles.')}
+                    {getContent('phi_mission_content', '赋能实体产业攀登资本峰峦，', 'Empowering industries to climb capital summits,')}
                   </p>
                 </motion.div>
 
@@ -108,8 +118,7 @@ export default function Philosophy() {
                 >
                   <h3 className="text-2xl tracking-[0.4em] text-white uppercase font-bold mb-6">Vision / {t('愿景', 'VISION')}</h3>
                   <p className={`font-serif font-light leading-relaxed text-white ${language === 'zh' ? 'text-5xl' : 'text-5xl'}`}>
-                    {t('成为全球创新经济体中，', 'To become the most trusted industrial capital')}<br />
-                    {t('最具信任感的产业资本共生平台。', 'synergy platform in the global innovation economy.')}
+                    {getContent('phi_vision_content', '成为全球创新经济体中，最具信任感的产业资本共生平台。', 'To become the most trusted industrial capital platform.')}
                   </p>
                 </motion.div>
               </div>

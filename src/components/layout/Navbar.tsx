@@ -4,7 +4,8 @@ import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-
 import Image from "next/image"; // 1. 引入组件
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { fetchNavigation } from "@/lib/api"
 
 export const NAV_LINKS = [
   {
@@ -104,6 +105,23 @@ export function Navbar() {
   const { scrollY } = useScroll()
   const pathname = usePathname()
   const { language, setLanguage, t } = useLanguage()
+  const [dynamicNav, setDynamicNav] = useState<any[]>([])
+
+  useEffect(() => {
+    fetchNavigation().then(data => {
+      // Map database navigation to NAV_LINKS structure if needed
+      // For now, we'll merge them or replace main items
+      setDynamicNav(data)
+    })
+  }, [])
+
+  const currentNav = dynamicNav.length > 0 ? dynamicNav.map(item => ({
+    href: item.href,
+    zh: item.name_zh,
+    en: item.name_en,
+    // Keep sub-items from hardcoded if they match the href
+    subItems: NAV_LINKS.find(link => link.href === item.href)?.subItems || []
+  })) : NAV_LINKS
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0
@@ -136,7 +154,7 @@ export function Navbar() {
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-1 md:gap-4 ml-auto">
           <div className="flex gap-0 md:gap-1 items-center">
-            {NAV_LINKS.map(link => {
+            {currentNav.map(link => {
               const isActive = pathname === link.href
               const isHovered = hoveredLink === link.zh
               return (
@@ -305,7 +323,7 @@ export function Navbar() {
             className="fixed inset-0 z-50 bg-black pt-24 px-8 lg:hidden flex flex-col overflow-y-auto"
           >
             <div className="flex flex-col gap-8 pb-20">
-              {NAV_LINKS.map((link, idx) => (
+              {currentNav.map((link, idx) => (
                 <motion.div
                   key={link.href}
                   initial={{ opacity: 0, x: -20 }}
@@ -345,7 +363,7 @@ export function Navbar() {
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: NAV_LINKS.length * 0.05 }}
+                transition={{ delay: currentNav.length * 0.05 }}
                 className="mt-4 pt-10 border-t border-white/10 flex flex-col gap-4"
               >
                 <Link

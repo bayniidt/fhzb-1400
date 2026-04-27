@@ -3,10 +3,17 @@
 import { useLanguage } from "@/context/LanguageContext"
 import Image from "next/image"
 import Link from "next/link"
+import { useState, useEffect } from "react"
+import { fetchContactInfo } from "@/lib/api"
 import { CONTACT_SUB_ITEMS, NAV_LINKS } from "./Navbar"
 
 export function Footer() {
   const { t, language } = useLanguage();
+  const [contacts, setContacts] = useState<any[]>([])
+
+  useEffect(() => {
+    fetchContactInfo().then(setContacts)
+  }, [])
   
   return (
     <footer className="w-full bg-[#000000] pt-24 pb-12 px-6 md:px-12 lg:px-20 border-t border-white/5 text-white overflow-hidden">
@@ -67,6 +74,16 @@ export function Footer() {
                   >
                     {language === 'zh' ? item.zh : item.en}
                   </Link>
+                </li>
+              ))}
+              {contacts.map((contact) => (
+                <li key={contact.id} className="pt-2 border-t border-white/5 mt-2">
+                  <div className="text-white/30 text-[10px] uppercase tracking-widest mb-1">
+                    {language === 'zh' ? contact.label_zh : contact.label_en}
+                  </div>
+                  <div className="text-white/60 text-[13px] font-mono">
+                    {contact.value}
+                  </div>
                 </li>
               ))}
             </ul>

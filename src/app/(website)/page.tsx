@@ -7,6 +7,8 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 
+import { fetchContent, fetchNews, fetchQuestions, fetchGateways } from "@/lib/api"
+
 export default function Home() {
   const { t, language } = useLanguage();
   const containerRef = useRef<HTMLDivElement>(null);
@@ -18,19 +20,31 @@ export default function Home() {
   const heroOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
   const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
 
-  // 峰壑之问 简易轮播状态
-  const questions = [
-    { zh: "我们绘制的是空中楼阁，还是登峰地图？", en: "Are we painting castles in the air, or a map to the summit?" },
-    { zh: "我们提供的是奇迹预言，还是经过压力测试的上升系统？", en: "Do we offer miracle prophecies, or pressure-tested ascent systems?" },
-  ];
+  // Dynamic state
+  const [siteContent, setSiteContent] = useState<any>(null);
+  const [newsList, setNewsList] = useState<any[]>([]);
+  const [questionList, setQuestionList] = useState<any[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
   useEffect(() => {
+    // Initial fetch
+    fetchContent().then(setSiteContent);
+    fetchNews().then(setNewsList);
+    fetchQuestions().then(setQuestionList);
+  }, []);
+
+  useEffect(() => {
+    if (questionList.length === 0) return;
     const timer = setInterval(() => {
-      setCurrentQuestion((prev) => (prev + 1) % questions.length);
+      setCurrentQuestion((prev) => (prev + 1) % questionList.length);
     }, 4000);
     return () => clearInterval(timer);
-  }, [questions.length]);
+  }, [questionList.length]);
+
+  const getContent = (key: string, fallbackZh: string, fallbackEn: string) => {
+    if (!siteContent || !siteContent[key]) return language === 'zh' ? fallbackZh : fallbackEn;
+    return language === 'zh' ? siteContent[key].zh : siteContent[key].en;
+  };
 
   return (
     <PageTransition>
@@ -42,7 +56,7 @@ export default function Home() {
             loop
             muted
             playsInline
-            src="/fhzb/videos/背景_6.mp4"
+            src={getContent('hero_bg_video', '/fhzb/videos/背景_6.mp4', '/fhzb/videos/背景_6.mp4')}
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#b7893b]/5 to-[#000000]/30 z-10" />
@@ -56,8 +70,8 @@ export default function Home() {
             transition={{ duration: 1.2, ease: "easeOut" }}
             className={`font-serif font-bold tracking-tight mb-8 text-[#FFFFFF] drop-shadow-2xl ${language === 'zh' ? 'text-5xl md:text-7xl lg:text-8xl' : 'text-4xl md:text-6xl lg:text-7xl leading-tight'}`}
           >
-            {t('资本遇见雄心', 'Capital meets Ambition')}<br />
-            {t('我们共筑峰峦', 'Building Summits Together')}
+            {getContent('hero_title_1', '资本遇见雄心', 'Capital meets Ambition')}<br />
+            {getContent('hero_title_2', '我们共筑峰峦', 'Building Summits Together')}
           </motion.h1>
           <motion.div 
             initial={{ opacity: 0 }}
@@ -66,10 +80,10 @@ export default function Home() {
             className="flex flex-col sm:flex-row gap-6 justify-center mt-16"
           >
             <Link href="/contact" className="px-10 py-5 bg-transparent border border-white/20 hover:bg-white hover:text-black transition-all font-medium tracking-widest text-sm uppercase">
-              {t('成为生态伙伴', 'Join the Ecosystem')}
+              {getContent('hero_btn_1', '成为生态伙伴', 'Join the Ecosystem')}
             </Link>
             <Link href="/os" className="px-10 py-5 bg-[#b7893b]/10 text-[#b7893b] border border-[#b7893b]/50 hover:bg-[#b7893b] hover:text-black transition-all font-medium tracking-widest text-sm uppercase">
-              {t('探索资本路径', 'Explore Capital Paths')}
+              {getContent('hero_btn_2', '探索资本路径', 'Explore Capital Paths')}
             </Link>
           </motion.div>
         </div>
@@ -86,22 +100,14 @@ export default function Home() {
             className="max-w-[720px] text-left"
           >
             <p className="mb-8 text-sm tracking-[0.16em] text-white/88 md:mb-10">
-              {t("峰壑宣言", "Peak & Valley Manifesto")}
+              {getContent('manifesto_title', "峰壑宣言", "Peak & Valley Manifesto")}
             </p>
 
-            {language === "zh" ? (
               <h3 className="font-serif text-[clamp(2.9rem,5.8vw,5rem)] font-medium leading-[1.08] tracking-[-0.04em] text-white">
-                <span className="block">真正的资本</span>
-                <span className="block">是产业文明的加速器</span>
-                <span className="block">而非收割器</span>
+                <span className="block">{getContent('manifesto_content_1', "真正的资本", "True capital")}</span>
+                <span className="block">{getContent('manifesto_content_2', "是产业文明的加速器", "accelerates industrial civilization")}</span>
+                <span className="block">{getContent('manifesto_content_3', "而非收割器", "instead of harvesting it")}</span>
               </h3>
-            ) : (
-              <h2 className="font-serif text-[clamp(2.5rem,4.5vw,5rem)] font-medium leading-[1.08] tracking-[-0.04em] text-white">
-                <span className="block">True capital</span>
-                <span className="block">accelerates industrial civilization</span>
-                <span className="block">instead of harvesting it</span>
-              </h2>
-            )}
           </motion.div>
 
           <motion.div
@@ -120,7 +126,7 @@ export default function Home() {
                 playsInline
                 preload="metadata"
                 aria-hidden="true"
-                src="/fhzb/videos/block-compressed.mp4"
+                src={getContent('manifesto_bg_image', '/fhzb/videos/block-compressed.mp4', '/fhzb/videos/block-compressed.mp4')}
                 className="h-full w-full object-contain"
               >
                 Your browser does not support the video tag.
@@ -280,11 +286,7 @@ export default function Home() {
           </motion.div>
 
           <div className="space-y-8 max-w-xl">
-            {[
-              { date: "2026.04", zh: "深创投集团多名女性投资人荣登清科投资界、单", en: "Investment Leaders Recognized", desc_zh: "近日，多家投股权投资服务机构相继发布女性投资人榜单。深创投多名女性投资人进入榜单。", desc_en: "Several female partners recognized for their contribution to the industry." },
-              { date: "2026.03", zh: "生态基金规模破百亿，跨越重要里程碑", en: "Fund AUM Milestone", desc_zh: "近日，多家股权投资机构相继发布年度报告，峰壑体系基金规模正式突破百亿大关。", desc_en: "AUM surpasses major milestone after successful fundraising rounds." },
-              { date: "2026.02", zh: "华东大区俱乐部正式启幕，极核模式加速", en: "East China Hub Opening", desc_zh: "战略指挥部与区域节点深度互动，赋能长三角高价值产业链发展。", desc_en: "New regional hub establishes stronger presence in key economic zones." }
-            ].map((feed, i) => (
+            {newsList.length > 0 ? newsList.slice(0, 3).map((feed, i) => (
               <motion.div 
                 key={i} 
                 initial={{ opacity: 0, y: 20 }}
@@ -297,13 +299,15 @@ export default function Home() {
                 
                 <span className="text-[#b7893b] text-xs font-bold tracking-widest block mb-3">{feed.date}</span>
                 <h4 className="text-xl text-white font-bold mb-3 group-hover:text-[#b7893b] transition-colors">
-                  {language === 'zh' ? feed.zh : feed.en}
+                  {language === 'zh' ? feed.title_zh : feed.title_en}
                 </h4>
                 <p className="text-base text-white/50 line-clamp-2 leading-relaxed font-normal">
                   {language === 'zh' ? feed.desc_zh : feed.desc_en}
                 </p>
               </motion.div>
-            ))}
+            )) : (
+              <div className="text-white/20">Loading news...</div>
+            )}
           </div>
         </div>
       </Section>
@@ -331,11 +335,11 @@ export default function Home() {
             transition={{ duration: 1.5, ease: "easeInOut" }}
           >
             <h2 className={`font-serif max-w-3xl leading-relaxed text-[#FFFFFF]  mb-10 ${language === 'zh' ? 'text-3xl md:text-5xl' : 'text-2xl md:text-4xl'}`}>
-              “{language === 'zh' ? questions[currentQuestion].zh : questions[currentQuestion].en}”
+              “{questionList.length > 0 ? (language === 'zh' ? questionList[currentQuestion].text_zh : questionList[currentQuestion].text_en) : '...'}”
             </h2>
           </motion.div>
           <div className="flex gap-2 justify-center mb-16">
-            {questions.map((_, idx) => (
+            {questionList.map((_, idx) => (
               <div 
                 key={idx} 
                 className={`h-1 rounded-full transition-all duration-500 ${idx === currentQuestion ? 'w-8 bg-[#b7893b]' : 'w-2 bg-white/20'}`}
