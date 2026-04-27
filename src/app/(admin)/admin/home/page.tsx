@@ -37,7 +37,14 @@ export default function HomeManagement() {
       title: '3. 核心价值枢纽区域', 
       icon: Layout,
       items: [
-        { key: 'home_hub_title', label: '板块标题', type: 'text' as const },
+        { key: 'home_hub_title', label: '板块大标题', type: 'text' as const },
+        { key: 'home_hub_item1_title', label: '项目 1 标题', type: 'text' as const },
+        { key: 'home_hub_item1_subtitle', label: '项目 1 描述', type: 'text' as const },
+        { key: 'home_hub_item1_image', label: '项目 1 图片', type: 'media' as const },
+        { key: 'home_hub_item2_title', label: '项目 2 标题', type: 'text' as const },
+        { key: 'home_hub_item2_image', label: '项目 2 图片', type: 'media' as const },
+        { key: 'home_hub_item3_title', label: '项目 3 标题', type: 'text' as const },
+        { key: 'home_hub_item3_image', label: '项目 3 图片', type: 'media' as const },
       ] 
     },
     { 

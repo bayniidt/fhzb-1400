@@ -156,26 +156,23 @@ export default function Home() {
         <div className="grid w-full grid-cols-1 overflow-hidden border-y border-white/10 md:grid-cols-3">
             {[
               {
-                type: "image" as const,
-                zh: "立足高远",
-                en: "Visionary Reach",
-                subZh: "洞察产业趋势与国家战略。",
-                subEn: "Insights into industry trends and national strategy.",
-                img: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&q=80&w=1200",
+                zh: getContent('home_hub_item1_title', "立足高远", "Visionary Reach"),
+                en: getContent('home_hub_item1_title', "立足高远", "Visionary Reach"),
+                subZh: getContent('home_hub_item1_subtitle', "洞察产业趋势与国家战略。", "Insights into industry trends and national strategy."),
+                subEn: getContent('home_hub_item1_subtitle', "洞察产业趋势与国家战略。", "Insights into industry trends and national strategy."),
+                img: getContent('home_hub_item1_image', "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&q=80&w=1200", "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&q=80&w=1200"),
                 href: "/philosophy",
               },
               {
-                type: "image" as const,
-                zh: "根系中国，培育创新“沃土”",
-                en: "Rooted in China, cultivating innovation",
-                img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=1200",
+                zh: getContent('home_hub_item2_title', "根系中国，培育创新“沃土”", "Rooted in China, cultivating innovation"),
+                en: getContent('home_hub_item2_title', "根系中国，培育创新“沃土”", "Rooted in China, cultivating innovation"),
+                img: getContent('home_hub_item2_image', "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=1200", "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=1200"),
                 href: "/galaxy",
               },
               {
-                type: "image" as const,
-                zh: "播种硬核，耕耘未来",
-                en: "Plant hard power, cultivate the future",
-                img: "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&q=80&w=1200",
+                zh: getContent('home_hub_item3_title', "播种硬核，耕耘未来", "Plant hard power, cultivate the future"),
+                en: getContent('home_hub_item3_title', "播种硬核，耕耘未来", "Plant hard power, cultivate the future"),
+                img: getContent('home_hub_item3_image', "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&q=80&w=1200", "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&q=80&w=1200"),
                 href: "/alliance",
               },
             ].map((item, idx) => (

@@ -80,6 +80,13 @@ const seeds = [
 
   // 1. Home - Hub
   ['home_hub_title', '核心价值枢纽', 'Core Value Hub', 'text', 'home'],
+  ['home_hub_item1_title', '立足高远', 'Visionary Reach', 'text', 'home'],
+  ['home_hub_item1_subtitle', '洞察产业趋势与国家战略。', 'Insights into industry trends and national strategy.', 'text', 'home'],
+  ['home_hub_item1_image', 'https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&q=80&w=1200', 'https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&q=80&w=1200', 'media', 'home'],
+  ['home_hub_item2_title', '根系中国，培育创新“沃土”', 'Rooted in China, cultivating innovation', 'text', 'home'],
+  ['home_hub_item2_image', 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=1200', 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=1200', 'media', 'home'],
+  ['home_hub_item3_title', '播种硬核，耕耘未来', 'Plant hard power, cultivate the future', 'text', 'home'],
+  ['home_hub_item3_image', 'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&q=80&w=1200', 'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&q=80&w=1200', 'media', 'home'],
   
   // 1. Home - News
   ['home_news_title', '最新动态', 'News', 'text', 'home'],
