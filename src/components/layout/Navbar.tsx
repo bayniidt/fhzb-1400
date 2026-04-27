@@ -12,7 +12,7 @@ export const NAV_LINKS = [
     zh: "首页",
     en: "HOME",
     subItems: [
-      { zh: "峰壑宣言", en: "Manifesto", href: "/#hero", descZh: "（banner 图）", descEn: "Hero Banner" },
+      { zh: "峰壑宣言", en: "Manifesto", href: "/#hero", descZh: "（欢迎来到峰壑）", descEn: "Hero Banner" },
       { zh: "三大价值入口", en: "Gateways", href: "/#gateways", descZh: "（核心价值枢纽）", descEn: "Core Value Hub" },
       { zh: "峰壑星系概览", en: "Overview", href: "/#galaxy-overview", descZh: "（峰壑星系网络）", descEn: "Galaxy Network" },
       { zh: "最新动态", en: "News", href: "/#news", descZh: "实时掌握项目进展", descEn: "Real-time project progress" },
@@ -24,7 +24,7 @@ export const NAV_LINKS = [
     zh: "峰壑哲学",
     en: "PHILOSOPHY",
     subItems: [
-      { zh: "峰峦思维", en: "Peak Thinking", href: "/philosophy#peak-thinking", descZh: "（banner 图）", descEn: "Hero Banner" },
+      { zh: "峰峦思维", en: "Peak Thinking", href: "/philosophy#peak-thinking", descZh: "（欢迎来到峰壑）", descEn: "Hero Banner" },
       { zh: "使命·愿景·价值观", en: "MVV", href: "/philosophy#mvv", descZh: "（Mission / 使命）", descEn: "Mission / Values" },
       { zh: "三大文化支柱", en: "Pillars", href: "/philosophy#pillars", descZh: "（核心理念）", descEn: "Core Concept" },
       { zh: "文化象征与仪式", en: "Rituals", href: "/philosophy#symbols", descZh: "（文化象征与仪式）", descEn: "Cultural Symbols & Rituals" },
