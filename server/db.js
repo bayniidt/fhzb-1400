@@ -60,6 +60,14 @@ db.exec(`
     label_zh TEXT,
     label_en TEXT
   );
+
+  CREATE TABLE IF NOT EXISTS members (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    phone TEXT UNIQUE NOT NULL,
+    is_super_admin INTEGER DEFAULT 0,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+  );
 `);
 
 // Seed initial content if empty or missing keys
@@ -316,6 +324,12 @@ if (newsCount.count === 0) {
   insertNews.run('2026.04', '深创投集团多名女性投资人荣登清科投资界、单...', 'Female Investors Honored', '近日，多家股权投资服务机构相继发布女性投资人榜单，深创投多名女性投资人进入榜单。', 'Several female investors from Shenzhen Capital Group were included in the list.');
   insertNews.run('2026.03', '生态基金规模破百亿，跨越重要里程碑', 'Eco-Fund Exceeds 10 Billion', '近日，多家股权投资机构相继发布年度报告，峰壑体系基金规模正式突破百亿大关。', 'The FH system fund scale has officially exceeded the 10 billion mark.');
   insertNews.run('2026.02', '华东大区俱乐部正式启幕，极核模式加速', 'East China Club Officially Opens', '战略指挥部与区域节点深度互动，赋能长三角高价值产业链发展。', 'Strategic headquarters interact deeply with regional nodes, empowering high-value industrial chains.');
+}
+
+// Seed super admin if not exists
+const adminCount = db.prepare("SELECT COUNT(*) as count FROM members WHERE phone = '17858452245'").get();
+if (adminCount.count === 0) {
+  db.prepare("INSERT INTO members (name, phone, is_super_admin) VALUES (?, ?, ?)").run('超级管理员', '17858452245', 1);
 }
 
 console.log('Database initialized successfully.');

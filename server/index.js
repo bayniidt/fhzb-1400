@@ -184,6 +184,68 @@ app.put('/api/contact/:id', (req, res) => {
   res.json({ success: true });
 });
 
+// Member Endpoints
+app.get('/api/members', (req, res) => {
+  const members = db.prepare('SELECT id, name, phone, is_super_admin, created_at FROM members ORDER BY created_at DESC').all();
+  res.json(members);
+});
+
+app.post('/api/members', (req, res) => {
+  const { name, phone } = req.body;
+  if (!name || !phone) {
+    return res.status(400).json({ error: 'Name and phone are required' });
+  }
+  try {
+    const insert = db.prepare('INSERT INTO members (name, phone) VALUES (?, ?)');
+    const result = insert.run(name, phone);
+    res.json({ id: result.lastInsertRowid, success: true });
+  } catch (err) {
+    if (err.message.includes('UNIQUE')) {
+      return res.status(400).json({ error: '手机号已存在' });
+    }
+    res.status(500).json({ error: 'Failed to create member' });
+  }
+});
+
+app.put('/api/members/:id', (req, res) => {
+  const { id } = req.params;
+  const { name, phone } = req.body;
+  try {
+    const update = db.prepare('UPDATE members SET name = ?, phone = ? WHERE id = ?');
+    update.run(name, phone, id);
+    res.json({ success: true });
+  } catch (err) {
+    if (err.message.includes('UNIQUE')) {
+      return res.status(400).json({ error: '手机号已存在' });
+    }
+    res.status(500).json({ error: 'Failed to update member' });
+  }
+});
+
+app.delete('/api/members/:id', (req, res) => {
+  const { id } = req.params;
+  // Prevent deleting super admin
+  const member = db.prepare('SELECT is_super_admin FROM members WHERE id = ?').get(id);
+  if (member && member.is_super_admin) {
+    return res.status(403).json({ error: '不能删除超级管理员' });
+  }
+  db.prepare('DELETE FROM members WHERE id = ?').run(id);
+  res.json({ success: true });
+});
+
+// Login endpoint
+app.post('/api/login', (req, res) => {
+  const { phone } = req.body;
+  if (!phone) {
+    return res.status(400).json({ error: '手机号不能为空' });
+  }
+  const member = db.prepare('SELECT id, name, phone, is_super_admin FROM members WHERE phone = ?').get(phone);
+  if (!member) {
+    return res.status(401).json({ error: '手机号未注册' });
+  }
+  res.json({ success: true, member: { id: member.id, name: member.name, phone: member.phone, is_super_admin: member.is_super_admin } });
+});
+
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });

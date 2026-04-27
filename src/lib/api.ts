@@ -153,3 +153,44 @@ export async function updateGateway(id: number, data: any) {
   });
   return res.json();
 }
+
+// Member Endpoints
+export async function fetchMembers() {
+  const res = await fetch(`${API_BASE_URL}/members`);
+  return res.json();
+}
+
+export async function createMember(data: { name: string, phone: string }) {
+  const res = await fetch(`${API_BASE_URL}/members`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  });
+  return res.json();
+}
+
+export async function updateMember(id: number, data: { name: string, phone: string }) {
+  const res = await fetch(`${API_BASE_URL}/members/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  });
+  return res.json();
+}
+
+export async function deleteMember(id: number) {
+  const res = await fetch(`${API_BASE_URL}/members/${id}`, {
+    method: 'DELETE',
+  });
+  return res.json();
+}
+
+// Login Endpoint
+export async function login(phone: string) {
+  const res = await fetch(`${API_BASE_URL}/login`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ phone }),
+  });
+  return res.json();
+}

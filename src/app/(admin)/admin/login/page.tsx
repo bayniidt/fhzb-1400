@@ -3,11 +3,11 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { Phone, Lock, ArrowRight, Loader2 } from "lucide-react";
+import { Phone, ArrowRight, Loader2 } from "lucide-react";
+import { login } from "@/lib/api";
 
 export default function LoginPage() {
   const [phone, setPhone] = useState("");
-  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const router = useRouter();
@@ -17,12 +17,20 @@ export default function LoginPage() {
     setLoading(true);
     setError("");
 
-    // 默认手机号验证
-    if (phone === "17858452245" && password === "admin123") {
+    try {
+      const result = await login(phone);
+      if (result.error) {
+        setError(result.error);
+        setLoading(false);
+        return;
+      }
+      
       localStorage.setItem("admin_auth", "true");
+      localStorage.setItem("admin_phone", result.member.phone);
+      localStorage.setItem("admin_super", result.member.is_super_admin ? "true" : "false");
       router.push("/admin");
-    } else {
-      setError("手机号或密码错误");
+    } catch (err) {
+      setError("登录失败，请稍后重试");
       setLoading(false);
     }
   };
@@ -53,25 +61,10 @@ export default function LoginPage() {
             <div className="relative">
               <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/20" />
               <input
-                type="text"
+                type="tel"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                placeholder="请输入手机号"
-                className="w-full bg-white/5 border border-white/10 rounded-xl py-4 pl-12 pr-4 text-white focus:border-[#b7893b] focus:ring-1 focus:ring-[#b7893b] outline-none transition-all"
-                required
-              />
-            </div>
-          </div>
-
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-white/60 ml-1">登录密码</label>
-            <div className="relative">
-              <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/20" />
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="请输入密码"
+                placeholder="请输入已注册的手机号"
                 className="w-full bg-white/5 border border-white/10 rounded-xl py-4 pl-12 pr-4 text-white focus:border-[#b7893b] focus:ring-1 focus:ring-[#b7893b] outline-none transition-all"
                 required
               />

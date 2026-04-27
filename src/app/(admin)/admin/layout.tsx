@@ -14,7 +14,8 @@ import {
   Activity,
   LogOut,
   Globe,
-  Settings
+  Settings,
+  Shield
 } from "lucide-react";
 
 const navigation = [
@@ -36,20 +37,25 @@ export default function AdminLayout({
   const router = useRouter();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isAuthChecked, setIsAuthChecked] = useState(false);
+  const [isSuperAdmin, setIsSuperAdmin] = useState(false);
 
   useEffect(() => {
     const isAuth = localStorage.getItem("admin_auth") === "true";
+    const superAdmin = localStorage.getItem("admin_super") === "true";
     if (!isAuth && pathname !== "/admin/login") {
       router.push("/admin/login");
     } else if (pathname === "/admin") {
       router.push("/admin/home");
     } else {
+      setIsSuperAdmin(superAdmin);
       setIsAuthChecked(true);
     }
   }, [pathname, router]);
 
   const handleLogout = () => {
     localStorage.removeItem("admin_auth");
+    localStorage.removeItem("admin_phone");
+    localStorage.removeItem("admin_super");
     router.push("/admin/login");
   };
 
@@ -93,6 +99,19 @@ export default function AdminLayout({
               </Link>
             );
           })}
+          {isSuperAdmin && (
+            <Link
+              href="/admin/members"
+              className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 ${
+                pathname === '/admin/members'
+                  ? 'bg-[#b7893b] text-black shadow-[0_0_20px_rgba(183,137,59,0.3)]' 
+                  : 'text-white/60 hover:text-white hover:bg-white/5'
+              }`}
+            >
+              <Shield className="w-5 h-5" />
+              <span className="font-medium text-sm">成员管理</span>
+            </Link>
+          )}
         </nav>
         <div className="p-4 border-t border-white/10 space-y-1">
           <Link 
@@ -166,6 +185,18 @@ export default function AdminLayout({
                   </Link>
                 );
               })}
+              {isSuperAdmin && (
+                <Link
+                  href="/admin/members"
+                  onClick={() => setIsSidebarOpen(false)}
+                  className={`flex items-center gap-3 px-4 py-3 rounded-xl ${
+                    pathname === '/admin/members' ? 'bg-[#b7893b] text-black' : 'text-white/60'
+                  }`}
+                >
+                  <Shield className="w-5 h-5" />
+                  <span>成员管理</span>
+                </Link>
+              )}
             </nav>
           </aside>
         </>
