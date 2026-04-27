@@ -46,16 +46,15 @@ export default function ModuleManagement({ moduleName, title, description, secti
 
   useEffect(() => {
     fetchContent().then(data => {
-      const moduleContent = Object.keys(data)
-        .filter(key => data[key].module === moduleName)
-        .reduce((obj: any, key) => {
-          obj[key] = data[key];
-          return obj;
-        }, {});
-      setContent(moduleContent);
+      // Just store everything, we access by key anyway
+      setContent(data);
+      setLoading(false);
+    }).catch(err => {
+      console.error("Failed to fetch content:", err);
+      setContent({});
       setLoading(false);
     });
-  }, [moduleName]);
+  }, []);
 
   const handleUpdate = async (key: string) => {
     setSaving(key);
@@ -112,7 +111,7 @@ export default function ModuleManagement({ moduleName, title, description, secti
     setContent((prev: any) => ({
       ...prev,
       [key]: {
-        ...prev[key],
+        ...(prev?.[key] || { zh: '', en: '', module: moduleName, type: 'text' }),
         [field]: value
       }
     }));

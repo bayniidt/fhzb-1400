@@ -65,20 +65,27 @@ app.get('/api/content', (req, res) => {
   const content = db.prepare('SELECT * FROM site_content').all();
   const result = {};
   content.forEach(item => {
-    result[item.key] = { zh: item.value_zh, en: item.value_en };
+    result[item.key] = { zh: item.value_zh, en: item.value_en, module: item.module };
   });
   res.json(result);
 });
 
 app.put('/api/content/:key', (req, res) => {
   const { key } = req.params;
-  const { zh, en } = req.body;
-  const update = db.prepare('UPDATE site_content SET value_zh = ?, value_en = ? WHERE key = ?');
-  const result = update.run(zh, en, key);
+  const { zh, en, module: passedModule, type: passedType } = req.body;
+  
+  // Get existing module and type if they exist
+  const existing = db.prepare('SELECT module, type FROM site_content WHERE key = ?').get(key);
+  const module = passedModule || (existing ? existing.module : 'home');
+  const type = passedType || (existing ? existing.type : 'text');
+
+  const update = db.prepare('INSERT OR REPLACE INTO site_content (key, value_zh, value_en, module, type) VALUES (?, ?, ?, ?, ?)');
+  const result = update.run(key, zh, en, module, type);
+  
   if (result.changes > 0) {
     res.json({ success: true });
   } else {
-    res.status(404).json({ error: 'Content not found' });
+    res.status(500).json({ error: 'Failed to update content' });
   }
 });
 

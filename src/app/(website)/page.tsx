@@ -56,7 +56,7 @@ export default function Home() {
             loop
             muted
             playsInline
-            src={getContent('hero_bg_video', '/fhzb/videos/背景_6.mp4', '/fhzb/videos/背景_6.mp4')}
+            src={getContent('home_banner_video', '/fhzb/videos/背景_6.mp4', '/fhzb/videos/背景_6.mp4')}
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#b7893b]/5 to-[#000000]/30 z-10" />
@@ -70,8 +70,8 @@ export default function Home() {
             transition={{ duration: 1.2, ease: "easeOut" }}
             className={`font-serif font-bold tracking-tight mb-8 text-[#FFFFFF] drop-shadow-2xl ${language === 'zh' ? 'text-5xl md:text-7xl lg:text-8xl' : 'text-4xl md:text-6xl lg:text-7xl leading-tight'}`}
           >
-            {getContent('hero_title_1', '资本遇见雄心', 'Capital meets Ambition')}<br />
-            {getContent('hero_title_2', '我们共筑峰峦', 'Building Summits Together')}
+            {getContent('home_banner_title_1', '资本遇见雄心', 'Capital meets Ambition')}<br />
+            {getContent('home_banner_title_2', '我们共筑峰峦', 'Building Summits Together')}
           </motion.h1>
           <motion.div 
             initial={{ opacity: 0 }}
@@ -80,10 +80,10 @@ export default function Home() {
             className="flex flex-col sm:flex-row gap-6 justify-center mt-16"
           >
             <Link href="/contact" className="px-10 py-5 bg-transparent border border-white/20 hover:bg-white hover:text-black transition-all font-medium tracking-widest text-sm uppercase">
-              {getContent('hero_btn_1', '成为生态伙伴', 'Join the Ecosystem')}
+              {getContent('home_banner_btn_1', '成为生态伙伴', 'Join the Ecosystem')}
             </Link>
             <Link href="/os" className="px-10 py-5 bg-[#b7893b]/10 text-[#b7893b] border border-[#b7893b]/50 hover:bg-[#b7893b] hover:text-black transition-all font-medium tracking-widest text-sm uppercase">
-              {getContent('hero_btn_2', '探索资本路径', 'Explore Capital Paths')}
+              {getContent('home_banner_btn_2', '探索资本路径', 'Explore Capital Paths')}
             </Link>
           </motion.div>
         </div>
@@ -100,13 +100,13 @@ export default function Home() {
             className="max-w-[720px] text-left"
           >
             <p className="mb-8 text-sm tracking-[0.16em] text-white/88 md:mb-10">
-              {getContent('manifesto_title', "峰壑宣言", "Peak & Valley Manifesto")}
+              {getContent('home_manifesto_title', "峰壑宣言", "Peak & Valley Manifesto")}
             </p>
 
               <h3 className="font-serif text-[clamp(2.9rem,5.8vw,5rem)] font-medium leading-[1.08] tracking-[-0.04em] text-white">
-                <span className="block">{getContent('manifesto_content_1', "真正的资本", "True capital")}</span>
-                <span className="block">{getContent('manifesto_content_2', "是产业文明的加速器", "accelerates industrial civilization")}</span>
-                <span className="block">{getContent('manifesto_content_3', "而非收割器", "instead of harvesting it")}</span>
+                <span className="block">{getContent('home_manifesto_content_1', "真正的资本", "True capital")}</span>
+                <span className="block">{getContent('home_manifesto_content_2', "是产业文明的加速器", "accelerates industrial civilization")}</span>
+                <span className="block">{getContent('home_manifesto_content_3', "而非收割器", "instead of harvesting it")}</span>
               </h3>
           </motion.div>
 
@@ -126,7 +126,7 @@ export default function Home() {
                 playsInline
                 preload="metadata"
                 aria-hidden="true"
-                src={getContent('manifesto_bg_image', '/fhzb/videos/block-compressed.mp4', '/fhzb/videos/block-compressed.mp4')}
+                src={getContent('home_manifesto_video', '/fhzb/videos/block-compressed.mp4', '/fhzb/videos/block-compressed.mp4')}
                 className="h-full w-full object-contain"
               >
                 Your browser does not support the video tag.
@@ -148,7 +148,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-[2rem] font-bold tracking-[0.08em] text-white md:text-[2.5rem]"
             >
-              {t("核心价值枢纽", "Core Value Hub")}
+              {getContent('home_hub_title', "核心价值枢纽", "Core Value Hub")}
             </motion.h2>
           </div>
         </div>
@@ -278,10 +278,10 @@ export default function Home() {
             className="mb-16"
           >
             <h3 className="text-[#b7893b] text-sm tracking-[0.4em] font-bold uppercase mb-2">
-              LATEST UPDATES
+              {getContent('home_news_subtitle', 'LATEST UPDATES', 'LATEST UPDATES')}
             </h3>
             <h2 className="text-4xl font-bold text-white tracking-tight">
-              {t('最新动态', 'News')}
+              {getContent('home_news_title', '最新动态', 'News')}
             </h2>
           </motion.div>
 
@@ -320,7 +320,7 @@ export default function Home() {
             loop
             muted
             playsInline
-            src="/fhzb/videos/背景_1.mp4"
+            src={getContent('home_ascent_video', '/fhzb/videos/背景_1.mp4', '/fhzb/videos/背景_1.mp4')}
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-glow/10 via-transparent to-transparent z-15 pointer-events-none" />
@@ -355,7 +355,7 @@ export default function Home() {
           >
             <Link href="/contact" className="group inline-flex flex-col items-center">
               <span className="text-sm uppercase tracking-widest text-[#b7893b] mb-6 font-bold">
-                {t('开启攀登之路', 'Start Your Ascent')}
+                {getContent('home_ascent_title', '开启攀登之路', 'Start Your Ascent')}
               </span>
               <div className="w-14 h-14 rounded-full border border-[#b7893b]/30 flex items-center justify-center group-hover:bg-[#b7893b] group-hover:text-black transition-all group-hover:scale-110 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
                 &rarr;

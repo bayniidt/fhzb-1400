@@ -63,19 +63,31 @@ db.exec(`
 `);
 
 // Seed initial content if empty or missing keys
-const insertContent = db.prepare('INSERT OR IGNORE INTO site_content (key, value_zh, value_en, type, module) VALUES (?, ?, ?, ?, ?)');
 const seeds = [
-  // 1. Home
-  ['hero_title_1', '资本遇见雄心', 'Capital meets Ambition', 'text', 'home'],
-  ['hero_title_2', '我们共筑峰峦', 'Building Summits Together', 'text', 'home'],
-  ['hero_btn_1', '成为生态伙伴', 'Join the Ecosystem', 'text', 'home'],
-  ['hero_btn_2', '探索资本路径', 'Explore Capital Paths', 'text', 'home'],
-  ['hero_bg_video', '/fhzb/videos/背景_6.mp4', '/fhzb/videos/背景_6.mp4', 'media', 'home'],
-  ['manifesto_title', '峰壑宣言', 'Peak & Valley Manifesto', 'text', 'home'],
-  ['manifesto_content_1', '真正的资本', 'True capital', 'text', 'home'],
-  ['manifesto_content_2', '是产业文明的加速器', 'accelerates industrial civilization', 'text', 'home'],
-  ['manifesto_content_3', '而非收割器', 'instead of harvesting it', 'text', 'home'],
-  ['manifesto_bg_image', '/fhzb/videos/block-compressed.mp4', '/fhzb/videos/block-compressed.mp4', 'media', 'home'],
+  // 1. Home - Banner
+  ['home_banner_title_1', '资本遇见雄心', 'Capital meets Ambition', 'text', 'home'],
+  ['home_banner_title_2', '我们共筑峰峦', 'Building Summits Together', 'text', 'home'],
+  ['home_banner_btn_1', '成为生态伙伴', 'Join the Ecosystem', 'text', 'home'],
+  ['home_banner_btn_2', '探索资本路径', 'Explore Capital Paths', 'text', 'home'],
+  ['home_banner_video', '/fhzb/videos/背景_6.mp4', '/fhzb/videos/背景_6.mp4', 'media', 'home'],
+  
+  // 1. Home - Manifesto
+  ['home_manifesto_title', '峰壑宣言', 'Peak & Valley Manifesto', 'text', 'home'],
+  ['home_manifesto_content_1', '真正的资本', 'True capital', 'text', 'home'],
+  ['home_manifesto_content_2', '是产业文明的加速器', 'accelerates industrial civilization', 'text', 'home'],
+  ['home_manifesto_content_3', '而非收割器', 'instead of harvesting it', 'text', 'home'],
+  ['home_manifesto_video', '/fhzb/videos/block-compressed.mp4', '/fhzb/videos/block-compressed.mp4', 'media', 'home'],
+
+  // 1. Home - Hub
+  ['home_hub_title', '核心价值枢纽', 'Core Value Hub', 'text', 'home'],
+  
+  // 1. Home - News
+  ['home_news_title', '最新动态', 'News', 'text', 'home'],
+  ['home_news_subtitle', 'LATEST UPDATES', 'LATEST UPDATES', 'text', 'home'],
+
+  // 1. Home - Question
+  ['home_ascent_title', '开启攀登之路', 'Start Your Ascent', 'text', 'home'],
+  ['home_ascent_video', '/fhzb/videos/背景_1.mp4', '/fhzb/videos/背景_1.mp4', 'media', 'home'],
 
   // 2. Philosophy
   ['phi_hero_title', '平原思维与峰峦思维', 'Linear Mindset', 'text', 'philosophy'],
@@ -92,20 +104,18 @@ const seeds = [
   ['gal_hero_title', '总部 · 中央引擎', 'HQ · Central Engine', 'text', 'galaxy'],
   ['gal_hero_subtitle', '并非简单的发号施令，而是向整张生态星系高频倾泻算力、共识与资源。', 'Not just giving orders, but continuously pouring computing power, consensus, and resources into the entire ecosystem galaxy.', 'text', 'galaxy'],
   ['gal_hero_bg', '/fhzb/videos/背景图_4.jpg', '/fhzb/videos/背景图_4.jpg', 'media', 'galaxy'],
-
-  // 5. Alliance
-  ['all_hero_title', '共筑峰峦', 'Alliance', 'text', 'alliance'],
-  ['all_hero_bg', '/fhzb/videos/背景_2.mp4', '/fhzb/videos/背景_2.mp4', 'media', 'alliance'],
-
-  // 6. Vision
-  ['vis_hero_title', '峰壑视野', 'Vision', 'text', 'vision'],
-  ['vis_hero_bg', '/fhzb/videos/背景_3.mp4', '/fhzb/videos/背景_3.mp4', 'media', 'vision'],
-
-  // 7. Digital/Omega
-  ['ome_hero_title', '数字峰壑', 'Digital', 'text', 'omega'],
-  ['ome_hero_bg', '/fhzb/videos/背景_1.mp4', '/fhzb/videos/背景_1.mp4', 'media', 'omega'],
 ];
-seeds.forEach(s => insertContent.run(...s));
+
+const insertOrUpdate = db.prepare(`
+  INSERT INTO site_content (key, value_zh, value_en, type, module) 
+  VALUES (?, ?, ?, ?, ?)
+  ON CONFLICT(key) DO UPDATE SET
+    value_zh = excluded.value_zh,
+    value_en = excluded.value_en
+  WHERE site_content.value_zh IS NULL OR site_content.value_zh = ''
+`);
+
+seeds.forEach(s => insertOrUpdate.run(...s));
 
 // Seed initial navigation if empty
 const navCount = db.prepare('SELECT COUNT(*) as count FROM navigation').get();

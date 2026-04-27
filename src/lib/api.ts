@@ -24,7 +24,7 @@ export async function fetchContent() {
   return res.json();
 }
 
-export async function updateContent(key: string, data: { zh: string, en: string }) {
+export async function updateContent(key: string, data: { zh: string, en: string, module?: string, type?: string }) {
   const res = await fetch(`${API_BASE_URL}/content/${key}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
