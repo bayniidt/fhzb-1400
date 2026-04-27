@@ -1,6 +1,7 @@
 "use client";
 
 import ModuleManagement from "../components/ModuleManagement";
+import NewsListManagement from "../components/NewsListManagement";
 import { 
   Video, 
   Image as ImageIcon, 
@@ -51,9 +52,14 @@ export default function HomeManagement() {
       title: '4. 最新动态区域', 
       icon: Newspaper,
       items: [
-        { key: 'home_news_title', label: '板块标题', type: 'text' as const },
-        { key: 'home_news_subtitle', label: '副标题', type: 'text' as const },
-      ] 
+        { key: 'home_news_left_tag', label: '左侧标签', type: 'text' as const },
+        { key: 'home_news_left_title', label: '左侧标题', type: 'text' as const },
+        { key: 'home_news_left_desc', label: '左侧描述', type: 'text' as const },
+        { key: 'home_news_left_btn', label: '左侧按钮文案', type: 'text' as const },
+        { key: 'home_news_right_tag', label: '右侧标签', type: 'text' as const },
+        { key: 'home_news_right_title', label: '右侧标题', type: 'text' as const },
+      ],
+      extra: <NewsListManagement />
     },
     { 
       title: '5. 开启攀登之路区域', 

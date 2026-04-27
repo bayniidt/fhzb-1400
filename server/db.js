@@ -89,8 +89,12 @@ const seeds = [
   ['home_hub_item3_image', 'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&q=80&w=1200', 'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&q=80&w=1200', 'media', 'home'],
   
   // 1. Home - News
-  ['home_news_title', '最新动态', 'News', 'text', 'home'],
-  ['home_news_subtitle', 'LATEST UPDATES', 'LATEST UPDATES', 'text', 'home'],
+  ['home_news_left_tag', 'GALAXY NETWORK', 'GALAXY NETWORK', 'text', 'home'],
+  ['home_news_left_title', '峰壑星系网络', 'Galaxy Network', 'text', 'home'],
+  ['home_news_left_desc', '总部中央战略指挥与全国区域俱乐部节点交汇的广袤版图。', 'A vast map where the central strategic command of the headquarters meets the nodes of regional clubs across the country.', 'text', 'home'],
+  ['home_news_left_btn', '进入星系地图', 'Enter Galaxy Map', 'text', 'home'],
+  ['home_news_right_tag', 'LATEST UPDATES', 'LATEST UPDATES', 'text', 'home'],
+  ['home_news_right_title', '最新动态', 'News', 'text', 'home'],
 
   // 1. Home - Question
   ['home_ascent_title', '开启攀登之路', 'Start Your Ascent', 'text', 'home'],
@@ -144,5 +148,16 @@ if (contactCount.count === 0) {
   insertContact.run('phone', '17858452245', '联系电话', 'Phone');
   insertContact.run('email', 'contact@fhzb.com', '电子邮箱', 'Email');
 }
+
+// Seed initial news if empty
+const newsCount = db.prepare('SELECT COUNT(*) as count FROM news').get();
+if (newsCount.count === 0) {
+  const insertNews = db.prepare('INSERT INTO news (date, title_zh, title_en, desc_zh, desc_en) VALUES (?, ?, ?, ?, ?)');
+  insertNews.run('2026.04', '深创投集团多名女性投资人荣登清科投资界、单...', 'Female Investors Honored', '近日，多家股权投资服务机构相继发布女性投资人榜单，深创投多名女性投资人进入榜单。', 'Several female investors from Shenzhen Capital Group were included in the list.');
+  insertNews.run('2026.03', '生态基金规模破百亿，跨越重要里程碑', 'Eco-Fund Exceeds 10 Billion', '近日，多家股权投资机构相继发布年度报告，峰壑体系基金规模正式突破百亿大关。', 'The FH system fund scale has officially exceeded the 10 billion mark.');
+  insertNews.run('2026.02', '华东大区俱乐部正式启幕，极核模式加速', 'East China Club Officially Opens', '战略指挥部与区域节点深度互动，赋能长三角高价值产业链发展。', 'Strategic headquarters interact deeply with regional nodes, empowering high-value industrial chains.');
+}
+
+console.log('Database initialized successfully.');
 
 module.exports = db;

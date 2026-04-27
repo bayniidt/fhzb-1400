@@ -7,7 +7,7 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 
-import { fetchContent, fetchNews, fetchQuestions, fetchGateways } from "@/lib/api"
+import { fetchContent, getNews, fetchQuestions, fetchGateways } from "@/lib/api"
 
 export default function Home() {
   const { t, language } = useLanguage();
@@ -29,7 +29,7 @@ export default function Home() {
   useEffect(() => {
     // Initial fetch
     fetchContent().then(setSiteContent);
-    fetchNews().then(setNewsList);
+    getNews().then(setNewsList);
     fetchQuestions().then(setQuestionList);
   }, []);
 
@@ -248,18 +248,18 @@ export default function Home() {
             transition={{ duration: 1 }}
           >
             <span className="text-[#b7893b] text-sm tracking-[0.4em] font-bold uppercase mb-4 block">
-              GALAXY NETWORK
+              {getContent('home_news_left_tag', 'GALAXY NETWORK', 'GALAXY NETWORK')}
             </span>
             <h2 className="text-5xl lg:text-7xl font-bold text-white mb-8 tracking-tighter">
-              {t('峰壑星系网络', 'Galaxy Network')}
+              {getContent('home_news_left_title', '峰壑星系网络', 'Galaxy Network')}
             </h2>
             <p className="text-white/70 mb-12 text-xl max-w-lg leading-relaxed font-normal">
-              {t('总部中央战略指挥与全国区域俱乐部节点交汇的广袤版图。', 'The intersection of central strategy and regional nodes across the global landscape.')}
+              {getContent('home_news_left_desc', '总部中央战略指挥与全国区域俱乐部节点交汇的广袤版图。', 'The intersection of central strategy and regional nodes across the global landscape.')}
             </p>
             
             <Link href="/galaxy" className="inline-flex items-center gap-4 text-[#b7893b] text-sm uppercase tracking-[0.2em] font-bold group">
               <span className="border-b border-[#b7893b]/30 pb-1 group-hover:border-[#b7893b] transition-all">
-                {t('进入星系漫游', 'Enter Galaxy Map')}
+                {getContent('home_news_left_btn', '进入星系漫游', 'Enter Galaxy Map')}
               </span>
               <span className="text-xl group-hover:translate-x-2 transition-transform">→</span>
             </Link>
@@ -275,10 +275,10 @@ export default function Home() {
             className="mb-16"
           >
             <h3 className="text-[#b7893b] text-sm tracking-[0.4em] font-bold uppercase mb-2">
-              {getContent('home_news_subtitle', 'LATEST UPDATES', 'LATEST UPDATES')}
+              {getContent('home_news_right_tag', 'LATEST UPDATES', 'LATEST UPDATES')}
             </h3>
             <h2 className="text-4xl font-bold text-white tracking-tight">
-              {getContent('home_news_title', '最新动态', 'News')}
+              {getContent('home_news_right_title', '最新动态', 'News')}
             </h2>
           </motion.div>
 

@@ -25,6 +25,7 @@ interface ManagementSection {
   title: string;
   icon: LucideIcon;
   items: ManagementItem[];
+  extra?: React.ReactNode;
 }
 
 interface ModuleManagementProps {
@@ -309,6 +310,12 @@ export default function ModuleManagement({ moduleName, title, description, secti
                 </div>
               ))}
             </div>
+
+            {sections[activeTab].extra && (
+              <div className="pt-10 border-t border-white/10">
+                {sections[activeTab].extra}
+              </div>
+            )}
           </motion.section>
         </AnimatePresence>
       </div>

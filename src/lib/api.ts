@@ -33,12 +33,12 @@ export async function updateContent(key: string, data: { zh: string, en: string,
   return res.json();
 }
 
-export async function fetchNews() {
+export async function getNews() {
   const res = await fetch(`${API_BASE_URL}/news`);
   return res.json();
 }
 
-export async function postNews(data: any) {
+export async function createNews(data: any) {
   const res = await fetch(`${API_BASE_URL}/news`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
