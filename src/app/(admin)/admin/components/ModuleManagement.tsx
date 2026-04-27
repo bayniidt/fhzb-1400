@@ -41,6 +41,7 @@ export default function ModuleManagement({ moduleName, title, description, secti
   const [uploading, setUploading] = useState<string | null>(null);
   const [status, setStatus] = useState<{ [key: string]: 'idle' | 'success' | 'error' }>({});
   const [showConfirm, setShowConfirm] = useState<{ key: string, file: File, oldUrl: string } | null>(null);
+  const [activeTab, setActiveTab] = useState(0);
   
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -59,7 +60,12 @@ export default function ModuleManagement({ moduleName, title, description, secti
   const handleUpdate = async (key: string) => {
     setSaving(key);
     try {
-      await updateContent(key, content[key]);
+      // Pass module and type metadata for better categorization on backend
+      await updateContent(key, { 
+        ...content[key], 
+        module: moduleName, 
+        type: content[key]?.type || 'text' 
+      });
       setStatus(prev => ({ ...prev, [key]: 'success' }));
       setTimeout(() => setStatus(prev => ({ ...prev, [key]: 'idle' })), 3000);
     } catch (error) {
@@ -95,7 +101,12 @@ export default function ModuleManagement({ moduleName, title, description, secti
       }
       
       // Automatically save the content with new URL
-      await updateContent(key, { zh: url, en: url });
+      await updateContent(key, { 
+        zh: url, 
+        en: url,
+        module: moduleName,
+        type: 'media'
+      });
       
       setStatus(prev => ({ ...prev, [key]: 'success' }));
       setTimeout(() => setStatus(prev => ({ ...prev, [key]: 'idle' })), 3000);
@@ -126,11 +137,11 @@ export default function ModuleManagement({ moduleName, title, description, secti
   }
 
   return (
-    <div className="space-y-10 pb-20">
+    <div className="space-y-8 pb-20">
       <motion.div 
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
-        className="flex justify-between items-end"
+        className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4"
       >
         <div>
           <h1 className="text-3xl font-serif font-bold text-white mb-2">{title}</h1>
@@ -138,36 +149,51 @@ export default function ModuleManagement({ moduleName, title, description, secti
         </div>
       </motion.div>
 
-      <div className="space-y-16">
-        {sections.map((section, sIdx) => (
+      {/* Tabs Navigation */}
+      <div className="flex flex-wrap gap-2 border-b border-white/10 pb-4 sticky top-0 bg-[#0a0a0a] z-40 py-4">
+        {sections.map((section, idx) => (
+          <button
+            key={idx}
+            onClick={() => setActiveTab(idx)}
+            className={`flex items-center gap-2 px-6 py-3 rounded-xl transition-all font-bold text-sm ${
+              activeTab === idx 
+                ? 'bg-[#b7893b] text-black shadow-[0_0_20px_rgba(183,137,59,0.3)]' 
+                : 'bg-white/5 text-white/60 hover:bg-white/10 hover:text-white'
+            }`}
+          >
+            <section.icon className={`w-4 h-4 ${activeTab === idx ? 'text-black' : 'text-[#b7893b]'}`} />
+            {section.title}
+          </button>
+        ))}
+      </div>
+
+      <div className="pt-4">
+        <AnimatePresence mode="wait">
           <motion.section 
-            key={section.title}
+            key={activeTab}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: sIdx * 0.1 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
             className="space-y-8"
           >
-            <div className="flex items-center gap-3 border-b border-[#b7893b]/20 pb-4">
-              <div className="p-2 bg-[#b7893b]/10 rounded-lg">
-                <section.icon className="w-5 h-5 text-[#b7893b]" />
-              </div>
-              <h2 className="text-xl font-bold text-white">
-                {section.title}
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 gap-10">
-              {section.items.map((item) => (
+            <div className="grid grid-cols-1 gap-8">
+              {sections[activeTab].items.map((item) => (
                 <div key={item.key} className="group bg-white/5 border border-white/10 rounded-2xl p-6 space-y-6 hover:border-[#b7893b]/30 transition-all">
-                  <div className="flex justify-between items-center">
+                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                     <div className="flex items-center gap-3">
-                      <span className="text-sm font-bold text-[#b7893b] uppercase tracking-wider">{item.label}</span>
-                      <span className="text-[10px] font-mono text-white/20">{item.key}</span>
+                      <div className="p-2 bg-[#b7893b]/10 rounded-lg">
+                        <Type className="w-4 h-4 text-[#b7893b]" />
+                      </div>
+                      <div>
+                        <span className="text-sm font-bold text-white block">{item.label}</span>
+                        <span className="text-[10px] font-mono text-white/20 uppercase tracking-tighter">{item.key}</span>
+                      </div>
                     </div>
                     <button
                       onClick={() => handleUpdate(item.key)}
                       disabled={saving === item.key || uploading === item.key}
-                      className="flex items-center gap-2 px-4 py-2 bg-[#b7893b] text-black rounded-lg font-bold hover:bg-[#a67c35] transition-all disabled:opacity-50"
+                      className="flex items-center gap-2 px-5 py-2.5 bg-[#b7893b] text-black rounded-lg font-bold hover:bg-[#a67c35] transition-all disabled:opacity-50 whitespace-nowrap w-full sm:w-auto justify-center"
                     >
                       {saving === item.key ? (
                         <Loader2 className="w-4 h-4 animate-spin" />
@@ -284,7 +310,7 @@ export default function ModuleManagement({ moduleName, title, description, secti
               ))}
             </div>
           </motion.section>
-        ))}
+        </AnimatePresence>
       </div>
 
       {/* Confirmation Modal */}
