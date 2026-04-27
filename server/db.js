@@ -197,14 +197,25 @@ const seeds = [
   ['gal_region4_label', '政商顶层架构矩阵', 'Policy Matrix', 'text', 'galaxy'],
   ['gal_region_map_bg', '/fhzb/videos/背景图_3.jpg', '/fhzb/videos/背景图_3.jpg', 'media', 'galaxy'],
   ['gal_synergy_bg', '/fhzb/videos/协同网络背景.jpg', '/fhzb/videos/协同网络背景.jpg', 'media', 'galaxy'],
+
+  // Galaxy - CTA
+  ['gal_cta_title', '占领极点，', 'Capture the core,', 'text', 'galaxy'],
+  ['gal_cta_subtitle', '点亮下一个星区。', 'ignite the next sector.', 'text', 'galaxy'],
+  ['gal_cta_desc', '区域独家席位稀缺。\n只寻找具有深厚产业底盘与极客风范的同路人。', 'Exclusive regional seats are scarce.\nSeeking partners with deep industrial roots and geek spirit.', 'text', 'galaxy'],
   ['gal_cta_bg', '/fhzb/videos/cta背景.jpg', '/fhzb/videos/cta背景.jpg', 'media', 'galaxy'],
 
   // Alliance - Clusters
+  ['all_hero_title', '共筑峰峦', 'Alliance', 'text', 'alliance'],
+  ['all_hero_bg', '/fhzb/videos/股市_1.jpg', '/fhzb/videos/股市_1.jpg', 'media', 'alliance'],
   ['all_cluster1_video', '/fhzb/videos/batch-compressed.mp4', '/fhzb/videos/batch-compressed.mp4', 'media', 'alliance'],
   ['all_cluster2_video', '/fhzb/videos/block-compressed.mp4', '/fhzb/videos/block-compressed.mp4', 'media', 'alliance'],
   ['all_cluster3_video', '/fhzb/videos/global-compressed.mp4', '/fhzb/videos/global-compressed.mp4', 'media', 'alliance'],
   ['all_cluster4_video', '/fhzb/videos/banner-m.mp4', '/fhzb/videos/banner-m.mp4', 'media', 'alliance'],
   ['all_cta_bg', '/fhzb/videos/alliance_cta_bg.jpg', '/fhzb/videos/alliance_cta_bg.jpg', 'media', 'alliance'],
+
+  // Vision - Hero
+  ['vis_hero_title', '峰壑视野', 'Summit Insights', 'text', 'vision'],
+  ['vis_hero_bg', '/fhzb/videos/背景图_5.jpg', '/fhzb/videos/背景图_5.jpg', 'media', 'vision'],
 
   // Vision
   ['vis_doc_cover', '/fhzb/videos/背景图_2.jpg', '/fhzb/videos/背景图_2.jpg', 'media', 'vision'],
@@ -241,6 +252,10 @@ const seeds = [
   ['vis_news3_title', '重构区域生态圈层：华东与跨广深两大极核俱乐部同日挂牌。', 'Restructuring Regional Ecosystems: East China and GBA Clubs launched on the same day.', 'text', 'vision'],
   ['vis_news3_date', 'JAN 21, 2026', 'JAN 21, 2026', 'text', 'vision'],
   ['vis_news3_source', '官方新闻公告', 'Official Announcement', 'text', 'vision'],
+
+  // Omega - Hero
+  ['ome_hero_title', '峰壑数据看板', 'OMEGA PROGRAM', 'text', 'omega'],
+  ['ome_hero_bg', '/fhzb/videos/背景图_3.jpg', '/fhzb/videos/背景图_3.jpg', 'media', 'omega'],
 
   // Omega
   ['ome_stat1_value', '300+', '300+', 'text', 'omega'],
