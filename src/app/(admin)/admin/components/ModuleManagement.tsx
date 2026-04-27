@@ -35,6 +35,16 @@ interface ModuleManagementProps {
   sections: ManagementSection[];
 }
 
+const videoExtensions = ['.mp4', '.webm', '.ogg', '.mov', '.avi', '.mkv'];
+
+function isVideoUrl(url: string): boolean {
+  if (!url) return false;
+  const lower = url.toLowerCase();
+  // Check if URL contains 'video' path or has a video extension
+  if (lower.includes('/video') || lower.includes('videos/')) return true;
+  return videoExtensions.some(ext => lower.endsWith(ext));
+}
+
 export default function ModuleManagement({ moduleName, title, description, sections }: ModuleManagementProps) {
   const [content, setContent] = useState<any>(null);
   const [loading, setLoading] = useState(true);
@@ -236,7 +246,7 @@ export default function ModuleManagement({ moduleName, title, description, secti
                               <input
                                 type="file"
                                 className="hidden"
-                                accept={item.key.includes('video') ? 'video/*' : 'image/*'}
+                                accept="image/*,video/*"
                                 onChange={(e) => {
                                   const file = e.target.files?.[0];
                                   if (file) handleFileUpload(item.key, file, content[item.key]?.zh);
@@ -247,7 +257,7 @@ export default function ModuleManagement({ moduleName, title, description, secti
                           
                           {content[item.key]?.zh && (
                             <div className="aspect-video rounded-xl overflow-hidden bg-black border border-white/5 flex items-center justify-center group/preview relative">
-                              {content[item.key].zh.includes('video') || content[item.key].zh.endsWith('.mp4') ? (
+                              {isVideoUrl(content[item.key].zh) ? (
                                 <video src={content[item.key].zh} className="w-full h-full object-cover" muted autoPlay loop />
                               ) : (
                                 <img src={content[item.key].zh} className="w-full h-full object-cover" alt="Preview" />
