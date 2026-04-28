@@ -11,6 +11,27 @@ const port = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json());
+app.use('/uploads', express.static(path.join(__dirname, '../public/uploads')));
+
+const submissionStatuses = new Set(['pending', 'contacted', 'closed']);
+
+const mapSubmissionRow = (row) => ({
+  id: row.id,
+  role: row.role,
+  roleLabelZh: row.role_label_zh,
+  roleLabelEn: row.role_label_en,
+  submitterName: row.submitter_name,
+  phone: row.phone,
+  email: row.email || '',
+  companyOrOrg: row.company_or_org || '',
+  region: row.region || '',
+  summary: row.summary || '',
+  details: JSON.parse(row.details_json || '[]'),
+  status: row.status,
+  adminNote: row.admin_note || '',
+  createdAt: row.created_at,
+  updatedAt: row.updated_at,
+});
 
 // Configure Multer for file uploads
 const storage = multer.diskStorage({
@@ -181,6 +202,104 @@ app.put('/api/contact/:id', (req, res) => {
   const { value, label_zh, label_en } = req.body;
   const update = db.prepare('UPDATE contact_info SET value = ?, label_zh = ?, label_en = ? WHERE id = ?');
   update.run(value, label_zh, label_en, id);
+  res.json({ success: true });
+});
+
+// Contact Submission Endpoints
+app.get('/api/contact-submissions', (req, res) => {
+  const { role } = req.query;
+
+  const rows = role
+    ? db
+        .prepare('SELECT * FROM contact_submissions WHERE role = ? ORDER BY created_at DESC')
+        .all(role)
+    : db.prepare('SELECT * FROM contact_submissions ORDER BY created_at DESC').all();
+
+  res.json(rows.map(mapSubmissionRow));
+});
+
+app.post('/api/contact-submissions', (req, res) => {
+  const {
+    role,
+    roleLabelZh,
+    roleLabelEn,
+    submitterName,
+    phone,
+    email = '',
+    companyOrOrg = '',
+    region = '',
+    summary = '',
+    details,
+  } = req.body;
+
+  if (!role || !roleLabelZh || !roleLabelEn || !submitterName || !phone) {
+    return res.status(400).json({ error: '请填写完整的联系人信息后再提交' });
+  }
+
+  if (!Array.isArray(details) || details.length === 0) {
+    return res.status(400).json({ error: '提交内容不能为空' });
+  }
+
+  const insert = db.prepare(`
+    INSERT INTO contact_submissions (
+      role,
+      role_label_zh,
+      role_label_en,
+      submitter_name,
+      phone,
+      email,
+      company_or_org,
+      region,
+      summary,
+      details_json
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+  `);
+
+  const result = insert.run(
+    role,
+    roleLabelZh,
+    roleLabelEn,
+    submitterName,
+    phone,
+    email,
+    companyOrOrg,
+    region,
+    summary,
+    JSON.stringify(details)
+  );
+
+  res.json({ id: result.lastInsertRowid, success: true });
+});
+
+app.put('/api/contact-submissions/:id', (req, res) => {
+  const { id } = req.params;
+  const { status, adminNote = '' } = req.body;
+
+  if (!submissionStatuses.has(status)) {
+    return res.status(400).json({ error: '无效的处理状态' });
+  }
+
+  const existing = db.prepare('SELECT * FROM contact_submissions WHERE id = ?').get(id);
+  if (!existing) {
+    return res.status(404).json({ error: '表单记录不存在' });
+  }
+
+  db.prepare(
+    'UPDATE contact_submissions SET status = ?, admin_note = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?'
+  ).run(status, adminNote, id);
+
+  const updated = db.prepare('SELECT * FROM contact_submissions WHERE id = ?').get(id);
+  res.json({ success: true, submission: mapSubmissionRow(updated) });
+});
+
+app.delete('/api/contact-submissions/:id', (req, res) => {
+  const { id } = req.params;
+  const result = db.prepare('DELETE FROM contact_submissions WHERE id = ?').run(id);
+
+  if (!result.changes) {
+    return res.status(404).json({ error: '表单记录不存在' });
+  }
+
   res.json({ success: true });
 });
 

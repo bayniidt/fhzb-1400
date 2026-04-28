@@ -14,8 +14,8 @@ import {
   Activity,
   LogOut,
   Globe,
-  Settings,
-  Shield
+  Shield,
+  ClipboardList
 } from "lucide-react";
 
 const navigation = [
@@ -24,6 +24,7 @@ const navigation = [
   { name: '资本系统', href: '/admin/os', icon: Cpu },
   { name: '峰壑星系', href: '/admin/galaxy', icon: Globe2 },
   { name: '共筑峰峦', href: '/admin/alliance', icon: Users2 },
+  { name: '加盟管理', href: '/admin/join', icon: ClipboardList },
   { name: '峰壑视野', href: '/admin/vision', icon: Eye },
   { name: '数字峰壑', href: '/admin/omega', icon: Activity },
 ];

@@ -68,6 +68,24 @@ db.exec(`
     is_super_admin INTEGER DEFAULT 0,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
   );
+
+  CREATE TABLE IF NOT EXISTS contact_submissions (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role TEXT NOT NULL,
+    role_label_zh TEXT NOT NULL,
+    role_label_en TEXT NOT NULL,
+    submitter_name TEXT NOT NULL,
+    phone TEXT NOT NULL,
+    email TEXT,
+    company_or_org TEXT,
+    region TEXT,
+    summary TEXT,
+    details_json TEXT NOT NULL,
+    status TEXT DEFAULT 'pending',
+    admin_note TEXT DEFAULT '',
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+  );
 `);
 
 // Seed initial content if empty or missing keys

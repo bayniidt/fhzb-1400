@@ -1,5 +1,26 @@
 const API_BASE_URL = '/fhzb/api';
 
+import type {
+  ContactRole,
+  ContactSubmission,
+  CreateContactSubmissionInput,
+  UpdateContactSubmissionInput,
+} from "@/types/contact-submission";
+
+async function parseJsonResponse<T>(res: Response): Promise<T> {
+  const data = await res.json().catch(() => null);
+
+  if (!res.ok) {
+    const message =
+      data && typeof data === "object" && "error" in data && typeof data.error === "string"
+        ? data.error
+        : "Request failed";
+    throw new Error(message);
+  }
+
+  return data as T;
+}
+
 export async function uploadFile(file: File) {
   const formData = new FormData();
   formData.append('file', file);
@@ -193,4 +214,38 @@ export async function login(phone: string) {
     body: JSON.stringify({ phone }),
   });
   return res.json();
+}
+
+export async function createContactSubmission(data: CreateContactSubmissionInput) {
+  const res = await fetch(`${API_BASE_URL}/contact-submissions`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+  return parseJsonResponse<{ id: number; success: boolean }>(res);
+}
+
+export async function fetchContactSubmissions(role?: ContactRole) {
+  const query = role ? `?role=${role}` : "";
+  const res = await fetch(`${API_BASE_URL}/contact-submissions${query}`);
+  return parseJsonResponse<ContactSubmission[]>(res);
+}
+
+export async function updateContactSubmission(id: number, data: UpdateContactSubmissionInput) {
+  const res = await fetch(`${API_BASE_URL}/contact-submissions/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+  return parseJsonResponse<{ success: boolean; submission: ContactSubmission }>(res);
+}
+
+export async function deleteContactSubmission(id: number) {
+  const res = await fetch(`${API_BASE_URL}/contact-submissions/${id}`, {
+    method: "DELETE",
+  });
+
+  return parseJsonResponse<{ success: boolean }>(res);
 }
