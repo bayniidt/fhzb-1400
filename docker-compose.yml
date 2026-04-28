@@ -4,50 +4,42 @@ services:
       context: .
       dockerfile: Dockerfile
       target: runner
-    image: ai-website-cloner:latest
-    container_name: ai-website-cloner
+    container_name: fhzb-frontend
     restart: unless-stopped
-    ports:
-      - "${PORT:-3000}:3000"
     environment:
       - NODE_ENV=production
       - NEXT_TELEMETRY_DISABLED=1
-    env_file:
-      - path: .env.local
-        required: false
-      - path: .env
-        required: false
-    healthcheck:
-      test: ["CMD-SHELL", "wget -qO- http://localhost:3000/ || exit 1"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 10s
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
+    # No ports exposed directly, handled by gateway
 
-  dev:
+  backend:
     build:
-      context: .
-      dockerfile: Dockerfile.dev
-    image: ai-website-cloner:dev
-    container_name: ai-website-cloner-dev
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: fhzb-backend
     restart: unless-stopped
-    ports:
-      - "${DEV_PORT:-3001}:3000"
-    environment:
-      - NODE_ENV=development
-      - NEXT_TELEMETRY_DISABLED=1
-    env_file:
-      - path: .env.local
-        required: false
-      - path: .env
-        required: false
     volumes:
-      - .:/app
-      - /app/node_modules
-      - /app/.next
-    healthcheck:
-      test: ["CMD-SHELL", "wget -qO- http://localhost:3000/ || exit 1"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 15s
+      - sqlite_data:/app/data
+      - uploads_data:/app/uploads
+    environment:
+      - DATABASE_PATH=/app/data/database.sqlite
+      - NODE_ENV=production
+      - PORT=3001
+    # No ports exposed directly, handled by gateway
+
+  gateway:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    container_name: fhzb-gateway
+    ports:
+      - "80:80"
+    depends_on:
+      - app
+      - backend
+    restart: unless-stopped
+
+volumes:
+  sqlite_data:
+  uploads_data:

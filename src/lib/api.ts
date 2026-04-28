@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:3001/api';
+const API_BASE_URL = '/fhzb/api';
 
 export async function uploadFile(file: File) {
   const formData = new FormData();
