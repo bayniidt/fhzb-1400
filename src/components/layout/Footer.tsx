@@ -60,7 +60,7 @@ export function Footer() {
         setContacts(DEFAULT_CONTACTS)
       })
   }, [])
-  
+
   return (
     <footer className="w-full bg-[#000000] pt-24 pb-12 px-6 md:px-12 lg:px-20 border-t border-white/5 text-white overflow-hidden">
       <div className="max-w-[1800px] mx-auto w-full">
@@ -78,8 +78,8 @@ export function Footer() {
                 />
               </Link>
               <p className="text-white/40 text-[13px] leading-relaxed max-w-[160px]">
-                {language === 'zh' 
-                  ? "资本遇见雄心，我们共筑峰峦。" 
+                {language === 'zh'
+                  ? "资本遇见雄心，我们共筑峰峦。"
                   : "Where Capital Meets Ambition, We Build Summits."}
               </p>
             </div>
@@ -94,8 +94,8 @@ export function Footer() {
               <ul className="flex flex-col gap-5">
                 {section.subItems?.map((item, sIdx) => (
                   <li key={sIdx}>
-                    <Link 
-                      href={item.href} 
+                    <Link
+                      href={item.href}
                       className="text-white/50 hover:text-[#b7893b] transition-colors text-[13px] font-light leading-snug"
                     >
                       {language === 'zh' ? item.zh : item.en}
@@ -114,8 +114,8 @@ export function Footer() {
             <ul className="flex flex-col gap-5">
               {CONTACT_SUB_ITEMS.map((item, idx) => (
                 <li key={idx}>
-                  <Link 
-                    href={item.href} 
+                  <Link
+                    href={item.href}
                     className="text-white/50 hover:text-[#b7893b] transition-colors text-[13px] font-light whitespace-nowrap"
                   >
                     {language === 'zh' ? item.zh : item.en}
@@ -139,7 +139,7 @@ export function Footer() {
         {/* Bottom Line */}
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-white/20 text-[10px] tracking-[0.1em] uppercase font-bold">
-            © 2026 {t('峰壑资本。保留所有权利。', 'FH CAPITAL. ALL RIGHTS RESERVED.')}
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">浙ICP备2026025942号-1</a>
           </div>
           <div className="flex gap-8">
             <Link href="/privacy" className="text-white/20 hover:text-white transition-colors text-[10px] tracking-[0.1em] uppercase font-bold">

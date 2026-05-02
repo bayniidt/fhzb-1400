@@ -24,7 +24,7 @@ export default function LoginPage() {
         setLoading(false);
         return;
       }
-      
+
       localStorage.setItem("admin_auth", "true");
       localStorage.setItem("admin_phone", result.member.phone);
       localStorage.setItem("admin_super", result.member.is_super_admin ? "true" : "false");
@@ -42,7 +42,7 @@ export default function LoginPage() {
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#b7893b]/5 rounded-full blur-[120px]" />
       </div>
 
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         className="w-full max-w-md relative z-10"
@@ -72,7 +72,7 @@ export default function LoginPage() {
           </div>
 
           {error && (
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               className="text-red-500 text-sm text-center"
@@ -99,7 +99,7 @@ export default function LoginPage() {
 
         <div className="mt-12 text-center">
           <p className="text-white/20 text-xs">
-            &copy; 2026 峰壑资本. 保留所有权利.
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">浙ICP备2026025942号-1</a>
           </p>
         </div>
       </motion.div>
