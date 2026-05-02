@@ -13,11 +13,8 @@ REMOTE_DIR="/root/fhzb-1400"
 
 # Set to 1 if you also changed nginx config and need gateway rebuild
 REBUILD_GATEWAY="${REBUILD_GATEWAY:-0}"
-
-if ! command -v sshpass >/dev/null 2>&1; then
-  echo "Error: sshpass is required. Install it first."
-  exit 1
-fi
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 if ! command -v rsync >/dev/null 2>&1; then
   echo "Error: rsync is required. Install it first."
@@ -26,14 +23,41 @@ fi
 
 SSH_OPTS="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
 
+HAS_SSHPASS=0
+if command -v sshpass >/dev/null 2>&1; then
+  HAS_SSHPASS=1
+fi
+
+run_ssh() {
+  if [[ "$HAS_SSHPASS" == "1" ]]; then
+    sshpass -p "$PASSWORD" ssh $SSH_OPTS "$USER@$HOST" "$1"
+  else
+    ssh $SSH_OPTS "$USER@$HOST" "$1"
+  fi
+}
+
+run_rsync() {
+  if [[ "$HAS_SSHPASS" == "1" ]]; then
+    sshpass -p "$PASSWORD" rsync -az --delete -e "ssh $SSH_OPTS" "$@"
+  else
+    rsync -az --delete -e "ssh $SSH_OPTS" "$@"
+  fi
+}
+
+if [[ "$HAS_SSHPASS" == "0" ]]; then
+  echo "Info: sshpass not found. Will use interactive ssh/scp password prompts."
+fi
+
+cd "$PROJECT_ROOT"
+
 echo "==> 1/4 Testing SSH connection"
-sshpass -p "$PASSWORD" ssh $SSH_OPTS "$USER@$HOST" "echo 'SSH connected: ' \$(hostname)"
+run_ssh "echo 'SSH connected: ' \$(hostname)"
 
 echo "==> 2/4 Preparing remote directory: $REMOTE_DIR"
-sshpass -p "$PASSWORD" ssh $SSH_OPTS "$USER@$HOST" "mkdir -p '$REMOTE_DIR'"
+run_ssh "mkdir -p '$REMOTE_DIR'"
 
 echo "==> 3/4 Syncing project files to server"
-sshpass -p "$PASSWORD" rsync -az --delete \
+run_rsync \
   --exclude ".git" \
   --exclude ".github" \
   --exclude "node_modules" \
@@ -48,11 +72,9 @@ sshpass -p "$PASSWORD" rsync -az --delete \
 
 echo "==> 4/4 Deploying frontend containers (no data-volume removal)"
 if [[ "$REBUILD_GATEWAY" == "1" ]]; then
-  sshpass -p "$PASSWORD" ssh $SSH_OPTS "$USER@$HOST" \
-    "cd '$REMOTE_DIR' && docker compose up -d --build app gateway"
+  run_ssh "cd '$REMOTE_DIR' && docker compose up -d --build app gateway"
 else
-  sshpass -p "$PASSWORD" ssh $SSH_OPTS "$USER@$HOST" \
-    "cd '$REMOTE_DIR' && docker compose up -d --build app"
+  run_ssh "cd '$REMOTE_DIR' && docker compose up -d --build app"
 fi
 
 echo
