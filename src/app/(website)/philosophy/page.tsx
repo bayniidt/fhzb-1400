@@ -131,7 +131,7 @@ export default function Philosophy() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                 >
-                  <h3 className="text-2xl tracking-[0.4em] text-white uppercase font-bold mb-6">Mission / {t('使命', 'MISSION')}</h3>
+                  <h3 className="text-2xl tracking-[0.4em] text-[#b7893b] uppercase font-bold mb-6">Mission / {t('使命', 'MISSION')}</h3>
                   <p className={`font-serif font-light leading-snug text-white ${language === 'zh' ? 'text-3xl md:text-5xl' : 'text-2xl md:text-4xl'}`}>
                     {getContent('phi_mission_content', '赋能实体产业攀登资本峰峦，', 'Empowering industries to climb capital summits,')}
                   </p>
@@ -143,7 +143,7 @@ export default function Philosophy() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 }}
                 >
-                  <h3 className="text-2xl tracking-[0.4em] text-white uppercase font-bold mb-6">Vision / {t('愿景', 'VISION')}</h3>
+                  <h3 className="text-2xl tracking-[0.4em] text-[#b7893b] uppercase font-bold mb-6">Vision / {t('愿景', 'VISION')}</h3>
                   <p className={`font-serif font-light leading-relaxed text-white ${language === 'zh' ? 'text-5xl' : 'text-5xl'}`}>
                     {getContent('phi_vision_content', '成为全球创新经济体中，最具信任感的产业资本共生平台。', 'To become the most trusted industrial capital platform.')}
                   </p>
@@ -151,7 +151,7 @@ export default function Philosophy() {
               </div>
 
               <div className="relative">
-                <h3 className="text-2xl tracking-[0.4em] text-white uppercase font-bold mb-10">Values / {t('价值观', 'VALUES')}</h3>
+                <h3 className="text-2xl tracking-[0.4em] text-[#b7893b] uppercase font-bold mb-10">Values / {t('价值观', 'VALUES')}</h3>
                 <div className="flex flex-col border-t border-white/10">
                   {values.map((v, idx) => (
                     <div
@@ -174,7 +174,7 @@ export default function Philosophy() {
                         animate={{ height: activeValue === idx ? 'auto' : 0, opacity: activeValue === idx ? 1 : 0 }}
                         className="overflow-hidden"
                       >
-                        <p className="pb-8 text-white text-5xl leading-relaxed max-w-lg">
+                        <p className={`pb-8 text-white leading-relaxed max-w-lg ${idx === 0 ? 'text-4xl' : 'text-5xl'}`}>
                           {language === 'zh' ? v.desc_zh : v.desc_en}
                         </p>
                       </motion.div>
@@ -297,7 +297,7 @@ export default function Philosophy() {
             <div className="absolute bottom-1/4 left-1/3 w-48 h-64 border border-[#b7893b]/10 -rotate-12"></div>
           </div>
 
-          <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="max-w-7xl mx-auto relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
               {/* 左侧文案区 */}
               <div className="lg:col-span-5 space-y-16">
@@ -393,8 +393,13 @@ export default function Philosophy() {
 
             <div className="mt-20 flex justify-end">
               <div className="text-right">
-                <p className="text-white text-2xl font-serif italic opacity-80 mb-2">{t('创始人签名', 'Founder Signature')}</p>
-                <p className="text-sm tracking-widest text-[#b7893b]">FENGHE CAPITAL</p>
+                <div className="inline-flex rounded-xl border border-white/30 bg-white/92 p-3 shadow-[0_10px_30px_rgba(0,0,0,0.35)] md:p-4">
+                  <img
+                    src="/fhzb/images/founder-signature.png"
+                    alt="Founder Signature"
+                    className="h-auto w-[240px] max-w-full object-contain md:w-[320px]"
+                  />
+                </div>
               </div>
             </div>
           </div>
