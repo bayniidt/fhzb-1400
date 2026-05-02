@@ -17,6 +17,7 @@ export default function OmegaPage() {
           title={t("峰壑数据看板", "OMEGA PROGRAM")}
           subtitle={t("实时呈现生态总规模、成功案例、行业覆盖与网络活跃度。用动态可视化数据，让资本价值可量化、可信任。。", "The OMEGA Program, initiated by Fenghe Capital, aims to provide all-round support for early-stage entrepreneurs, growing alongside China's innovators.")}
           bgImage="/fhzb/videos/背景图_3.jpg"
+          language={language}
         />
         
         {/* Omega Stats */}

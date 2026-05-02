@@ -6,6 +6,10 @@ import { useLanguage } from "@/context/LanguageContext";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { fetchContent } from "@/lib/api";
+import {
+  websiteHeroSubtitleClassName,
+  websiteHeroTitleClassName,
+} from "@/lib/website-typography";
 
 export default function Alliance() {
   const { t, language } = useLanguage();
@@ -107,13 +111,13 @@ export default function Alliance() {
            
            <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-20">
              <span className="text-[#f12f08] uppercase tracking-[0.4em] font-bold text-xs block mb-8">Collective Prosperity</span>
-             <h1 className={`font-serif font-black text-white tracking-tighter mb-8 drop-shadow-2xl ${language === 'zh' ? 'text-6xl md:text-8xl lg:text-9xl' : 'text-5xl md:text-7xl lg:text-8xl'}`}>
+             <h1 className={websiteHeroTitleClassName(language, "mb-8 font-black")}>
                {getContent('all_hero_title', '共筑峰峦', 'Alliance')}
              </h1>
              
              {/* 优化的文字容器：采用极简玻璃拟态设计，配合金色装饰线 */}
              <div className="relative max-w-4xl">
-               <div className={`text-white/90 border-l-4 border-[#b7893b] bg-black/20 backdrop-blur-xl p-8 md:p-10 rounded-r-2xl relative z-10 leading-relaxed ${language === 'zh' ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'}`}>
+               <div className={websiteHeroSubtitleClassName(language, "relative z-10 rounded-r-2xl border-l-4 border-[#b7893b] bg-black/20 p-8 text-white/90 backdrop-blur-xl md:p-10")}>
                  <span className="font-bold block mb-2">{t('在峰壑，没有孤岛。', 'In FH, there are no islands.')}</span>
                  <p className="font-medium">
                    {t('我们通过精密的利益对齐与资源互锁，', 'Through precise alignment and resource interlocking,')}<br />

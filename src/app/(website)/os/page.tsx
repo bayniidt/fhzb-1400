@@ -5,6 +5,10 @@ import { useLanguage } from "@/context/LanguageContext";
 import { motion, useScroll } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { fetchContent } from "@/lib/api";
+import {
+  websiteHeroSubtitleClassName,
+  websiteHeroTitleClassName,
+} from "@/lib/website-typography";
 
 export default function OS() {
   const { t, language } = useLanguage();
@@ -104,10 +108,10 @@ export default function OS() {
            
            <div className="max-w-7xl mx-auto px-10 relative z-20">
              <span className="text-[#b7893b] uppercase tracking-[0.4em] font-bold text-xs block mb-8 relative z-10">Ascent Operating System</span>
-             <h1 className={`font-serif font-black text-white tracking-tighter mb-8 relative z-10 drop-shadow-2xl ${language === 'zh' ? 'text-6xl md:text-8xl lg:text-9xl' : 'text-5xl md:text-7xl lg:text-8xl'}`}>
+             <h1 className={websiteHeroTitleClassName(language, "mb-8 relative z-10 font-black")}>
                {getContent('os_hero_title', '攀登系统', 'Operating System')}
              </h1>
-             <p className={`font-serif text-white/90 font-light max-w-3xl leading-relaxed relative z-10 drop-shadow-lg ${language === 'zh' ? 'text-2xl' : 'text-xl md:text-2xl'}`}>
+             <p className={websiteHeroSubtitleClassName(language, "relative z-10 max-w-3xl")}>
                {getContent('os_hero_subtitle', '我们不依赖运气或直觉。峰壑资本通过一套闭环的资本操作系统，驱动实业与资本的确定性增长。', 'We don’t rely on luck or intuition. FH Capital is driven by a closed-loop Capital Operating System, driving deterministic growth.')}
              </p>
            </div>

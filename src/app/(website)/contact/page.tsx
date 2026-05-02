@@ -11,6 +11,7 @@ import type {
 import { AnimatePresence, motion } from "framer-motion";
 import { AlertCircle, CheckCircle2, Loader2 } from "lucide-react";
 import React, { useState } from "react";
+import { websiteHeroTitleClassName } from "@/lib/website-typography";
 
 type Role = ContactRole | "none";
 type FormValues = Record<string, string>;
@@ -539,7 +540,7 @@ export default function ContactPage() {
               <span className="mb-8 block text-xs font-bold uppercase tracking-[0.4em] text-[#b7893b] underline decoration-[#b7893b]">
                 {t("接入门户", "Access Portal")}
               </span>
-              <h1 className="mb-16 text-5xl font-serif font-light leading-tight tracking-tighter text-white drop-shadow-2xl lg:text-7xl">
+              <h1 className={websiteHeroTitleClassName(language, "mb-16 font-light leading-tight")}>
                 {t("全业务", "Full Business")} <br />
                 {t("合作通道。", "Collaboration.")}
               </h1>

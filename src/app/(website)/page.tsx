@@ -8,6 +8,7 @@ import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 
 import { fetchContent, getNews, fetchQuestions, fetchGateways } from "@/lib/api"
+import { websiteHeroTitleClassName } from "@/lib/website-typography"
 
 export default function Home() {
   const { t, language } = useLanguage();
@@ -68,7 +69,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
-            className={`font-serif font-bold tracking-tight mb-8 text-[#FFFFFF] drop-shadow-2xl ${language === 'zh' ? 'text-5xl md:text-7xl lg:text-8xl' : 'text-4xl md:text-6xl lg:text-7xl leading-tight'}`}
+            className={websiteHeroTitleClassName(language, "mb-8 text-[#FFFFFF]")}
           >
             {getContent('home_banner_title_1', '资本遇见雄心', 'Capital meets Ambition')}<br />
             {getContent('home_banner_title_2', '我们共筑峰峦', 'Building Summits Together')}

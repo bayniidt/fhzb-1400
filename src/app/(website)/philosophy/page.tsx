@@ -6,6 +6,10 @@ import { useLanguage } from "@/context/LanguageContext"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
 import { fetchContent } from "@/lib/api"
+import {
+  websiteHeroSubtitleClassName,
+  websiteHeroTitleClassName,
+} from "@/lib/website-typography"
 
 export default function Philosophy() {
   const { t, language } = useLanguage()
@@ -80,10 +84,10 @@ export default function Philosophy() {
               style={{ opacity: plainOpacity }}
               className="absolute inset-0 flex flex-col items-center justify-center z-10"
             >
-              <h2 className={`font-serif  text-white tracking-widest uppercase font-bold  decoration-1 decoration-gray-400 drop-shadow-2xl ${language === 'zh' ? 'text-xl md:text-6xl' : 'text-3xl md:text-5xl'}`}>
+              <h2 className={websiteHeroTitleClassName(language, "uppercase decoration-1 decoration-gray-400")}>
                 {getContent('phi_hero_title', '平原思维与峰峦思维', 'Linear Mindset')}
               </h2>
-              <p className="mt-6 text-white tracking-wider drop-shadow-lg">
+              <p className={websiteHeroSubtitleClassName(language, "mt-6 max-w-4xl text-center tracking-wider")}>
                 {t('立足高远、路径坚实、创造生态、价值共生', 'Linear Growth / Zero-sum / Short-term Harvest')}
               </p>
             </motion.div>

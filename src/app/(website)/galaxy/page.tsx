@@ -7,6 +7,10 @@ import { useScroll } from "framer-motion";
 import Link from "next/link";
 import { useRef, useState, useEffect } from "react";
 import { fetchContent } from "@/lib/api";
+import {
+  websiteHeroSubtitleClassName,
+  websiteHeroTitleClassName,
+} from "@/lib/website-typography";
 
 export default function Galaxy() {
   const { t, language } = useLanguage();
@@ -62,10 +66,10 @@ export default function Galaxy() {
  
            <div className="relative z-20 max-w-7xl mx-auto px-10 w-full mb-32 text-center md:text-left">
               <span className="text-[#e8960a] uppercase tracking-[0.3em] font-bold text-sm block mb-6 px-1 border-l-2 border-[#b7893b]">{t('总部', 'HEADQUARTERS')}</span>
-              <h1 className={`font-black tracking-tight text-white mb-10 max-w-4xl drop-shadow-2xl ${language === 'zh' ? 'text-5xl md:text-8xl' : 'text-4xl md:text-7xl leading-tight'}`}>
+              <h1 className={websiteHeroTitleClassName(language, "mb-10 max-w-4xl font-black")}>
                  {getContent('gal_hero_title', '总部 · 中央引擎', 'HQ · Central Engine')}
               </h1>
-              <p className={`text-white/80 font-light max-w-2xl leading-relaxed drop-shadow-lg ${language === 'zh' ? 'text-2xl' : 'text-xl'}`}>
+              <p className={websiteHeroSubtitleClassName(language, "max-w-2xl text-white/80")}>
                  {getContent('gal_hero_subtitle', '并非简单的发号施令，而是向整张生态星系高频倾泻算力、共识与资源。', 'Not just giving orders, but continuously pouring computing power, consensus, and resources into the entire ecosystem galaxy.')}
               </p>
            </div>

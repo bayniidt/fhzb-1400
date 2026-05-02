@@ -7,6 +7,10 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import { useState, useEffect } from "react"
 import { fetchContent } from "@/lib/api"
+import {
+   websiteHeroSubtitleClassName,
+   websiteHeroTitleClassName,
+} from "@/lib/website-typography"
 
 export default function Vision() {
    const { t, language } = useLanguage()
@@ -45,10 +49,10 @@ export default function Vision() {
                <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-20">
 
                   <span className="text-[#b7893b] uppercase tracking-[0.4em] font-bold text-xs block mb-8 relative z-10">Vision & Insights</span>
-                  <h1 className={`font-serif font-black text-white tracking-tighter mb-8 relative z-10 drop-shadow-2xl ${language === 'zh' ? 'text-6xl md:text-8xl lg:text-9xl' : 'text-5xl md:text-7xl lg:text-8xl'}`}>
+                  <h1 className={websiteHeroTitleClassName(language, "relative z-10 mb-8 font-black")}>
                      {getContent('vis_hero_title', '峰壑视野', 'Summit Insights')}
                   </h1>
-                  <p className={`font-serif text-white/90 font-light max-w-3xl leading-relaxed relative z-10 drop-shadow-lg ${language === 'zh' ? 'text-2xl' : 'text-xl md:text-2xl'}`}>
+                  <p className={websiteHeroSubtitleClassName(language, "relative z-10 max-w-3xl")}>
                      {t('在这里，我们只输出剔除了情绪共识的', 'Here, we only output first principles')}<br />
                      <span className="text-white font-medium">{t('第一性原理。', 'stripped of emotional consensus.')}</span>
                   </p>

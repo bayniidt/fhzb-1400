@@ -1,12 +1,17 @@
 import React from "react";
+import {
+  websiteHeroSubtitleClassName,
+  websiteHeroTitleClassName,
+} from "@/lib/website-typography";
 
 interface PageHeroProps {
   title: string;
   subtitle?: string;
   bgImage?: string;
+  language?: "zh" | "en";
 }
 
-export function PageHero({ title, subtitle, bgImage }: PageHeroProps) {
+export function PageHero({ title, subtitle, bgImage, language = "zh" }: PageHeroProps) {
   return (
     <section className="relative pt-40 pb-20 px-6 md:px-20 bg-[#000000] overflow-hidden">
       {bgImage && (
@@ -17,11 +22,11 @@ export function PageHero({ title, subtitle, bgImage }: PageHeroProps) {
         />
       )}
       <div className="max-w-7xl mx-auto relative z-10">
-        <h1 className="text-5xl md:text-7xl font-light text-white tracking-tight drop-shadow-2xl">
+        <h1 className={websiteHeroTitleClassName(language, "font-light")}>
           {title}
         </h1>
         {subtitle && (
-          <p className="mt-8 text-xl text-white/90 max-w-2xl font-light leading-relaxed drop-shadow-lg">
+          <p className={websiteHeroSubtitleClassName(language, "mt-8 max-w-2xl font-light")}>
             {subtitle}
           </p>
         )}
