@@ -551,10 +551,22 @@ export default function ContactPage() {
                     {t("电子邮箱", "Email Address")}
                   </h3>
                   <a
-                    href="mailto:contact@fh-capital.com"
+                    href="mailto:zhenyongwv@hotmail.com"
                     className="text-xl font-light text-[#FFFFFF] transition-colors hover:text-[#b7893b] md:text-2xl"
                   >
-                    contact@fh-capital.com
+                    zhenyongwv@hotmail.com
+                  </a>
+                </div>
+
+                <div>
+                  <h3 className="mb-4 text-[10px] font-bold uppercase tracking-[0.3em] text-[#b7893b] opacity-60">
+                    {t("鑱旂郴鐢佃瘽", "Phone Number")}
+                  </h3>
+                  <a
+                    href="tel:13681660460"
+                    className="text-xl font-light text-[#FFFFFF] transition-colors hover:text-[#b7893b] md:text-2xl"
+                  >
+                    13681660460
                   </a>
                 </div>
 

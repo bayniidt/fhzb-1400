@@ -39,14 +39,14 @@ export default function Vision() {
       <PageTransition>
          <div className="bg-background w-full relative">
             {/* Header区 */}
-            <section className="relative pt-60 pb-40 border-b border-white/5 overflow-hidden">
+            <section className="relative flex min-h-screen items-center overflow-hidden border-b border-white/5">
                <img
                   src={getContent('vis_hero_bg', "/fhzb/videos/背景图_5.jpg", "/fhzb/videos/背景图_5.jpg")}
                   className="absolute inset-0 w-full h-full object-cover"
                   alt="Vision Header Background"
                />
 
-               <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-20">
+               <div className="max-w-7xl mx-auto w-full px-6 pt-24 md:px-10 relative z-20">
 
                   <span className="text-[#b7893b] uppercase tracking-[0.4em] font-bold text-xs block mb-8 relative z-10">Vision & Insights</span>
                   <h1 className={websiteHeroTitleClassName(language, "relative z-10 mb-8 font-black")}>

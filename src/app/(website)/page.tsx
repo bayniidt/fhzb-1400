@@ -8,7 +8,13 @@ import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 
 import { fetchContent, getNews, fetchQuestions, fetchGateways } from "@/lib/api"
-import { websiteHeroTitleClassName } from "@/lib/website-typography"
+import {
+  websiteHeroTitleClassName,
+  websiteSectionBodyClassName,
+  websiteSectionCtaClassName,
+  websiteSectionEyebrowClassName,
+  websiteSectionTitleClassName,
+} from "@/lib/website-typography"
 
 export default function Home() {
   const { t, language } = useLanguage();
@@ -100,11 +106,11 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="max-w-[720px] text-left"
           >
-            <p className="mb-8 text-sm tracking-[0.16em] text-white/88 md:mb-10">
+            <p className={websiteSectionEyebrowClassName("mb-8 text-white/88 md:mb-10")}>
               {getContent('home_manifesto_title', "峰壑宣言", "Peak & Valley Manifesto")}
             </p>
 
-              <h3 className="font-serif text-[clamp(2.9rem,5.8vw,5rem)] font-medium leading-[1.08] tracking-[-0.04em] text-white">
+              <h3 className={websiteSectionTitleClassName(language, "max-w-[720px] leading-[1.08]")}>
                 <span className="block">{getContent('home_manifesto_content_1', "真正的资本", "True capital")}</span>
                 <span className="block">{getContent('home_manifesto_content_2', "是产业文明的加速器", "accelerates industrial civilization")}</span>
                 <span className="block">{getContent('home_manifesto_content_3', "而非收割器", "instead of harvesting it")}</span>
@@ -248,17 +254,17 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 1 }}
           >
-            <span className="text-[#b7893b] text-sm tracking-[0.4em] font-bold uppercase mb-4 block">
+            <span className={websiteSectionEyebrowClassName("mb-4")}>
               {getContent('home_news_left_tag', 'GALAXY NETWORK', 'GALAXY NETWORK')}
             </span>
-            <h2 className="text-5xl lg:text-7xl font-bold text-white mb-8 tracking-tighter">
+            <h2 className={websiteSectionTitleClassName(language, "mb-8")}>
               {getContent('home_news_left_title', '峰壑星系网络', 'Galaxy Network')}
             </h2>
-            <p className="text-white/70 mb-12 text-xl max-w-lg leading-relaxed font-normal">
+            <p className={websiteSectionBodyClassName(language, "mb-12 max-w-lg")}>
               {getContent('home_news_left_desc', '总部中央战略指挥与全国区域俱乐部节点交汇的广袤版图。', 'The intersection of central strategy and regional nodes across the global landscape.')}
             </p>
             
-            <Link href="/galaxy" className="inline-flex items-center gap-4 text-[#b7893b] text-sm uppercase tracking-[0.2em] font-bold group">
+            <Link href="/galaxy" className={websiteSectionCtaClassName("group")}>
               <span className="border-b border-[#b7893b]/30 pb-1 group-hover:border-[#b7893b] transition-all">
                 {getContent('home_news_left_btn', '进入星系漫游', 'Enter Galaxy Map')}
               </span>

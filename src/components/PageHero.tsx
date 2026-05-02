@@ -9,11 +9,24 @@ interface PageHeroProps {
   subtitle?: string;
   bgImage?: string;
   language?: "zh" | "en";
+  fullScreen?: boolean;
 }
 
-export function PageHero({ title, subtitle, bgImage, language = "zh" }: PageHeroProps) {
+export function PageHero({
+  title,
+  subtitle,
+  bgImage,
+  language = "zh",
+  fullScreen = true,
+}: PageHeroProps) {
   return (
-    <section className="relative pt-40 pb-20 px-6 md:px-20 bg-[#000000] overflow-hidden">
+    <section
+      className={`relative overflow-hidden bg-[#000000] px-6 md:px-20 ${
+        fullScreen
+          ? "flex min-h-screen items-center"
+          : "pt-40 pb-20"
+      }`}
+    >
       {bgImage && (
         <img 
           src={bgImage} 
@@ -21,7 +34,11 @@ export function PageHero({ title, subtitle, bgImage, language = "zh" }: PageHero
           alt="Hero Background"
         />
       )}
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div
+        className={`relative z-10 mx-auto max-w-7xl ${
+          fullScreen ? "w-full pt-24" : ""
+        }`}
+      >
         <h1 className={websiteHeroTitleClassName(language, "font-light")}>
           {title}
         </h1>

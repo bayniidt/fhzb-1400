@@ -7,12 +7,58 @@ import { useState, useEffect } from "react"
 import { fetchContactInfo } from "@/lib/api"
 import { CONTACT_SUB_ITEMS, NAV_LINKS } from "./Navbar"
 
+interface FooterContact {
+  id: number | string
+  type: string
+  value: string
+  label_zh: string
+  label_en: string
+}
+
+const DEFAULT_CONTACTS: FooterContact[] = [
+  {
+    id: "phone-default",
+    type: "phone",
+    value: "13681660460",
+    label_zh: "联系电话",
+    label_en: "Phone",
+  },
+  {
+    id: "email-default",
+    type: "email",
+    value: "zhenyongwv@hotmail.com",
+    label_zh: "电子邮箱",
+    label_en: "Email",
+  },
+]
+
 export function Footer() {
   const { t, language } = useLanguage();
-  const [contacts, setContacts] = useState<any[]>([])
+  const [contacts, setContacts] = useState<FooterContact[]>(DEFAULT_CONTACTS)
 
   useEffect(() => {
-    fetchContactInfo().then(setContacts)
+    fetchContactInfo()
+      .then((items: FooterContact[]) => {
+        if (!Array.isArray(items) || items.length === 0) {
+          setContacts(DEFAULT_CONTACTS)
+          return
+        }
+
+        const normalized = items.map((item) => {
+          if (item.type === "phone") {
+            return { ...item, value: "13681660460" }
+          }
+          if (item.type === "email") {
+            return { ...item, value: "zhenyongwv@hotmail.com" }
+          }
+          return item
+        })
+
+        setContacts(normalized)
+      })
+      .catch(() => {
+        setContacts(DEFAULT_CONTACTS)
+      })
   }, [])
   
   return (

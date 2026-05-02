@@ -9,6 +9,9 @@ import { fetchContent } from "@/lib/api"
 import {
   websiteHeroSubtitleClassName,
   websiteHeroTitleClassName,
+  websiteSectionBodyClassName,
+  websiteSectionEyebrowClassName,
+  websiteSectionTitleClassName,
 } from "@/lib/website-typography"
 
 export default function Philosophy() {
@@ -193,7 +196,7 @@ export default function Philosophy() {
           </div>
 
           <div className="max-w-7xl mx-auto relative z-10">
-            <h2 className="text-2xl  tracking-[0.5em] text-[#b7893b] uppercase mb-8 font-bold">
+            <h2 className={websiteSectionEyebrowClassName("mb-8")}>
               {t('核心理念', 'CORE CONCEPT')}
             </h2>
             
@@ -205,7 +208,7 @@ export default function Philosophy() {
                     key={`title-${activePillar}`}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    className="text-5xl md:text-6xl font-bold text-white leading-tight"
+                    className={websiteSectionTitleClassName(language, "leading-tight")}
                   >
                     {getContent(`phi_core${activePillar + 1}_title`, 
                       ["闭环交付文化", "第一性原理思维", "全球化智慧文化"][activePillar],
@@ -216,7 +219,7 @@ export default function Philosophy() {
                     key={`desc-${activePillar}`}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="text-xl text-white/60 leading-relaxed max-w-md"
+                    className={websiteSectionBodyClassName(language, "max-w-md text-white/60")}
                   >
                     {getContent(`phi_core${activePillar + 1}_desc`, 
                       [
@@ -299,13 +302,13 @@ export default function Philosophy() {
               {/* 左侧文案区 */}
               <div className="lg:col-span-5 space-y-16">
                 <div>
-                  <h2 className="text-2xl tracking-[0.5em] text-[#b7893b] uppercase mb-8 font-bold">
+                  <h2 className={websiteSectionEyebrowClassName("mb-8")}>
                     {t('文化象征与仪式', 'CULTURAL SYMBOLS')}
                   </h2>
-                  <h3 className="text-4xl md:text-5xl font-bold text-white mb-8">
+                  <h3 className={websiteSectionTitleClassName(language, "mb-8")}>
                     {t('Logo “峰峦” 图腾解', 'Logo "Summits" Totem Interpretation')}
                   </h3>
-                  <p className="text-xl text-white/60 leading-relaxed">
+                  <p className={websiteSectionBodyClassName(language, "text-white/60")}>
                     {t('峰峦图腾代表着攀登的志向与稳健的路径。每一道线条都刻画着对产业深耕的承诺，象征着资本与实业在高峰处的会师。', 'The Summits totem represents the ambition to climb and a steady path. Every line depicts a commitment to industrial deep-rooting.')}
                   </p>
                 </div>

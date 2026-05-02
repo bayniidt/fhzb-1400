@@ -96,7 +96,7 @@ export default function Alliance() {
     <PageTransition>
       <div className="bg-background w-full">
         {/* Header区 */}
-        <section id="hero" className="relative pt-60 pb-40 border-b border-white/5 overflow-hidden">
+        <section id="hero" className="relative flex min-h-screen items-center overflow-hidden border-b border-white/5">
            <img 
              src={getContent('all_hero_bg', "/fhzb/videos/股市_1.jpg", "/fhzb/videos/股市_1.jpg")} 
              className="absolute inset-0 w-full h-full object-cover grayscale-[0.1]"
@@ -109,7 +109,7 @@ export default function Alliance() {
            {/* 背景装饰 */}
            <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#b7893b]/10 rounded-full blur-[150px] pointer-events-none translate-x-1/2 -translate-y-1/2 z-10" />
            
-           <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-20">
+           <div className="max-w-7xl mx-auto w-full px-6 pt-24 md:px-10 relative z-20">
              <span className="text-[#f12f08] uppercase tracking-[0.4em] font-bold text-xs block mb-8">Collective Prosperity</span>
              <h1 className={websiteHeroTitleClassName(language, "mb-8 font-black")}>
                {getContent('all_hero_title', '共筑峰峦', 'Alliance')}

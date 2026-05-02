@@ -53,7 +53,7 @@ export default function Galaxy() {
       <div ref={containerRef} className="bg-[#050505]">
         
         {/* 模块一：总部 · 中央引擎 */}
-        <section id="engine" className="relative min-h-[120vh] flex flex-col justify-center border-b border-white/5 pt-32 overflow-hidden">
+        <section id="engine" className="relative flex min-h-screen items-center overflow-hidden">
            <img 
              src={getContent('gal_hero_bg', "/fhzb/videos/背景图_4.jpg", "/fhzb/videos/背景图_4.jpg")} 
              className="absolute inset-0 w-full h-full object-cover"
@@ -64,7 +64,7 @@ export default function Galaxy() {
              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] md:w-[50vw] md:h-[50vw] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#b7893b]/10 via-transparent to-transparent animate-pulse delay-1000 duration-[4000ms] rounded-full mix-blend-screen pointer-events-none"></div>
            </div>
  
-           <div className="relative z-20 max-w-7xl mx-auto px-10 w-full mb-32 text-center md:text-left">
+           <div className="relative z-20 max-w-7xl mx-auto px-10 pt-24 w-full text-center md:text-left">
               <span className="text-[#e8960a] uppercase tracking-[0.3em] font-bold text-sm block mb-6 px-1 border-l-2 border-[#b7893b]">{t('总部', 'HEADQUARTERS')}</span>
               <h1 className={websiteHeroTitleClassName(language, "mb-10 max-w-4xl font-black")}>
                  {getContent('gal_hero_title', '总部 · 中央引擎', 'HQ · Central Engine')}
@@ -74,7 +74,10 @@ export default function Galaxy() {
               </p>
            </div>
 
-           <div className="relative z-20 max-w-7xl mx-auto px-10 w-full ">
+        </section>
+
+        <section className="relative border-b border-white/5 bg-[#050505] py-20">
+           <div className="relative z-20 max-w-7xl mx-auto px-10 w-full">
               <div className="grid grid-cols-1 md:grid-cols-5 border-t border-b border-white/10 divide-y md:divide-y-0 md:divide-x divide-white/10 group/parent bg-black/10 backdrop-blur-sm">
                  {hqRoles.map((role, idx) => (
                     <div 

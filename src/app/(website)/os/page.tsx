@@ -99,14 +99,14 @@ export default function OS() {
     <PageTransition>
       <div ref={containerRef} className="bg-background w-full relative">
         {/* Header区 */}
-        <section className="relative pt-60 pb-40 border-b border-white/5 overflow-hidden">
+        <section className="relative flex min-h-screen items-center overflow-hidden border-b border-white/5">
            <img 
              src={getContent('os_hero_bg', "/fhzb/videos/股市_2.jpg", "/fhzb/videos/股市_2.jpg")} 
              className="absolute inset-0 w-full h-full object-cover"
              alt="OS Header Background"
            />
            
-           <div className="max-w-7xl mx-auto px-10 relative z-20">
+           <div className="max-w-7xl mx-auto w-full px-10 pt-24 relative z-20">
              <span className="text-[#b7893b] uppercase tracking-[0.4em] font-bold text-xs block mb-8 relative z-10">Ascent Operating System</span>
              <h1 className={websiteHeroTitleClassName(language, "mb-8 relative z-10 font-black")}>
                {getContent('os_hero_title', '攀登系统', 'Operating System')}
