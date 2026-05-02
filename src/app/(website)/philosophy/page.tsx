@@ -40,29 +40,29 @@ export default function Philosophy() {
   };
 
   const values = [
-    { 
-      zh: getContent('phi_val1_title', "专业极客", "Professional Geek"), 
-      en: getContent('phi_val1_title', "专业极客", "Professional Geek"), 
-      desc_zh: getContent('phi_val1_desc', "以极致的专业精神对待尽调与风控，绝不用情绪做决策。", "Uncompromising professionalism in due diligence and risk control..."), 
-      desc_en: getContent('phi_val1_desc', "以极致的专业精神对待尽调与风控，绝不用情绪做决策。", "Uncompromising professionalism in due diligence and risk control...") 
+    {
+      zh: getContent('phi_val1_title', "专业极客", "Professional Geek"),
+      en: getContent('phi_val1_title', "专业极客", "Professional Geek"),
+      desc_zh: getContent('phi_val1_desc', "以极致的专业精神对待尽调与风控，绝不用情绪做决策。", "Uncompromising professionalism in due diligence and risk control..."),
+      desc_en: getContent('phi_val1_desc', "以极致的专业精神对待尽调与风控，绝不用情绪做决策。", "Uncompromising professionalism in due diligence and risk control...")
     },
-    { 
-      zh: getContent('phi_val2_title', "生态共建", "Ecosystem Builder"), 
-      en: getContent('phi_val2_title', "生态共建", "Ecosystem Builder"), 
-      desc_zh: getContent('phi_val2_desc', "打破资本孤岛，与实业者、区域合伙人结成生死同盟。", "Breaking capital silos..."), 
-      desc_en: getContent('phi_val2_desc', "打破资本孤岛，与实业者、区域合伙人结成生死同盟。", "Breaking capital silos...") 
+    {
+      zh: getContent('phi_val2_title', "生态共建", "Ecosystem Builder"),
+      en: getContent('phi_val2_title', "生态共建", "Ecosystem Builder"),
+      desc_zh: getContent('phi_val2_desc', "打破资本孤岛，与实业者、区域合伙人结成生死同盟。", "Breaking capital silos..."),
+      desc_en: getContent('phi_val2_desc', "打破资本孤岛，与实业者、区域合伙人结成生死同盟。", "Breaking capital silos...")
     },
-    { 
-      zh: getContent('phi_val3_title', "伙伴优先", "Partners First"), 
-      en: getContent('phi_val3_title', "伙伴优先", "Partners First"), 
-      desc_zh: getContent('phi_val3_desc', "在任何利益冲突面前，保障生态网络中伙伴的优先权益。", "Prioritizing the rights..."), 
-      desc_en: getContent('phi_val3_desc', "在任何利益冲突面前，保障生态网络中伙伴的优先权益。", "Prioritizing the rights...") 
+    {
+      zh: getContent('phi_val3_title', "伙伴优先", "Partners First"),
+      en: getContent('phi_val3_title', "伙伴优先", "Partners First"),
+      desc_zh: getContent('phi_val3_desc', "在任何利益冲突面前，保障生态网络中伙伴的优先权益。", "Prioritizing the rights..."),
+      desc_en: getContent('phi_val3_desc', "在任何利益冲突面前，保障生态网络中伙伴的优先权益。", "Prioritizing the rights...")
     },
-    { 
-      zh: getContent('phi_val4_title', "行诺致远", "Integrity for Longevity"), 
-      en: getContent('phi_val4_title', "行诺致远", "Integrity for Longevity"), 
-      desc_zh: getContent('phi_val4_desc', "不作无法兑现的收益担保，一旦承诺必用全部身家背书。", "Never make unrealistic promises..."), 
-      desc_en: getContent('phi_val4_desc', "不作无法兑现的收益担保，一旦承诺必用全部身家背书。", "Never make unrealistic promises...") 
+    {
+      zh: getContent('phi_val4_title', "行诺致远", "Integrity for Longevity"),
+      en: getContent('phi_val4_title', "行诺致远", "Integrity for Longevity"),
+      desc_zh: getContent('phi_val4_desc', "不作无法兑现的收益担保，一旦承诺必用全部身家背书。", "Never make unrealistic promises..."),
+      desc_en: getContent('phi_val4_desc', "不作无法兑现的收益担保，一旦承诺必用全部身家背书。", "Never make unrealistic promises...")
     },
   ]
 
@@ -199,29 +199,29 @@ export default function Philosophy() {
             <h2 className={websiteSectionEyebrowClassName("mb-8")}>
               {t('核心理念', 'CORE CONCEPT')}
             </h2>
-            
+
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
               {/* 左侧文案区 */}
               <div className="lg:col-span-5 space-y-12">
                 <div className="space-y-6">
-                  <motion.h2 
+                  <motion.h2
                     key={`title-${activePillar}`}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     className={websiteSectionTitleClassName(language, "leading-tight")}
                   >
-                    {getContent(`phi_core${activePillar + 1}_title`, 
+                    {getContent(`phi_core${activePillar + 1}_title`,
                       ["闭环交付文化", "第一性原理思维", "全球化智慧文化"][activePillar],
                       ["Closed-loop Culture", "First Principles", "Global Intelligence"][activePillar]
                     )}
                   </motion.h2>
-                  <motion.p 
+                  <motion.p
                     key={`desc-${activePillar}`}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     className={websiteSectionBodyClassName(language, "max-w-md text-white/60")}
                   >
-                    {getContent(`phi_core${activePillar + 1}_desc`, 
+                    {getContent(`phi_core${activePillar + 1}_desc`,
                       [
                         "规划·执行·反馈·闭环。没有终点的许诺皆为虚妄。",
                         "回归事物本质。剥离行业经验与跟风情绪，回归事物最硬核的本质属性。",
@@ -245,7 +245,7 @@ export default function Philosophy() {
                     >
                       <span className="text-sm font-mono tracking-tighter">0{idx + 1}</span>
                       <span className={`text-xl font-medium tracking-wider ${activePillar === idx ? 'translate-x-2' : ''} transition-transform`}>
-                        {getContent(`phi_core${idx + 1}_title`, 
+                        {getContent(`phi_core${idx + 1}_title`,
                           ["闭环交付文化", "第一性原理思维", "全球化智慧文化"][idx],
                           ["Closed-loop Culture", "First Principles", "Global Intelligence"][idx]
                         )}
@@ -263,7 +263,7 @@ export default function Philosophy() {
                     initial={{ opacity: 0, scale: 1.1 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1 }}
-                    src={getContent(`phi_core${activePillar + 1}_video`, 
+                    src={getContent(`phi_core${activePillar + 1}_video`,
                       ["/fhzb/videos/batch-compressed.mp4", "/fhzb/videos/block-compressed.mp4", "/fhzb/videos/背景_3.mp4"][activePillar],
                       ["/fhzb/videos/batch-compressed.mp4", "/fhzb/videos/block-compressed.mp4", "/fhzb/videos/背景_3.mp4"][activePillar]
                     )}
@@ -274,7 +274,7 @@ export default function Philosophy() {
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                  
+
                   {/* 播放按钮装饰 */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center bg-white/5 backdrop-blur-sm group-hover:scale-110 transition-transform duration-500">
@@ -342,7 +342,7 @@ export default function Philosophy() {
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-tr from-black/80 via-transparent to-black/20"></div>
-                  
+
                   {/* 装饰性浮层 */}
                   <div className="absolute bottom-12 left-12 right-12">
                     <div className="backdrop-blur-md bg-white/5 border border-white/10 p-8 rounded-2xl">
@@ -393,7 +393,7 @@ export default function Philosophy() {
 
             <div className="mt-20 flex justify-end">
               <div className="text-right">
-                <div className="inline-flex rounded-xl border border-white/30 bg-white/92 p-3 shadow-[0_10px_30px_rgba(0,0,0,0.35)] md:p-4">
+                <div className="inline-flex rounded-xl  p-3 shadow-[0_10px_30px_rgba(0,0,0,0.35)] md:p-4">
                   <img
                     src="/fhzb/images/founder-signature.png"
                     alt="Founder Signature"
