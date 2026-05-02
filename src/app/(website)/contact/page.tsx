@@ -575,10 +575,10 @@ export default function ContactPage() {
                     {t("总部地址", "Headquarter")}
                   </h3>
                   <p className="text-xl font-light leading-relaxed text-[#FFFFFF] md:text-2xl">
-                    {t("上海市 · 静安区", "Jingan District, Shanghai")} <br />
+                    {t("浙江省杭州市萧山区", "Xiaoshan District, Hangzhou, Zhejiang")} <br />
                     {t(
-                      "南京西路 1601 号越洋国际 38 楼",
-                      "Floor 38, Park Place, 1601 Nanjing West Road"
+                      "宁围街道利一路168号世华帝宝大厦1幢1901室",
+                      "Room 1901, Building 1, Shihua Dibao Tower, No.168 Liyi 1st Road, Ningwei Subdistrict"
                     )}
                   </p>
                 </div>
