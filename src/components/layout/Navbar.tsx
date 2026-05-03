@@ -142,7 +142,7 @@ export function Navbar() {
       >
         <Link href="/" className="group flex items-center shrink-0" onClick={() => setIsMenuOpen(false)}>
           <Image
-            src="/fhzb/images/logo.png"
+            src="/images/logo.png"
             alt="logo"
             width={180}   
             height={50}  

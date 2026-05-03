@@ -40,7 +40,7 @@ export default function Alliance() {
         { zh: "路径规划", en: "IPO Planning", icon: "📈" }
       ],
       cta: t("开启项目加速", "Project Accelerator"),
-      video: getContent('all_cluster1_video', "/fhzb/videos/batch-compressed.mp4", "/fhzb/videos/batch-compressed.mp4")
+      video: getContent('all_cluster1_video', "/videos/batch-compressed.mp4", "/videos/batch-compressed.mp4")
     },
     {
       id: "partners",
@@ -56,7 +56,7 @@ export default function Alliance() {
         { zh: "申请流程", en: "Apply Flow", icon: "📋" }
       ],
       cta: t("申请极核授权", "Apply for Auth"),
-      video: getContent('all_cluster2_video', "/fhzb/videos/block-compressed.mp4", "/fhzb/videos/block-compressed.mp4")
+      video: getContent('all_cluster2_video', "/videos/block-compressed.mp4", "/videos/block-compressed.mp4")
     },
     {
       id: "institutions",
@@ -72,7 +72,7 @@ export default function Alliance() {
         { zh: "LP 申请", en: "LP Access", icon: "🔓" }
       ],
       cta: t("建立协同链路", "Build Synergy"),
-      video: getContent('all_cluster3_video', "/fhzb/videos/global-compressed.mp4", "/fhzb/videos/global-compressed.mp4")
+      video: getContent('all_cluster3_video', "/videos/global-compressed.mp4", "/videos/global-compressed.mp4")
     },
     {
       id: "club",
@@ -88,7 +88,7 @@ export default function Alliance() {
         { zh: "入会申请", en: "Apply", icon: "✨" }
       ],
       cta: t("申请加入俱乐部", "Join Club"),
-      video: getContent('all_cluster4_video', "/fhzb/videos/banner-m.mp4", "/fhzb/videos/banner-m.mp4")
+      video: getContent('all_cluster4_video', "/videos/banner-m.mp4", "/videos/banner-m.mp4")
     }
   ];
 
@@ -98,7 +98,7 @@ export default function Alliance() {
         {/* Header区 */}
         <section id="hero" className="relative flex min-h-screen items-center overflow-hidden border-b border-white/5">
            <img 
-             src={getContent('all_hero_bg', "/fhzb/videos/股市_1.jpg", "/fhzb/videos/股市_1.jpg")} 
+             src={getContent('all_hero_bg', "/videos/股市_1.jpg", "/videos/股市_1.jpg")} 
              className="absolute inset-0 w-full h-full object-cover grayscale-[0.1]"
              alt="Alliance Hero Background"
            />

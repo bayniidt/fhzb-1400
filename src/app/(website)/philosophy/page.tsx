@@ -76,7 +76,7 @@ export default function Philosophy() {
           <div className="sticky top-0 w-full h-screen flex flex-col justify-center items-center overflow-hidden pt-24">
             <div className="absolute inset-0 z-0">
               <img
-                src={getContent('phi_hero_bg', '/fhzb/videos/股市_3.jpg', '/fhzb/videos/股市_3.jpg')}
+                src={getContent('phi_hero_bg', '/videos/股市_3.jpg', '/videos/股市_3.jpg')}
                 className="absolute inset-0 w-full h-full object-cover"
                 alt="Philosophy Background"
               />
@@ -101,7 +101,7 @@ export default function Philosophy() {
               className="absolute inset-0 flex flex-col items-center justify-center z-20 bg-gradient-to-b from-transparent via-[#000000]/20 to-[#000000]"
             >
               {/* <img
-                src="/fhzb/videos/背景图_1.jpg"
+                src="/videos/背景图_1.jpg"
                 className="absolute bottom-0 w-full h-1/2 object-cover"
                 alt="Background"
               /> */}
@@ -264,8 +264,8 @@ export default function Philosophy() {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1 }}
                     src={getContent(`phi_core${activePillar + 1}_video`,
-                      ["/fhzb/videos/batch-compressed.mp4", "/fhzb/videos/block-compressed.mp4", "/fhzb/videos/背景_3.mp4"][activePillar],
-                      ["/fhzb/videos/batch-compressed.mp4", "/fhzb/videos/block-compressed.mp4", "/fhzb/videos/背景_3.mp4"][activePillar]
+                      ["/videos/batch-compressed.mp4", "/videos/block-compressed.mp4", "/videos/背景_3.mp4"][activePillar],
+                      ["/videos/batch-compressed.mp4", "/videos/block-compressed.mp4", "/videos/背景_3.mp4"][activePillar]
                     )}
                     autoPlay
                     muted
@@ -334,7 +334,7 @@ export default function Philosophy() {
               <div className="lg:col-span-7 sticky top-40">
                 <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/5 shadow-[0_0_100px_rgba(183,137,59,0.05)]">
                   <video
-                    src="/fhzb/videos/footer-compressed.mp4"
+                    src="/videos/footer-compressed.mp4"
                     autoPlay
                     muted
                     loop
@@ -395,7 +395,7 @@ export default function Philosophy() {
               <div className="text-right">
                 <div className="inline-flex rounded-xl  p-3 shadow-[0_10px_30px_rgba(0,0,0,0.35)] md:p-4">
                   <img
-                    src="/fhzb/images/founder-signature.png"
+                    src="/images/founder-signature.png"
                     alt="Founder Signature"
                     className="h-auto w-[240px] max-w-full object-contain md:w-[320px]"
                   />

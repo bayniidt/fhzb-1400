@@ -16,7 +16,7 @@ export default function OmegaPage() {
         <PageHero 
           title={t("峰壑数据看板", "OMEGA PROGRAM")}
           subtitle={t("实时呈现生态总规模、成功案例、行业覆盖与网络活跃度。用动态可视化数据，让资本价值可量化、可信任。。", "The OMEGA Program, initiated by Fenghe Capital, aims to provide all-round support for early-stage entrepreneurs, growing alongside China's innovators.")}
-          bgImage="/fhzb/videos/背景图_3.jpg"
+          bgImage="/videos/背景图_3.jpg"
           language={language}
           fullScreen={false}
         />
@@ -53,7 +53,7 @@ export default function OmegaPage() {
             className="relative aspect-[16/9] md:aspect-[21/9] w-full overflow-hidden rounded-[2.5rem] border border-white/10 group shadow-[0_50px_100px_rgba(0,0,0,0.5)] perspective-1000"
           >
             <img
-              src="/fhzb/videos/背景图_4.jpg"
+              src="/videos/背景图_4.jpg"
               className="absolute inset-0 w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-1000 opacity-60"
               alt="Digital ID Background"
             />

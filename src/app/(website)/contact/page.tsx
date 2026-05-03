@@ -531,7 +531,7 @@ export default function ContactPage() {
             className="relative w-full overflow-hidden border-b border-white/5 bg-[#000000] p-10 lg:w-[40%] lg:border-b-0 lg:border-r lg:p-24"
           >
             <img
-              src="/fhzb/videos/背景图_1.jpg"
+              src="/videos/背景图_1.jpg"
               className="absolute inset-0 h-full w-full object-cover opacity-60 grayscale"
               alt="Contact Background"
             />

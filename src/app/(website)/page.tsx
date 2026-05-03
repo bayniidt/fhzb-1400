@@ -63,7 +63,7 @@ export default function Home() {
             loop
             muted
             playsInline
-            src={getContent('home_banner_video', '/fhzb/videos/背景_6.mp4', '/fhzb/videos/背景_6.mp4')}
+            src={getContent('home_banner_video', '/videos/背景_6.mp4', '/videos/背景_6.mp4')}
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#b7893b]/5 to-[#000000]/30 z-10" />
@@ -133,7 +133,7 @@ export default function Home() {
                 playsInline
                 preload="metadata"
                 aria-hidden="true"
-                src={getContent('home_manifesto_video', '/fhzb/videos/block-compressed.mp4', '/fhzb/videos/block-compressed.mp4')}
+                src={getContent('home_manifesto_video', '/videos/block-compressed.mp4', '/videos/block-compressed.mp4')}
                 className="h-full w-full object-contain"
               >
                 Your browser does not support the video tag.
@@ -324,7 +324,7 @@ export default function Home() {
             loop
             muted
             playsInline
-            src={getContent('home_ascent_video', '/fhzb/videos/背景_1.mp4', '/fhzb/videos/背景_1.mp4')}
+            src={getContent('home_ascent_video', '/videos/背景_1.mp4', '/videos/背景_1.mp4')}
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-glow/10 via-transparent to-transparent z-15 pointer-events-none" />

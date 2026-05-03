@@ -21,7 +21,7 @@ services:
     restart: unless-stopped
     volumes:
       - sqlite_data:/app/data
-      - uploads_data:/app/uploads
+      - uploads_data:/app/public/uploads
     environment:
       - DATABASE_PATH=/app/data/database.sqlite
       - NODE_ENV=production
@@ -35,6 +35,9 @@ services:
     container_name: fhzb-gateway
     ports:
       - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/certs:/etc/nginx/certs:ro
     depends_on:
       - app
       - backend

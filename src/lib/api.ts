@@ -1,4 +1,4 @@
-const API_BASE_URL = '/fhzb/api';
+const API_BASE_URL = '/api';
 
 import type {
   ContactRole,

@@ -43,7 +43,7 @@ export default function OS() {
       desc_zh: getContent('os_stage1_desc', "摒弃项目制散养，通过超10亿级基石基金锁定产业筹码，确保资本在不确定周期中的绝对掌控力。", "Rejecting project-based decentralization..."),
       desc_en: getContent('os_stage1_desc', "摒弃项目制散养，通过超10亿级基石基金锁定产业筹码，确保资本在不确定周期中的绝对掌控力。", "Rejecting project-based decentralization..."),
       tools: ["项目筛选模型", "财务模型Excel", "法律文件范本"],
-      video: getContent('os_stage1_video', "/fhzb/videos/batch-compressed.mp4", "/fhzb/videos/batch-compressed.mp4")
+      video: getContent('os_stage1_video', "/videos/batch-compressed.mp4", "/videos/batch-compressed.mp4")
     },
     { 
       id: "invest", 
@@ -56,7 +56,7 @@ export default function OS() {
       desc_zh: getContent('os_stage2_desc', "穿透PPT与财务修饰，直抵技术底层与产业终局。我们不听故事，只推演生产力爆发的数学基准。", "Penetrating PPT and financial window-dressing..."),
       desc_en: getContent('os_stage2_desc', "穿透PPT与财务修饰，直抵技术底层与产业终局。我们不听故事，只推演生产力爆发的数学基准。", "Penetrating PPT and financial window-dressing..."),
       tools: ["技术溯源分析", "创始团队建模", "周期波动模拟"],
-      video: getContent('os_stage2_video', "/fhzb/videos/block-compressed.mp4", "/fhzb/videos/block-compressed.mp4")
+      video: getContent('os_stage2_video', "/videos/block-compressed.mp4", "/videos/block-compressed.mp4")
     },
     { 
       id: "manage", 
@@ -69,7 +69,7 @@ export default function OS() {
       desc_zh: getContent('os_stage3_desc', "派驻“影子CEO”级合伙人，在组织治理、极核裂变与资本路径上进行手术刀式干预，纠偏航向。", "Deploying 'Shadow CEO' level partners..."),
       desc_en: getContent('os_stage3_desc', "派驻“影子CEO”级合伙人，在组织治理、极核裂变与资本路径上进行手术刀式干预，纠偏航向。", "Deploying 'Shadow CEO' level partners..."),
       tools: ["OKR 极核对齐", "全球牌照接驳", "生态资源灌溉"],
-      video: getContent('os_stage3_video', "/fhzb/videos/global-compressed.mp4", "/fhzb/videos/global-compressed.mp4")
+      video: getContent('os_stage3_video', "/videos/global-compressed.mp4", "/videos/global-compressed.mp4")
     },
     { 
       id: "exit", 
@@ -82,7 +82,7 @@ export default function OS() {
       desc_zh: getContent('os_stage4_desc', "不仅是拿钱离场。通过合伙人系统，将被投企业转化为新的生态节点，实现从‘孤岛’到‘版图’的升维。", "Portfolio companies transform into new ecosystem nodes..."),
       desc_en: getContent('os_stage4_desc', "不仅是拿钱离场。通过合伙人系统，将被投企业转化为新的生态节点，实现从‘孤岛’到‘版图’的升维。", "Portfolio companies transform into new ecosystem nodes..."),
       tools: ["并购重组套利", "全球交易所通兑", "节点再投资"],
-      video: getContent('os_stage4_video', "/fhzb/videos/footer-compressed.mp4", "/fhzb/videos/footer-compressed.mp4")
+      video: getContent('os_stage4_video', "/videos/footer-compressed.mp4", "/videos/footer-compressed.mp4")
     }
   ];
 
@@ -101,7 +101,7 @@ export default function OS() {
         {/* Header区 */}
         <section className="relative flex min-h-screen items-center overflow-hidden border-b border-white/5">
            <img 
-             src={getContent('os_hero_bg', "/fhzb/videos/股市_2.jpg", "/fhzb/videos/股市_2.jpg")} 
+             src={getContent('os_hero_bg', "/videos/股市_2.jpg", "/videos/股市_2.jpg")} 
              className="absolute inset-0 w-full h-full object-cover"
              alt="OS Header Background"
            />

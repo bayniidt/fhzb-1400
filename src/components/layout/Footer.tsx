@@ -70,7 +70,7 @@ export function Footer() {
             <div className="mb-12">
               <Link href="/" className="inline-block mb-8">
                 <Image
-                  src="/fhzb/images/logo.png"
+                  src="/images/logo.png"
                   alt="FH Capital Logo"
                   width={140}
                   height={40}
