@@ -370,11 +370,10 @@ function ContactField({
 }) {
   const placeholder = language === "zh" ? field.placeholderZh : field.placeholderEn;
   const label = language === "zh" ? field.labelZh : field.labelEn;
-  const baseClassName = `w-full bg-transparent border-b pb-4 text-lg focus:outline-none transition-colors resize-none ${
-    field.accent
+  const baseClassName = `w-full bg-transparent border-b pb-4 text-lg focus:outline-none transition-colors resize-none ${field.accent
       ? "border-[#b7893b]/50 text-[#b7893b] placeholder:text-[#b7893b]/40 focus:border-[#b7893b]"
       : "border-white/10 text-white placeholder:text-white focus:border-white"
-  }`;
+    }`;
 
   return (
     <label className={field.span === "full" ? "md:col-span-2" : ""}>
@@ -560,7 +559,7 @@ export default function ContactPage() {
 
                 <div>
                   <h3 className="mb-4 text-[10px] font-bold uppercase tracking-[0.3em] text-[#b7893b] opacity-60">
-                    {t("鑱旂郴鐢佃瘽", "Phone Number")}
+                    {t("联系电话", "Phone Number")}
                   </h3>
                   <a
                     href="tel:13681660460"
